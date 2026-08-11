@@ -1,0 +1,299 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>B站红警内容生态看板</title>
+  <style>
+    :root {
+      --bg: #0f1419;
+      --panel: #1a222c;
+      --ink: #e8eef4;
+      --muted: #9aa8b6;
+      --accent: #c45c26;
+      --line: #2a3542;
+      --good: #3d9a6a;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: radial-gradient(1200px 600px at 10% -10%, #243041 0%, var(--bg) 55%);
+      color: var(--ink);
+      min-height: 100vh;
+    }
+    header {
+      padding: 28px 32px 12px;
+      border-bottom: 1px solid var(--line);
+    }
+    header h1 { margin: 0 0 8px; font-size: 28px; letter-spacing: 0.02em; }
+    header p { margin: 0; color: var(--muted); max-width: 760px; }
+    .wrap { padding: 20px 32px 48px; display: grid; gap: 18px; }
+    .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 14px 16px;
+    }
+    .card .k { color: var(--muted); font-size: 12px; }
+    .card .v { font-size: 24px; margin-top: 6px; font-weight: 700; }
+    .layout { display: grid; grid-template-columns: 280px 1fr; gap: 16px; }
+    .filters label { display: block; font-size: 12px; color: var(--muted); margin: 10px 0 4px; }
+    select, input[type="search"], input[type="number"] {
+      width: 100%;
+      background: #121820;
+      color: var(--ink);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 8px 10px;
+    }
+    button {
+      margin-top: 12px;
+      width: 100%;
+      background: var(--accent);
+      color: white;
+      border: 0;
+      border-radius: 8px;
+      padding: 10px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th, td { padding: 8px 6px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { color: var(--muted); font-weight: 600; position: sticky; top: 0; background: var(--panel); }
+    .scroll { max-height: 520px; overflow: auto; }
+    a { color: #7eb6ff; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .pill {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: #243041;
+      color: var(--muted);
+      font-size: 12px;
+      margin-right: 4px;
+    }
+    .cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .col h3 { margin: 0 0 8px; }
+    .col ul { margin: 8px 0; padding-left: 18px; color: var(--muted); }
+    .muted { color: var(--muted); }
+    @media (max-width: 1100px) {
+      .grid, .cols, .layout { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>B站红警 IP 内容生态看板</h1>
+    <p>基于 Scrapling 双轨抽样：历史头部 + 近期内容。可筛选簇与互动，并查看栏目策划卡片。本页为公开静态看板，不含登录 Cookie。</p>
+  </header>
+  <div class="wrap">
+    <div class="grid" id="kpis"></div>
+
+    <div class="card">
+      <strong>内容簇</strong>
+      <div id="clusters" style="margin-top:10px; display:flex; flex-wrap:wrap; gap:8px;"></div>
+    </div>
+
+    <div class="layout">
+      <div class="card filters">
+        <strong>筛选</strong>
+        <label>关键词</label>
+        <input type="search" id="q" placeholder="标题 / UP / 标签" />
+        <label>内容簇</label>
+        <select id="cluster"><option value="">全部</option></select>
+        <label>时段</label>
+        <select id="period">
+          <option value="">全部</option>
+          <option value="recent">近 180 天</option>
+          <option value="classic">非近 180 天</option>
+        </select>
+        <label>最低播放</label>
+        <input type="number" id="minPlay" value="0" min="0" />
+        <label>排序</label>
+        <select id="sort">
+          <option value="play">播放</option>
+          <option value="eng_rate">互动率</option>
+          <option value="pubdate">发布时间</option>
+        </select>
+        <button id="apply">应用筛选</button>
+        <p class="muted" id="count" style="margin-top:12px;font-size:12px;"></p>
+      </div>
+      <div class="card">
+        <strong>视频探索</strong>
+        <div class="scroll" style="margin-top:10px;">
+          <table>
+            <thead>
+              <tr>
+                <th>标题</th>
+                <th>簇</th>
+                <th>播放</th>
+                <th>互动率</th>
+                <th>UP</th>
+              </tr>
+            </thead>
+            <tbody id="tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <strong>UP 矩阵（样本内）</strong>
+      <div class="scroll" style="margin-top:10px;">
+        <table>
+          <thead>
+            <tr><th>UP</th><th>样本投稿</th><th>样本总播放</th><th>代表作</th></tr>
+          </thead>
+          <tbody id="ups"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <strong>评论主题信号</strong>
+      <div id="themes" style="margin-top:10px;"></div>
+    </div>
+
+    <div>
+      <h2 style="margin:8px 0 12px;">长视频栏目建议</h2>
+      <div class="cols" id="columns"></div>
+    </div>
+  </div>
+
+  <script>
+    const state = { videos: [], ups: [], summary: null, columns: [], themes: [] };
+
+    function fmt(n) {
+      n = Number(n || 0);
+      if (n >= 100000000) return (n/1e8).toFixed(2) + '亿';
+      if (n >= 10000) return (n/1e4).toFixed(1) + '万';
+      return String(n);
+    }
+
+    async function loadJSON(path) {
+      const res = await fetch(path);
+      if (!res.ok) throw new Error('load fail ' + path);
+      return res.json();
+    }
+
+    function renderKPIs() {
+      const s = state.summary;
+      const items = [
+        ['样本视频', s.n_videos],
+        ['评论抽样', s.n_comments],
+        ['UP 矩阵', s.n_ups],
+        ['近180天', s.recent_n],
+      ];
+      document.getElementById('kpis').innerHTML = items.map(([k,v]) =>
+        `<div class="card"><div class="k">${k}</div><div class="v">${fmt(v)}</div></div>`
+      ).join('');
+    }
+
+    function renderClusters() {
+      const box = document.getElementById('clusters');
+      const sel = document.getElementById('cluster');
+      box.innerHTML = '';
+      (state.summary.cluster_stats || []).forEach(c => {
+        const el = document.createElement('span');
+        el.className = 'pill';
+        el.textContent = `${c.cluster} · ${c.count} · 均播${fmt(c.avg_play)}`;
+        box.appendChild(el);
+        const opt = document.createElement('option');
+        opt.value = c.cluster;
+        opt.textContent = `${c.cluster} (${c.count})`;
+        sel.appendChild(opt);
+      });
+    }
+
+    function filteredVideos() {
+      const q = document.getElementById('q').value.trim().toLowerCase();
+      const cluster = document.getElementById('cluster').value;
+      const period = document.getElementById('period').value;
+      const minPlay = Number(document.getElementById('minPlay').value || 0);
+      const sort = document.getElementById('sort').value;
+      let rows = state.videos.slice();
+      rows = rows.filter(v => (v.play || 0) >= minPlay);
+      if (cluster) rows = rows.filter(v => v.cluster === cluster);
+      if (period === 'recent') rows = rows.filter(v => v.is_recent);
+      if (period === 'classic') rows = rows.filter(v => !v.is_recent);
+      if (q) {
+        rows = rows.filter(v => {
+          const blob = `${v.title||''} ${v.author||''} ${(v.tags||[]).join(' ')}`.toLowerCase();
+          return blob.includes(q);
+        });
+      }
+      rows.sort((a,b) => (b[sort]||0) - (a[sort]||0));
+      return rows;
+    }
+
+    function renderVideos() {
+      const rows = filteredVideos().slice(0, 300);
+      document.getElementById('count').textContent = `显示 ${rows.length} / 筛选后全量见控制台逻辑（表内最多 300）`;
+      document.getElementById('tbody').innerHTML = rows.map(v => `
+        <tr>
+          <td><a href="${v.url}" target="_blank" rel="noopener">${v.title||v.bvid}</a></td>
+          <td>${v.cluster||''}</td>
+          <td>${fmt(v.play)}</td>
+          <td>${(Number(v.eng_rate||0)*100).toFixed(2)}%</td>
+          <td>${v.author||''}</td>
+        </tr>
+      `).join('');
+    }
+
+    function renderUps() {
+      document.getElementById('ups').innerHTML = state.ups.slice(0, 50).map(u => `
+        <tr>
+          <td><a href="${u.space_url}" target="_blank">${u.name||u.mid}</a></td>
+          <td>${u.sample_videos}</td>
+          <td>${fmt(u.sample_plays)}</td>
+          <td>${(u.top_videos||[]).slice(0,2).map(t => `<div><a href="${t.url}" target="_blank">${t.title||t.bvid}</a></div>`).join('')}</td>
+        </tr>
+      `).join('');
+    }
+
+    function renderThemes() {
+      const themes = state.summary.comment_themes || state.themes || [];
+      document.getElementById('themes').innerHTML = themes.length
+        ? themes.map(t => `<div style="margin-bottom:8px;"><span class="pill">${t.theme}</span> ${t.count}　<span class="muted">${(t.examples||[]).join(' / ')}</span></div>`).join('')
+        : '<span class="muted">评论尚在 enrichment 中或暂无命中主题</span>';
+    }
+
+    function renderColumns() {
+      document.getElementById('columns').innerHTML = state.columns.map(c => `
+        <div class="card col">
+          <h3>${c.name}</h3>
+          <p>${c.one_liner}</p>
+          <div class="muted">时长 ${c.format.duration} · ${c.format.cadence}</div>
+          <p style="margin-top:8px;">${c.preference_evidence.why}</p>
+          <div class="muted">差异化：${c.differentiation}</div>
+          <ul>${(c.pilot_topics||[]).slice(0,5).map(t => `<li>${t}</li>`).join('')}</ul>
+          <div><strong>对标</strong></div>
+          <ul>${(c.benchmarks||[]).slice(0,4).map(b => `<li><a href="${b.url}" target="_blank">${b.title||b.bvid}</a> · ${fmt(b.play)}</li>`).join('')}</ul>
+        </div>
+      `).join('');
+    }
+
+    async function main() {
+      const base = './data';
+      state.summary = await loadJSON(base + '/summary.json');
+      state.videos = await loadJSON(base + '/videos.json');
+      state.ups = await loadJSON(base + '/ups.json');
+      state.columns = await loadJSON(base + '/columns.json');
+      renderKPIs();
+      renderClusters();
+      renderVideos();
+      renderUps();
+      renderThemes();
+      renderColumns();
+      document.getElementById('apply').onclick = renderVideos;
+    }
+
+    main().catch(err => {
+      document.body.insertAdjacentHTML('beforeend', `<pre style="padding:24px;color:#ff8f8f;">加载失败：数据文件缺失或路径错误。\n${err}</pre>`);
+    });
+  </script>
+</body>
+</html>
+

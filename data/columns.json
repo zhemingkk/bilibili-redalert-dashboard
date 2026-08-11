@@ -1,0 +1,294 @@
+[
+  {
+    "id": "col_nostalgia_deepdive",
+    "name": "红色警戒档案局",
+    "one_liner": "用长视频把红警史料、版本变迁与玩家集体记忆做成可追更的档案系列。",
+    "preference_evidence": {
+      "clusters": [
+        "怀旧盘点/史料",
+        "教学攻略",
+        "其他/综合"
+      ],
+      "comment_themes": [
+        "剧情/世界观",
+        "怀旧共鸣",
+        "求系列/更新"
+      ],
+      "why": "样本中怀旧/语音/盘点类具备长青播放；评论主题以剧情世界观与怀旧共鸣靠前，且出现明确求系列信号，适合做成档案式长视频栏目。"
+    },
+    "format": {
+      "duration": "12–25 分钟",
+      "cadence": "双周更",
+      "title_pattern": "《档案局》+ 具体切口（版本/战役/时代）"
+    },
+    "benchmarks": [
+      {
+        "bvid": "BV1Xz411v7mD",
+        "title": "15句让红警玩家感到害怕的语音",
+        "play": 5273176,
+        "author": "肥美大橘猫",
+        "url": "https://www.bilibili.com/video/BV1Xz411v7mD"
+      },
+      {
+        "bvid": "BV1QZ4y1P78c",
+        "title": "《童年回忆》拥有红警的声线是什么体验",
+        "play": 2378762,
+        "author": "独立游戏老炮",
+        "url": "https://www.bilibili.com/video/BV1QZ4y1P78c"
+      },
+      {
+        "bvid": "BV1hACKY7EYa",
+        "title": "【火兰盘点】什么游戏的平衡性最离谱？盘点盘点各个游戏离谱平衡 第一期",
+        "play": 2182856,
+        "author": "火兰朋克",
+        "url": "https://www.bilibili.com/video/BV1hACKY7EYa"
+      },
+      {
+        "bvid": "BV17A41127LC",
+        "title": "玩了二十年红警才知道辐射竟然还有这功能...",
+        "play": 1677224,
+        "author": "红警菜羊羊",
+        "url": "https://www.bilibili.com/video/BV17A41127LC"
+      },
+      {
+        "bvid": "BV1NK4y1n7sy",
+        "title": "童年经典“红警”，竟有如此丰富的剧情？（上）",
+        "play": 1545670,
+        "author": "五四IAM",
+        "url": "https://www.bilibili.com/video/BV1NK4y1n7sy"
+      }
+    ],
+    "benchmark_ups": [
+      {
+        "mid": 1629347259,
+        "name": "红警HBK08",
+        "score_plays": 101501812,
+        "url": "https://space.bilibili.com/1629347259"
+      },
+      {
+        "mid": 3225971,
+        "name": "只有我和NPC",
+        "score_plays": 5889774,
+        "url": "https://space.bilibili.com/3225971"
+      },
+      {
+        "mid": 433287879,
+        "name": "肥美大橘猫",
+        "score_plays": 5273176,
+        "url": "https://space.bilibili.com/433287879"
+      },
+      {
+        "mid": 674510452,
+        "name": "红警月亮3",
+        "score_plays": 5160916,
+        "url": "https://space.bilibili.com/674510452"
+      }
+    ],
+    "differentiation": "对标多为单点怀旧或纯教程；本栏目用统一档案叙事把史料、机制与玩家记忆串成系列。",
+    "pilot_topics": [
+      "从 RA1 到尤里：指挥官视角的版本战争史",
+      "中国玩家记忆里的共和国之辉为何难以替代",
+      "快捷键与微操：老玩家默认、新玩家劝退的那层膜",
+      "红警联机二十年：从局域网到平台化",
+      "那些被低估的战役关：设计意图 vs 玩家通关路径"
+    ]
+  },
+  {
+    "id": "col_ops_story",
+    "name": "指挥官复盘室",
+    "one_liner": "把高光对战做成有胜负因果的长视频复盘，而不是纯剪辑炫技。",
+    "preference_evidence": {
+      "clusters": [
+        "实况解说",
+        "高光集锦/操作"
+      ],
+      "comment_themes": [
+        "求系列/更新"
+      ],
+      "why": "实况解说是最大簇（约 458 条），头部内容高度集中在对抗/防守/锦标赛叙事；评论追操作爽感，但系统化『为何输赢』的长复盘仍是缺口。"
+    },
+    "format": {
+      "duration": "15–30 分钟",
+      "cadence": "周更或重大对局特辑",
+      "title_pattern": "复盘 + 对局名/战术名 + 结果反转点"
+    },
+    "benchmarks": [
+      {
+        "bvid": "BV1Ev411W74A",
+        "title": "红警应粉丝要求挑战超级冷酷电脑！满天基洛夫简直太吓人！",
+        "play": 4772791,
+        "author": "红警HBK08",
+        "url": "https://www.bilibili.com/video/BV1Ev411W74A"
+      },
+      {
+        "bvid": "BV1Ag411V7fp",
+        "title": "红警世界锦标大赛总决赛！月亮3对战红警08（大结局）巅峰决战！",
+        "play": 3876697,
+        "author": "红警HBK08",
+        "url": "https://www.bilibili.com/video/BV1Ag411V7fp"
+      },
+      {
+        "bvid": "BV1ag411h7o9",
+        "title": "红警2v6女主播求暴打！1打2顶住无数次进攻和你比熬鹰！（下集）",
+        "play": 3450823,
+        "author": "红警HBK08",
+        "url": "https://www.bilibili.com/video/BV1ag411h7o9"
+      },
+      {
+        "bvid": "BV1Bm4y1b7yC",
+        "title": "红警1v7防守图！守住最高处，面对百万大军开始攻山！",
+        "play": 3243246,
+        "author": "红警HBK08",
+        "url": "https://www.bilibili.com/video/BV1Bm4y1b7yC"
+      },
+      {
+        "bvid": "BV1Bu411X794",
+        "title": "红警最擅长和对手熬鹰了！看我这防守造型你还满意吗！",
+        "play": 3218809,
+        "author": "红警HBK08",
+        "url": "https://www.bilibili.com/video/BV1Bu411X794"
+      },
+      {
+        "bvid": "BV1kP4y187nx",
+        "title": "红警08和月亮3联手配合！铁幕基洛夫飞来对手有点不知所措！",
+        "play": 3129471,
+        "author": "红警HBK08",
+        "url": "https://www.bilibili.com/video/BV1kP4y187nx"
+      }
+    ],
+    "benchmark_ups": [
+      {
+        "mid": 1629347259,
+        "name": "红警HBK08",
+        "score_plays": 209289188,
+        "url": "https://space.bilibili.com/1629347259"
+      },
+      {
+        "mid": 108745110,
+        "name": "我的方法COSA",
+        "score_plays": 11038690,
+        "url": "https://space.bilibili.com/108745110"
+      },
+      {
+        "mid": 150478041,
+        "name": "百百川",
+        "score_plays": 6868798,
+        "url": "https://space.bilibili.com/150478041"
+      },
+      {
+        "mid": 195850103,
+        "name": "破军歌姬丶诱宵美九",
+        "score_plays": 5639671,
+        "url": "https://space.bilibili.com/195850103"
+      }
+    ],
+    "differentiation": "对标强在爽感实况；本栏目强化时间轴、决策树与「如果当时…」分支，服务想变强的观众。",
+    "pilot_topics": [
+      "一局经典 1v多：开局经济如何锁死结局",
+      "坦克海 vs 空军：版本理解差在哪三步",
+      "联机常见翻盘点合集：被偷家后的最优解",
+      "赛事级开局模板拆解（适合长视频逐镜）",
+      "把高光弹幕翻译成战术语言"
+    ]
+  },
+  {
+    "id": "col_mod_universe",
+    "name": "平行指挥官",
+    "one_liner": "深挖心灵终结等 MOD 宇宙：机制、阵营、剧情与上手路径的长视频导览。",
+    "preference_evidence": {
+      "clusters": [
+        "MOD评测与整合",
+        "二创剧情/动画"
+      ],
+      "comment_themes": [
+        "剧情/世界观",
+        "MOD兴趣",
+        "求教学"
+      ],
+      "why": "MOD 相关形成稳定供给（约 167 条），评论持续出现安装/设定理解需求；适合用长视频降低劝退，做系列化宇宙说明书。"
+    },
+    "format": {
+      "duration": "18–35 分钟",
+      "cadence": "系列化（阵营篇/战役篇）",
+      "title_pattern": "平行指挥官 + 阵营/战役/机制专章"
+    },
+    "benchmarks": [
+      {
+        "bvid": "BV1yE411X7Rm",
+        "title": "红色警戒3日冕MOD剧情CG——神州起源",
+        "play": 2465293,
+        "author": "日冕制作组",
+        "url": "https://www.bilibili.com/video/BV1yE411X7Rm"
+      },
+      {
+        "bvid": "BV15S4y1k7vs",
+        "title": "【心灵终结3.3.6】全战役终结难度通关合集",
+        "play": 2234201,
+        "author": "秦芳方",
+        "url": "https://www.bilibili.com/video/BV15S4y1k7vs"
+      },
+      {
+        "bvid": "BV11c41137CE",
+        "title": "【红色警戒2｜心灵终结】百万级录音棚听《It's Happening》游戏《红色警戒2：心灵终结》BGM【Hi-Res】",
+        "play": 1860137,
+        "author": "JLRS-jayfm",
+        "url": "https://www.bilibili.com/video/BV11c41137CE"
+      },
+      {
+        "bvid": "BV1DL411F7kQ",
+        "title": "32个国家！自制MOD《红色警戒：世界战火》1.6.4版本宣传片",
+        "play": 1592503,
+        "author": "我爱二次元FM",
+        "url": "https://www.bilibili.com/video/BV1DL411F7kQ"
+      },
+      {
+        "bvid": "BV1Zx4y1L79a",
+        "title": "【心灵终结】剧情讲解！一个几乎完美的尤里复仇！",
+        "play": 1375226,
+        "author": "墨_迷",
+        "url": "https://www.bilibili.com/video/BV1Zx4y1L79a"
+      },
+      {
+        "bvid": "BV16M4y1M7PW",
+        "title": "《共和国之辉》较原版，究竟做了哪些改动？",
+        "play": 1243399,
+        "author": "半泽同学",
+        "url": "https://www.bilibili.com/video/BV16M4y1M7PW"
+      }
+    ],
+    "benchmark_ups": [
+      {
+        "mid": 3414372,
+        "name": "我爱二次元FM",
+        "score_plays": 3132388,
+        "url": "https://space.bilibili.com/3414372"
+      },
+      {
+        "mid": 4423511,
+        "name": "硬核豆浆",
+        "score_plays": 2615813,
+        "url": "https://space.bilibili.com/4423511"
+      },
+      {
+        "mid": 400315239,
+        "name": "日冕制作组",
+        "score_plays": 2465293,
+        "url": "https://space.bilibili.com/400315239"
+      },
+      {
+        "mid": 25704292,
+        "name": "秦芳方",
+        "score_plays": 2234201,
+        "url": "https://space.bilibili.com/25704292"
+      }
+    ],
+    "differentiation": "对标多为安装包或单战役实况；本栏目做「宇宙说明书」式长视频，降低 MOD 劝退曲线。",
+    "pilot_topics": [
+      "心灵终结新人不会迷路：阵营选择指南",
+      "一个机制改到整个战线：MOD 设计案例深挖",
+      "共和国之辉与官方关的体验差异对照",
+      "剧情向 MOD：哪些值得当「第二部红警」看",
+      "从原版到 MOD：单位克制表如何被重写"
+    ]
+  }
+]
