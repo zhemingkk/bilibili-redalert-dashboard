@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>B站红警内容生态看板</title>
+  <title>《红警：荣耀》内容生态与双号策划看板</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
   <style>
     :root {
       --bg: #0f1419;
@@ -13,6 +14,8 @@
       --accent: #c45c26;
       --line: #2a3542;
       --good: #3d9a6a;
+      --blue: #4f8cff;
+      --teal: #2bbbad;
     }
     * { box-sizing: border-box; }
     body {
@@ -30,6 +33,30 @@
     header p { margin: 0; color: var(--muted); max-width: 760px; }
     .wrap { padding: 20px 32px 48px; display: grid; gap: 18px; }
     .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+    .charts { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 12px; }
+    .chart-box { position: relative; height: 280px; }
+    .load-grid { display: grid; grid-template-columns: repeat(8, 1fr); gap: 8px; margin-top: 12px; }
+    .load-week {
+      background: #121820;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 10px 8px;
+      min-height: 120px;
+    }
+    .load-week .w { font-size: 12px; color: var(--muted); margin-bottom: 8px; }
+    .bar {
+      border-radius: 4px;
+      margin-bottom: 4px;
+      font-size: 11px;
+      padding: 4px 6px;
+      color: #fff;
+      line-height: 1.2;
+    }
+    .bar.off { background: var(--accent); }
+    .bar.thr { background: var(--blue); }
+    .bar.long { outline: 1px solid rgba(255,255,255,.25); }
+    .legend { display:flex; gap:12px; flex-wrap:wrap; margin-top:8px; font-size:12px; color: var(--muted); }
+    .legend i { display:inline-block; width:10px; height:10px; border-radius:2px; margin-right:4px; }
     .card {
       background: var(--panel);
       border: 1px solid var(--line);
@@ -79,7 +106,8 @@
     .col ul { margin: 8px 0; padding-left: 18px; color: var(--muted); }
     .muted { color: var(--muted); }
     @media (max-width: 1100px) {
-      .grid, .cols, .layout { grid-template-columns: 1fr; }
+      .grid, .cols, .layout, .charts, .load-grid { grid-template-columns: 1fr; }
+      .chart-box { height: 240px; }
     }
   </style>
 </head>
@@ -91,8 +119,33 @@
   <div class="wrap">
     <div class="grid" id="kpis"></div>
 
+    <div class="charts">
+      <div class="card">
+        <strong>内容簇分布</strong>
+        <div class="chart-box"><canvas id="chartCluster"></canvas></div>
+      </div>
+      <div class="card">
+        <strong>时长结构</strong>
+        <div class="chart-box"><canvas id="chartDuration"></canvas></div>
+      </div>
+      <div class="card">
+        <strong>IP 符号热力（短池）</strong>
+        <div class="chart-box"><canvas id="chartHooks"></canvas></div>
+      </div>
+    </div>
+
     <div class="card">
-      <strong>内容簇</strong>
+      <strong>8 周双号产能负荷</strong>
+      <div class="legend">
+        <span><i style="background:#c45c26"></i>官方向条目</span>
+        <span><i style="background:#4f8cff"></i>三方向条目</span>
+        <span>同一周内长短视频交错，便于一眼看产能</span>
+      </div>
+      <div class="load-grid" id="loadGrid"></div>
+    </div>
+
+    <div class="card">
+      <strong>内容簇标签</strong>
       <div id="clusters" style="margin-top:10px; display:flex; flex-wrap:wrap; gap:8px;"></div>
     </div>
 
@@ -200,6 +253,93 @@
       const res = await fetch(path);
       if (!res.ok) throw new Error('load fail ' + path);
       return res.json();
+    }
+
+    function chartDefaults() {
+      if (typeof Chart === 'undefined') return;
+      Chart.defaults.color = '#9aa8b6';
+      Chart.defaults.borderColor = '#2a3542';
+      Chart.defaults.font.family = '"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif';
+    }
+
+    function renderEcoCharts() {
+      if (typeof Chart === 'undefined') return;
+      chartDefaults();
+      const clusters = (state.summary && state.summary.cluster_stats) || [];
+      const dur = (state.summary && state.summary.duration_bands) || {};
+      const hooks = (state.shortSummary && state.shortSummary.hook_counts) || [];
+
+      new Chart(document.getElementById('chartCluster'), {
+        type: 'bar',
+        data: {
+          labels: clusters.map(c => c.cluster),
+          datasets: [
+            { label: '条数', data: clusters.map(c => c.count), backgroundColor: '#c45c26', yAxisID: 'y' },
+            { label: '均播', data: clusters.map(c => c.avg_play || 0), backgroundColor: '#4f8cff88', yAxisID: 'y1' },
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { position: 'bottom' } },
+          scales: {
+            y: { beginAtZero: true, title: { display: true, text: '条数' } },
+            y1: { beginAtZero: true, position: 'right', grid: { drawOnChartArea: false }, title: { display: true, text: '均播' } }
+          }
+        }
+      });
+
+      const dOrder = ['<1min', '1-10min', '10-30min', '>=30min'];
+      const dLabels = dOrder.filter(k => dur[k] != null);
+      new Chart(document.getElementById('chartDuration'), {
+        type: 'doughnut',
+        data: {
+          labels: dLabels,
+          datasets: [{
+            data: dLabels.map(k => dur[k]),
+            backgroundColor: ['#2bbbad', '#4f8cff', '#c45c26', '#8b5cf6'],
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { position: 'bottom' } }
+        }
+      });
+
+      const hTop = hooks.slice(0, 8);
+      new Chart(document.getElementById('chartHooks'), {
+        type: 'bar',
+        data: {
+          labels: hTop.map(x => x[0]),
+          datasets: [{ label: '出现次数', data: hTop.map(x => x[1]), backgroundColor: '#2bbbad' }]
+        },
+        options: {
+          indexAxis: 'y',
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { display: false } },
+          scales: { x: { beginAtZero: true } }
+        }
+      });
+    }
+
+    function renderLoadGrid() {
+      const cal = state.calendar || { weeks: [] };
+      const box = document.getElementById('loadGrid');
+      if (!box) return;
+      box.innerHTML = (cal.weeks || []).map(w => {
+        const items = w.items || [];
+        const bars = items.map(it => {
+          const isShort = String(it.duration || '').includes('20') || String(it.format || '').includes('短');
+          const label = `${isShort ? '短' : '长'}·${(it.column || '').slice(0,6)}`;
+          const ot = (it.official && it.official.title) || '';
+          const tt = (it.third_party && it.third_party.title) || '';
+          return `<div class="bar off" title="${ot}">官 ${label}</div>
+                  <div class="bar thr" title="${tt}">三 ${label}</div>`;
+        }).join('');
+        return `<div class="load-week"><div class="w">${w.week} · ${items.length}题×双号</div>${bars || '<span class="muted">空</span>'}</div>`;
+      }).join('');
     }
 
     function renderKPIs() {
@@ -367,6 +507,8 @@
       }
       try { state.shortSummary = await loadJSON(base + '/short_summary.json'); } catch (e) { state.shortSummary = null; }
       renderKPIs();
+      renderEcoCharts();
+      renderLoadGrid();
       renderClusters();
       renderVideos();
       renderUps();
