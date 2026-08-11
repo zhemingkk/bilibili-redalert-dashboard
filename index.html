@@ -86,7 +86,7 @@
 <body>
   <header>
     <h1>B站红警 IP 内容生态看板</h1>
-    <p>基于双轨抽样：历史头部 + 近期内容。可筛选簇与互动，并查看栏目策划卡片。本页为公开静态看板。</p>
+    <p>基于双轨抽样：历史头部 + 近期内容。可筛选簇与互动，并查看栏目策划卡片。</p>
   </header>
   <div class="wrap">
     <div class="grid" id="kpis"></div>
@@ -160,10 +160,23 @@
       <h2 style="margin:8px 0 12px;">长视频栏目建议</h2>
       <div class="cols" id="columns"></div>
     </div>
+
+    <div class="card">
+      <strong>8 周选题日历</strong>
+      <p class="muted" id="calNote" style="margin:8px 0 0;"></p>
+      <div class="scroll" style="margin-top:10px;">
+        <table>
+          <thead>
+            <tr><th>周次</th><th>栏目</th><th>选题</th><th>建议时长</th><th>对标</th></tr>
+          </thead>
+          <tbody id="calendar"></tbody>
+        </table>
+      </div>
+    </div>
   </div>
 
   <script>
-    const state = { videos: [], ups: [], summary: null, columns: [], themes: [] };
+    const state = { videos: [], ups: [], summary: null, columns: [], themes: [], calendar: null };
 
     function fmt(n) {
       n = Number(n || 0);
@@ -275,18 +288,38 @@
       `).join('');
     }
 
+    function renderCalendar() {
+      const cal = state.calendar || { weeks: [], note: '' };
+      document.getElementById('calNote').textContent = cal.note || '';
+      const rows = [];
+      (cal.weeks || []).forEach(w => {
+        (w.items || []).forEach(it => {
+          rows.push(`<tr>
+            <td>${w.week}</td>
+            <td>${it.column||''}</td>
+            <td>${it.topic||''}</td>
+            <td>${it.suggested_duration||''}</td>
+            <td>${it.benchmark_url ? `<a href="${it.benchmark_url}" target="_blank">${it.benchmark_title||'对标'}</a>` : ''}</td>
+          </tr>`);
+        });
+      });
+      document.getElementById('calendar').innerHTML = rows.join('') || '<tr><td colspan="5" class="muted">暂无日历</td></tr>';
+    }
+
     async function main() {
       const base = './data';
       state.summary = await loadJSON(base + '/summary.json');
       state.videos = await loadJSON(base + '/videos.json');
       state.ups = await loadJSON(base + '/ups.json');
       state.columns = await loadJSON(base + '/columns.json');
+      try { state.calendar = await loadJSON(base + '/calendar.json'); } catch (e) { state.calendar = { weeks: [] }; }
       renderKPIs();
       renderClusters();
       renderVideos();
       renderUps();
       renderThemes();
       renderColumns();
+      renderCalendar();
       document.getElementById('apply').onclick = renderVideos;
     }
 

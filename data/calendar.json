@@ -1,0 +1,222 @@
+{
+  "horizon": "8 weeks",
+  "note": "按栏目节奏交错排期：复盘室偏周更，档案局/平行指挥官偏双周。可按产能删减。",
+  "weeks": [
+    {
+      "week": "W1",
+      "items": [
+        {
+          "column": "红色警戒档案局",
+          "column_id": "col_nostalgia_deepdive",
+          "topic": "开栏片：红警为什么还能火——档案局方法论",
+          "suggested_duration": "12–25 分钟",
+          "benchmark_title": "15句让红警玩家感到害怕的语音",
+          "benchmark_url": "https://www.bilibili.com/video/BV1Xz411v7mD"
+        },
+        {
+          "column": "指挥官复盘室",
+          "column_id": "col_ops_story",
+          "topic": "复盘室开栏：怎么把爽点剪成可学习的因果链",
+          "suggested_duration": "15–30 分钟",
+          "benchmark_title": "红警应粉丝要求挑战超级冷酷电脑！满天基洛夫简直太吓人！",
+          "benchmark_url": "https://www.bilibili.com/video/BV1Ev411W74A"
+        }
+      ]
+    },
+    {
+      "week": "W2",
+      "items": [
+        {
+          "column": "指挥官复盘室",
+          "column_id": "col_ops_story",
+          "topic": "经典 1v多：开局经济如何锁死结局",
+          "suggested_duration": "15–30 分钟",
+          "benchmark_title": "红警应粉丝要求挑战超级冷酷电脑！满天基洛夫简直太吓人！",
+          "benchmark_url": "https://www.bilibili.com/video/BV1Ev411W74A"
+        },
+        {
+          "column": "平行指挥官",
+          "column_id": "col_mod_universe",
+          "topic": "平行指挥官开栏：MOD 宇宙地图怎么读",
+          "suggested_duration": "18–35 分钟",
+          "benchmark_title": "红色警戒3日冕MOD剧情CG——神州起源",
+          "benchmark_url": "https://www.bilibili.com/video/BV1yE411X7Rm"
+        }
+      ]
+    },
+    {
+      "week": "W3",
+      "items": [
+        {
+          "column": "红色警戒档案局",
+          "column_id": "col_nostalgia_deepdive",
+          "topic": "从 RA1 到尤里：版本战争史（上）",
+          "suggested_duration": "12–25 分钟",
+          "benchmark_title": "15句让红警玩家感到害怕的语音",
+          "benchmark_url": "https://www.bilibili.com/video/BV1Xz411v7mD"
+        }
+      ]
+    },
+    {
+      "week": "W4",
+      "items": [
+        {
+          "column": "指挥官复盘室",
+          "column_id": "col_ops_story",
+          "topic": "熬鹰局拆解：防守造型与心态战",
+          "suggested_duration": "15–30 分钟",
+          "benchmark_title": "红警应粉丝要求挑战超级冷酷电脑！满天基洛夫简直太吓人！",
+          "benchmark_url": "https://www.bilibili.com/video/BV1Ev411W74A"
+        },
+        {
+          "column": "平行指挥官",
+          "column_id": "col_mod_universe",
+          "topic": "心灵终结新人阵营选择指南",
+          "suggested_duration": "18–35 分钟",
+          "benchmark_title": "红色警戒3日冕MOD剧情CG——神州起源",
+          "benchmark_url": "https://www.bilibili.com/video/BV1yE411X7Rm"
+        }
+      ]
+    },
+    {
+      "week": "W5",
+      "items": [
+        {
+          "column": "红色警戒档案局",
+          "column_id": "col_nostalgia_deepdive",
+          "topic": "中国玩家记忆里的共和国之辉",
+          "suggested_duration": "12–25 分钟",
+          "benchmark_title": "15句让红警玩家感到害怕的语音",
+          "benchmark_url": "https://www.bilibili.com/video/BV1Xz411v7mD"
+        }
+      ]
+    },
+    {
+      "week": "W6",
+      "items": [
+        {
+          "column": "指挥官复盘室",
+          "column_id": "col_ops_story",
+          "topic": "锦标赛决赛复盘：关键转点逐镜",
+          "suggested_duration": "15–30 分钟",
+          "benchmark_title": "红警应粉丝要求挑战超级冷酷电脑！满天基洛夫简直太吓人！",
+          "benchmark_url": "https://www.bilibili.com/video/BV1Ev411W74A"
+        },
+        {
+          "column": "平行指挥官",
+          "column_id": "col_mod_universe",
+          "topic": "日冕/剧情向 MOD：哪些值得当第二部红警",
+          "suggested_duration": "18–35 分钟",
+          "benchmark_title": "红色警戒3日冕MOD剧情CG——神州起源",
+          "benchmark_url": "https://www.bilibili.com/video/BV1yE411X7Rm"
+        }
+      ]
+    },
+    {
+      "week": "W7",
+      "items": [
+        {
+          "column": "红色警戒档案局",
+          "column_id": "col_nostalgia_deepdive",
+          "topic": "语音与文化符号：那些听一遍就起鸡皮疙瘩的台词",
+          "suggested_duration": "12–25 分钟",
+          "benchmark_title": "15句让红警玩家感到害怕的语音",
+          "benchmark_url": "https://www.bilibili.com/video/BV1Xz411v7mD"
+        }
+      ]
+    },
+    {
+      "week": "W8",
+      "items": [
+        {
+          "column": "指挥官复盘室",
+          "column_id": "col_ops_story",
+          "topic": "弹幕高光翻译成战术语言特辑",
+          "suggested_duration": "15–30 分钟",
+          "benchmark_title": "红警应粉丝要求挑战超级冷酷电脑！满天基洛夫简直太吓人！",
+          "benchmark_url": "https://www.bilibili.com/video/BV1Ev411W74A"
+        },
+        {
+          "column": "平行指挥官",
+          "column_id": "col_mod_universe",
+          "topic": "从原版到 MOD：单位克制表如何被重写",
+          "suggested_duration": "18–35 分钟",
+          "benchmark_title": "红色警戒3日冕MOD剧情CG——神州起源",
+          "benchmark_url": "https://www.bilibili.com/video/BV1yE411X7Rm"
+        }
+      ]
+    }
+  ],
+  "by_column": [
+    {
+      "column": "红色警戒档案局",
+      "column_id": "col_nostalgia_deepdive",
+      "slots": [
+        {
+          "week": "W1",
+          "topic": "开栏片：红警为什么还能火——档案局方法论"
+        },
+        {
+          "week": "W3",
+          "topic": "从 RA1 到尤里：版本战争史（上）"
+        },
+        {
+          "week": "W5",
+          "topic": "中国玩家记忆里的共和国之辉"
+        },
+        {
+          "week": "W7",
+          "topic": "语音与文化符号：那些听一遍就起鸡皮疙瘩的台词"
+        }
+      ]
+    },
+    {
+      "column": "指挥官复盘室",
+      "column_id": "col_ops_story",
+      "slots": [
+        {
+          "week": "W1",
+          "topic": "复盘室开栏：怎么把爽点剪成可学习的因果链"
+        },
+        {
+          "week": "W2",
+          "topic": "经典 1v多：开局经济如何锁死结局"
+        },
+        {
+          "week": "W4",
+          "topic": "熬鹰局拆解：防守造型与心态战"
+        },
+        {
+          "week": "W6",
+          "topic": "锦标赛决赛复盘：关键转点逐镜"
+        },
+        {
+          "week": "W8",
+          "topic": "弹幕高光翻译成战术语言特辑"
+        }
+      ]
+    },
+    {
+      "column": "平行指挥官",
+      "column_id": "col_mod_universe",
+      "slots": [
+        {
+          "week": "W2",
+          "topic": "平行指挥官开栏：MOD 宇宙地图怎么读"
+        },
+        {
+          "week": "W4",
+          "topic": "心灵终结新人阵营选择指南"
+        },
+        {
+          "week": "W6",
+          "topic": "日冕/剧情向 MOD：哪些值得当第二部红警"
+        },
+        {
+          "week": "W8",
+          "topic": "从原版到 MOD：单位克制表如何被重写"
+        }
+      ]
+    }
+  ]
+}
