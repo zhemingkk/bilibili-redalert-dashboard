@@ -1,0 +1,54 @@
+{
+  "long_form": [
+    {
+      "id": "long_archive",
+      "name": "战场视觉档案",
+      "format": "长视频",
+      "duration": "1-3分钟",
+      "eco_basis": "怀旧/语音/符号类高互动；适配为官方视觉档案与IP焕新证明",
+      "product_fit": "一眼红警 + 本品美术/实机"
+    },
+    {
+      "id": "long_unit",
+      "name": "兵种图鉴·荣耀版",
+      "format": "长视频",
+      "duration": "1-3分钟",
+      "eco_basis": "基洛夫/天启/光棱等高认知单位梗",
+      "product_fit": "单位魅力 + 阵营对抗包装（非RTS复刻承诺）"
+    },
+    {
+      "id": "long_parallel",
+      "name": "平行指挥官·新战场",
+      "format": "长视频",
+      "duration": "1-3分钟",
+      "eco_basis": "MOD/二创世界观兴趣；转为『全新战场』预期管理",
+      "product_fit": "SLG+X 轻入口与策略对抗叙事"
+    }
+  ],
+  "short_form": [
+    {
+      "id": "short_symbol",
+      "name": "符号快闪",
+      "format": "竖屏短视频",
+      "duration": "≤20秒",
+      "eco_basis": "短池符号热度：[('基洛夫', 20), ('竖屏', 6), ('尤里', 3), ('语音', 2), ('谭雅', 1)]",
+      "product_fit": "5秒识别IP → 露出本品造型"
+    },
+    {
+      "id": "short_slang",
+      "name": "黑话/空耳字典",
+      "format": "竖屏短视频",
+      "duration": "≤20秒",
+      "eco_basis": "空耳/语音梗在短内容中传播效率高",
+      "product_fit": "记忆激活，官方稳版+三方玩梗版"
+    },
+    {
+      "id": "short_contrast",
+      "name": "新老对照杀",
+      "format": "竖屏短视频",
+      "duration": "≤20秒",
+      "eco_basis": "对比类短视频易完播；排期已有『基洛夫长这样』模板",
+      "product_fit": "像素/记忆 → 荣耀实机，完成嫁接"
+    }
+  ]
+}

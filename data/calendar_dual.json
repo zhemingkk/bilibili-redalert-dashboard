@@ -1,0 +1,919 @@
+{
+  "horizon": "8 weeks",
+  "product": "红警：荣耀",
+  "note": "长视频统一1-3分钟；短视频竖屏≤20秒。每条含官方号/精品三方号双版本。敏感梗默认三方主发。",
+  "voices": {
+    "official": {
+      "tone": "稳、授权背书、诚意证明、玩法预期管理",
+      "lexicon": [
+        "EA正版授权",
+        "指挥官请归队",
+        "实机",
+        "全新战场",
+        "阵营",
+        "传承与焕新"
+      ],
+      "avoid": [
+        "阴阳红警OL",
+        "敏感政治梗",
+        "过度玩梗翻车"
+      ]
+    },
+    "third_party": {
+      "tone": "人格化、锐一点、梗密度高、可试探玩法猜测",
+      "lexicon": [
+        "老兵看点",
+        "这波不像OL",
+        "基洛夫长这样",
+        "空耳/黑话",
+        "对比杀"
+      ],
+      "avoid": [
+        "冒充官方",
+        "未授权剧透承诺"
+      ]
+    }
+  },
+  "weeks": [
+    {
+      "week": "W1",
+      "items": [
+        {
+          "column": "战场视觉档案",
+          "column_id": "long_archive",
+          "format": "长视频",
+          "duration": "1-3分钟",
+          "eco_basis": "怀旧/语音/符号类高互动；适配为官方视觉档案与IP焕新证明",
+          "product_fit": "一眼红警 + 本品美术/实机",
+          "benchmark": {
+            "title": "也来做个红警，下次出个全的",
+            "url": "https://www.bilibili.com/video/BV1w1kxY4E44",
+            "play": 1009666
+          },
+          "official": {
+            "account": "官方号",
+            "title": "【红警：荣耀】首曝视觉钩子：经典符号排开 + 本品战场",
+            "angle": "稳、授权背书、诚意证明、玩法预期管理",
+            "must_show": [
+              "本品实机/官方美术",
+              "经典符号一眼识别",
+              "轻微玩法锚点"
+            ],
+            "cta": "关注指挥部，归队预约/测试节点"
+          },
+          "third_party": {
+            "account": "精品三方号",
+            "title": "开栏：为什么红警记忆还能打｜首曝视觉钩子：经典符号排开 + 本品战场",
+            "angle": "人格化、锐一点、梗密度高、可试探玩法猜测",
+            "must_show": [
+              "对比或梗切入",
+              "本品差异点",
+              "评论区互动钩子"
+            ],
+            "cta": "你站苏军还是盟军？评论区集合"
+          }
+        },
+        {
+          "column": "符号快闪",
+          "column_id": "short_symbol",
+          "format": "竖屏短视频",
+          "duration": "≤20秒",
+          "eco_basis": "短池符号热度：[('基洛夫', 20), ('竖屏', 6), ('尤里', 3), ('语音', 2), ('谭雅', 1)]",
+          "product_fit": "5秒识别IP → 露出本品造型",
+          "benchmark": {
+            "title": "这可能是红警OL里面唯一比较震撼的一场CG了",
+            "url": "https://www.bilibili.com/video/BV1Zb411c7f7",
+            "play": 622076
+          },
+          "official": {
+            "account": "官方号",
+            "title": "【兵种图鉴】你的基洛夫，在《红警：荣耀》长这样",
+            "angle": "稳、授权背书、诚意证明、玩法预期管理",
+            "must_show": [
+              "本品实机/官方美术",
+              "经典符号一眼识别",
+              "轻微玩法锚点"
+            ],
+            "cta": "关注指挥部，归队预约/测试节点"
+          },
+          "third_party": {
+            "account": "精品三方号",
+            "title": "原版基洛夫 vs 荣耀基洛夫：这压迫感升级了吗？",
+            "angle": "人格化、锐一点、梗密度高、可试探玩法猜测",
+            "must_show": [
+              "对比或梗切入",
+              "本品差异点",
+              "评论区互动钩子"
+            ],
+            "cta": "你站苏军还是盟军？评论区集合"
+          }
+        },
+        {
+          "column": "黑话/空耳字典",
+          "column_id": "short_slang",
+          "format": "竖屏短视频",
+          "duration": "≤20秒",
+          "eco_basis": "空耳/语音梗在短内容中传播效率高",
+          "product_fit": "记忆激活，官方稳版+三方玩梗版",
+          "benchmark": {
+            "title": "谁看了不迷糊",
+            "url": "https://www.bilibili.com/video/BV1QwaHzVEGY",
+            "play": 536764
+          },
+          "official": {
+            "account": "官方号",
+            "title": "【红警：荣耀】脖子右拧等词条15秒版",
+            "angle": "稳、授权背书、诚意证明、玩法预期管理",
+            "must_show": [
+              "本品实机/官方美术",
+              "经典符号一眼识别",
+              "轻微玩法锚点"
+            ],
+            "cta": "关注指挥部，归队预约/测试节点"
+          },
+          "third_party": {
+            "account": "精品三方号",
+            "title": "黑话字典·空耳篇预告｜脖子右拧等词条15秒版",
+            "angle": "人格化、锐一点、梗密度高、可试探玩法猜测",
+            "must_show": [
+              "对比或梗切入",
+              "本品差异点",
+              "评论区互动钩子"
+            ],
+            "cta": "你站苏军还是盟军？评论区集合"
+          }
+        }
+      ]
+    },
+    {
+      "week": "W2",
+      "items": [
+        {
+          "column": "兵种图鉴·荣耀版",
+          "column_id": "long_unit",
+          "format": "长视频",
+          "duration": "1-3分钟",
+          "eco_basis": "基洛夫/天启/光棱等高认知单位梗",
+          "product_fit": "单位魅力 + 阵营对抗包装（非RTS复刻承诺）",
+          "benchmark": {
+            "title": "Kirovreporting！！",
+            "url": "https://www.bilibili.com/video/BV1Wg4y1T7ha",
+            "play": 380613
+          },
+          "official": {
+            "account": "官方号",
+            "title": "【兵种图鉴】你的基洛夫，在《红警：荣耀》长这样",
+            "angle": "稳、授权背书、诚意证明、玩法预期管理",
+            "must_show": [
+              "本品实机/官方美术",
+              "经典符号一眼识别",
+              "轻微玩法锚点"
+            ],
+            "cta": "关注指挥部，归队预约/测试节点"
+          },
+          "third_party": {
+            "account": "精品三方号",
+            "title": "原版基洛夫 vs 荣耀基洛夫：这压迫感升级了吗？",
+            "angle": "人格化、锐一点、梗密度高、可试探玩法猜测",
+            "must_show": [
+              "对比或梗切入",
+              "本品差异点",
+              "评论区互动钩子"
+            ],
+            "cta": "你站苏军还是盟军？评论区集合"
+          }
+        },
+        {
+          "column": "新老对照杀",
+          "column_id": "short_contrast",
+          "format": "竖屏短视频",
+          "duration": "≤20秒",
+          "eco_basis": "对比类短视频易完播；排期已有『基洛夫长这样』模板",
+          "product_fit": "像素/记忆 → 荣耀实机，完成嫁接",
+          "benchmark": {
+            "title": "反差萌安全感！当领导说视频要竖屏，而我拍的是横屏时...",
+            "url": "https://www.bilibili.com/video/BV1N9Vp6kEtW",
+            "play": 232454
+          },
+          "official": {
+            "account": "官方号",
+            "title": "【兵种图鉴】你的基洛夫，在《红警：荣耀》长这样",
+            "angle": "稳、授权背书、诚意证明、玩法预期管理",
+            "must_show": [
+              "本品实机/官方美术",
+              "经典符号一眼识别",
+              "轻微玩法锚点"
+            ],
+            "cta": "关注指挥部，归队预约/测试节点"
+          },
+          "third_party": {
+            "account": "精品三方号",
+            "title": "原版基洛夫 vs 荣耀基洛夫：这压迫感升级了吗？",
+            "angle": "人格化、锐一点、梗密度高、可试探玩法猜测",
+            "must_show": [
+              "对比或梗切入",
+              "本品差异点",
+              "评论区互动钩子"
+            ],
+            "cta": "你站苏军还是盟军？评论区集合"
+          }
+        },
+        {
+          "column": "符号快闪",
+          "column_id": "short_symbol",
+          "format": "竖屏短视频",
+          "duration": "≤20秒",
+          "eco_basis": "短池符号热度：[('基洛夫', 20), ('竖屏', 6), ('尤里', 3), ('语音', 2), ('谭雅', 1)]",
+          "product_fit": "5秒识别IP → 露出本品造型",
+          "benchmark": {
+            "title": "离谱的红警广告",
+            "url": "https://www.bilibili.com/video/BV13a411Y7hd",
+            "play": 226159
+          },
+          "official": {
+            "account": "官方号",
+            "title": "【红警：荣耀】苏军视觉图腾",
+            "angle": "稳、授权背书、诚意证明、玩法预期管理",
+            "must_show": [
+              "本品实机/官方美术",
+              "经典符号一眼识别",
+              "轻微玩法锚点"
+            ],
+            "cta": "关注指挥部，归队预约/测试节点"
+          },
+          "third_party": {
+            "account": "精品三方号",
+            "title": "天启冲锋快闪｜苏军视觉图腾",
+            "angle": "人格化、锐一点、梗密度高、可试探玩法猜测",
+            "must_show": [
+              "对比或梗切入",
+              "本品差异点",
+              "评论区互动钩子"
+            ],
+            "cta": "你站苏军还是盟军？评论区集合"
+          }
+        }
+      ]
+    },
+    {
+      "week": "W3",
+      "items": [
+        {
+          "column": "平行指挥官·新战场",
+          "column_id": "long_parallel",
+          "format": "长视频",
+          "duration": "1-3分钟",
+          "eco_basis": "MOD/二创世界观兴趣；转为『全新战场』预期管理",
+          "product_fit": "SLG+X 轻入口与策略对抗叙事",
+          "benchmark": {
+            "title": "名场面之瑶光薄纱基洛夫（满血）",
+            "url": "https://www.bilibili.com/video/BV1VD4y1W7G7",
+            "play": 54450
+          },
+          "official": {
+            "account": "官方号",
+            "title": "【红警：荣耀】SLG+X 不等于背叛IP：策略对抗叙事",
+            "angle": "稳、授权背书、诚意证明、玩法预期管理",
+            "must_show": [
+              "本品实机/官方美术",
+              "经典符号一眼识别",
+              "轻微玩法锚点"
+            ],
+            "cta": "关注指挥部，归队预约/测试节点"
+          },
+          "third_party": {
+            "account": "精品三方号",
+            "title": "全新红警·全新战场（预期管理）｜SLG+X 不等于背叛IP：策略对抗叙事",
+            "angle": "人格化、锐一点、梗密度高、可试探玩法猜测",
+            "must_show": [
+              "对比或梗切入",
+              "本品差异点",
+              "评论区互动钩子"
+            ],
+            "cta": "你站苏军还是盟军？评论区集合"
+          }
+        },
+        {
+          "column": "黑话/空耳字典",
+          "column_id": "short_slang",
+          "format": "竖屏短视频",
+          "duration": "≤20秒",
+          "eco_basis": "空耳/语音梗在短内容中传播效率高",
+          "product_fit": "记忆激活，官方稳版+三方玩梗版",
+          "benchmark": {
+            "title": "红色警戒完美战队宣传片短视频",
+            "url": "https://www.bilibili.com/video/BV1i5411S7J6",
+            "play": 5574
+          },
+          "official": {
+            "account": "官方号",
+            "title": "【红警：荣耀】入门梗15秒",
+            "angle": "稳、授权背书、诚意证明、玩法预期管理",
+            "must_show": [
+              "本品实机/官方美术",
+              "经典符号一眼识别",
+              "轻微玩法锚点"
+            ],
+            "cta": "关注指挥部，归队预约/测试节点"
+          },
+          "third_party": {
+            "account": "精品三方号",
+            "title": "Yes Sir / 动员兵｜入门梗15秒",
+            "angle": "人格化、锐一点、梗密度高、可试探玩法猜测",
+            "must_show": [
+              "对比或梗切入",
+              "本品差异点",
+              "评论区互动钩子"
+            ],
+            "cta": "你站苏军还是盟军？评论区集合"
+          }
+        },
+        {
+          "column": "新老对照杀",
+          "column_id": "short_contrast",
+          "format": "竖屏短视频",
+          "duration": "≤20秒",
+          "eco_basis": "对比类短视频易完播；排期已有『基洛夫长这样』模板",
+          "product_fit": "像素/记忆 → 荣耀实机，完成嫁接",
+          "benchmark": {
+            "title": "最短教程！如何在手机网页上联机玩红警或打人机？",
+            "url": "https://www.bilibili.com/video/BV1Kg4y1Z7pB",
+            "play": 2395
+          },
+          "official": {
+            "account": "官方号",
+            "title": "【红警：荣耀】盟军图腾对照",
+            "angle": "稳、授权背书、诚意证明、玩法预期管理",
+            "must_show": [
+              "本品实机/官方美术",
+              "经典符号一眼识别",
+              "轻微玩法锚点"
+            ],
+            "cta": "关注指挥部，归队预约/测试节点"
+          },
+          "third_party": {
+            "account": "精品三方号",
+            "title": "光棱塔：记忆杀到实机｜盟军图腾对照",
+            "angle": "人格化、锐一点、梗密度高、可试探玩法猜测",
+            "must_show": [
+              "对比或梗切入",
+              "本品差异点",
+              "评论区互动钩子"
+            ],
+            "cta": "你站苏军还是盟军？评论区集合"
+          }
+        }
+      ]
+    },
+    {
+      "week": "W4",
+      "items": [
+        {
+          "column": "战场视觉档案",
+          "column_id": "long_archive",
+          "format": "长视频",
+          "duration": "1-3分钟",
+          "eco_basis": "怀旧/语音/符号类高互动；适配为官方视觉档案与IP焕新证明",
+          "product_fit": "一眼红警 + 本品美术/实机",
+          "benchmark": {
+            "title": "红警2基洛夫空艇语音包",
+            "url": "https://www.bilibili.com/video/BV1kAkGYmE7F",
+            "play": 1405
+          },
+          "official": {
+            "account": "官方号",
+            "title": "【红警：荣耀】美术压迫感切片",
+            "angle": "稳、授权背书、诚意证明、玩法预期管理",
+            "must_show": [
+              "本品实机/官方美术",
+              "经典符号一眼识别",
+              "轻微玩法锚点"
+            ],
+            "cta": "关注指挥部，归队预约/测试节点"
+          },
+          "third_party": {
+            "account": "精品三方号",
+            "title": "战场视觉档案No.2：战争感从哪来｜美术压迫感切片",
+            "angle": "人格化、锐一点、梗密度高、可试探玩法猜测",
+            "must_show": [
+              "对比或梗切入",
+              "本品差异点",
+              "评论区互动钩子"
+            ],
+            "cta": "你站苏军还是盟军？评论区集合"
+          }
+        },
+        {
+          "column": "符号快闪",
+          "column_id": "short_symbol",
+          "format": "竖屏短视频",
+          "duration": "≤20秒",
+          "eco_basis": "短池符号热度：[('基洛夫', 20), ('竖屏', 6), ('尤里', 3), ('语音', 2), ('谭雅', 1)]",
+          "product_fit": "5秒识别IP → 露出本品造型",
+          "benchmark": {
+            "title": "红警：大鲨鱼基洛夫，旋转投弹一分钟纯享版！",
+            "url": "https://www.bilibili.com/video/BV17X6HBZEhT",
+            "play": 502
+          },
+          "official": {
+            "account": "官方号",
+            "title": "【红警：荣耀】符号爽点≤20秒",
+            "angle": "稳、授权背书、诚意证明、玩法预期管理",
+            "must_show": [
+              "本品实机/官方美术",
+              "经典符号一眼识别",
+              "轻微玩法锚点"
+            ],
+            "cta": "关注指挥部，归队预约/测试节点"
+          },
+          "third_party": {
+            "account": "精品三方号",
+            "title": "核弹已发射 终结时刻｜符号爽点≤20秒",
+            "angle": "人格化、锐一点、梗密度高、可试探玩法猜测",
+            "must_show": [
+              "对比或梗切入",
+              "本品差异点",
+              "评论区互动钩子"
+            ],
+            "cta": "你站苏军还是盟军？评论区集合"
+          }
+        },
+        {
+          "column": "兵种图鉴·荣耀版",
+          "column_id": "long_unit",
+          "format": "长视频",
+          "duration": "1-3分钟",
+          "eco_basis": "基洛夫/天启/光棱等高认知单位梗",
+          "product_fit": "单位魅力 + 阵营对抗包装（非RTS复刻承诺）",
+          "benchmark": {
+            "title": "看我掐住蓝猫猫的头。左右摇摆，然后他就受不了，拔线投降",
+            "url": "https://www.bilibili.com/video/BV1uh411771R",
+            "play": 223
+          },
+          "official": {
+            "account": "官方号",
+            "title": "【红警：荣耀】轻策略氛围解说",
+            "angle": "稳、授权背书、诚意证明、玩法预期管理",
+            "must_show": [
+              "本品实机/官方美术",
+              "经典符号一眼识别",
+              "轻微玩法锚点"
+            ],
+            "cta": "关注指挥部，归队预约/测试节点"
+          },
+          "third_party": {
+            "account": "精品三方号",
+            "title": "兵种图鉴：光棱/天启二选一加深｜轻策略氛围解说",
+            "angle": "人格化、锐一点、梗密度高、可试探玩法猜测",
+            "must_show": [
+              "对比或梗切入",
+              "本品差异点",
+              "评论区互动钩子"
+            ],
+            "cta": "你站苏军还是盟军？评论区集合"
+          }
+        }
+      ]
+    },
+    {
+      "week": "W5",
+      "items": [
+        {
+          "column": "兵种图鉴·荣耀版",
+          "column_id": "long_unit",
+          "format": "长视频",
+          "duration": "1-3分钟",
+          "eco_basis": "基洛夫/天启/光棱等高认知单位梗",
+          "product_fit": "单位魅力 + 阵营对抗包装（非RTS复刻承诺）",
+          "benchmark": {
+            "title": "谁把我红警搬网页上了？！",
+            "url": "https://www.bilibili.com/video/BV1cWuR6UEvg",
+            "play": 176
+          },
+          "official": {
+            "account": "官方号",
+            "title": "【红警：荣耀】苏军/盟军/尤里选择钩子",
+            "angle": "稳、授权背书、诚意证明、玩法预期管理",
+            "must_show": [
+              "本品实机/官方美术",
+              "经典符号一眼识别",
+              "轻微玩法锚点"
+            ],
+            "cta": "关注指挥部，归队预约/测试节点"
+          },
+          "third_party": {
+            "account": "精品三方号",
+            "title": "阵营测试向：你骨子里哪支部队｜苏军/盟军/尤里选择钩子",
+            "angle": "人格化、锐一点、梗密度高、可试探玩法猜测",
+            "must_show": [
+              "对比或梗切入",
+              "本品差异点",
+              "评论区互动钩子"
+            ],
+            "cta": "你站苏军还是盟军？评论区集合"
+          }
+        },
+        {
+          "column": "新老对照杀",
+          "column_id": "short_contrast",
+          "format": "竖屏短视频",
+          "duration": "≤20秒",
+          "eco_basis": "对比类短视频易完播；排期已有『基洛夫长这样』模板",
+          "product_fit": "像素/记忆 → 荣耀实机，完成嫁接",
+          "benchmark": {
+            "title": "人生短短几个秋啊 不醉不罢休 东边儿我的美人啊 西边儿黄河流",
+            "url": "https://www.bilibili.com/video/BV1WvmQBTEWQ",
+            "play": 124
+          },
+          "official": {
+            "account": "官方号",
+            "title": "【红警：荣耀】角色符号嫁接",
+            "angle": "稳、授权背书、诚意证明、玩法预期管理",
+            "must_show": [
+              "本品实机/官方美术",
+              "经典符号一眼识别",
+              "轻微玩法锚点"
+            ],
+            "cta": "关注指挥部，归队预约/测试节点"
+          },
+          "third_party": {
+            "account": "精品三方号",
+            "title": "谭雅记忆点快切｜角色符号嫁接",
+            "angle": "人格化、锐一点、梗密度高、可试探玩法猜测",
+            "must_show": [
+              "对比或梗切入",
+              "本品差异点",
+              "评论区互动钩子"
+            ],
+            "cta": "你站苏军还是盟军？评论区集合"
+          }
+        },
+        {
+          "column": "黑话/空耳字典",
+          "column_id": "short_slang",
+          "format": "竖屏短视频",
+          "duration": "≤20秒",
+          "eco_basis": "空耳/语音梗在短内容中传播效率高",
+          "product_fit": "记忆激活，官方稳版+三方玩梗版",
+          "benchmark": {
+            "title": "【红警鬼魔蓝天】最新视频来袭，快来看看吧！",
+            "url": "https://www.bilibili.com/video/BV1sK41187er",
+            "play": 115
+          },
+          "official": {
+            "account": "官方号",
+            "title": "【红警：荣耀】官方慎玩，三方可更锐",
+            "angle": "稳、授权背书、诚意证明、玩法预期管理",
+            "must_show": [
+              "本品实机/官方美术",
+              "经典符号一眼识别",
+              "轻微玩法锚点"
+            ],
+            "cta": "关注指挥部，归队预约/测试节点"
+          },
+          "third_party": {
+            "account": "精品三方号",
+            "title": "磁力棒/自爆梗（三方主攻）｜官方慎玩，三方可更锐",
+            "angle": "人格化、锐一点、梗密度高、可试探玩法猜测",
+            "must_show": [
+              "对比或梗切入",
+              "本品差异点",
+              "评论区互动钩子"
+            ],
+            "cta": "你站苏军还是盟军？评论区集合"
+          }
+        }
+      ]
+    },
+    {
+      "week": "W6",
+      "items": [
+        {
+          "column": "平行指挥官·新战场",
+          "column_id": "long_parallel",
+          "format": "长视频",
+          "duration": "1-3分钟",
+          "eco_basis": "MOD/二创世界观兴趣；转为『全新战场』预期管理",
+          "product_fit": "SLG+X 轻入口与策略对抗叙事",
+          "benchmark": {
+            "title": "也来做个红警，下次出个全的",
+            "url": "https://www.bilibili.com/video/BV1w1kxY4E44",
+            "play": 1009666
+          },
+          "official": {
+            "account": "官方号",
+            "title": "【红警：荣耀】塔防/TPS/经营之一实机",
+            "angle": "稳、授权背书、诚意证明、玩法预期管理",
+            "must_show": [
+              "本品实机/官方美术",
+              "经典符号一眼识别",
+              "轻微玩法锚点"
+            ],
+            "cta": "关注指挥部，归队预约/测试节点"
+          },
+          "third_party": {
+            "account": "精品三方号",
+            "title": "3分钟看懂荣耀入口玩法｜塔防/TPS/经营之一实机",
+            "angle": "人格化、锐一点、梗密度高、可试探玩法猜测",
+            "must_show": [
+              "对比或梗切入",
+              "本品差异点",
+              "评论区互动钩子"
+            ],
+            "cta": "你站苏军还是盟军？评论区集合"
+          }
+        },
+        {
+          "column": "符号快闪",
+          "column_id": "short_symbol",
+          "format": "竖屏短视频",
+          "duration": "≤20秒",
+          "eco_basis": "短池符号热度：[('基洛夫', 20), ('竖屏', 6), ('尤里', 3), ('语音', 2), ('谭雅', 1)]",
+          "product_fit": "5秒识别IP → 露出本品造型",
+          "benchmark": {
+            "title": "这可能是红警OL里面唯一比较震撼的一场CG了",
+            "url": "https://www.bilibili.com/video/BV1Zb411c7f7",
+            "play": 622076
+          },
+          "official": {
+            "account": "官方号",
+            "title": "【红警：荣耀】BGM钩子+本品LOGO收束",
+            "angle": "稳、授权背书、诚意证明、玩法预期管理",
+            "must_show": [
+              "本品实机/官方美术",
+              "经典符号一眼识别",
+              "轻微玩法锚点"
+            ],
+            "cta": "关注指挥部，归队预约/测试节点"
+          },
+          "third_party": {
+            "account": "精品三方号",
+            "title": "Hell March 记忆闪回｜BGM钩子+本品LOGO收束",
+            "angle": "人格化、锐一点、梗密度高、可试探玩法猜测",
+            "must_show": [
+              "对比或梗切入",
+              "本品差异点",
+              "评论区互动钩子"
+            ],
+            "cta": "你站苏军还是盟军？评论区集合"
+          }
+        },
+        {
+          "column": "新老对照杀",
+          "column_id": "short_contrast",
+          "format": "竖屏短视频",
+          "duration": "≤20秒",
+          "eco_basis": "对比类短视频易完播；排期已有『基洛夫长这样』模板",
+          "product_fit": "像素/记忆 → 荣耀实机，完成嫁接",
+          "benchmark": {
+            "title": "谁看了不迷糊",
+            "url": "https://www.bilibili.com/video/BV1QwaHzVEGY",
+            "play": 536764
+          },
+          "official": {
+            "account": "官方号",
+            "title": "【红警：荣耀】MCV符号",
+            "angle": "稳、授权背书、诚意证明、玩法预期管理",
+            "must_show": [
+              "本品实机/官方美术",
+              "经典符号一眼识别",
+              "轻微玩法锚点"
+            ],
+            "cta": "关注指挥部，归队预约/测试节点"
+          },
+          "third_party": {
+            "account": "精品三方号",
+            "title": "基地车展开：昔日到今日｜MCV符号",
+            "angle": "人格化、锐一点、梗密度高、可试探玩法猜测",
+            "must_show": [
+              "对比或梗切入",
+              "本品差异点",
+              "评论区互动钩子"
+            ],
+            "cta": "你站苏军还是盟军？评论区集合"
+          }
+        }
+      ]
+    },
+    {
+      "week": "W7",
+      "items": [
+        {
+          "column": "战场视觉档案",
+          "column_id": "long_archive",
+          "format": "长视频",
+          "duration": "1-3分钟",
+          "eco_basis": "怀旧/语音/符号类高互动；适配为官方视觉档案与IP焕新证明",
+          "product_fit": "一眼红警 + 本品美术/实机",
+          "benchmark": {
+            "title": "Kirovreporting！！",
+            "url": "https://www.bilibili.com/video/BV1Wg4y1T7ha",
+            "play": 380613
+          },
+          "official": {
+            "account": "官方号",
+            "title": "【红警：荣耀】语音+本品UI/战场",
+            "angle": "稳、授权背书、诚意证明、玩法预期管理",
+            "must_show": [
+              "本品实机/官方美术",
+              "经典符号一眼识别",
+              "轻微玩法锚点"
+            ],
+            "cta": "关注指挥部，归队预约/测试节点"
+          },
+          "third_party": {
+            "account": "精品三方号",
+            "title": "语音档案：听一遍起鸡皮疙瘩｜语音+本品UI/战场",
+            "angle": "人格化、锐一点、梗密度高、可试探玩法猜测",
+            "must_show": [
+              "对比或梗切入",
+              "本品差异点",
+              "评论区互动钩子"
+            ],
+            "cta": "你站苏军还是盟军？评论区集合"
+          }
+        },
+        {
+          "column": "黑话/空耳字典",
+          "column_id": "short_slang",
+          "format": "竖屏短视频",
+          "duration": "≤20秒",
+          "eco_basis": "空耳/语音梗在短内容中传播效率高",
+          "product_fit": "记忆激活，官方稳版+三方玩梗版",
+          "benchmark": {
+            "title": "反差萌安全感！当领导说视频要竖屏，而我拍的是横屏时...",
+            "url": "https://www.bilibili.com/video/BV1N9Vp6kEtW",
+            "play": 232454
+          },
+          "official": {
+            "account": "官方号",
+            "title": "【红警：荣耀】词条连发",
+            "angle": "稳、授权背书、诚意证明、玩法预期管理",
+            "must_show": [
+              "本品实机/官方美术",
+              "经典符号一眼识别",
+              "轻微玩法锚点"
+            ],
+            "cta": "关注指挥部，归队预约/测试节点"
+          },
+          "third_party": {
+            "account": "精品三方号",
+            "title": "黑话字典第二弹｜词条连发",
+            "angle": "人格化、锐一点、梗密度高、可试探玩法猜测",
+            "must_show": [
+              "对比或梗切入",
+              "本品差异点",
+              "评论区互动钩子"
+            ],
+            "cta": "你站苏军还是盟军？评论区集合"
+          }
+        },
+        {
+          "column": "兵种图鉴·荣耀版",
+          "column_id": "long_unit",
+          "format": "长视频",
+          "duration": "1-3分钟",
+          "eco_basis": "基洛夫/天启/光棱等高认知单位梗",
+          "product_fit": "单位魅力 + 阵营对抗包装（非RTS复刻承诺）",
+          "benchmark": {
+            "title": "离谱的红警广告",
+            "url": "https://www.bilibili.com/video/BV13a411Y7hd",
+            "play": 226159
+          },
+          "official": {
+            "account": "官方号",
+            "title": "【红警：荣耀】紫色阵营包装",
+            "angle": "稳、授权背书、诚意证明、玩法预期管理",
+            "must_show": [
+              "本品实机/官方美术",
+              "经典符号一眼识别",
+              "轻微玩法锚点"
+            ],
+            "cta": "关注指挥部，归队预约/测试节点"
+          },
+          "third_party": {
+            "account": "精品三方号",
+            "title": "尤里：反派魅力60秒+｜紫色阵营包装",
+            "angle": "人格化、锐一点、梗密度高、可试探玩法猜测",
+            "must_show": [
+              "对比或梗切入",
+              "本品差异点",
+              "评论区互动钩子"
+            ],
+            "cta": "你站苏军还是盟军？评论区集合"
+          }
+        }
+      ]
+    },
+    {
+      "week": "W8",
+      "items": [
+        {
+          "column": "平行指挥官·新战场",
+          "column_id": "long_parallel",
+          "format": "长视频",
+          "duration": "1-3分钟",
+          "eco_basis": "MOD/二创世界观兴趣；转为『全新战场』预期管理",
+          "product_fit": "SLG+X 轻入口与策略对抗叙事",
+          "benchmark": {
+            "title": "名场面之瑶光薄纱基洛夫（满血）",
+            "url": "https://www.bilibili.com/video/BV1VD4y1W7G7",
+            "play": 54450
+          },
+          "official": {
+            "account": "官方号",
+            "title": "【红警：荣耀】预约/测试CTA",
+            "angle": "稳、授权背书、诚意证明、玩法预期管理",
+            "must_show": [
+              "本品实机/官方美术",
+              "经典符号一眼识别",
+              "轻微玩法锚点"
+            ],
+            "cta": "关注指挥部，归队预约/测试节点"
+          },
+          "third_party": {
+            "account": "精品三方号",
+            "title": "指挥官归队：节点收束片｜预约/测试CTA",
+            "angle": "人格化、锐一点、梗密度高、可试探玩法猜测",
+            "must_show": [
+              "对比或梗切入",
+              "本品差异点",
+              "评论区互动钩子"
+            ],
+            "cta": "你站苏军还是盟军？评论区集合"
+          }
+        },
+        {
+          "column": "新老对照杀",
+          "column_id": "short_contrast",
+          "format": "竖屏短视频",
+          "duration": "≤20秒",
+          "eco_basis": "对比类短视频易完播；排期已有『基洛夫长这样』模板",
+          "product_fit": "像素/记忆 → 荣耀实机，完成嫁接",
+          "benchmark": {
+            "title": "红色警戒完美战队宣传片短视频",
+            "url": "https://www.bilibili.com/video/BV1i5411S7J6",
+            "play": 5574
+          },
+          "official": {
+            "account": "官方号",
+            "title": "【红警：荣耀】Top符号串烧≤20秒",
+            "angle": "稳、授权背书、诚意证明、玩法预期管理",
+            "must_show": [
+              "本品实机/官方美术",
+              "经典符号一眼识别",
+              "轻微玩法锚点"
+            ],
+            "cta": "关注指挥部，归队预约/测试节点"
+          },
+          "third_party": {
+            "account": "精品三方号",
+            "title": "八周符号合集快闪｜Top符号串烧≤20秒",
+            "angle": "人格化、锐一点、梗密度高、可试探玩法猜测",
+            "must_show": [
+              "对比或梗切入",
+              "本品差异点",
+              "评论区互动钩子"
+            ],
+            "cta": "你站苏军还是盟军？评论区集合"
+          }
+        },
+        {
+          "column": "符号快闪",
+          "column_id": "short_symbol",
+          "format": "竖屏短视频",
+          "duration": "≤20秒",
+          "eco_basis": "短池符号热度：[('基洛夫', 20), ('竖屏', 6), ('尤里', 3), ('语音', 2), ('谭雅', 1)]",
+          "product_fit": "5秒识别IP → 露出本品造型",
+          "benchmark": {
+            "title": "最短教程！如何在手机网页上联机玩红警或打人机？",
+            "url": "https://www.bilibili.com/video/BV1Kg4y1Z7pB",
+            "play": 2395
+          },
+          "official": {
+            "account": "官方号",
+            "title": "【红警：荣耀】评论区互动",
+            "angle": "稳、授权背书、诚意证明、玩法预期管理",
+            "must_show": [
+              "本品实机/官方美术",
+              "经典符号一眼识别",
+              "轻微玩法锚点"
+            ],
+            "cta": "关注指挥部，归队预约/测试节点"
+          },
+          "third_party": {
+            "account": "精品三方号",
+            "title": "阵营三选一投票器｜评论区互动",
+            "angle": "人格化、锐一点、梗密度高、可试探玩法猜测",
+            "must_show": [
+              "对比或梗切入",
+              "本品差异点",
+              "评论区互动钩子"
+            ],
+            "cta": "你站苏军还是盟军？评论区集合"
+          }
+        }
+      ]
+    }
+  ]
+}

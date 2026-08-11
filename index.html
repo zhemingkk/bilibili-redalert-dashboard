@@ -85,8 +85,8 @@
 </head>
 <body>
   <header>
-    <h1>B站红警 IP 内容生态看板</h1>
-    <p>基于双轨抽样：历史头部 + 近期内容。可筛选簇与互动，并查看栏目策划卡片。</p>
+    <h1>《红警：荣耀》内容生态与双号策划看板</h1>
+    <p>生态抽样 + 产品适配：长视频1-3分钟 / 竖屏短视频≤20秒；官方号与精品三方号双版本选题。</p>
   </header>
   <div class="wrap">
     <div class="grid" id="kpis"></div>
@@ -156,18 +156,29 @@
       <div id="themes" style="margin-top:10px;"></div>
     </div>
 
+    <div class="card">
+      <strong>短视频池（竖屏/短时长）</strong>
+      <div id="shortKpis" class="grid" style="margin-top:10px;"></div>
+      <div class="scroll" style="margin-top:10px;">
+        <table>
+          <thead><tr><th>标题</th><th>时长</th><th>播放</th><th>竖屏</th></tr></thead>
+          <tbody id="shortTop"></tbody>
+        </table>
+      </div>
+    </div>
+
     <div>
-      <h2 style="margin:8px 0 12px;">长视频栏目建议</h2>
+      <h2 style="margin:8px 0 12px;">栏目建议（长视频1-3分钟 / 短视频≤20秒）</h2>
       <div class="cols" id="columns"></div>
     </div>
 
     <div class="card">
-      <strong>8 周选题日历</strong>
+      <strong>8 周双号选题日历</strong>
       <p class="muted" id="calNote" style="margin:8px 0 0;"></p>
       <div class="scroll" style="margin-top:10px;">
         <table>
           <thead>
-            <tr><th>周次</th><th>栏目</th><th>选题</th><th>建议时长</th><th>对标</th></tr>
+            <tr><th>周次</th><th>栏目</th><th>时长</th><th>官方号选题</th><th>精品三方号选题</th><th>生态对标</th></tr>
           </thead>
           <tbody id="calendar"></tbody>
         </table>
@@ -176,7 +187,7 @@
   </div>
 
   <script>
-    const state = { videos: [], ups: [], summary: null, columns: [], themes: [], calendar: null };
+    const state = { videos: [], ups: [], summary: null, columns: [], themes: [], calendar: null, shortSummary: null, dualColumns: null };
 
     function fmt(n) {
       n = Number(n || 0);
@@ -274,17 +285,49 @@
     }
 
     function renderColumns() {
-      document.getElementById('columns').innerHTML = state.columns.map(c => `
+      const dual = state.dualColumns;
+      if (dual) {
+        const all = [...(dual.long_form||[]), ...(dual.short_form||[])];
+        document.getElementById('columns').innerHTML = all.map(c => `
+          <div class="card col">
+            <h3>${c.name}</h3>
+            <div class="muted">${c.format} · ${c.duration}</div>
+            <p style="margin-top:8px;">生态依据：${c.eco_basis||''}</p>
+            <div class="muted">产品适配：${c.product_fit||''}</div>
+          </div>
+        `).join('');
+        return;
+      }
+      document.getElementById('columns').innerHTML = (state.columns||[]).map(c => `
         <div class="card col">
           <h3>${c.name}</h3>
-          <p>${c.one_liner}</p>
-          <div class="muted">时长 ${c.format.duration} · ${c.format.cadence}</div>
-          <p style="margin-top:8px;">${c.preference_evidence.why}</p>
-          <div class="muted">差异化：${c.differentiation}</div>
-          <ul>${(c.pilot_topics||[]).slice(0,5).map(t => `<li>${t}</li>`).join('')}</ul>
-          <div><strong>对标</strong></div>
-          <ul>${(c.benchmarks||[]).slice(0,4).map(b => `<li><a href="${b.url}" target="_blank">${b.title||b.bvid}</a> · ${fmt(b.play)}</li>`).join('')}</ul>
+          <p>${c.one_liner||''}</p>
         </div>
+      `).join('');
+    }
+
+    function renderShortPool() {
+      const s = state.shortSummary;
+      if (!s) {
+        document.getElementById('shortKpis').innerHTML = '<div class="muted">短视频数据生成中…</div>';
+        return;
+      }
+      const items = [
+        ['短视频池', s.n_short_pool],
+        ['≤20秒', s.n_le20s],
+        ['1-3分钟', s.n_1to3min],
+        ['竖屏标记', s.n_vertical_flagged],
+      ];
+      document.getElementById('shortKpis').innerHTML = items.map(([k,v]) =>
+        `<div class="card"><div class="k">${k}</div><div class="v">${fmt(v)}</div></div>`
+      ).join('');
+      document.getElementById('shortTop').innerHTML = (s.top_le20s||[]).slice(0,15).map(v => `
+        <tr>
+          <td><a href="${v.url}" target="_blank">${v.title||v.bvid}</a></td>
+          <td>${v.duration_sec||0}s</td>
+          <td>${fmt(v.play)}</td>
+          <td>${v.is_vertical===true?'是':(v.is_vertical===false?'否':'-')}</td>
+        </tr>
       `).join('');
     }
 
@@ -294,16 +337,22 @@
       const rows = [];
       (cal.weeks || []).forEach(w => {
         (w.items || []).forEach(it => {
+          const off = it.official ? it.official.title : (it.topic || '');
+          const thr = it.third_party ? it.third_party.title : '';
+          const b = it.benchmark || {};
+          const burl = b.url || it.benchmark_url || '';
+          const btitle = b.title || it.benchmark_title || '';
           rows.push(`<tr>
             <td>${w.week}</td>
             <td>${it.column||''}</td>
-            <td>${it.topic||''}</td>
-            <td>${it.suggested_duration||''}</td>
-            <td>${it.benchmark_url ? `<a href="${it.benchmark_url}" target="_blank">${it.benchmark_title||'对标'}</a>` : ''}</td>
+            <td>${it.duration||it.suggested_duration||''}</td>
+            <td>${off}</td>
+            <td>${thr}</td>
+            <td>${burl ? `<a href="${burl}" target="_blank">${btitle||'对标'}</a>` : ''}</td>
           </tr>`);
         });
       });
-      document.getElementById('calendar').innerHTML = rows.join('') || '<tr><td colspan="5" class="muted">暂无日历</td></tr>';
+      document.getElementById('calendar').innerHTML = rows.join('') || '<tr><td colspan="6" class="muted">暂无日历</td></tr>';
     }
 
     async function main() {
@@ -311,13 +360,18 @@
       state.summary = await loadJSON(base + '/summary.json');
       state.videos = await loadJSON(base + '/videos.json');
       state.ups = await loadJSON(base + '/ups.json');
-      state.columns = await loadJSON(base + '/columns.json');
-      try { state.calendar = await loadJSON(base + '/calendar.json'); } catch (e) { state.calendar = { weeks: [] }; }
+      try { state.columns = await loadJSON(base + '/columns.json'); } catch (e) { state.columns = []; }
+      try { state.dualColumns = await loadJSON(base + '/columns_dual.json'); } catch (e) { state.dualColumns = null; }
+      try { state.calendar = await loadJSON(base + '/calendar_dual.json'); } catch (e) {
+        try { state.calendar = await loadJSON(base + '/calendar.json'); } catch (e2) { state.calendar = { weeks: [] }; }
+      }
+      try { state.shortSummary = await loadJSON(base + '/short_summary.json'); } catch (e) { state.shortSummary = null; }
       renderKPIs();
       renderClusters();
       renderVideos();
       renderUps();
       renderThemes();
+      renderShortPool();
       renderColumns();
       renderCalendar();
       document.getElementById('apply').onclick = renderVideos;

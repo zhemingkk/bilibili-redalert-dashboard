@@ -1,0 +1,152 @@
+{
+  "n_short_pool": 408,
+  "n_le20s": 17,
+  "n_lt60s": 86,
+  "n_1to3min": 141,
+  "n_vertical_flagged": 33,
+  "hook_counts": [
+    [
+      "基洛夫",
+      20
+    ],
+    [
+      "竖屏",
+      6
+    ],
+    [
+      "尤里",
+      3
+    ],
+    [
+      "语音",
+      2
+    ],
+    [
+      "谭雅",
+      1
+    ]
+  ],
+  "top_le20s": [
+    {
+      "bvid": "BV1w1kxY4E44",
+      "title": "也来做个红警，下次出个全的",
+      "play": 1009666,
+      "duration_sec": 15,
+      "is_vertical": false,
+      "url": "https://www.bilibili.com/video/BV1w1kxY4E44"
+    },
+    {
+      "bvid": "BV1Zb411c7f7",
+      "title": "这可能是红警OL里面唯一比较震撼的一场CG了",
+      "play": 622076,
+      "duration_sec": 19,
+      "is_vertical": true,
+      "url": "https://www.bilibili.com/video/BV1Zb411c7f7"
+    },
+    {
+      "bvid": "BV1QwaHzVEGY",
+      "title": "谁看了不迷糊",
+      "play": 536764,
+      "duration_sec": 7,
+      "is_vertical": true,
+      "url": "https://www.bilibili.com/video/BV1QwaHzVEGY"
+    },
+    {
+      "bvid": "BV1Wg4y1T7ha",
+      "title": "Kirovreporting！！",
+      "play": 380613,
+      "duration_sec": 13,
+      "is_vertical": false,
+      "url": "https://www.bilibili.com/video/BV1Wg4y1T7ha"
+    },
+    {
+      "bvid": "BV1N9Vp6kEtW",
+      "title": "反差萌安全感！当领导说视频要竖屏，而我拍的是横屏时...",
+      "play": 232454,
+      "duration_sec": 19,
+      "is_vertical": true,
+      "url": "https://www.bilibili.com/video/BV1N9Vp6kEtW"
+    },
+    {
+      "bvid": "BV13a411Y7hd",
+      "title": "离谱的红警广告",
+      "play": 226159,
+      "duration_sec": 19,
+      "is_vertical": false,
+      "url": "https://www.bilibili.com/video/BV13a411Y7hd"
+    },
+    {
+      "bvid": "BV1VD4y1W7G7",
+      "title": "名场面之瑶光薄纱基洛夫（满血）",
+      "play": 54450,
+      "duration_sec": 15,
+      "is_vertical": false,
+      "url": "https://www.bilibili.com/video/BV1VD4y1W7G7"
+    },
+    {
+      "bvid": "BV1i5411S7J6",
+      "title": "红色警戒完美战队宣传片短视频",
+      "play": 5574,
+      "duration_sec": 12,
+      "is_vertical": false,
+      "url": "https://www.bilibili.com/video/BV1i5411S7J6"
+    },
+    {
+      "bvid": "BV1Kg4y1Z7pB",
+      "title": "最短教程！如何在手机网页上联机玩红警或打人机？",
+      "play": 2395,
+      "duration_sec": 7,
+      "is_vertical": true,
+      "url": "https://www.bilibili.com/video/BV1Kg4y1Z7pB"
+    },
+    {
+      "bvid": "BV1kAkGYmE7F",
+      "title": "红警2基洛夫空艇语音包",
+      "play": 1405,
+      "duration_sec": 19,
+      "is_vertical": true,
+      "url": "https://www.bilibili.com/video/BV1kAkGYmE7F"
+    },
+    {
+      "bvid": "BV17X6HBZEhT",
+      "title": "红警：大鲨鱼基洛夫，旋转投弹一分钟纯享版！",
+      "play": 502,
+      "duration_sec": 16,
+      "is_vertical": false,
+      "url": "https://www.bilibili.com/video/BV17X6HBZEhT"
+    },
+    {
+      "bvid": "BV1uh411771R",
+      "title": "看我掐住蓝猫猫的头。左右摇摆，然后他就受不了，拔线投降",
+      "play": 223,
+      "duration_sec": 20,
+      "is_vertical": true,
+      "url": "https://www.bilibili.com/video/BV1uh411771R"
+    },
+    {
+      "bvid": "BV1cWuR6UEvg",
+      "title": "谁把我红警搬网页上了？！",
+      "play": 176,
+      "duration_sec": 20,
+      "is_vertical": true,
+      "url": "https://www.bilibili.com/video/BV1cWuR6UEvg"
+    },
+    {
+      "bvid": "BV1WvmQBTEWQ",
+      "title": "人生短短几个秋啊 不醉不罢休 东边儿我的美人啊 西边儿黄河流",
+      "play": 124,
+      "duration_sec": 15,
+      "is_vertical": true,
+      "url": "https://www.bilibili.com/video/BV1WvmQBTEWQ"
+    },
+    {
+      "bvid": "BV1sK41187er",
+      "title": "【红警鬼魔蓝天】最新视频来袭，快来看看吧！",
+      "play": 115,
+      "duration_sec": 12,
+      "is_vertical": true,
+      "url": "https://www.bilibili.com/video/BV1sK41187er"
+    }
+  ],
+  "note": "≤20秒样本偏少时，对标补充竖屏与≤60秒高播放短内容作为生态支撑。"
+}
