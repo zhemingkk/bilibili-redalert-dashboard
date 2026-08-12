@@ -135,8 +135,8 @@
           <div class="guard" style="margin-top:12px;">视觉质量 / AI痕迹 / 同质化仍待专项审阅。</div>
           <div id="aigcHints" class="lang-list" style="margin-top:12px;"></div>
         </div>
-        <div class="media-frame">
-          <img id="aigcImg" alt="AIGC 视觉样本概览" loading="lazy" />
+        <div class="media-frame" id="aigcFrame">
+          <img id="aigcImg" src="../assets/media/AIGC_VISUAL_OVERVIEW.jpg" alt="AIGC 视觉样本概览" loading="lazy" />
         </div>
       </div>
     </section>
@@ -364,13 +364,13 @@
         document.getElementById("aigcHints").innerHTML = (aigc.stage_coverage_hints || [])
           .map(h => `<span>${h}</span>`).join("");
         const aigcImg = document.getElementById("aigcImg");
+        const aigcFrame = document.getElementById("aigcFrame");
         const imgPath = RADash.depthPrefix() + (aigc.overview_image || "assets/media/AIGC_VISUAL_OVERVIEW.jpg");
-        aigcImg.src = imgPath;
+        if (aigcImg.getAttribute("src") !== imgPath) aigcImg.src = imgPath;
         aigcImg.onerror = () => {
-          aigcImg.replaceWith(Object.assign(document.createElement("div"), {
-            className: "guard",
-            textContent: "样本概览图暂未加载。请确认 assets/media/AIGC_VISUAL_OVERVIEW.jpg 已发布。",
-          }));
+          if (!aigcFrame) return;
+          aigcFrame.classList.add("is-missing");
+          aigcFrame.textContent = "样本概览图未找到（assets/media/AIGC_VISUAL_OVERVIEW.jpg）";
         };
 
         document.getElementById("compCards").innerHTML = (comps.games || []).map(g => `

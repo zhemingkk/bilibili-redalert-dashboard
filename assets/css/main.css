@@ -1122,9 +1122,19 @@ details.fold[open] summary { margin-bottom: 10px; color: var(--ink-soft); }
   border-radius: var(--radius-sm);
   overflow: hidden;
   border: 1px solid var(--line-soft);
-  background: #000;
+  background: var(--surface-2);
+  min-height: 160px;
 }
-.media-frame img { display: block; width: 100%; height: auto; }
+.media-frame img { display: block; width: 100%; height: auto; vertical-align: top; }
+.media-frame.is-missing {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  color: var(--muted);
+  font-size: 13px;
+  text-align: center;
+}
 
 .special-card {
   background: var(--panel);
