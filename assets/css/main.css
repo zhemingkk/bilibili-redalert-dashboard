@@ -608,17 +608,25 @@ a:hover { color: var(--ink); }
   font-size: 10.5px;
   text-transform: uppercase;
   padding: 7px 14px;
+  box-shadow: none;
 }
 .platform-card .btn:hover {
   border-color: rgba(204, 120, 92, 0.55);
   color: var(--accent);
   filter: none;
-  background: transparent;
+  background: var(--accent-dim);
+  transform: translateY(-1px);
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(250, 249, 245, 0.06);
 }
 
+/* Interactive CTAs — tactile motion so buttons ≠ display modules */
 .btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  gap: 6px;
   padding: 8px 14px;
   border-radius: 999px;
   background: var(--accent);
@@ -629,19 +637,93 @@ a:hover { color: var(--ink); }
   border: 0;
   cursor: pointer;
   text-decoration: none;
-  transition: background 0.18s var(--ease), transform 0.12s var(--ease);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  transform: translateY(0) scale(1);
+  box-shadow:
+    0 1px 0 rgba(250, 249, 245, 0.12) inset,
+    0 1px 2px rgba(0, 0, 0, 0.18);
+  transition:
+    background 0.2s var(--ease),
+    color 0.2s var(--ease),
+    border-color 0.2s var(--ease),
+    transform 0.2s var(--ease),
+    box-shadow 0.22s var(--ease);
 }
-.btn:hover { background: var(--accent-active); text-decoration: none; filter: none; }
-.btn:active { transform: translateY(1px); }
+.btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    120deg,
+    transparent 35%,
+    rgba(250, 249, 245, 0.18) 48%,
+    transparent 62%
+  );
+  transform: translateX(-120%);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.45s var(--ease), opacity 0.2s var(--ease);
+}
+.btn:hover {
+  background: var(--accent-soft);
+  color: #1a1210;
+  text-decoration: none;
+  filter: none;
+  transform: translateY(-1px);
+  box-shadow:
+    0 1px 0 rgba(250, 249, 245, 0.22) inset,
+    0 8px 22px rgba(204, 120, 92, 0.28);
+}
+.btn:hover::after {
+  opacity: 1;
+  transform: translateX(120%);
+}
+.btn:active {
+  transform: translateY(1px) scale(0.98);
+  background: var(--accent-active);
+  color: #fff;
+  box-shadow:
+    0 1px 0 rgba(0, 0, 0, 0.2) inset,
+    0 2px 6px rgba(204, 120, 92, 0.18);
+}
+.btn:active::after { opacity: 0; }
+.btn:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 2px var(--bg),
+    0 0 0 4px rgba(204, 120, 92, 0.55),
+    0 8px 22px rgba(204, 120, 92, 0.22);
+}
 .btn.ghost {
   background: transparent;
   border: 1px solid var(--line);
   color: var(--ink-soft);
+  box-shadow: none;
+  overflow: visible;
 }
+.btn.ghost::after { display: none; }
 .btn.ghost:hover {
-  border-color: rgba(204, 120, 92, 0.5);
+  border-color: rgba(204, 120, 92, 0.55);
   color: var(--accent);
-  background: transparent;
+  background: var(--accent-dim);
+  transform: translateY(-1px);
+  box-shadow:
+    0 8px 18px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(250, 249, 245, 0.06);
+}
+.btn.ghost:active {
+  transform: translateY(1px) scale(0.98);
+  background: rgba(204, 120, 92, 0.22);
+  color: var(--accent-soft);
+  box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.15);
+}
+.btn.ghost:focus-visible {
+  box-shadow:
+    0 0 0 2px var(--bg),
+    0 0 0 4px rgba(204, 120, 92, 0.45);
 }
 
 .module {
@@ -652,6 +734,8 @@ a:hover { color: var(--ink); }
   box-shadow: none;
   margin: 0 clamp(28px, 4vw, 56px) 20px;
   backdrop-filter: blur(8px);
+  cursor: default;
+  transform: none;
 }
 .module.soft {
   background: transparent;
@@ -1005,8 +1089,17 @@ details.fold[open] summary { margin-bottom: 10px; color: var(--ink-soft); }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     transition: none !important;
+    animation: none !important;
     scroll-behavior: auto !important;
   }
+  .btn:hover,
+  .btn:active,
+  .btn.ghost:hover,
+  .btn.ghost:active,
+  .platform-card .btn:hover {
+    transform: none;
+  }
+  .btn::after { display: none; }
 }
 
 @media (max-width: 1000px) {
