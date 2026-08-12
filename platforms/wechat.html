@@ -4,10 +4,18 @@
   <meta charset="UTF-8" />
   <script>
     try {
-      var t = localStorage.getItem("ra-theme") || "dark";
-      document.documentElement.setAttribute("data-theme", t === "light" ? "light" : "dark");
+      var t = localStorage.getItem("ra-theme") || "light";
+      document.documentElement.setAttribute("data-theme", t === "dark" ? "dark" : "light");
+      var nf = localStorage.getItem("ra-num-font") || "instrument";
+      if (!/^(instrument|playfair|literata|fraunces|serif|mono|sans)$/.test(nf)) nf = "instrument";
+      document.documentElement.setAttribute("data-num-font", nf);
+      var hf = localStorage.getItem("ra-hero-num-font") || "instrument";
+      if (!/^(instrument|playfair|fraunces|serif|literata|mono)$/.test(hf)) hf = "instrument";
+      document.documentElement.setAttribute("data-hero-num-font", hf);
     } catch (e) {
-      document.documentElement.setAttribute("data-theme", "dark");
+      document.documentElement.setAttribute("data-theme", "light");
+      document.documentElement.setAttribute("data-num-font", "instrument");
+      document.documentElement.setAttribute("data-hero-num-font", "instrument");
     }
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1" />

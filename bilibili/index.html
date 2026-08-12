@@ -402,19 +402,7 @@
   <div class="topbar">
     <a href="../">← 总览</a>
     <span class="brand">B站专项报告</span>
-    <label class="num-font-pick" title="数字字体" style="margin-left:auto;display:inline-flex;align-items:center;gap:6px;font-size:11px;color:var(--faint);">
-      <span>数字</span>
-      <select id="numFontSelect" aria-label="选择数字字体" style="appearance:none;background:var(--surface);color:var(--ink-soft);border:1px solid var(--line);border-radius:999px;padding:5px 10px;font-size:11px;cursor:pointer;">
-        <option value="instrument">Instrument</option>
-        <option value="playfair">Playfair</option>
-        <option value="literata">Literata</option>
-        <option value="fraunces">Fraunces</option>
-        <option value="serif">DM Serif</option>
-        <option value="mono">JetBrains</option>
-        <option value="sans">DM Sans</option>
-      </select>
-    </label>
-    <span class="muted" style="font-size:12px;">主题跟随总览</span>
+    <span class="muted" style="margin-left:auto;font-size:12px;">主题 / 数字字体 · 在总览「设置」中统一调整</span>
   </div>
   <header>
     <p class="eyebrow">B站专项</p>
@@ -584,20 +572,13 @@
       });
     })();
 
-    (function numFontPick() {
-      const sel = document.getElementById('numFontSelect');
-      if (!sel) return;
-      const cur = document.documentElement.getAttribute('data-num-font') || 'instrument';
-      sel.value = cur;
-      sel.addEventListener('change', () => {
-        const id = sel.value;
-        document.documentElement.setAttribute('data-num-font', id);
-        try { localStorage.setItem('ra-num-font', id); } catch (e) {}
-      });
+    /* Number font owned by overview settings (ra-num-font). Follow across tabs. */
+    (function followHomepageNumFont() {
       window.addEventListener('storage', (e) => {
         if (e.key !== 'ra-num-font' || !e.newValue) return;
-        document.documentElement.setAttribute('data-num-font', e.newValue);
-        sel.value = e.newValue;
+        const allowed = ['instrument','playfair','literata','fraunces','serif','mono','sans'];
+        const id = allowed.indexOf(e.newValue) >= 0 ? e.newValue : 'instrument';
+        document.documentElement.setAttribute('data-num-font', id);
       });
     })();
 

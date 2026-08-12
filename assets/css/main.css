@@ -48,6 +48,7 @@
   --font-display: "Cormorant Garamond", "Noto Serif SC", "Songti SC", Georgia, serif;
   --font-mono: "IBM Plex Mono", "Cascadia Mono", Consolas, monospace;
   --font-num: "Instrument Serif", "Cormorant Garamond", "Noto Serif SC", Georgia, serif;
+  --font-hero-num: "Instrument Serif", "Cormorant Garamond", "Noto Serif SC", Georgia, serif;
   --shadow-panel: none;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --grid-size: 56px;
@@ -266,13 +267,15 @@ a:hover { color: var(--ink); }
 }
 
 .giant {
-  font-family: var(--font-display);
+  font-family: var(--font-hero-num);
   font-size: clamp(92px, 14vw, 148px);
   font-weight: 500;
   letter-spacing: -0.05em;
   line-height: 0.9;
   color: var(--ink);
   margin: 0 0 8px;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
 }
 .giant.coral { color: var(--accent); }
 
@@ -476,11 +479,13 @@ a:hover { color: var(--ink); }
 }
 .section-head h2 {
   margin: 0;
-  font-family: var(--font-display);
+  font-family: var(--font-num), var(--font-display), var(--font);
   font-size: clamp(28px, 3vw, 36px);
   font-weight: 500;
   letter-spacing: -0.025em;
   color: var(--ink);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
 }
 .section-head .desc {
   color: var(--faint);
@@ -827,11 +832,13 @@ a:hover { color: var(--ink); }
 }
 .module h3 {
   margin: 0 0 6px;
-  font-family: var(--font-display);
+  font-family: var(--font-num), var(--font-display), var(--font);
   font-size: 22px;
   font-weight: 500;
   letter-spacing: -0.02em;
   color: var(--ink);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
 }
 .module .lead {
   margin: 0 0 16px;
@@ -1169,7 +1176,15 @@ details.fold[open] summary { margin-bottom: 10px; color: var(--ink-soft); }
   font-weight: 600;
   font-size: 13px;
 }
-.flow-step .n { color: var(--accent); margin-right: 8px; font-size: 11px; letter-spacing: 0.08em; }
+.flow-step .n {
+  color: var(--accent);
+  margin-right: 8px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  font-family: var(--font-num), var(--font-display), var(--font);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}
 .flow-arrow { color: var(--faint); font-size: 16px; }
 .path-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
 .path-card {
@@ -1185,7 +1200,9 @@ details.fold[open] summary { margin-bottom: 10px; color: var(--ink-soft); }
   font-size: 11.5px;
   font-weight: 500;
   margin-left: 6px;
-  font-family: var(--font);
+  font-family: var(--font-num), var(--font);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
 }
 .path-card .line { color: var(--muted); font-size: 13px; margin-top: 6px; }
 .path-card .line span {
@@ -1287,41 +1304,131 @@ details.fold[open] summary { margin-bottom: 10px; color: var(--ink-soft); }
   min-width: 52px;
 }
 .num-font-pick {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  color: var(--faint);
-  font-size: 11px;
+  display: none !important;
+}
+.settings-toggle {
+  padding: 6px 12px !important;
+  font-size: 11px !important;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  white-space: nowrap;
+  min-width: 52px;
 }
-.num-font-pick select {
-  appearance: none;
-  -webkit-appearance: none;
+
+/* Settings side drawer — overview only entry */
+html.ra-settings-open { overflow: hidden; }
+.ra-settings {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+}
+.ra-settings[hidden] { display: none !important; }
+.ra-settings-backdrop {
+  position: absolute;
+  inset: 0;
+  background: var(--overlay);
+  backdrop-filter: blur(4px);
+}
+.ra-settings-drawer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: min(400px, 92vw);
+  background: var(--panel-solid);
+  border-left: 1px solid var(--line);
+  box-shadow: -18px 0 48px rgba(0, 0, 0, 0.28);
+  display: flex;
+  flex-direction: column;
+  animation: raSettingsIn 0.28s var(--ease);
+}
+@keyframes raSettingsIn {
+  from { transform: translateX(18px); opacity: 0.6; }
+  to { transform: translateX(0); opacity: 1; }
+}
+.ra-settings-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 22px 22px 16px;
+  border-bottom: 1px solid var(--line-soft);
+}
+.ra-settings-head strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+}
+.ra-settings-head p {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 12.5px;
+  line-height: 1.55;
+}
+.ra-settings-close {
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink-soft);
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.ra-settings-close:hover { border-color: var(--accent); color: var(--accent); }
+.ra-settings-body {
+  padding: 8px 22px 28px;
+  overflow: auto;
+}
+.ra-settings-block {
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line-soft);
+}
+.ra-settings-block:last-child { border-bottom: 0; }
+.ra-settings-block h3 {
+  margin: 0 0 6px;
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--ink);
+}
+.ra-settings-help {
+  margin: 0 0 14px;
+  color: var(--muted);
+  font-size: 12.5px;
+  line-height: 1.6;
+}
+.ra-settings-field {
+  display: grid;
+  gap: 6px;
+}
+.ra-settings-field > span {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--faint);
+  font-weight: 600;
+}
+.ra-settings-field select {
+  width: 100%;
   background: var(--surface);
   color: var(--ink-soft);
   border: 1px solid var(--line);
-  border-radius: 999px;
-  padding: 5px 28px 5px 10px;
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
   font-family: var(--font);
-  font-size: 11px;
-  letter-spacing: 0.04em;
-  text-transform: none;
-  cursor: pointer;
-  background-image: linear-gradient(45deg, transparent 50%, var(--faint) 50%),
-    linear-gradient(135deg, var(--faint) 50%, transparent 50%);
-  background-position: calc(100% - 14px) 55%, calc(100% - 10px) 55%;
-  background-size: 4px 4px, 4px 4px;
-  background-repeat: no-repeat;
-  max-width: 148px;
+  font-size: 14px;
 }
-.num-font-pick select:focus {
+.ra-settings-field select:focus {
   outline: none;
   border-color: rgba(224, 120, 72, 0.55);
 }
 
-/* Number font presets (localStorage ra-num-font) */
+/* Number font presets */
 html[data-num-font="instrument"] {
   --font-num: "Instrument Serif", "Cormorant Garamond", "Noto Serif SC", Georgia, serif;
 }
@@ -1343,15 +1450,35 @@ html[data-num-font="mono"] {
 html[data-num-font="sans"] {
   --font-num: "DM Sans", "PingFang SC", "Microsoft YaHei UI", sans-serif;
 }
+html[data-hero-num-font="instrument"] {
+  --font-hero-num: "Instrument Serif", "Cormorant Garamond", "Noto Serif SC", Georgia, serif;
+}
+html[data-hero-num-font="playfair"] {
+  --font-hero-num: "Playfair Display", "Cormorant Garamond", "Noto Serif SC", Georgia, serif;
+}
+html[data-hero-num-font="fraunces"] {
+  --font-hero-num: "Fraunces", "Cormorant Garamond", "Noto Serif SC", Georgia, serif;
+}
+html[data-hero-num-font="serif"] {
+  --font-hero-num: "DM Serif Display", "Cormorant Garamond", "Noto Serif SC", Georgia, serif;
+}
+html[data-hero-num-font="literata"] {
+  --font-hero-num: "Literata", "Cormorant Garamond", "Noto Serif SC", Georgia, serif;
+}
+html[data-hero-num-font="mono"] {
+  --font-hero-num: "JetBrains Mono", "IBM Plex Mono", Consolas, monospace;
+}
+
+/* Body / section numbers (not hero giants) */
 .num,
-.giant,
 .coverage strong,
 .finding .idx,
 .finding-viz .finding-viz-metric,
 .rts-metric .v,
 .card .v,
-.strategy-idx {
-  font-family: var(--font-num);
+.strategy-idx,
+.strategy-point h3 {
+  font-family: var(--font-num), var(--font-display), var(--font);
   font-variant-numeric: tabular-nums;
   font-feature-settings: "tnum" 1;
 }

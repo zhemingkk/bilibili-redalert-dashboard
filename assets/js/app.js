@@ -1,16 +1,29 @@
 ﻿window.RADash = (function () {
   const THEME_KEY = "ra-theme";
   const NUM_FONT_KEY = "ra-num-font";
+  const HERO_FONT_KEY = "ra-hero-num-font";
+
+  /** Body / section numbers across platform pages */
   const NUM_FONTS = [
-    { id: "instrument", label: "Instrument" },
-    { id: "playfair", label: "Playfair" },
+    { id: "instrument", label: "Instrument Serif" },
+    { id: "playfair", label: "Playfair Display" },
     { id: "literata", label: "Literata" },
     { id: "fraunces", label: "Fraunces" },
-    { id: "serif", label: "DM Serif" },
-    { id: "mono", label: "JetBrains" },
+    { id: "serif", label: "DM Serif Display" },
+    { id: "mono", label: "JetBrains Mono" },
     { id: "sans", label: "DM Sans" },
   ];
+  /** Overview hero giants only — exactly 6 */
+  const HERO_FONTS = [
+    { id: "instrument", label: "Instrument Serif" },
+    { id: "playfair", label: "Playfair Display" },
+    { id: "fraunces", label: "Fraunces" },
+    { id: "serif", label: "DM Serif Display" },
+    { id: "literata", label: "Literata" },
+    { id: "mono", label: "JetBrains Mono" },
+  ];
   const NUM_FONT_DEFAULT = "instrument";
+  const HERO_FONT_DEFAULT = "instrument";
 
   function bootTheme() {
     let theme = "light";
@@ -22,13 +35,21 @@
     return theme;
   }
 
-  function getNumFont() {
-    let id = NUM_FONT_DEFAULT;
+  function pickFontId(key, list, fallback) {
+    let id = fallback;
     try {
-      id = localStorage.getItem(NUM_FONT_KEY) || NUM_FONT_DEFAULT;
+      id = localStorage.getItem(key) || fallback;
     } catch (e) {}
-    if (!NUM_FONTS.some((f) => f.id === id)) id = NUM_FONT_DEFAULT;
+    if (!list.some((f) => f.id === id)) id = fallback;
     return id;
+  }
+
+  function getNumFont() {
+    return pickFontId(NUM_FONT_KEY, NUM_FONTS, NUM_FONT_DEFAULT);
+  }
+
+  function getHeroFont() {
+    return pickFontId(HERO_FONT_KEY, HERO_FONTS, HERO_FONT_DEFAULT);
   }
 
   function setNumFont(id) {
@@ -37,18 +58,29 @@
     try {
       localStorage.setItem(NUM_FONT_KEY, id);
     } catch (e) {}
-    document.querySelectorAll(".num-font-pick select").forEach((sel) => {
-      sel.value = id;
-    });
+    const sel = document.getElementById("raSettingsNumFont");
+    if (sel) sel.value = id;
     window.dispatchEvent(new CustomEvent("ra-num-font", { detail: { id } }));
   }
 
-  function bootNumFont() {
+  function setHeroFont(id) {
+    if (!HERO_FONTS.some((f) => f.id === id)) id = HERO_FONT_DEFAULT;
+    document.documentElement.setAttribute("data-hero-num-font", id);
+    try {
+      localStorage.setItem(HERO_FONT_KEY, id);
+    } catch (e) {}
+    const sel = document.getElementById("raSettingsHeroFont");
+    if (sel) sel.value = id;
+    window.dispatchEvent(new CustomEvent("ra-hero-num-font", { detail: { id } }));
+  }
+
+  function bootFonts() {
     setNumFont(getNumFont());
+    setHeroFont(getHeroFont());
   }
 
   bootTheme();
-  bootNumFont();
+  bootFonts();
 
   const NAV = [
     { id: "overview", label: "总览", href: "index.html", state: "已完成" },
@@ -96,6 +128,8 @@
       btn.textContent = theme === "light" ? "深色" : "浅色";
       btn.setAttribute("aria-label", theme === "light" ? "切换到深色" : "切换到浅色");
     });
+    const themeSel = document.getElementById("raSettingsTheme");
+    if (themeSel) themeSel.value = theme;
     window.dispatchEvent(new CustomEvent("ra-theme", { detail: { theme } }));
   }
 
@@ -160,25 +194,115 @@
     wrap.insertBefore(btn, wrap.firstChild);
   }
 
-  function mountNumFontPick(inner) {
-    if (!inner || inner.querySelector(".num-font-pick")) return;
-    const cur = getNumFont();
-    const label = document.createElement("label");
-    label.className = "num-font-pick";
-    label.title = "数字字体";
-    label.innerHTML =
-      `<span>数字</span><select aria-label="选择数字字体">` +
-      NUM_FONTS.map(
-        (f) => `<option value="${f.id}"${f.id === cur ? " selected" : ""}>${f.label}</option>`
-      ).join("") +
-      `</select>`;
-    label.querySelector("select").addEventListener("change", (e) => {
-      setNumFont(e.target.value);
+  function optionsHtml(list, selected) {
+    return list
+      .map(
+        (f) =>
+          `<option value="${f.id}"${f.id === selected ? " selected" : ""}>${f.label}</option>`
+      )
+      .join("");
+  }
+
+  function ensureSettingsPanel() {
+    let panel = document.getElementById("raSettingsPanel");
+    if (panel) return panel;
+    panel = document.createElement("div");
+    panel.id = "raSettingsPanel";
+    panel.className = "ra-settings";
+    panel.hidden = true;
+    panel.innerHTML = `
+      <div class="ra-settings-backdrop" data-close="1"></div>
+      <aside class="ra-settings-drawer" role="dialog" aria-label="显示设置" aria-modal="true">
+        <header class="ra-settings-head">
+          <div>
+            <strong>显示设置</strong>
+            <p>仅在总览配置；选项会记住，并作用于全站对应元素。</p>
+          </div>
+          <button type="button" class="ra-settings-close" aria-label="关闭" data-close="1">×</button>
+        </header>
+        <div class="ra-settings-body">
+          <section class="ra-settings-block">
+            <h3>主题</h3>
+            <p class="ra-settings-help">整站浅色 / 深色。各页导航也可快速切换。</p>
+            <label class="ra-settings-field">
+              <span>外观</span>
+              <select id="raSettingsTheme">
+                <option value="light">浅色 Ivory</option>
+                <option value="dark">深色 Espresso</option>
+              </select>
+            </label>
+          </section>
+          <section class="ra-settings-block">
+            <h3>落地页大数字</h3>
+            <p class="ra-settings-help">只改总览顶部两个巨型数字（平台数「4」、样本「200」），不影响正文。</p>
+            <label class="ra-settings-field">
+              <span>Hero 字体（6 选）</span>
+              <select id="raSettingsHeroFont"></select>
+            </label>
+          </section>
+          <section class="ra-settings-block">
+            <h3>正文 / 章节数字</h3>
+            <p class="ra-settings-help">覆盖各平台页章节号（如微信「04」）、流程 01–03、n=样本、指标与策略编号。拉丁数字走所选字体；中文走字体栈回退。</p>
+            <label class="ra-settings-field">
+              <span>数字字体</span>
+              <select id="raSettingsNumFont"></select>
+            </label>
+          </section>
+        </div>
+      </aside>`;
+    document.body.appendChild(panel);
+
+    const themeSel = panel.querySelector("#raSettingsTheme");
+    const heroSel = panel.querySelector("#raSettingsHeroFont");
+    const numSel = panel.querySelector("#raSettingsNumFont");
+    themeSel.value = getTheme();
+    heroSel.innerHTML = optionsHtml(HERO_FONTS, getHeroFont());
+    numSel.innerHTML = optionsHtml(NUM_FONTS, getNumFont());
+
+    themeSel.addEventListener("change", () => setTheme(themeSel.value));
+    heroSel.addEventListener("change", () => setHeroFont(heroSel.value));
+    numSel.addEventListener("change", () => setNumFont(numSel.value));
+
+    panel.addEventListener("click", (e) => {
+      if (e.target && e.target.getAttribute("data-close")) closeSettings();
     });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && !panel.hidden) closeSettings();
+    });
+    return panel;
+  }
+
+  function openSettings() {
+    const panel = ensureSettingsPanel();
+    panel.hidden = false;
+    document.documentElement.classList.add("ra-settings-open");
+    const themeSel = panel.querySelector("#raSettingsTheme");
+    const heroSel = panel.querySelector("#raSettingsHeroFont");
+    const numSel = panel.querySelector("#raSettingsNumFont");
+    if (themeSel) themeSel.value = getTheme();
+    if (heroSel) heroSel.value = getHeroFont();
+    if (numSel) numSel.value = getNumFont();
+  }
+
+  function closeSettings() {
+    const panel = document.getElementById("raSettingsPanel");
+    if (panel) panel.hidden = true;
+    document.documentElement.classList.remove("ra-settings-open");
+  }
+
+  function mountSettingsButton(inner) {
+    if (!inner || inner.querySelector(".settings-toggle")) return;
+    ensureSettingsPanel();
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "btn ghost settings-toggle";
+    btn.textContent = "设置";
+    btn.setAttribute("aria-label", "打开显示设置");
+    btn.addEventListener("click", openSettings);
     const wrap = ensureNavExportWrap(inner);
     const themeBtn = wrap.querySelector(".theme-toggle");
-    if (themeBtn) wrap.insertBefore(label, themeBtn.nextSibling);
-    else wrap.insertBefore(label, wrap.firstChild);
+    if (themeBtn) wrap.insertBefore(btn, themeBtn.nextSibling);
+    else wrap.insertBefore(btn, wrap.firstChild);
   }
 
   function renderNav(activeId) {
@@ -200,7 +324,7 @@
       </div>`;
     const inner = host.querySelector(".topnav-inner");
     mountThemeToggle(inner);
-    mountNumFontPick(inner);
+    if (chrome === "overview") mountSettingsButton(inner);
     ensureExportScript(() => {
       if (window.RAExport && typeof RAExport.mountNavExport === "function") {
         RAExport.mountNavExport();
@@ -223,8 +347,14 @@
     bootTheme,
     getNumFont,
     setNumFont,
+    getHeroFont,
+    setHeroFont,
+    openSettings,
+    closeSettings,
     NUM_FONTS,
+    HERO_FONTS,
     THEME_KEY,
     NUM_FONT_KEY,
+    HERO_FONT_KEY,
   };
 })();
