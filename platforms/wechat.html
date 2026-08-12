@@ -208,26 +208,13 @@
         document.getElementById("mpTypeTable").innerHTML = mpTypes.map((r) => `
           <tr><td>${r.type}</td><td>${r.count}</td><td>${pct(r.share)}</td></tr>`).join("");
         document.getElementById("mpTakeaway").innerHTML = `<strong>Takeaway：</strong>${mpContent.takeaway || ""}`;
-        new Chart(document.getElementById("chartMpTypes"), {
-          type: "bar",
-          data: {
-            labels: mpTypes.map((x) => x.type),
-            datasets: [{
-              label: "作品数",
-              data: mpTypes.map((x) => x.count),
-              backgroundColor: "#c45c26aa",
-              borderColor: "#c45c26",
-              borderWidth: 1,
-            }],
-          },
-          options: {
-            indexAxis: "y",
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: { legend: { display: false } },
-            scales: { x: { ticks: { precision: 0 } } },
-          },
-        });
+        RACharts.hbar(
+          document.getElementById("chartMpTypes"),
+          mpTypes.map((x) => x.type),
+          mpTypes.map((x) => x.count),
+          RACharts.CORAL,
+          "作品数"
+        );
 
         // premium
         document.getElementById("premiumChips").innerHTML = (mpContent.premium_methods || []).map((o) =>
@@ -237,26 +224,13 @@
 
         // 03 channels
         const chTypes = chContent.type_distribution || [];
-        new Chart(document.getElementById("chartChTypes"), {
-          type: "bar",
-          data: {
-            labels: chTypes.map((x) => x.type),
-            datasets: [{
-              label: "作品数",
-              data: chTypes.map((x) => x.count),
-              backgroundColor: "#4f8cff99",
-              borderColor: "#4f8cff",
-              borderWidth: 1,
-            }],
-          },
-          options: {
-            indexAxis: "y",
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: { legend: { display: false } },
-            scales: { x: { ticks: { precision: 0 } } },
-          },
-        });
+        RACharts.hbar(
+          document.getElementById("chartChTypes"),
+          chTypes.map((x) => x.type),
+          chTypes.map((x) => x.count),
+          "#7aa2c4",
+          "作品数"
+        );
         document.getElementById("chSeriesTakeaway").innerHTML =
           `<strong>已验证：</strong>${chContent.series_takeaway || ""}（可识别系列 ${RADash.fmt(chContent.series_count)}；公众号栏目 ${RADash.fmt(mpColumns.n_columns)}）`;
         document.getElementById("chSeriesChips").innerHTML = (chContent.series || []).map((s) =>

@@ -3,7 +3,32 @@ window.RACharts = (function () {
   const INK = "#faf9f5";
   const MUTED = "#a09d96";
   const GRID = "rgba(250,249,245,0.10)";
+  const PANEL = "#161412";
   const PALETTE = ["#cc785c", "#d4a574", "#5db8a6", "#7aa2c4", "#c47a8a", "#a09d96", "#e8a55a"];
+  const FONT = '"DM Sans","PingFang SC",sans-serif';
+  const DISPLAY = '"Cormorant Garamond","Noto Serif SC",serif';
+
+  function applyDefaults() {
+    if (typeof Chart === "undefined") return;
+    Chart.defaults.color = MUTED;
+    Chart.defaults.borderColor = GRID;
+    Chart.defaults.font.family = FONT;
+    Chart.defaults.font.size = 12;
+    Chart.defaults.plugins.legend.labels = {
+      color: MUTED,
+      boxWidth: 10,
+      boxHeight: 10,
+      padding: 16,
+      font: { size: 12, family: FONT },
+    };
+    Chart.defaults.plugins.tooltip.backgroundColor = "rgba(28,26,23,0.94)";
+    Chart.defaults.plugins.tooltip.titleColor = INK;
+    Chart.defaults.plugins.tooltip.bodyColor = MUTED;
+    Chart.defaults.plugins.tooltip.borderColor = GRID;
+    Chart.defaults.plugins.tooltip.borderWidth = 1;
+    Chart.defaults.plugins.tooltip.padding = 10;
+  }
+  applyDefaults();
 
   function baseOpts(extra) {
     return Object.assign({
@@ -18,7 +43,7 @@ window.RACharts = (function () {
             boxWidth: 10,
             boxHeight: 10,
             padding: 16,
-            font: { size: 12, family: '"DM Sans","PingFang SC",sans-serif' },
+            font: { size: 12, family: FONT },
           },
         },
         tooltip: {
@@ -28,15 +53,15 @@ window.RACharts = (function () {
           borderColor: GRID,
           borderWidth: 1,
           padding: 10,
-          titleFont: { size: 13, family: '"DM Sans","PingFang SC",sans-serif' },
-          bodyFont: { size: 12, family: '"DM Sans","PingFang SC",sans-serif' },
+          titleFont: { size: 13, family: FONT },
+          bodyFont: { size: 12, family: FONT },
         },
       },
       scales: {
         x: {
           ticks: {
             color: MUTED,
-            font: { size: 12, family: '"DM Sans","PingFang SC",sans-serif' },
+            font: { size: 12, family: FONT },
             maxRotation: 0,
           },
           grid: { color: GRID, drawBorder: false },
@@ -46,7 +71,7 @@ window.RACharts = (function () {
           beginAtZero: true,
           ticks: {
             color: MUTED,
-            font: { size: 12, family: '"DM Sans","PingFang SC",sans-serif' },
+            font: { size: 12, family: FONT },
           },
           grid: { color: GRID, drawBorder: false },
           border: { color: GRID },
@@ -79,7 +104,7 @@ window.RACharts = (function () {
         datasets: [{
           data,
           backgroundColor: colors || PALETTE,
-          borderColor: "#161412",
+          borderColor: PANEL,
           borderWidth: 2,
           hoverOffset: 4,
         }],
@@ -96,7 +121,7 @@ window.RACharts = (function () {
               boxWidth: 12,
               boxHeight: 12,
               padding: 14,
-              font: { size: 13, family: '"DM Sans","PingFang SC",sans-serif' },
+              font: { size: 13, family: FONT },
             },
           },
           tooltip: {
@@ -144,7 +169,8 @@ window.RACharts = (function () {
             beginAtZero: true,
             ticks: {
               color: MUTED,
-              font: { size: 12, family: '"Cormorant Garamond","Noto Serif SC",serif' },
+              precision: 0,
+              font: { size: 12, family: DISPLAY },
             },
             grid: { color: GRID, drawBorder: false },
             border: { color: GRID },
@@ -152,7 +178,7 @@ window.RACharts = (function () {
           y: {
             ticks: {
               color: INK,
-              font: { size: 13, family: '"DM Sans","PingFang SC",sans-serif' },
+              font: { size: 13, family: FONT },
             },
             grid: { display: false, drawBorder: false },
             border: { color: GRID },
@@ -162,5 +188,5 @@ window.RACharts = (function () {
     });
   }
 
-  return { bar, doughnut, hbar, CORAL, PALETTE };
+  return { bar, doughnut, hbar, applyDefaults, CORAL, PALETTE };
 })();
