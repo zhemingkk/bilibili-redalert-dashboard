@@ -136,7 +136,7 @@
           <div id="aigcHints" class="lang-list" style="margin-top:12px;"></div>
         </div>
         <div class="media-frame">
-          <img id="aigcImg" alt="AIGC visual overview" />
+          <img id="aigcImg" alt="AIGC 视觉样本概览" loading="lazy" />
         </div>
       </div>
     </section>
@@ -363,7 +363,15 @@
           <div>${(aigc.stratum_counts || []).map(s => s.stratum + s.count).join(" / ")}</div>`;
         document.getElementById("aigcHints").innerHTML = (aigc.stage_coverage_hints || [])
           .map(h => `<span>${h}</span>`).join("");
-        document.getElementById("aigcImg").src = RADash.depthPrefix() + (aigc.overview_image || "assets/media/AIGC_VISUAL_OVERVIEW.jpg");
+        const aigcImg = document.getElementById("aigcImg");
+        const imgPath = RADash.depthPrefix() + (aigc.overview_image || "assets/media/AIGC_VISUAL_OVERVIEW.jpg");
+        aigcImg.src = imgPath;
+        aigcImg.onerror = () => {
+          aigcImg.replaceWith(Object.assign(document.createElement("div"), {
+            className: "guard",
+            textContent: "样本概览图暂未加载。请确认 assets/media/AIGC_VISUAL_OVERVIEW.jpg 已发布。",
+          }));
+        };
 
         document.getElementById("compCards").innerHTML = (comps.games || []).map(g => `
           <div class="platform-card">
