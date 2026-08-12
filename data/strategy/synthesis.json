@@ -338,8 +338,7 @@
   "next_steps": [
     "业务侧确认 5 条栏目的最终命名与产能上限",
     "把选题库落到首个大版本 4 周日历",
-    "完成 AIGC 视觉专项后，升级 AIGC 策略槽",
-    "导出 PDF / Excel / MD 供评审（下一功能）"
+    "完成 AIGC 视觉专项后，升级 AIGC 策略槽"
   ],
   "sources": [
     "data/overview/meta.json",

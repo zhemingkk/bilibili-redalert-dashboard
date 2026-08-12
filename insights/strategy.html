@@ -14,6 +14,7 @@
       <h1 id="pageTitle">红警荣耀策略</h1>
       <p class="sub" id="pageSub">加载中…</p>
       <p class="prop" id="pageProp"></p>
+      <div class="btn-row" id="exportMount" style="margin-top:18px;"></div>
     </header>
 
     <div class="guard" id="guard" style="margin: 20px clamp(28px, 4vw, 56px);"></div>
@@ -37,6 +38,9 @@
   <script src="../assets/js/app.js"></script>
   <script>
     RADash.renderNav("strategy");
+    RADash.ensureExportScript(() => {
+      RAExport.mount("#exportMount");
+    });
 
     function confClass(c) {
       const s = String(c || "");

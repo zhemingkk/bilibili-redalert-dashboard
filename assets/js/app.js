@@ -31,22 +31,6 @@ window.RADash = (function () {
     return res.json();
   }
 
-  function renderNav(activeId) {
-    const host = document.getElementById("topnav");
-    if (!host) return;
-    const prefix = depthPrefix();
-    const links = NAV.map((item) => {
-      const href = prefix + item.href;
-      const active = item.id === activeId ? " active" : "";
-      return `<a class="nav-link${active}" href="${href}">${item.label}<span class="state">${item.state}</span></a>`;
-    }).join("");
-    host.innerHTML = `
-      <div class="topnav-inner">
-        <div class="brand">《红警：荣耀》<em>内容生态研究</em></div>
-        ${links}
-      </div>`;
-  }
-
   function chartDefaults() {
     if (typeof Chart === "undefined") return;
     Chart.defaults.color = "#a09d96";
@@ -62,5 +46,42 @@ window.RADash = (function () {
     document.body.appendChild(pre);
   }
 
-  return { NAV, depthPrefix, fmt, loadJSON, renderNav, chartDefaults, showError };
+  function ensureExportScript(cb) {
+    if (window.RAExport) {
+      if (cb) cb();
+      return;
+    }
+    if (document.getElementById("ra-export-script")) {
+      document.getElementById("ra-export-script").addEventListener("load", () => cb && cb());
+      return;
+    }
+    const s = document.createElement("script");
+    s.id = "ra-export-script";
+    s.src = depthPrefix() + "assets/js/export.js";
+    s.onload = () => cb && cb();
+    document.head.appendChild(s);
+  }
+
+  function renderNav(activeId) {
+    const host = document.getElementById("topnav");
+    if (!host) return;
+    const prefix = depthPrefix();
+    const links = NAV.map((item) => {
+      const href = prefix + item.href;
+      const active = item.id === activeId ? " active" : "";
+      return `<a class="nav-link${active}" href="${href}">${item.label}<span class="state">${item.state}</span></a>`;
+    }).join("");
+    host.innerHTML = `
+      <div class="topnav-inner">
+        <div class="brand">《红警：荣耀》<em>内容生态研究</em></div>
+        ${links}
+      </div>`;
+    ensureExportScript(() => {
+      if (window.RAExport && typeof RAExport.mountNavExport === "function") {
+        RAExport.mountNavExport();
+      }
+    });
+  }
+
+  return { NAV, depthPrefix, fmt, loadJSON, renderNav, chartDefaults, showError, ensureExportScript };
 })();
