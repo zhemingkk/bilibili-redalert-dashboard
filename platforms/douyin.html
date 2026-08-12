@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>抖音红警内容生态｜《红警：荣耀》研究</title>
+  <link rel="stylesheet" href="../assets/css/main.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <nav class="topnav" id="topnav"></nav>
+  <main class="wrap">
+    <header class="page-hero">
+      <h1>抖音红警内容生态</h1>
+      <p class="sub">内容供给 / 玩家诉求 / 创作者生态 / AIGC</p>
+      <p class="prop">先看发现了什么，再看证据与样本构成。</p>
+    </header>
+
+    <!-- 01 Core findings -->
+    <section>
+      <div class="section-head">
+        <h2>01 核心发现</h2>
+        <div class="desc">基于正式红警样本与评论分析</div>
+      </div>
+      <div class="findings" id="coreFindings"></div>
+      <div class="coverage" id="sampleStrip" style="margin-top:14px;"></div>
+    </section>
+
+    <!-- 02 Content performance -->
+    <section class="module" id="perfSection">
+      <h3>02 什么内容表现突出</h3>
+      <p class="lead" id="perfLead">IP符号是当前红警内容最广泛的识别入口；互动表现需结合作品数 n 一起阅读。</p>
+      <div class="chart-box" style="height:320px;"><canvas id="chartTagMedian"></canvas></div>
+      <div class="takeaway" id="perfTakeaway"></div>
+      <details class="fold">
+        <summary>查看完整主题表现表（含中位/平均点赞与评论）</summary>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>内容标签</th><th>作品数 n</th><th>中位点赞</th><th>平均点赞</th><th>中位评论</th><th>平均评论</th></tr></thead>
+            <tbody id="tagTable"></tbody>
+          </table>
+        </div>
+      </details>
+    </section>
+
+    <!-- 03 Player focus: RTS + classic + comment topics -->
+    <section class="rts-block" id="rtsSection">
+      <h2>03 玩家真正关注什么｜玩家到底要不要 RTS？</h2>
+      <p class="muted" style="margin:0;">在本次高价值红警内容评论样本中识别诉求形态——不是随机民调。</p>
+      <div class="rts-metrics" id="rtsMetrics"></div>
+      <div class="guard" id="rtsGuard"></div>
+      <p style="margin:16px 0 6px;color:var(--ink-soft);font-weight:650;">玩家不会总写“RTS”。常见语言包括：</p>
+      <div class="lang-list">
+        <span>3D</span><span>对战</span><span>重制</span><span>经典玩法</span>
+        <span>原来的红警</span><span>以前的玩法</span>
+      </div>
+      <div class="grid-2" style="margin-top:8px;">
+        <div>
+          <h3 style="margin:0 0 8px;font-size:15px;">诉求强度分布</h3>
+          <div class="chart-box sm"><canvas id="chartRts"></canvas></div>
+        </div>
+        <div>
+          <h3 style="margin:0 0 8px;font-size:15px;">代表表达</h3>
+          <div id="rtsExamples" class="muted" style="font-size:13px;line-height:1.55;"></div>
+        </div>
+      </div>
+      <div class="takeaway" id="rtsTakeaway"></div>
+    </section>
+
+    <section class="module">
+      <h3>玩家说的“还原”，到底在还原什么？</h3>
+      <p class="lead" id="classicLead"></p>
+      <div class="grid-2">
+        <div class="chart-box sm"><canvas id="chartClassic"></canvas></div>
+        <div>
+          <div id="classicFacets" class="lang-list"></div>
+          <div class="takeaway" id="classicTakeaway"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="module">
+      <h3>评论在讨论什么</h3>
+      <p class="lead">评论一级主题分布（规则标注，无法判断归入其他/未知）。</p>
+      <div class="chart-box"><canvas id="chartCommentTopics"></canvas></div>
+      <div class="takeaway">主题分布用于观察讨论形态；高占比“其他/未知”是保守标注的预期结果，不代表无信息。</div>
+    </section>
+
+    <!-- 04 Creators -->
+    <section class="module">
+      <h3>04 谁在生产这些内容</h3>
+      <p class="lead">账号类型结构 + 新号观察（低粉体量下的高互动作品）。</p>
+      <div class="grid-2">
+        <div>
+          <div class="chart-box sm"><canvas id="chartRoles"></canvas></div>
+          <div class="takeaway">账号类型用于理解供给端结构；不据此推断“哪类账号更优质”。</div>
+        </div>
+        <div>
+          <p class="muted" id="accGuard" style="font-size:13px;"></p>
+        </div>
+      </div>
+      <h3 style="margin:18px 0 10px;font-size:16px;">值得优先观察的新号案例</h3>
+      <div class="case-grid" id="newCases"></div>
+      <details class="fold">
+        <summary>展开完整新号观察名单</summary>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>账号</th><th>主题</th><th>粉丝</th><th>代表作品</th><th>点赞</th><th>评论</th><th>内容方向</th><th>入选原因</th></tr></thead>
+            <tbody id="newAccTable"></tbody>
+          </table>
+        </div>
+      </details>
+    </section>
+
+    <!-- 05 AIGC -->
+    <section class="module">
+      <h3>05 AIGC专项（轻量）</h3>
+      <p class="lead">视觉专项结论尚未完成。此处仅展示样本结构与评论侧已确认信号。</p>
+      <div class="coverage" id="aigcStrip"></div>
+      <div class="grid-2" style="margin-top:14px;">
+        <div>
+          <p style="margin:0 0 8px;color:var(--ink-soft);font-weight:650;">当前已确认的评论侧信号</p>
+          <div class="lang-list">
+            <span>视觉冲击</span><span>电影感</span><span>游戏化想象</span>
+          </div>
+          <div class="guard" style="margin-top:12px;">视觉质量 / AI痕迹 / 同质化仍待专项审阅。</div>
+          <div id="aigcHints" class="lang-list" style="margin-top:12px;"></div>
+        </div>
+        <div class="media-frame">
+          <img id="aigcImg" alt="AIGC visual overview" />
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 Competitors -->
+    <section>
+      <div class="section-head">
+        <h2>06 对标观察</h2>
+        <div class="desc">正式样本已建立，深度分析待下一阶段</div>
+      </div>
+      <div class="platform-grid" id="compCards"></div>
+    </section>
+
+    <!-- 07 Method -->
+    <section class="method-box" id="methodSection">
+      <h2>07 数据与研究口径</h2>
+      <p id="methodNote"></p>
+      <details class="fold">
+        <summary>样本设计：游戏构成 / 抽样桶（方法信息，非业务洞察）</summary>
+        <div class="grid-2" style="margin-top:10px;">
+          <div>
+            <p class="muted" style="font-size:13px;">正式样本构成（人为配额，不作生态占比解读）</p>
+            <div id="sampleCompose" class="coverage"></div>
+          </div>
+          <div>
+            <p class="muted" style="font-size:13px;">红警抽样桶 TOP / RECENT / MID / NEW</p>
+            <div class="chart-box sm"><canvas id="chartBucket"></canvas></div>
+          </div>
+        </div>
+      </details>
+      <p style="margin-top:10px;">内容标签可重叠，合计不等于红警作品总数。优先看中位数；高互动不等于内容质量高。</p>
+    </section>
+  </main>
+  <script src="../assets/js/app.js"></script>
+  <script src="../assets/js/charts.js"></script>
+  <script>
+    RADash.renderNav("douyin");
+    RADash.chartDefaults();
+
+    (async () => {
+      try {
+        const [ov, perf, topics, accounts, comments, aigc, comps] = await Promise.all([
+          RADash.loadJSON("data/douyin/overview.json"),
+          RADash.loadJSON("data/douyin/content_performance.json"),
+          RADash.loadJSON("data/douyin/topics.json"),
+          RADash.loadJSON("data/douyin/accounts.json"),
+          RADash.loadJSON("data/douyin/comments.json"),
+          RADash.loadJSON("data/douyin/aigc.json"),
+          RADash.loadJSON("data/douyin/competitors.json"),
+        ]);
+
+        const k = ov.kpis || {};
+        const focus = topics.focus_topics || [];
+        const byName = Object.fromEntries(focus.map(t => [t.topic, t.works]));
+
+        document.getElementById("coreFindings").innerHTML = [
+          {
+            title: "IP符号内容覆盖高",
+            text: `红警正式样本中，IP符号相关标签覆盖约 ${byName["IP符号"] ?? "—"} 条作品，是最广泛的识别入口之一。`,
+            tag: "阶段性", cls: "stage",
+            evidence: `红警 ${topics.n_redalert_works} 作品`,
+          },
+          {
+            title: "AIGC成为显著内容供给方向",
+            text: `AIGC 相关标签覆盖约 ${byName["AIGC"] ?? "—"} 条作品；评论侧正向更偏视觉冲击与“做成游戏”想象。`,
+            tag: "阶段性", cls: "stage",
+            evidence: `标签统计 · AIGC视觉样本 ${k.aigc_visual_sample}`,
+          },
+          {
+            title: "RTS诉求存在但表达隐性",
+            text: "相关讨论多以 3D/对战/重制/经典玩法出现，很少直接写“RTS”。",
+            tag: "阶段性", cls: "stage",
+            evidence: `评论 ${comments.n_redalert_comments} · RTS相关 ${comments.rts?.rts_related_comments}`,
+          },
+          {
+            title: "新号中出现低粉高互动案例",
+            text: "短名单中可见低粉体量下跑出高互动作品的现象；无粉丝历史曲线，不写涨粉速度。",
+            tag: "阶段性", cls: "stage",
+            evidence: `新号观察 ${ (accounts.new_account_shortlist||[]).length } 条`,
+          },
+        ].map((f, i) => `
+          <article class="finding">
+            <div class="idx">0${i + 1}</div>
+            <h3>${f.title}</h3>
+            <p>${f.text}</p>
+            <div class="meta">
+              <span class="tag ${f.cls}">${f.tag}</span>
+              <span class="tag evidence">证据 · ${f.evidence}</span>
+            </div>
+          </article>`).join("");
+
+        document.getElementById("sampleStrip").innerHTML = `
+          <div class="label-soft">研究样本（轻量）</div>
+          <div><strong>${RADash.fmt(k.redalert_works)}</strong>红警作品</div>
+          <div><strong>${RADash.fmt(k.competitor_works)}</strong>对标作品</div>
+          <div><strong>${RADash.fmt(k.redalert_comments)}</strong>红警评论</div>
+          <div><strong>${RADash.fmt(k.aigc_visual_sample)}</strong>AIGC样本</div>`;
+
+        // Top tags by median likes, keep n visible — top 7 with works>=3 preferred
+        let tags = (perf.by_research_tags || []).filter(t => (t.works || 0) > 0);
+        tags = tags.slice().sort((a, b) => (b.median_likes || 0) - (a.median_likes || 0));
+        const top = tags.filter(t => (t.works || 0) >= 3).slice(0, 7);
+        const show = top.length ? top : tags.slice(0, 7);
+        document.getElementById("perfLead").textContent =
+          "优先展示互动中位表现靠前的主题，并同时给出作品数 n，避免小样本被误读。";
+        RACharts.hbar(
+          document.getElementById("chartTagMedian"),
+          show.map(t => `${t.tag} (n=${t.works})`),
+          show.map(t => t.median_likes || 0),
+          "#c45c26",
+          "中位点赞"
+        );
+        document.getElementById("perfTakeaway").innerHTML =
+          "<strong>Takeaway：</strong>高覆盖并不等于最高互动；后续需将覆盖面与互动表现交叉判断。优先看中位数。";
+        document.getElementById("tagTable").innerHTML = tags.map(t => `
+          <tr>
+            <td>${t.tag}</td><td>${t.works}</td>
+            <td>${RADash.fmt(t.median_likes)}</td><td>${RADash.fmt(t.avg_likes)}</td>
+            <td>${RADash.fmt(t.median_comments)}</td><td>${RADash.fmt(t.avg_comments)}</td>
+          </tr>`).join("");
+
+        const rts = comments.rts || {};
+        document.getElementById("rtsMetrics").innerHTML = [
+          ["红警评论样本", comments.n_redalert_comments],
+          ["RTS相关表达", rts.rts_related_comments],
+          ["明确需求 explicit_need", rts.explicit_need],
+          ["偏好表达 preference", rts.preference],
+        ].map(([name, val]) => `
+          <div class="rts-metric"><div class="k">${name}</div><div class="v">${RADash.fmt(val)}</div></div>`).join("");
+        document.getElementById("rtsGuard").textContent = rts.interpretation_guard ||
+          "当前样本用于识别诉求形态，不用于总体比例推断。";
+        RACharts.bar(
+          document.getElementById("chartRts"),
+          ["明确需求", "偏好", "仅提及", "排斥", "无关"],
+          [{
+            label: "评论数",
+            data: [rts.explicit_need, rts.preference, rts.mention_only, rts.rejection, rts.unrelated].map(x => x || 0),
+            backgroundColor: ["#c45c26", "#d88957", "#4f8cff", "#c44c4c", "#6d7b8a"],
+          }],
+          { plugins: { legend: { display: false } } }
+        );
+        document.getElementById("rtsExamples").innerHTML = (rts.expression_examples || []).slice(0, 6).map(e =>
+          `<div style="margin-bottom:10px;"><span class="tag stage">${e.rts_expectation}</span> ${e.excerpt || ""}</div>`
+        ).join("") || "暂无摘录";
+        document.getElementById("rtsTakeaway").innerHTML =
+          "<strong>Takeaway：</strong>" + (rts.finding || "RTS相关诉求存在，但不宜用简单占比外推全体玩家。");
+
+        const classic = comments.classic || {};
+        document.getElementById("classicLead").textContent = classic.finding ||
+          "“还原”并非只有玩法还原。";
+        const labels = classic.facet_labels || {};
+        const facets = classic.facet_counts || {};
+        const facetEntries = Object.keys(facets).map(k => ({ key: k, label: labels[k] || k, n: facets[k] }))
+          .sort((a, b) => b.n - a.n);
+        document.getElementById("classicFacets").innerHTML = facetEntries.map(f =>
+          `<span>${f.label} · ${f.n}</span>`).join("");
+        if (facetEntries.length) {
+          RACharts.bar(
+            document.getElementById("chartClassic"),
+            facetEntries.map(f => f.label),
+            [{ label: "命中数", data: facetEntries.map(f => f.n), backgroundColor: "#8b5cf6" }],
+            { plugins: { legend: { display: false } } }
+          );
+        }
+        document.getElementById("classicTakeaway").innerHTML =
+          "<strong>Takeaway：</strong>单位/IP识别与情绪记忆更常见；玩法还原存在但不是唯一含义。";
+
+        const tdist = (comments.topic_distribution || []).slice(0, 8);
+        RACharts.hbar(
+          document.getElementById("chartCommentTopics"),
+          tdist.map(t => t.topic),
+          tdist.map(t => t.count),
+          "#2bbbad",
+          "评论数"
+        );
+
+        const roles = accounts.role_distribution || [];
+        RACharts.doughnut(
+          document.getElementById("chartRoles"),
+          roles.map(r => r.role),
+          roles.map(r => r.count)
+        );
+        document.getElementById("accGuard").textContent = accounts.language_guard || "";
+
+        const shortlist = accounts.new_account_shortlist || [];
+        const ranked = shortlist.slice().sort((a, b) => (Number(b.like_count) || 0) - (Number(a.like_count) || 0));
+        document.getElementById("newCases").innerHTML = ranked.slice(0, 6).map(r => `
+          <article class="case-card">
+            <h4>${r.account_name || "—"}</h4>
+            <div class="line">粉丝 ${RADash.fmt(r.followers)}</div>
+            <div class="line">代表互动：赞 ${RADash.fmt(r.like_count)} / 评 ${RADash.fmt(r.comment_count)}</div>
+            <div class="line">方向：${r.content_direction || "—"}</div>
+            <div class="line">为何观察：${(r.reason || "低粉体量下出现高互动作品").toString().slice(0, 72)}</div>
+          </article>`).join("");
+        document.getElementById("newAccTable").innerHTML = shortlist.map(r => `
+          <tr>
+            <td>${r.account_name || ""}</td>
+            <td>${r.topic || ""}</td>
+            <td>${RADash.fmt(r.followers)}</td>
+            <td>${(r.representative_title || r.representative_content_id || "").toString().slice(0, 40)}</td>
+            <td>${RADash.fmt(r.like_count)}</td>
+            <td>${RADash.fmt(r.comment_count)}</td>
+            <td>${r.content_direction || ""}</td>
+            <td>${(r.reason || "").toString().slice(0, 60)}</td>
+          </tr>`).join("");
+
+        document.getElementById("aigcStrip").innerHTML = `
+          <div><strong>${RADash.fmt(aigc.n_sample)}</strong>样本</div>
+          <div><strong>${RADash.fmt(aigc.n_accounts)}</strong>账号</div>
+          <div>${(aigc.stratum_counts || []).map(s => s.stratum + s.count).join(" / ")}</div>`;
+        document.getElementById("aigcHints").innerHTML = (aigc.stage_coverage_hints || [])
+          .map(h => `<span>${h}</span>`).join("");
+        document.getElementById("aigcImg").src = RADash.depthPrefix() + (aigc.overview_image || "assets/media/AIGC_VISUAL_OVERVIEW.jpg");
+
+        document.getElementById("compCards").innerHTML = (comps.games || []).map(g => `
+          <div class="platform-card">
+            <h3>${g.label}</h3>
+            <div class="status wait">样本已建立</div>
+            <div class="stats">${RADash.fmt(g.works)} 条正式样本<br/>深度对标分析待下一阶段</div>
+          </div>`).join("");
+
+        document.getElementById("methodNote").textContent =
+          (comments.meta && comments.meta.scope_note) ||
+          "仅限本次高价值红警内容评论样本，不可外推全体红警玩家。";
+        document.getElementById("sampleCompose").innerHTML = (ov.game_distribution || []).map(g =>
+          `<div><strong>${g.works}</strong>${g.label}</div>`).join("");
+        const buckets = perf.redalert_bucket || [];
+        RACharts.doughnut(
+          document.getElementById("chartBucket"),
+          buckets.map(b => b.bucket),
+          buckets.map(b => b.works),
+          ["#c45c26", "#4f8cff", "#2bbbad", "#8b5cf6"]
+        );
+      } catch (e) {
+        RADash.showError(e);
+      }
+    })();
+  </script>
+</body>
+</html>

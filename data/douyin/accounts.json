@@ -1,0 +1,210 @@
+{
+  "generated_at": "2026-08-12T13:22:41.823600+08:00",
+  "n_accounts": 67,
+  "role_distribution": [
+    {
+      "role": "KOC",
+      "count": 29
+    },
+    {
+      "role": "KOL",
+      "count": 16
+    },
+    {
+      "role": "new_account",
+      "count": 14
+    },
+    {
+      "role": "unknown",
+      "count": 4
+    },
+    {
+      "role": "official",
+      "count": 4
+    }
+  ],
+  "by_topic": [
+    {
+      "topic": "红警IP",
+      "label": "红警",
+      "count": 28
+    },
+    {
+      "topic": "对标_三角洲行动",
+      "label": "三角洲行动",
+      "count": 11
+    },
+    {
+      "topic": "对标_对峙交锋时刻",
+      "label": "对峙交锋时刻",
+      "count": 11
+    },
+    {
+      "topic": "对标_洛克王国世界",
+      "label": "洛克王国：世界",
+      "count": 10
+    },
+    {
+      "topic": "对标_三国志王道天下",
+      "label": "三国志：王道天下",
+      "count": 7
+    }
+  ],
+  "new_account_shortlist": [
+    {
+      "account_name": "洛克王国:世界",
+      "topic": "对标_洛克王国世界",
+      "followers": 229,
+      "representative_title": "被扇巴掌了还要救，你好爱她😭#白蛇 #青蛇劫起 #小青 #蒙青",
+      "representative_content_id": "7478160359719832858",
+      "like_count": 135218,
+      "comment_count": 1735,
+      "content_direction": "洛克王国：世界",
+      "reason": "低粉高赞|连续多条稳定起量|新账号短期内容密度高"
+    },
+    {
+      "account_name": "7CZ（对峙交锋时刻）",
+      "topic": "对标_对峙交锋时刻",
+      "followers": 14,
+      "representative_title": "对峙2雄导直播复刻小骚烟名场面 #对峙2 #对峙交锋时刻 #FPS #对峙2国服来了 #名场面",
+      "representative_content_id": "7669554962654052731",
+      "like_count": 556,
+      "comment_count": 45,
+      "content_direction": "对峙交锋时刻",
+      "reason": "低粉高赞"
+    },
+    {
+      "account_name": "基洛夫",
+      "topic": "红警IP",
+      "followers": 941,
+      "representative_title": "",
+      "representative_content_id": "7623402645198798693",
+      "like_count": 8561,
+      "comment_count": 693,
+      "content_direction": "军事",
+      "reason": "低粉高赞|连续多条稳定起量|红警垂类纯度高|新账号短期内容密度高"
+    },
+    {
+      "account_name": "Catum",
+      "topic": "红警IP",
+      "followers": 1138,
+      "representative_title": "谭雅的初次登场，红色警戒AI短片 【心灵终结盟军任务02】 #红警 #心灵终结 #尤里的复仇 #aigc#谭雅",
+      "representative_content_id": "7657592861721906470",
+      "like_count": 3449,
+      "comment_count": 243,
+      "content_direction": "红警经典|AICG",
+      "reason": "低粉高赞|连续多条稳定起量|AICG差异明显|红警垂类纯度高"
+    },
+    {
+      "account_name": "对峙2凝心",
+      "topic": "对标_对峙交锋时刻",
+      "followers": 205,
+      "representative_title": "你们的对峙2好像和我的有点不一样哦！🤯#对峙2 #standoff2 #对峙2每日打卡",
+      "representative_content_id": "7654636262435690618",
+      "like_count": 970,
+      "comment_count": 143,
+      "content_direction": "对峙交锋时刻",
+      "reason": "低粉高赞|连续多条稳定起量|新账号短期内容密度高"
+    },
+    {
+      "account_name": "红警之家手游（主页下载）",
+      "topic": "红警IP",
+      "followers": 1367,
+      "representative_title": "经典红警重回指尖，青春从未退场。红警手机版它来了！#红警 #红色警戒 #即时战略 #经典怀旧游戏 #回忆",
+      "representative_content_id": "7630027394838453096",
+      "like_count": 3105,
+      "comment_count": 286,
+      "content_direction": "红警经典",
+      "reason": "低粉高赞|红警垂类纯度高|新账号短期内容密度高"
+    },
+    {
+      "account_name": "派大星Scarface",
+      "topic": "对标_对峙交锋时刻",
+      "followers": 1737,
+      "representative_title": "【对峙2】稳定的狙影响力有多大\n#对峙2 #Standoff2 #手游推荐 #对峙2国服",
+      "representative_content_id": "7659388554896353142",
+      "like_count": 3205,
+      "comment_count": 299,
+      "content_direction": "对峙交锋时刻",
+      "reason": "低粉高赞|连续多条稳定起量"
+    },
+    {
+      "account_name": "伤心（对峙-交锋时刻）",
+      "topic": "对标_对峙交锋时刻",
+      "followers": 84,
+      "representative_title": "你瞳孔的洋流是一场酸雨 我想伸手去接 它却融化了我的尾戒#valorant",
+      "representative_content_id": "7590352143422610147",
+      "like_count": 229,
+      "comment_count": 8,
+      "content_direction": "对峙交锋时刻",
+      "reason": "低粉高赞"
+    },
+    {
+      "account_name": "士兵男孩（对峙2）",
+      "topic": "对标_对峙交锋时刻",
+      "followers": 967,
+      "representative_title": "游戏名称：逃离塔科夫A测 ( Escape from Tarkov )\n手机：一加ACE五（竞速版）\nWinlator版本：超玩Winlator7.3.6\nDXVK版本：DXVK-1.11.0-mali\nFEXCore Version：FE",
+      "representative_content_id": "7669073257782832015",
+      "like_count": 646,
+      "comment_count": 168,
+      "content_direction": "对峙交锋时刻",
+      "reason": "新账号短期内容密度高"
+    },
+    {
+      "account_name": "王道I白夜",
+      "topic": "对标_三国志王道天下",
+      "followers": 1775,
+      "representative_title": "三国志王道天下：越挨打输出越高，蜀国反击枪完整攻略 #三国志王道天下 #三王7月9号隆中测试 #我的王道名场面 #游戏攻略 #游戏日常分享",
+      "representative_content_id": "7671164331903821494",
+      "like_count": 10,
+      "comment_count": 2,
+      "content_direction": "三国志：王道天下",
+      "reason": "新账号短期内容密度高"
+    },
+    {
+      "account_name": "洛克王国：世界",
+      "topic": "对标_洛克王国世界",
+      "followers": 1438,
+      "representative_title": "",
+      "representative_content_id": "7671862540540670821",
+      "like_count": 253,
+      "comment_count": 289,
+      "content_direction": "洛克王国：世界",
+      "reason": "新账号短期内容密度高"
+    },
+    {
+      "account_name": "流川枫（对峙:交锋时刻）",
+      "topic": "对标_对峙交锋时刻",
+      "followers": 197,
+      "representative_title": "向死而生.#瓦洛兰特 #无畏契约",
+      "representative_content_id": "7500823796862143756",
+      "like_count": 386,
+      "comment_count": 14,
+      "content_direction": "对峙：交锋时刻",
+      "reason": "低粉高赞|新账号短期内容密度高"
+    },
+    {
+      "account_name": "解说胜利",
+      "topic": "对标_对峙交锋时刻",
+      "followers": 1508,
+      "representative_title": "哪把手枪可以打掉偷包的小坏蛋💢#对峙2 #standoff2 #电子竞技 #CSPL #解说胜利",
+      "representative_content_id": "7620993747165761768",
+      "like_count": 675,
+      "comment_count": 59,
+      "content_direction": "对峙交锋时刻",
+      "reason": "连续多条稳定起量|新账号短期内容密度高"
+    },
+    {
+      "account_name": "《曼谷迈凯少》一路向钱",
+      "topic": "红警IP",
+      "followers": 1398,
+      "representative_title": "",
+      "representative_content_id": "7672086005222095803",
+      "like_count": 14,
+      "comment_count": 0,
+      "content_direction": "红警经典",
+      "reason": "红警垂类纯度高|新账号短期内容密度高"
+    }
+  ],
+  "language_guard": "无粉丝历史曲线，禁止写涨粉快；仅描述当前低粉体量下的高互动作品。"
+}

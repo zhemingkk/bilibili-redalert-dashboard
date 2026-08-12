@@ -1,0 +1,63 @@
+{
+  "generated_at": "2026-08-12T13:22:41.872368+08:00",
+  "n_rows": 7,
+  "rows": [
+    {
+      "theme": "版本/机制解释",
+      "mp_role": "深讲：分点、FAQ、为什么改",
+      "channels_role": "先吸引：结果画面/15s机制一眼",
+      "combo": "视频抛问题或结果 → 公众号给完整说明",
+      "evidence": "C1产品解释长文 vs C2短实机/登场片",
+      "confidence": "HIGH"
+    },
+    {
+      "theme": "经典IP识别",
+      "mp_role": "可写回忆征集/设定长文，但需闭环",
+      "channels_role": "单位/音效/名场面短识别",
+      "combo": "短视频点火 → 公众号沉淀玩家故事精选",
+      "evidence": "红警伊万短视频；公众号回忆征集",
+      "confidence": "HIGH"
+    },
+    {
+      "theme": "玩法教学",
+      "mp_role": "完整攻略/配队/规则",
+      "channels_role": "单点技巧/错误示范/结果对比",
+      "combo": "视频教1个动作，公众号给系统",
+      "evidence": "攻略技巧类短视频文案短；公众号攻略更长",
+      "confidence": "HIGH"
+    },
+    {
+      "theme": "开发者/预期管理",
+      "mp_role": "策划面对面、Q&A主场",
+      "channels_role": "最多做预告钩子或一句结论",
+      "combo": "视频征集问题 → 公众号回答专篇",
+      "evidence": "C1 FAQ栏目；C2开发者内容稀少",
+      "confidence": "HIGH"
+    },
+    {
+      "theme": "活动/福利",
+      "mp_role": "细则、时间、兑换说明",
+      "channels_role": "轻提醒+视觉氛围，避免整支视频念福利",
+      "combo": "视频CTA指向公众号细则",
+      "evidence": "红警两边皆有福利倾向，需降权",
+      "confidence": "MEDIUM"
+    },
+    {
+      "theme": "角色/单位上新",
+      "mp_role": "档案、技能表、设计意图",
+      "channels_role": "技能演示切片/出场冲击",
+      "combo": "同源素材：短视频演示 + 公众号档案",
+      "evidence": "原神公众号演示模板；视频号角色登场文案",
+      "confidence": "MEDIUM"
+    },
+    {
+      "theme": "社区UGC",
+      "mp_role": "征集规则、精选合集",
+      "channels_role": "优质投稿转发/二创曝光",
+      "combo": "视频曝光单条，公众号做期数合集",
+      "evidence": "红警AI创作投稿短视频",
+      "confidence": "MEDIUM"
+    }
+  ],
+  "note": "以冻结矩阵为准，不扩写新策略。"
+}

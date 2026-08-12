@@ -1,0 +1,180 @@
+{
+  "generated_at": "2026-08-12T13:22:41.873370+08:00",
+  "title": "阶段性机会",
+  "n_total": 11,
+  "featured": [
+    {
+      "opportunity_id": "O01",
+      "source_platform": "公众号",
+      "opportunity": "把‘指挥官简报’做成连续栏目，而不是偶发公告",
+      "current_market_pattern": "大量账号有更新/活动信息，但真正稳定栏目化的仍集中在少数（无尽冬日、冒险岛、洛克、崩铁等）",
+      "gap": "军事/策略向账号里，可预期的解释型栏目仍少",
+      "why_redalert_can_own_it": "红警自带指挥官/作战简报语境，天然适合栏目人格与信息层级",
+      "evidence": "column_matrix中军事向账号栏目密度低于无尽冬日/冒险岛；红警OL样本偏兑换码与活动",
+      "confidence": "HIGH"
+    },
+    {
+      "opportunity_id": "O01",
+      "source_platform": "视频号",
+      "opportunity": "战场结果先行的RTS短视频栏目，而不是活动播报",
+      "current_market_pattern": "多账号视频号以节点官宣、角色登场、活动征集为主；可持续‘结果→机制’栏目偏少",
+      "gap": "策略/军事向缺少稳定的短实机系列",
+      "why_redalert_can_own_it": "RTS天然有胜负/摧毁/制空等可视化结果",
+      "evidence": "红警OL样本偏情怀UGC与英雄登场；三角洲更接近实机体验内容",
+      "confidence": "HIGH"
+    },
+    {
+      "opportunity_id": "O02",
+      "source_platform": "公众号",
+      "opportunity": "老IP差异解释常态化（FAQ/策划答），避免只喊情怀",
+      "current_market_pattern": "老IP账号会用周年/回忆，但高质量解释更多出现在DNF起源、洛克、僵尸开炮Q&A",
+      "gap": "不少内容停在情绪识别，不回答‘和以前有什么不同’",
+      "why_redalert_can_own_it": "红警玩家对RTS纯度敏感，解释差异本身是信任产品",
+      "evidence": "ip_transition样本中‘避而不谈/偏活动’与‘主动解释’并存；红警OL兑换码开场挤压解释空间",
+      "confidence": "HIGH"
+    },
+    {
+      "opportunity_id": "O02",
+      "source_platform": "视频号",
+      "opportunity": "经典单位识别 + 新品差异一句说清",
+      "current_market_pattern": "老IP短视频常见识别物或情怀，但‘和以前有何不同’常留给长文",
+      "gap": "短视频层产品解释不足",
+      "why_redalert_can_own_it": "玩家对RTS纯度敏感，15s差异句可建立信任",
+      "evidence": "洛克/永劫/DNF有玩法展示倾向；红警伊万片偏情绪征集",
+      "confidence": "HIGH"
+    },
+    {
+      "opportunity_id": "O04",
+      "source_platform": "公众号",
+      "opportunity": "少做兑换码主场，把福利降级为模块而不是全文目的",
+      "current_market_pattern": "部分中重度运营号用兑换码/礼包作为开场主信息",
+      "gap": "福利劫持了产品与IP表达带宽",
+      "why_redalert_can_own_it": "新品阶段更需要建立品类理解，福利可有但不应主导",
+      "evidence": "红警OL多篇正文以今日兑换码开场；精品账号同窗口更少该模式",
+      "confidence": "HIGH"
+    },
+    {
+      "opportunity_id": "O03",
+      "source_platform": "公众号",
+      "opportunity": "单位/阵营档案系列：克制标题 + 固定结构",
+      "current_market_pattern": "原神角色演示已证明系列模板有效；策略/军事账号单位介绍更碎",
+      "gap": "缺少可持续的‘单位怎么用/为什么这样设计’中层内容",
+      "why_redalert_can_own_it": "红警单位识别资产极强，适合做成作战手册而非纯皮肤宣发",
+      "evidence": "原神角色技能演示系列 vs 红警OL样本中单位深度文不足",
+      "confidence": "MEDIUM"
+    }
+  ],
+  "all": [
+    {
+      "opportunity_id": "O01",
+      "source_platform": "公众号",
+      "opportunity": "把‘指挥官简报’做成连续栏目，而不是偶发公告",
+      "current_market_pattern": "大量账号有更新/活动信息，但真正稳定栏目化的仍集中在少数（无尽冬日、冒险岛、洛克、崩铁等）",
+      "gap": "军事/策略向账号里，可预期的解释型栏目仍少",
+      "why_redalert_can_own_it": "红警自带指挥官/作战简报语境，天然适合栏目人格与信息层级",
+      "evidence": "column_matrix中军事向账号栏目密度低于无尽冬日/冒险岛；红警OL样本偏兑换码与活动",
+      "confidence": "HIGH"
+    },
+    {
+      "opportunity_id": "O02",
+      "source_platform": "公众号",
+      "opportunity": "老IP差异解释常态化（FAQ/策划答），避免只喊情怀",
+      "current_market_pattern": "老IP账号会用周年/回忆，但高质量解释更多出现在DNF起源、洛克、僵尸开炮Q&A",
+      "gap": "不少内容停在情绪识别，不回答‘和以前有什么不同’",
+      "why_redalert_can_own_it": "红警玩家对RTS纯度敏感，解释差异本身是信任产品",
+      "evidence": "ip_transition样本中‘避而不谈/偏活动’与‘主动解释’并存；红警OL兑换码开场挤压解释空间",
+      "confidence": "HIGH"
+    },
+    {
+      "opportunity_id": "O03",
+      "source_platform": "公众号",
+      "opportunity": "单位/阵营档案系列：克制标题 + 固定结构",
+      "current_market_pattern": "原神角色演示已证明系列模板有效；策略/军事账号单位介绍更碎",
+      "gap": "缺少可持续的‘单位怎么用/为什么这样设计’中层内容",
+      "why_redalert_can_own_it": "红警单位识别资产极强，适合做成作战手册而非纯皮肤宣发",
+      "evidence": "原神角色技能演示系列 vs 红警OL样本中单位深度文不足",
+      "confidence": "MEDIUM"
+    },
+    {
+      "opportunity_id": "O04",
+      "source_platform": "公众号",
+      "opportunity": "少做兑换码主场，把福利降级为模块而不是全文目的",
+      "current_market_pattern": "部分中重度运营号用兑换码/礼包作为开场主信息",
+      "gap": "福利劫持了产品与IP表达带宽",
+      "why_redalert_can_own_it": "新品阶段更需要建立品类理解，福利可有但不应主导",
+      "evidence": "红警OL多篇正文以今日兑换码开场；精品账号同窗口更少该模式",
+      "confidence": "HIGH"
+    },
+    {
+      "opportunity_id": "O05",
+      "source_platform": "公众号",
+      "opportunity": "玩家反馈产品化：征集→精选→设计回应闭环",
+      "current_market_pattern": "征集/创作激励存在，但很多停在征集动作",
+      "gap": "缺少‘我们听到了什么、改了什么’的连续叙事",
+      "why_redalert_can_own_it": "红警社群讨论密度高，官方若能持续回应可形成差异",
+      "evidence": "无尽冬日创作激励/策划面对面；红警OL有征集但闭环表达弱",
+      "confidence": "MEDIUM"
+    },
+    {
+      "opportunity_id": "O06",
+      "source_platform": "公众号",
+      "opportunity": "用实机/战场结果讲玩法，少用抽象系统说明书",
+      "current_market_pattern": "玩法文常见机制罗列；高质量样本更多‘场景→机制→收益’",
+      "gap": "策略游戏易写成系统说明，缺少可感结果",
+      "why_redalert_can_own_it": "RTS观战/战场结果天然可视化",
+      "evidence": "product_explanation_pattern中A/D类案例多来自玩法前瞻与实机节点",
+      "confidence": "MEDIUM"
+    },
+    {
+      "opportunity_id": "O01",
+      "source_platform": "视频号",
+      "opportunity": "战场结果先行的RTS短视频栏目，而不是活动播报",
+      "current_market_pattern": "多账号视频号以节点官宣、角色登场、活动征集为主；可持续‘结果→机制’栏目偏少",
+      "gap": "策略/军事向缺少稳定的短实机系列",
+      "why_redalert_can_own_it": "RTS天然有胜负/摧毁/制空等可视化结果",
+      "evidence": "红警OL样本偏情怀UGC与英雄登场；三角洲更接近实机体验内容",
+      "confidence": "HIGH"
+    },
+    {
+      "opportunity_id": "O02",
+      "source_platform": "视频号",
+      "opportunity": "经典单位识别 + 新品差异一句说清",
+      "current_market_pattern": "老IP短视频常见识别物或情怀，但‘和以前有何不同’常留给长文",
+      "gap": "短视频层产品解释不足",
+      "why_redalert_can_own_it": "玩家对RTS纯度敏感，15s差异句可建立信任",
+      "evidence": "洛克/永劫/DNF有玩法展示倾向；红警伊万片偏情绪征集",
+      "confidence": "HIGH"
+    },
+    {
+      "opportunity_id": "O03",
+      "source_platform": "视频号",
+      "opportunity": "视频号做吸引，公众号做沉淀的固定联动句式",
+      "current_market_pattern": "两端内容常各自发，少见明确分工话术",
+      "gap": "平台角色不清导致重复或两边都浅",
+      "why_redalert_can_own_it": "公众号研究显示适合FAQ/栏目；视频号适合展示",
+      "evidence": "platform_role_matrix；红警公众号兑换码模板 vs 视频号情怀UGC",
+      "confidence": "MEDIUM"
+    },
+    {
+      "opportunity_id": "O04",
+      "source_platform": "视频号",
+      "opportunity": "少把视频号当抖音搬运柜，做微信生态内可评论的轻解释",
+      "current_market_pattern": "部分官方号文案标签化、模板化，像跨平台同款投放",
+      "gap": "缺少视频号场景下的评论引导与轻问答",
+      "why_redalert_can_own_it": "红警社群讨论密，适合‘你怎么看这套阵容’式轻互动",
+      "evidence": "样本文案大量#标签堆叠；互动字段存在但内容目标偏宣发",
+      "confidence": "MEDIUM"
+    },
+    {
+      "opportunity_id": "O05",
+      "source_platform": "视频号",
+      "opportunity": "建立1个具名短系列（如作战速报），避免有作品无栏目",
+      "current_market_pattern": "本窗明确系列信号偏弱；识别到的系列置信账户约 4 个品牌向",
+      "gap": "很多账号有产量但无稳定系列名",
+      "why_redalert_can_own_it": "指挥官/简报语境适合系列化",
+      "evidence": "series_matrix confidence多为MEDIUM/LOW",
+      "confidence": "MEDIUM"
+    }
+  ],
+  "note": "阶段性机会，不是“红警必须这样做”。"
+}

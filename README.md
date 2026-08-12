@@ -1,5 +1,7 @@
-﻿# B站红警内容生态看板
+# 《红警：荣耀》内容生态总看板
 
-公开静态页（分析样本与栏目建议）。不含任何 Cookie / 密钥。
+公开地址：https://zhemingkk.github.io/bilibili-redalert-dashboard/
 
-数据来自 B 站公开内容检索与抽样分析，仅供市场洞察参考。
+完整 B站旧看板（保留）：https://zhemingkk.github.io/bilibili-redalert-dashboard/bilibili/
+
+本仓库根目录为跨平台总看板；`/bilibili/` 为原 B站完整研究页。

@@ -1,0 +1,298 @@
+{
+  "generated_at": "2026-08-12T13:22:41.823600+08:00",
+  "meta": {
+    "generated_at": "2026-08-12T03:01:19.834823+08:00",
+    "source_corpus": "data\\research\\douyin\\comments\\comment_corpus_v1.json",
+    "source_sample": "data\\research\\douyin\\research_sample_200_v2.json",
+    "n_redalert_comments": 1280,
+    "n_redalert_works_in_sample": 80,
+    "n_commented_works_in_corpus": 22,
+    "label_method": "rule_based_v1_conservative",
+    "scope_note": "仅限本次高价值红警内容评论样本，不可外推全体红警玩家"
+  },
+  "n_redalert_comments": 1280,
+  "rts": {
+    "rts_related_comments": 60,
+    "explicit_need": 5,
+    "preference": 9,
+    "mention_only": 39,
+    "rejection": 1,
+    "unrelated": 1226,
+    "finding": "在本次高价值红警内容评论样本中，直接出现“即时战略/RTS”字样的评论极少；可识别的 RTS/玩法期待更多体现为‘做成3D/对战游戏、重制、经典玩法记忆、单位操作讨论’，explicit_need 与 preference 合计仍属少数明确表态。",
+    "expression_examples": [
+      {
+        "rts_expectation": "explicit_need",
+        "content_id": "6805490407133154575",
+        "content_url": "https://www.douyin.com/video/6805490407133154575",
+        "excerpt": "谁能把红警做成大型3D团队对战游戏就厉害了",
+        "primary_topic": "RTS/即时战略"
+      },
+      {
+        "rts_expectation": "explicit_need",
+        "content_id": "6805490407133154575",
+        "content_url": "https://www.douyin.com/video/6805490407133154575",
+        "excerpt": "好好做红警升级3D版本，地图扩大，做好了感觉能比得上英勇联盟",
+        "primary_topic": "RTS/即时战略"
+      },
+      {
+        "rts_expectation": "explicit_need",
+        "content_id": "6805490407133154575",
+        "content_url": "https://www.douyin.com/video/6805490407133154575",
+        "excerpt": "出个3D的肯定火",
+        "primary_topic": "RTS/即时战略"
+      },
+      {
+        "rts_expectation": "explicit_need",
+        "content_id": "6896036212679658752",
+        "content_url": "https://www.douyin.com/video/6896036212679658752",
+        "excerpt": "原汁原味还原红警，然后提高画质。80后肯定玩[杀马特]",
+        "primary_topic": "经典还原"
+      },
+      {
+        "rts_expectation": "preference",
+        "content_id": "6805490407133154575",
+        "content_url": "https://www.douyin.com/video/6805490407133154575",
+        "excerpt": "如果红警出3D版的一定继续玩",
+        "primary_topic": "RTS/即时战略"
+      },
+      {
+        "rts_expectation": "preference",
+        "content_id": "6805490407133154575",
+        "content_url": "https://www.douyin.com/video/6805490407133154575",
+        "excerpt": "红警重新做成这个版本，一大波玩家回归",
+        "primary_topic": "MOD/版本讨论"
+      },
+      {
+        "rts_expectation": "preference",
+        "content_id": "7621019776734874915",
+        "content_url": "https://www.douyin.com/video/7621019776734874915",
+        "excerpt": "把这个动画做成游戏一定可以大卖，不如就叫红色警戒吧[看]",
+        "primary_topic": "RTS/即时战略"
+      },
+      {
+        "rts_expectation": "preference",
+        "content_id": "7621019776734874915",
+        "content_url": "https://www.douyin.com/video/7621019776734874915",
+        "excerpt": "这个视频做成游戏一定很好玩。",
+        "primary_topic": "RTS/即时战略"
+      }
+    ],
+    "interpretation_guard": "该数据用于识别诉求形态，不用于代表总体玩家比例。不可把 RTS 相关评论占比直接解释为“只有 X% 玩家想要 RTS”。",
+    "expression_note": "玩家不一定直接写“RTS”；常见通过 3D/对战/重制/经典玩法/以前那个红警等方式出现。"
+  },
+  "classic": {
+    "classic_related_comments": 61,
+    "facet_counts": {
+      "units": 18,
+      "gameplay": 2,
+      "art_audio": 4,
+      "emotion": 7,
+      "campaign": 7
+    },
+    "facet_labels": {
+      "units": "单位/IP识别",
+      "emotion": "情绪记忆",
+      "gameplay": "玩法还原",
+      "art_audio": "美术/音效",
+      "campaign": "战役/剧情",
+      "controls": "操作体验"
+    },
+    "finding": "玩家口中的“还原”在本样本中更常指向单位/角色识别、版本记忆与情绪怀旧，其次才是可玩的对战/重制诉求；明确谈美术音效或操作手感的评论更少。",
+    "examples": [
+      {
+        "content_id": "6805490407133154575",
+        "content_url": "https://www.douyin.com/video/6805490407133154575",
+        "excerpt": "经典 红警",
+        "primary_topic": "其他",
+        "rts_expectation": "unrelated",
+        "stance": "positive"
+      },
+      {
+        "content_id": "7621019776734874915",
+        "content_url": "https://www.douyin.com/video/7621019776734874915",
+        "excerpt": "目前为止看过的最还原的红警AI视频[赞][赞]",
+        "primary_topic": "经典还原",
+        "rts_expectation": "unrelated",
+        "stance": "positive"
+      },
+      {
+        "content_id": "7621019776734874915",
+        "content_url": "https://www.douyin.com/video/7621019776734874915",
+        "excerpt": "我一个人95侯很期待红警重制在出一个",
+        "primary_topic": "其他",
+        "rts_expectation": "unrelated",
+        "stance": "positive"
+      },
+      {
+        "content_id": "7621019776734874915",
+        "content_url": "https://www.douyin.com/video/7621019776734874915",
+        "excerpt": "红警2要是重制该多好啊",
+        "primary_topic": "原版/红警2记忆",
+        "rts_expectation": "unrelated",
+        "stance": "unclear"
+      },
+      {
+        "content_id": "7657401810910596371",
+        "content_url": "https://www.douyin.com/video/7657401810910596371",
+        "excerpt": "有缘刷到，还原真实点的图给你用",
+        "primary_topic": "经典还原",
+        "rts_expectation": "unrelated",
+        "stance": "positive"
+      }
+    ]
+  },
+  "topic_distribution": [
+    {
+      "topic": "其他",
+      "count": 756
+    },
+    {
+      "topic": "IP单位/角色",
+      "count": 216
+    },
+    {
+      "topic": "AIGC正向反馈",
+      "count": 108
+    },
+    {
+      "topic": "unknown",
+      "count": 57
+    },
+    {
+      "topic": "游戏推荐/求游戏",
+      "count": 30
+    },
+    {
+      "topic": "RTS/即时战略",
+      "count": 27
+    },
+    {
+      "topic": "原版/红警2记忆",
+      "count": 16
+    },
+    {
+      "topic": "画面/电影感",
+      "count": 15
+    },
+    {
+      "topic": "怀旧情绪",
+      "count": 11
+    },
+    {
+      "topic": "AIGC负向反馈",
+      "count": 11
+    },
+    {
+      "topic": "MOD/版本讨论",
+      "count": 10
+    },
+    {
+      "topic": "战役/剧情",
+      "count": 7
+    },
+    {
+      "topic": "搞笑梗",
+      "count": 6
+    },
+    {
+      "topic": "手游期待",
+      "count": 5
+    },
+    {
+      "topic": "经典还原",
+      "count": 4
+    },
+    {
+      "topic": "对SLG/换玩法的排斥",
+      "count": 1
+    }
+  ],
+  "mobile_expectation": {
+    "n_comments": 26,
+    "status": "qualitative_signal_only",
+    "warning": "样本不足，禁止百分比外推/主流玩家/普遍期待/大多数玩家",
+    "examples": [
+      {
+        "content_id": "7630027394838453096",
+        "content_url": "https://www.douyin.com/video/7630027394838453096",
+        "excerpt": "纯血鸿蒙平板能玩吗",
+        "primary_topic": "手游期待",
+        "rts_expectation": "unrelated",
+        "stance": "unclear"
+      },
+      {
+        "content_id": "7630027394838453096",
+        "content_url": "https://www.douyin.com/video/7630027394838453096",
+        "excerpt": "怎么装手机版",
+        "primary_topic": "手游期待",
+        "rts_expectation": "unrelated",
+        "stance": "neutral"
+      },
+      {
+        "content_id": "7630027394838453096",
+        "content_url": "https://www.douyin.com/video/7630027394838453096",
+        "excerpt": "你好手机苹果可以下载吗[感谢]",
+        "primary_topic": "手游期待",
+        "rts_expectation": "unrelated",
+        "stance": "positive"
+      },
+      {
+        "content_id": "7630027394838453096",
+        "content_url": "https://www.douyin.com/video/7630027394838453096",
+        "excerpt": "手机怎么下载？",
+        "primary_topic": "手游期待",
+        "rts_expectation": "unrelated",
+        "stance": "neutral"
+      },
+      {
+        "content_id": "7670463518630290676",
+        "content_url": "https://www.douyin.com/video/7670463518630290676",
+        "excerpt": "不支持iOS ，支持最新安卓16系统64位的手机版本！[抱抱你]",
+        "primary_topic": "手游期待",
+        "rts_expectation": "unrelated",
+        "stance": "positive"
+      },
+      {
+        "content_id": "7318002182777769254",
+        "content_url": "https://www.douyin.com/video/7318002182777769254",
+        "excerpt": "升阶图搞个出来",
+        "primary_topic": "其他",
+        "rts_expectation": "unrelated",
+        "stance": "unclear"
+      },
+      {
+        "content_id": "7318002182777769254",
+        "content_url": "https://www.douyin.com/video/7318002182777769254",
+        "excerpt": "什么时候出步兵英雄",
+        "primary_topic": "其他",
+        "rts_expectation": "unrelated",
+        "stance": "neutral"
+      },
+      {
+        "content_id": "7318002182777769254",
+        "content_url": "https://www.douyin.com/video/7318002182777769254",
+        "excerpt": "准备退游了，轰炸只能打狙狙了[捂脸]尴尬的要死",
+        "primary_topic": "其他",
+        "rts_expectation": "unrelated",
+        "stance": "negative"
+      }
+    ],
+    "observation": "可见下载/能否游玩/活动英雄等产品向提问，以及少量退游抱怨；不足以支撑手游期待结构结论。"
+  },
+  "aigc_comment_summary": {
+    "positive_topic_comments": 109,
+    "negative_topic_comments": 12,
+    "positive_facet_hits": {
+      "情绪价值": 18,
+      "帅": 23,
+      "真实": 6,
+      "经典单位现实化": 1,
+      "脑洞": 7,
+      "电影感": 40,
+      "如果真有这种游戏": 8,
+      "战争规模": 6
+    },
+    "finding": "正向反馈更集中在‘帅/好看、电影/微电影感、情绪价值、做成游戏会好玩’；单位名在 AIGC 评论中出现多，但明确‘单位现实化’表述很少。明确‘AI味/同质化/不像红警’等负向标签命中很少，更多负向是剧情设定吐槽或无关抱怨，不宜过度解读为反AIGC。",
+    "scope_limit": "仅标题/文案+评论反馈；不做镜头/画质/一致性视觉评判"
+  }
+}

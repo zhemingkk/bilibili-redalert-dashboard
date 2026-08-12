@@ -1,0 +1,299 @@
+{
+  "generated_at": "2026-08-12T13:22:41.868372+08:00",
+  "sample_size": 165,
+  "fulltext_ok": 161,
+  "type_distribution": [
+    {
+      "type": "玩法介绍",
+      "count": 30,
+      "share": 0.1818
+    },
+    {
+      "type": "版本更新",
+      "count": 21,
+      "share": 0.1273
+    },
+    {
+      "type": "实机/内容爆料",
+      "count": 16,
+      "share": 0.097
+    },
+    {
+      "type": "IP/角色/单位",
+      "count": 14,
+      "share": 0.0848
+    },
+    {
+      "type": "赛事/电竞",
+      "count": 12,
+      "share": 0.0727
+    },
+    {
+      "type": "官宣/品牌节点",
+      "count": 10,
+      "share": 0.0606
+    },
+    {
+      "type": "攻略教学",
+      "count": 10,
+      "share": 0.0606
+    },
+    {
+      "type": "福利/活动",
+      "count": 10,
+      "share": 0.0606
+    },
+    {
+      "type": "社区/玩家内容",
+      "count": 9,
+      "share": 0.0545
+    },
+    {
+      "type": "联动",
+      "count": 8,
+      "share": 0.0485
+    },
+    {
+      "type": "世界观/剧情",
+      "count": 7,
+      "share": 0.0424
+    },
+    {
+      "type": "FAQ/问题解释",
+      "count": 5,
+      "share": 0.0303
+    },
+    {
+      "type": "开发者内容",
+      "count": 4,
+      "share": 0.0242
+    },
+    {
+      "type": "情绪/IP表达",
+      "count": 3,
+      "share": 0.0182
+    },
+    {
+      "type": "其他",
+      "count": 3,
+      "share": 0.0182
+    },
+    {
+      "type": "周边/二次元衍生",
+      "count": 3,
+      "share": 0.0182
+    }
+  ],
+  "account_pillars": [
+    {
+      "account_name": "三角洲行动",
+      "benchmark_name": "三角洲行动",
+      "sample_count": 12,
+      "main_content_pillars": [
+        "IP/角色/单位",
+        "版本更新",
+        "赛事/电竞"
+      ],
+      "dominant_tone": "官方公告型"
+    },
+    {
+      "account_name": "原神",
+      "benchmark_name": "原神",
+      "sample_count": 12,
+      "main_content_pillars": [
+        "实机/内容爆料",
+        "世界观/剧情",
+        "IP/角色/单位"
+      ],
+      "dominant_tone": "克制精品型"
+    },
+    {
+      "account_name": "地下城与勇士手游",
+      "benchmark_name": "地下城与勇士：起源",
+      "sample_count": 12,
+      "main_content_pillars": [
+        "玩法介绍",
+        "福利/活动",
+        "攻略教学"
+      ],
+      "dominant_tone": "官方公告型"
+    },
+    {
+      "account_name": "崩坏星穹铁道",
+      "benchmark_name": "崩坏：星穹铁道",
+      "sample_count": 12,
+      "main_content_pillars": [
+        "实机/内容爆料",
+        "玩法介绍",
+        "版本更新"
+      ],
+      "dominant_tone": "官方公告型"
+    },
+    {
+      "account_name": "永劫无间手游",
+      "benchmark_name": "永劫无间手游",
+      "sample_count": 12,
+      "main_content_pillars": [
+        "赛事/电竞",
+        "玩法介绍",
+        "联动"
+      ],
+      "dominant_tone": "官方公告型"
+    },
+    {
+      "account_name": "洛克王国世界",
+      "benchmark_name": "洛克王国：世界",
+      "sample_count": 12,
+      "main_content_pillars": [
+        "IP/角色/单位",
+        "赛事/电竞",
+        "社区/玩家内容"
+      ],
+      "dominant_tone": "官方公告型"
+    },
+    {
+      "account_name": "王者荣耀",
+      "benchmark_name": "王者荣耀",
+      "sample_count": 12,
+      "main_content_pillars": [
+        "玩法介绍",
+        "世界观/剧情",
+        "攻略教学"
+      ],
+      "dominant_tone": "官方公告型"
+    },
+    {
+      "account_name": "红警OL手游",
+      "benchmark_name": "红警OL",
+      "sample_count": 12,
+      "main_content_pillars": [
+        "版本更新",
+        "福利/活动",
+        "官宣/品牌节点"
+      ],
+      "dominant_tone": "玩家朋友型"
+    },
+    {
+      "account_name": "诡秘之主游戏",
+      "benchmark_name": "诡秘之主",
+      "sample_count": 12,
+      "main_content_pillars": [
+        "官宣/品牌节点",
+        "玩法介绍",
+        "世界观/剧情"
+      ],
+      "dominant_tone": "官方公告型"
+    },
+    {
+      "account_name": "龙之谷世界",
+      "benchmark_name": "龙之谷世界",
+      "sample_count": 12,
+      "main_content_pillars": [
+        "版本更新",
+        "官宣/品牌节点",
+        "福利/活动"
+      ],
+      "dominant_tone": "官方公告型"
+    },
+    {
+      "account_name": "三国志王道天下",
+      "benchmark_name": "三国志：王道天下",
+      "sample_count": 9,
+      "main_content_pillars": [
+        "玩法介绍",
+        "攻略教学",
+        "FAQ/问题解释"
+      ],
+      "dominant_tone": "官方公告型"
+    },
+    {
+      "account_name": "冒险岛枫之传说官方",
+      "benchmark_name": "冒险岛：枫之传说",
+      "sample_count": 9,
+      "main_content_pillars": [
+        "实机/内容爆料",
+        "玩法介绍",
+        "情绪/IP表达"
+      ],
+      "dominant_tone": "编辑部型"
+    },
+    {
+      "account_name": "向僵尸开炮",
+      "benchmark_name": "向僵尸开炮",
+      "sample_count": 9,
+      "main_content_pillars": [
+        "联动",
+        "玩法介绍",
+        "FAQ/问题解释"
+      ],
+      "dominant_tone": "编辑部型"
+    },
+    {
+      "account_name": "战火勋章",
+      "benchmark_name": "战火勋章",
+      "sample_count": 9,
+      "main_content_pillars": [
+        "版本更新",
+        "攻略教学",
+        "开发者内容"
+      ],
+      "dominant_tone": "开发者型"
+    },
+    {
+      "account_name": "无尽冬日",
+      "benchmark_name": "无尽冬日",
+      "sample_count": 9,
+      "main_content_pillars": [
+        "福利/活动",
+        "IP/角色/单位",
+        "版本更新"
+      ],
+      "dominant_tone": "官方公告型"
+    }
+  ],
+  "takeaway": "公众号核心不是单一宣传，而是长期的信息解释与栏目沉淀。",
+  "title_features": {
+    "avg_title_length": 24.3,
+    "median_title_length": 22,
+    "pct_with_question_mark": 0.048,
+    "pct_with_exclamation": 0.533,
+    "pct_with_digits": 0.321,
+    "pct_with_player_address": 0.018,
+    "pct_with_pipe_or_brackets": 0.497,
+    "pct_with_benefit_words": 0.139,
+    "pct_with_suspense_words": 0.012
+  },
+  "premium_methods": [
+    {
+      "theme": "标题克制度",
+      "finding": "原神/崩铁标题更常直接事件命名（角色演示、OST、更新电台），少堆叠感叹与利益词",
+      "transferable": "HIGH",
+      "capacity_dependent": false
+    },
+    {
+      "theme": "系列化模板",
+      "finding": "角色技能演示、生日、更新电台形成可预期系列，降低用户认知成本",
+      "transferable": "HIGH",
+      "capacity_dependent": false
+    },
+    {
+      "theme": "精品长文组织",
+      "finding": "样本中精品账号亦有短讯体；长文价值更多体现在信息分层清晰而非篇幅炫耀",
+      "transferable": "MEDIUM",
+      "capacity_dependent": false
+    },
+    {
+      "theme": "美术/影像产能",
+      "finding": "角色演示/OST/周边预告强依赖稳定美术与多媒体产能",
+      "transferable": "LOW",
+      "capacity_dependent": true
+    },
+    {
+      "theme": "品牌语气",
+      "finding": "克制、稳定、旅行者/开拓者称呼体系，少用夸张口语促销腔",
+      "transferable": "MEDIUM",
+      "capacity_dependent": false
+    }
+  ],
+  "premium_note": "部分方法依赖高内容/美术产能，不能直接照搬。"
+}

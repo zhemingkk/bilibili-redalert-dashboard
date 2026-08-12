@@ -1,528 +1,178 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>《红警：荣耀》内容生态与双号策划看板</title>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
-  <style>
-    :root {
-      --bg: #0f1419;
-      --panel: #1a222c;
-      --ink: #e8eef4;
-      --muted: #9aa8b6;
-      --accent: #c45c26;
-      --line: #2a3542;
-      --good: #3d9a6a;
-      --blue: #4f8cff;
-      --teal: #2bbbad;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
-      background: radial-gradient(1200px 600px at 10% -10%, #243041 0%, var(--bg) 55%);
-      color: var(--ink);
-      min-height: 100vh;
-    }
-    header {
-      padding: 28px 32px 12px;
-      border-bottom: 1px solid var(--line);
-    }
-    header h1 { margin: 0 0 8px; font-size: 28px; letter-spacing: 0.02em; }
-    header p { margin: 0; color: var(--muted); max-width: 760px; }
-    .wrap { padding: 20px 32px 48px; display: grid; gap: 18px; }
-    .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
-    .charts { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 12px; }
-    .chart-box { position: relative; height: 280px; }
-    .load-grid { display: grid; grid-template-columns: repeat(8, 1fr); gap: 8px; margin-top: 12px; }
-    .load-week {
-      background: #121820;
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      padding: 10px 8px;
-      min-height: 120px;
-    }
-    .load-week .w { font-size: 12px; color: var(--muted); margin-bottom: 8px; }
-    .bar {
-      border-radius: 4px;
-      margin-bottom: 4px;
-      font-size: 11px;
-      padding: 4px 6px;
-      color: #fff;
-      line-height: 1.2;
-    }
-    .bar.off { background: var(--accent); }
-    .bar.thr { background: var(--blue); }
-    .bar.long { outline: 1px solid rgba(255,255,255,.25); }
-    .legend { display:flex; gap:12px; flex-wrap:wrap; margin-top:8px; font-size:12px; color: var(--muted); }
-    .legend i { display:inline-block; width:10px; height:10px; border-radius:2px; margin-right:4px; }
-    .card {
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      padding: 14px 16px;
-    }
-    .card .k { color: var(--muted); font-size: 12px; }
-    .card .v { font-size: 24px; margin-top: 6px; font-weight: 700; }
-    .layout { display: grid; grid-template-columns: 280px 1fr; gap: 16px; }
-    .filters label { display: block; font-size: 12px; color: var(--muted); margin: 10px 0 4px; }
-    select, input[type="search"], input[type="number"] {
-      width: 100%;
-      background: #121820;
-      color: var(--ink);
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      padding: 8px 10px;
-    }
-    button {
-      margin-top: 12px;
-      width: 100%;
-      background: var(--accent);
-      color: white;
-      border: 0;
-      border-radius: 8px;
-      padding: 10px;
-      cursor: pointer;
-      font-weight: 600;
-    }
-    table { width: 100%; border-collapse: collapse; font-size: 13px; }
-    th, td { padding: 8px 6px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
-    th { color: var(--muted); font-weight: 600; position: sticky; top: 0; background: var(--panel); }
-    .scroll { max-height: 520px; overflow: auto; }
-    a { color: #7eb6ff; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .pill {
-      display: inline-block;
-      padding: 2px 8px;
-      border-radius: 999px;
-      background: #243041;
-      color: var(--muted);
-      font-size: 12px;
-      margin-right: 4px;
-    }
-    .cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-    .col h3 { margin: 0 0 8px; }
-    .col ul { margin: 8px 0; padding-left: 18px; color: var(--muted); }
-    .muted { color: var(--muted); }
-    @media (max-width: 1100px) {
-      .grid, .cols, .layout, .charts, .load-grid { grid-template-columns: 1fr; }
-      .chart-box { height: 240px; }
-    }
-  </style>
+  <title>《红警：荣耀》内容生态与用户洞察研究</title>
+  <link rel="stylesheet" href="assets/css/main.css" />
 </head>
 <body>
-  <header>
-    <h1>《红警：荣耀》内容生态与双号策划看板</h1>
-    <p>生态抽样 + 产品适配：长视频1-3分钟 / 竖屏短视频≤20秒；官方号与精品三方号双版本选题。</p>
-  </header>
-  <div class="wrap">
-    <div class="grid" id="kpis"></div>
+  <nav class="topnav" id="topnav"></nav>
+  <main class="wrap">
+    <header class="page-hero">
+      <h1>《红警：荣耀》<br/>内容生态与用户洞察研究</h1>
+      <p class="sub">B站 × 抖音 × 微信生态</p>
+      <p class="prop">研究红警IP内容生态、玩家真实诉求与新品发行内容机会</p>
+      <div class="updated" id="updated">研究更新时间加载中…</div>
+    </header>
 
-    <div class="charts">
-      <div class="card">
-        <strong>内容簇分布</strong>
-        <div class="chart-box"><canvas id="chartCluster"></canvas></div>
+    <!-- 1. Core findings first -->
+    <section>
+      <div class="section-head">
+        <h2>阶段性核心发现</h2>
+        <div class="desc">结论优先 · 数据作证据 · 非最终策略</div>
       </div>
-      <div class="card">
-        <strong>时长结构</strong>
-        <div class="chart-box"><canvas id="chartDuration"></canvas></div>
+      <div class="findings" id="findings"></div>
+    </section>
+
+    <!-- 2. Coverage strip -->
+    <section>
+      <div class="section-head">
+        <h2>研究覆盖</h2>
+        <div class="desc">这是研究规模，不是业务成绩</div>
       </div>
-      <div class="card">
-        <strong>IP 符号热力（短池）</strong>
-        <div class="chart-box"><canvas id="chartHooks"></canvas></div>
+      <div class="coverage" id="coverage"></div>
+    </section>
+
+    <!-- 3. Platform matrix -->
+    <section>
+      <div class="section-head">
+        <h2>平台研究进展</h2>
       </div>
-    </div>
+      <div class="platform-grid" id="platforms"></div>
+    </section>
 
-    <div class="card">
-      <strong>8 周双号产能负荷</strong>
-      <div class="legend">
-        <span><i style="background:#c45c26"></i>官方向条目</span>
-        <span><i style="background:#4f8cff"></i>三方向条目</span>
-        <span>同一周内长短视频交错，便于一眼看产能</span>
-      </div>
-      <div class="load-grid" id="loadGrid"></div>
-    </div>
-
-    <div class="card">
-      <strong>内容簇标签</strong>
-      <div id="clusters" style="margin-top:10px; display:flex; flex-wrap:wrap; gap:8px;"></div>
-    </div>
-
-    <div class="layout">
-      <div class="card filters">
-        <strong>筛选</strong>
-        <label>关键词</label>
-        <input type="search" id="q" placeholder="标题 / UP / 标签" />
-        <label>内容簇</label>
-        <select id="cluster"><option value="">全部</option></select>
-        <label>时段</label>
-        <select id="period">
-          <option value="">全部</option>
-          <option value="recent">近 180 天</option>
-          <option value="classic">非近 180 天</option>
-        </select>
-        <label>最低播放</label>
-        <input type="number" id="minPlay" value="0" min="0" />
-        <label>排序</label>
-        <select id="sort">
-          <option value="play">播放</option>
-          <option value="eng_rate">互动率</option>
-          <option value="pubdate">发布时间</option>
-        </select>
-        <button id="apply">应用筛选</button>
-        <p class="muted" id="count" style="margin-top:12px;font-size:12px;"></p>
-      </div>
-      <div class="card">
-        <strong>视频探索</strong>
-        <div class="scroll" style="margin-top:10px;">
-          <table>
-            <thead>
-              <tr>
-                <th>标题</th>
-                <th>簇</th>
-                <th>播放</th>
-                <th>互动率</th>
-                <th>UP</th>
-              </tr>
-            </thead>
-            <tbody id="tbody"></tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <strong>UP 矩阵（样本内）</strong>
-      <div class="scroll" style="margin-top:10px;">
-        <table>
-          <thead>
-            <tr><th>UP</th><th>样本投稿</th><th>样本总播放</th><th>代表作</th></tr>
-          </thead>
-          <tbody id="ups"></tbody>
-        </table>
-      </div>
-    </div>
-
-    <div class="card">
-      <strong>评论主题信号</strong>
-      <div id="themes" style="margin-top:10px;"></div>
-    </div>
-
-    <div class="card">
-      <strong>短视频池（竖屏/短时长）</strong>
-      <div id="shortKpis" class="grid" style="margin-top:10px;"></div>
-      <div class="scroll" style="margin-top:10px;">
-        <table>
-          <thead><tr><th>标题</th><th>时长</th><th>播放</th><th>竖屏</th></tr></thead>
-          <tbody id="shortTop"></tbody>
-        </table>
-      </div>
-    </div>
-
-    <div>
-      <h2 style="margin:8px 0 12px;">栏目建议（长视频1-3分钟 / 短视频≤20秒）</h2>
-      <div class="cols" id="columns"></div>
-    </div>
-
-    <div class="card">
-      <strong>8 周双号选题日历</strong>
-      <p class="muted" id="calNote" style="margin:8px 0 0;"></p>
-      <div class="scroll" style="margin-top:10px;">
-        <table>
-          <thead>
-            <tr><th>周次</th><th>栏目</th><th>时长</th><th>官方号选题</th><th>精品三方号选题</th><th>生态对标</th></tr>
-          </thead>
-          <tbody id="calendar"></tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-
+    <!-- 4. Method at bottom -->
+    <section class="method-box">
+      <h2>研究说明与口径</h2>
+      <div id="method"></div>
+    </section>
+  </main>
+  <script src="assets/js/app.js"></script>
   <script>
-    const state = { videos: [], ups: [], summary: null, columns: [], themes: [], calendar: null, shortSummary: null, dualColumns: null };
+    RADash.renderNav("overview");
+    (async () => {
+      try {
+        const meta = await RADash.loadJSON("data/overview/meta.json");
+        const dk = meta.douyin_kpis || {};
+        const bk = meta.bilibili_kpis || null;
+        const wk = meta.wechat_kpis || {};
+        document.getElementById("updated").textContent = "更新时间：" + (meta.generated_at || "—");
 
-    function fmt(n) {
-      n = Number(n || 0);
-      if (n >= 100000000) return (n/1e8).toFixed(2) + '亿';
-      if (n >= 10000) return (n/1e4).toFixed(1) + '万';
-      return String(n);
-    }
+        // Findings from verified WP-05A1 / sample facts only — no new cross-platform synthesis
+        const findings = [
+          {
+            idx: "01",
+            title: "红警内容供给高度集中于 IP符号与AIGC",
+            text: "在当前抖音正式红警样本中，IP符号与AIGC是高覆盖内容方向。这描述的是供给结构，不代表“最佳内容”。",
+            tag: "阶段性",
+            tagClass: "stage",
+            evidence: "红警 80 作品 · 内容标签统计",
+          },
+          {
+            idx: "02",
+            title: "RTS诉求真实存在，但表达不只叫“RTS”",
+            text: "玩家更多通过 3D / 对战 / 重制 / 经典玩法等语言表达相关需求；字面“RTS/即时战略”极少。",
+            tag: "阶段性",
+            tagClass: "stage",
+            evidence: "红警评论 1280 · RTS相关约 60",
+          },
+          {
+            idx: "03",
+            title: "玩家说的“还原”不是单一玩法还原",
+            text: "当前讨论更多包含单位识别、情绪记忆、经典元素，以及部分玩法期待。",
+            tag: "阶段性",
+            tagClass: "stage",
+            evidence: "评论主题标注 · 经典还原侧面",
+          },
+          {
+            idx: "04",
+            title: "AIGC 的价值目前更多体现在“新游戏想象”",
+            text: "正向评论更集中于视觉冲击、电影感，以及“如果做成游戏”的想象。视觉质量 / AI痕迹专项尚未完成。",
+            tag: "待验证",
+            tagClass: "pending",
+            evidence: "AIGC相关评论反馈 · 视觉样本 15",
+            limit: true,
+          },
+        ];
+        document.getElementById("findings").innerHTML = findings.map((f) => `
+          <article class="finding ${f.limit ? "limit" : ""}">
+            <div class="idx">${f.idx}</div>
+            <h3>${f.title}</h3>
+            <p>${f.text}</p>
+            <div class="meta">
+              <span class="tag ${f.tagClass}">${f.tag}</span>
+              <span class="tag evidence">证据 · ${f.evidence}</span>
+            </div>
+          </article>`).join("") + `
+          <div class="coverage" style="grid-column:1/-1;margin-top:2px;">
+            <div class="label-soft">平台进展</div>
+            <div><strong>微信研究已完成</strong> · 公众号与视频号成果已接入。跨平台综合结论待下一阶段。</div>
+          </div>`;
 
-    async function loadJSON(path) {
-      const res = await fetch(path);
-      if (!res.ok) throw new Error('load fail ' + path);
-      return res.json();
-    }
+        document.getElementById("coverage").innerHTML = `
+          <div class="label-soft">研究覆盖（正式样本口径 · 非业务 KPI）</div>
+          <div><strong>${RADash.fmt(dk.candidate_accounts)}</strong>抖音账号</div>
+          <div><strong>${RADash.fmt(dk.formal_sample_works)}</strong>抖音正式样本</div>
+          <div><strong>${RADash.fmt(dk.comment_corpus)}</strong>抖音评论</div>
+          <div><strong>${RADash.fmt(wk.mp_formal_sample)}</strong>公众号正式样本</div>
+          <div><strong>${RADash.fmt(wk.channels_formal_sample)}</strong>视频号正式样本</div>
+          <div><strong>${RADash.fmt(bk?.n_videos)}</strong>B站视频快照</div>`;
 
-    function chartDefaults() {
-      if (typeof Chart === 'undefined') return;
-      Chart.defaults.color = '#9aa8b6';
-      Chart.defaults.borderColor = '#2a3542';
-      Chart.defaults.font.family = '"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif';
-    }
+        const platforms = [
+          {
+            name: "B站",
+            status: "已完成",
+            wait: false,
+            stats: bk
+              ? `${RADash.fmt(bk.n_videos)} 视频 / ${RADash.fmt(bk.n_comments)} 评论 / ${RADash.fmt(bk.n_ups)} UP`
+              : "已完成独立研究（详见完整看板）",
+            href: "platforms/bilibili.html",
+            cta: "查看研究",
+          },
+          {
+            name: "抖音",
+            status: "已完成核心研究",
+            wait: false,
+            stats: `${RADash.fmt(dk.formal_sample_works)} 正式样本 / ${RADash.fmt(dk.comment_corpus)} 评论`,
+            href: "platforms/douyin.html",
+            cta: "查看研究",
+          },
+          {
+            name: "微信公众号",
+            status: "已完成",
+            wait: false,
+            stats: `${RADash.fmt(wk.mp_formal_sample)} 正式样本 / ${RADash.fmt(wk.mp_fulltext_ok)} 正文成功`,
+            href: "platforms/wechat.html",
+            cta: "查看研究",
+          },
+          {
+            name: "视频号",
+            status: "已完成",
+            wait: false,
+            stats: `${RADash.fmt(wk.channels_formal_sample)} 正式样本 / ${RADash.fmt(wk.channels_visual_cases)} 视觉案例`,
+            href: "platforms/wechat.html",
+            cta: "查看研究",
+          },
+        ];
+        document.getElementById("platforms").innerHTML = platforms.map((p) => `
+          <div class="platform-card">
+            <h3>${p.name}</h3>
+            <div class="status ${p.wait ? "wait" : ""}">${p.status}</div>
+            <div class="stats">${p.stats}</div>
+            <a class="btn ${p.wait ? "ghost" : ""}" href="${p.href}">${p.cta}</a>
+          </div>`).join("");
 
-    function renderEcoCharts() {
-      if (typeof Chart === 'undefined') return;
-      chartDefaults();
-      const clusters = (state.summary && state.summary.cluster_stats) || [];
-      const dur = (state.summary && state.summary.duration_bands) || {};
-      const hooks = (state.shortSummary && state.shortSummary.hook_counts) || [];
-
-      new Chart(document.getElementById('chartCluster'), {
-        type: 'bar',
-        data: {
-          labels: clusters.map(c => c.cluster),
-          datasets: [
-            { label: '条数', data: clusters.map(c => c.count), backgroundColor: '#c45c26', yAxisID: 'y' },
-            { label: '均播', data: clusters.map(c => c.avg_play || 0), backgroundColor: '#4f8cff88', yAxisID: 'y1' },
-          ]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: { legend: { position: 'bottom' } },
-          scales: {
-            y: { beginAtZero: true, title: { display: true, text: '条数' } },
-            y1: { beginAtZero: true, position: 'right', grid: { drawOnChartArea: false }, title: { display: true, text: '均播' } }
-          }
-        }
-      });
-
-      const dOrder = ['<1min', '1-10min', '10-30min', '>=30min'];
-      const dLabels = dOrder.filter(k => dur[k] != null);
-      new Chart(document.getElementById('chartDuration'), {
-        type: 'doughnut',
-        data: {
-          labels: dLabels,
-          datasets: [{
-            data: dLabels.map(k => dur[k]),
-            backgroundColor: ['#2bbbad', '#4f8cff', '#c45c26', '#8b5cf6'],
-          }]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: { legend: { position: 'bottom' } }
-        }
-      });
-
-      const hTop = hooks.slice(0, 8);
-      new Chart(document.getElementById('chartHooks'), {
-        type: 'bar',
-        data: {
-          labels: hTop.map(x => x[0]),
-          datasets: [{ label: '出现次数', data: hTop.map(x => x[1]), backgroundColor: '#2bbbad' }]
-        },
-        options: {
-          indexAxis: 'y',
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: { legend: { display: false } },
-          scales: { x: { beginAtZero: true } }
-        }
-      });
-    }
-
-    function renderLoadGrid() {
-      const cal = state.calendar || { weeks: [] };
-      const box = document.getElementById('loadGrid');
-      if (!box) return;
-      box.innerHTML = (cal.weeks || []).map(w => {
-        const items = w.items || [];
-        const bars = items.map(it => {
-          const isShort = String(it.duration || '').includes('20') || String(it.format || '').includes('短');
-          const label = `${isShort ? '短' : '长'}·${(it.column || '').slice(0,6)}`;
-          const ot = (it.official && it.official.title) || '';
-          const tt = (it.third_party && it.third_party.title) || '';
-          return `<div class="bar off" title="${ot}">官 ${label}</div>
-                  <div class="bar thr" title="${tt}">三 ${label}</div>`;
-        }).join('');
-        return `<div class="load-week"><div class="w">${w.week} · ${items.length}题×双号</div>${bars || '<span class="muted">空</span>'}</div>`;
-      }).join('');
-    }
-
-    function renderKPIs() {
-      const s = state.summary;
-      const items = [
-        ['样本视频', s.n_videos],
-        ['评论抽样', s.n_comments],
-        ['UP 矩阵', s.n_ups],
-        ['近180天', s.recent_n],
-      ];
-      document.getElementById('kpis').innerHTML = items.map(([k,v]) =>
-        `<div class="card"><div class="k">${k}</div><div class="v">${fmt(v)}</div></div>`
-      ).join('');
-    }
-
-    function renderClusters() {
-      const box = document.getElementById('clusters');
-      const sel = document.getElementById('cluster');
-      box.innerHTML = '';
-      (state.summary.cluster_stats || []).forEach(c => {
-        const el = document.createElement('span');
-        el.className = 'pill';
-        el.textContent = `${c.cluster} · ${c.count} · 均播${fmt(c.avg_play)}`;
-        box.appendChild(el);
-        const opt = document.createElement('option');
-        opt.value = c.cluster;
-        opt.textContent = `${c.cluster} (${c.count})`;
-        sel.appendChild(opt);
-      });
-    }
-
-    function filteredVideos() {
-      const q = document.getElementById('q').value.trim().toLowerCase();
-      const cluster = document.getElementById('cluster').value;
-      const period = document.getElementById('period').value;
-      const minPlay = Number(document.getElementById('minPlay').value || 0);
-      const sort = document.getElementById('sort').value;
-      let rows = state.videos.slice();
-      rows = rows.filter(v => (v.play || 0) >= minPlay);
-      if (cluster) rows = rows.filter(v => v.cluster === cluster);
-      if (period === 'recent') rows = rows.filter(v => v.is_recent);
-      if (period === 'classic') rows = rows.filter(v => !v.is_recent);
-      if (q) {
-        rows = rows.filter(v => {
-          const blob = `${v.title||''} ${v.author||''} ${(v.tags||[]).join(' ')}`.toLowerCase();
-          return blob.includes(q);
-        });
+        const dv = meta.data_version || {};
+        document.getElementById("method").innerHTML = `
+          <p>${(meta.scope || []).join(" ")}</p>
+          <p>微信研究已完成。本页不生成新的跨平台综合结论。</p>
+          <p>内部数据版本（供追溯）：抖音样本 ${dv.douyin_sample || "—"}；微信公众号 ${dv.wechat_mp || "—"}；视频号 ${dv.wechat_channels || "—"}；B站 ${dv.bilibili || "—"}。</p>
+          <p>更新看板数据：在本地工程运行数据构建脚本后刷新本站。</p>`;
+      } catch (e) {
+        RADash.showError(e);
       }
-      rows.sort((a,b) => (b[sort]||0) - (a[sort]||0));
-      return rows;
-    }
-
-    function renderVideos() {
-      const rows = filteredVideos().slice(0, 300);
-      document.getElementById('count').textContent = `显示 ${rows.length} / 筛选后全量见控制台逻辑（表内最多 300）`;
-      document.getElementById('tbody').innerHTML = rows.map(v => `
-        <tr>
-          <td><a href="${v.url}" target="_blank" rel="noopener">${v.title||v.bvid}</a></td>
-          <td>${v.cluster||''}</td>
-          <td>${fmt(v.play)}</td>
-          <td>${(Number(v.eng_rate||0)*100).toFixed(2)}%</td>
-          <td>${v.author||''}</td>
-        </tr>
-      `).join('');
-    }
-
-    function renderUps() {
-      document.getElementById('ups').innerHTML = state.ups.slice(0, 50).map(u => `
-        <tr>
-          <td><a href="${u.space_url}" target="_blank">${u.name||u.mid}</a></td>
-          <td>${u.sample_videos}</td>
-          <td>${fmt(u.sample_plays)}</td>
-          <td>${(u.top_videos||[]).slice(0,2).map(t => `<div><a href="${t.url}" target="_blank">${t.title||t.bvid}</a></div>`).join('')}</td>
-        </tr>
-      `).join('');
-    }
-
-    function renderThemes() {
-      const themes = state.summary.comment_themes || state.themes || [];
-      document.getElementById('themes').innerHTML = themes.length
-        ? themes.map(t => `<div style="margin-bottom:8px;"><span class="pill">${t.theme}</span> ${t.count}　<span class="muted">${(t.examples||[]).join(' / ')}</span></div>`).join('')
-        : '<span class="muted">评论尚在 enrichment 中或暂无命中主题</span>';
-    }
-
-    function renderColumns() {
-      const dual = state.dualColumns;
-      if (dual) {
-        const all = [...(dual.long_form||[]), ...(dual.short_form||[])];
-        document.getElementById('columns').innerHTML = all.map(c => `
-          <div class="card col">
-            <h3>${c.name}</h3>
-            <div class="muted">${c.format} · ${c.duration}</div>
-            <p style="margin-top:8px;">生态依据：${c.eco_basis||''}</p>
-            <div class="muted">产品适配：${c.product_fit||''}</div>
-          </div>
-        `).join('');
-        return;
-      }
-      document.getElementById('columns').innerHTML = (state.columns||[]).map(c => `
-        <div class="card col">
-          <h3>${c.name}</h3>
-          <p>${c.one_liner||''}</p>
-        </div>
-      `).join('');
-    }
-
-    function renderShortPool() {
-      const s = state.shortSummary;
-      if (!s) {
-        document.getElementById('shortKpis').innerHTML = '<div class="muted">短视频数据生成中…</div>';
-        return;
-      }
-      const items = [
-        ['短视频池', s.n_short_pool],
-        ['≤20秒', s.n_le20s],
-        ['1-3分钟', s.n_1to3min],
-        ['竖屏标记', s.n_vertical_flagged],
-      ];
-      document.getElementById('shortKpis').innerHTML = items.map(([k,v]) =>
-        `<div class="card"><div class="k">${k}</div><div class="v">${fmt(v)}</div></div>`
-      ).join('');
-      document.getElementById('shortTop').innerHTML = (s.top_le20s||[]).slice(0,15).map(v => `
-        <tr>
-          <td><a href="${v.url}" target="_blank">${v.title||v.bvid}</a></td>
-          <td>${v.duration_sec||0}s</td>
-          <td>${fmt(v.play)}</td>
-          <td>${v.is_vertical===true?'是':(v.is_vertical===false?'否':'-')}</td>
-        </tr>
-      `).join('');
-    }
-
-    function renderCalendar() {
-      const cal = state.calendar || { weeks: [], note: '' };
-      document.getElementById('calNote').textContent = cal.note || '';
-      const rows = [];
-      (cal.weeks || []).forEach(w => {
-        (w.items || []).forEach(it => {
-          const off = it.official ? it.official.title : (it.topic || '');
-          const thr = it.third_party ? it.third_party.title : '';
-          const b = it.benchmark || {};
-          const burl = b.url || it.benchmark_url || '';
-          const btitle = b.title || it.benchmark_title || '';
-          rows.push(`<tr>
-            <td>${w.week}</td>
-            <td>${it.column||''}</td>
-            <td>${it.duration||it.suggested_duration||''}</td>
-            <td>${off}</td>
-            <td>${thr}</td>
-            <td>${burl ? `<a href="${burl}" target="_blank">${btitle||'对标'}</a>` : ''}</td>
-          </tr>`);
-        });
-      });
-      document.getElementById('calendar').innerHTML = rows.join('') || '<tr><td colspan="6" class="muted">暂无日历</td></tr>';
-    }
-
-    async function main() {
-      const base = './data';
-      state.summary = await loadJSON(base + '/summary.json');
-      state.videos = await loadJSON(base + '/videos.json');
-      state.ups = await loadJSON(base + '/ups.json');
-      try { state.columns = await loadJSON(base + '/columns.json'); } catch (e) { state.columns = []; }
-      try { state.dualColumns = await loadJSON(base + '/columns_dual.json'); } catch (e) { state.dualColumns = null; }
-      try { state.calendar = await loadJSON(base + '/calendar_dual.json'); } catch (e) {
-        try { state.calendar = await loadJSON(base + '/calendar.json'); } catch (e2) { state.calendar = { weeks: [] }; }
-      }
-      try { state.shortSummary = await loadJSON(base + '/short_summary.json'); } catch (e) { state.shortSummary = null; }
-      renderKPIs();
-      renderEcoCharts();
-      renderLoadGrid();
-      renderClusters();
-      renderVideos();
-      renderUps();
-      renderThemes();
-      renderShortPool();
-      renderColumns();
-      renderCalendar();
-      document.getElementById('apply').onclick = renderVideos;
-    }
-
-    main().catch(err => {
-      document.body.insertAdjacentHTML('beforeend', `<pre style="padding:24px;color:#ff8f8f;">加载失败：数据文件缺失或路径错误。\n${err}</pre>`);
-    });
+    })();
   </script>
 </body>
 </html>
-

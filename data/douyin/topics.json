@@ -1,0 +1,126 @@
+{
+  "generated_at": "2026-08-12T13:22:41.823600+08:00",
+  "n_redalert_works": 80,
+  "overlap_note": "标签可重叠，合计不等于 80。",
+  "focus_topics": [
+    {
+      "topic": "AIGC",
+      "works": 26,
+      "aliases": [
+        "AICG",
+        "AIGC"
+      ]
+    },
+    {
+      "topic": "RTS",
+      "works": 15,
+      "aliases": [
+        "RTS"
+      ]
+    },
+    {
+      "topic": "经典还原",
+      "works": 7,
+      "aliases": [
+        "经典还原"
+      ]
+    },
+    {
+      "topic": "手游期待",
+      "works": 10,
+      "aliases": [
+        "手游期待"
+      ]
+    },
+    {
+      "topic": "IP符号",
+      "works": 39,
+      "aliases": [
+        "单位/IP符号",
+        "角色"
+      ]
+    },
+    {
+      "topic": "新号",
+      "works": 6,
+      "aliases": [
+        "新号起量"
+      ]
+    },
+    {
+      "topic": "整活",
+      "works": 7,
+      "aliases": [
+        "搞笑整活"
+      ]
+    },
+    {
+      "topic": "怀旧",
+      "works": 6,
+      "aliases": [
+        "怀旧"
+      ]
+    },
+    {
+      "topic": "军事",
+      "works": 7,
+      "aliases": [
+        "军事"
+      ]
+    },
+    {
+      "topic": "战役/剧情",
+      "works": 2,
+      "aliases": [
+        "战役/剧情"
+      ]
+    }
+  ],
+  "rts_union_classic_works": 22,
+  "raw_tag_counts": [
+    {
+      "tag": "单位/IP符号",
+      "works": 39
+    },
+    {
+      "tag": "角色",
+      "works": 28
+    },
+    {
+      "tag": "AICG",
+      "works": 26
+    },
+    {
+      "tag": "RTS",
+      "works": 15
+    },
+    {
+      "tag": "手游期待",
+      "works": 10
+    },
+    {
+      "tag": "搞笑整活",
+      "works": 7
+    },
+    {
+      "tag": "经典还原",
+      "works": 7
+    },
+    {
+      "tag": "军事",
+      "works": 7
+    },
+    {
+      "tag": "新号起量",
+      "works": 6
+    },
+    {
+      "tag": "怀旧",
+      "works": 6
+    },
+    {
+      "tag": "战役/剧情",
+      "works": 2
+    }
+  ]
+}

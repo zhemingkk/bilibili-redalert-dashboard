@@ -1,0 +1,56 @@
+{
+  "generated_at": "2026-08-12T13:22:41.872368+08:00",
+  "n_series": 6,
+  "items": [
+    {
+      "series_name": "红警AI创作投稿",
+      "account_name": "红警OL手游",
+      "benchmark_name": "红警OL",
+      "evidence_count": 2,
+      "purpose": "UGC征集包装",
+      "confidence": "LOW"
+    },
+    {
+      "series_name": "三角洲实机技巧/整活",
+      "account_name": "三角洲行动",
+      "benchmark_name": "三角洲行动",
+      "evidence_count": 5,
+      "purpose": "军事题材娱乐化/技巧",
+      "confidence": "HIGH"
+    },
+    {
+      "series_name": "洛克IP识别短片",
+      "account_name": "洛克王国世界",
+      "benchmark_name": "洛克王国：世界",
+      "evidence_count": 10,
+      "purpose": "老IP识别进入短视频",
+      "confidence": "LOW"
+    },
+    {
+      "series_name": "永劫新英雄/实机",
+      "account_name": "永劫无间手游",
+      "benchmark_name": "永劫无间手游",
+      "evidence_count": 5,
+      "purpose": "新品内容解释",
+      "confidence": "HIGH"
+    },
+    {
+      "series_name": "DNF起源玩法前瞻",
+      "account_name": "地下城与勇士手游",
+      "benchmark_name": "地下城与勇士：起源",
+      "evidence_count": 10,
+      "purpose": "端游IP手游化解释",
+      "confidence": "HIGH"
+    },
+    {
+      "series_name": "诡秘原著向表达",
+      "account_name": "诡秘之主游戏",
+      "benchmark_name": "诡秘之主",
+      "evidence_count": 4,
+      "purpose": "强IP语境内容",
+      "confidence": "HIGH"
+    }
+  ],
+  "compare_to_mp_columns": 28,
+  "takeaway": "同窗对比：公众号可识别栏目更多、命名更清晰；视频号多为主题簇。"
+}

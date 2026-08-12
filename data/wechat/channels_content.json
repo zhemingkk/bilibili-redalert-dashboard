@@ -1,0 +1,370 @@
+{
+  "generated_at": "2026-08-12T13:22:41.871369+08:00",
+  "sample_size": 114,
+  "type_distribution": [
+    {
+      "type": "其他",
+      "count": 23,
+      "share": 0.2018
+    },
+    {
+      "type": "版本内容",
+      "count": 15,
+      "share": 0.1316
+    },
+    {
+      "type": "社区UGC",
+      "count": 14,
+      "share": 0.1228
+    },
+    {
+      "type": "官宣/品牌节点",
+      "count": 14,
+      "share": 0.1228
+    },
+    {
+      "type": "活动/福利",
+      "count": 13,
+      "share": 0.114
+    },
+    {
+      "type": "角色/IP",
+      "count": 8,
+      "share": 0.0702
+    },
+    {
+      "type": "实机/玩法展示",
+      "count": 7,
+      "share": 0.0614
+    },
+    {
+      "type": "攻略技巧",
+      "count": 6,
+      "share": 0.0526
+    },
+    {
+      "type": "剧情/世界观",
+      "count": 5,
+      "share": 0.0439
+    },
+    {
+      "type": "搞笑整活",
+      "count": 4,
+      "share": 0.0351
+    },
+    {
+      "type": "开发者内容",
+      "count": 4,
+      "share": 0.0351
+    },
+    {
+      "type": "短知识/机制解释",
+      "count": 1,
+      "share": 0.0088
+    }
+  ],
+  "account_pillars": [
+    {
+      "account_name": "三角洲行动",
+      "benchmark_name": "三角洲行动",
+      "sample_count": 10,
+      "main_content_pillars": [
+        "搞笑整活",
+        "版本内容",
+        "其他"
+      ]
+    },
+    {
+      "account_name": "冒险岛枫之传说官方",
+      "benchmark_name": "冒险岛：枫之传说",
+      "sample_count": 10,
+      "main_content_pillars": [
+        "版本内容",
+        "其他",
+        "官宣/品牌节点"
+      ]
+    },
+    {
+      "account_name": "原神",
+      "benchmark_name": "原神",
+      "sample_count": 10,
+      "main_content_pillars": [
+        "其他",
+        "角色/IP",
+        "版本内容"
+      ]
+    },
+    {
+      "account_name": "地下城与勇士手游",
+      "benchmark_name": "地下城与勇士：起源",
+      "sample_count": 10,
+      "main_content_pillars": [
+        "官宣/品牌节点",
+        "版本内容",
+        "社区UGC"
+      ]
+    },
+    {
+      "account_name": "崩坏星穹铁道",
+      "benchmark_name": "崩坏：星穹铁道",
+      "sample_count": 10,
+      "main_content_pillars": [
+        "官宣/品牌节点",
+        "剧情/世界观",
+        "角色/IP"
+      ]
+    },
+    {
+      "account_name": "无尽冬日",
+      "benchmark_name": "无尽冬日",
+      "sample_count": 10,
+      "main_content_pillars": [
+        "官宣/品牌节点",
+        "版本内容",
+        "攻略技巧"
+      ]
+    },
+    {
+      "account_name": "永劫无间手游",
+      "benchmark_name": "永劫无间手游",
+      "sample_count": 10,
+      "main_content_pillars": [
+        "其他",
+        "官宣/品牌节点",
+        "角色/IP"
+      ]
+    },
+    {
+      "account_name": "洛克王国世界",
+      "benchmark_name": "洛克王国：世界",
+      "sample_count": 10,
+      "main_content_pillars": [
+        "活动/福利",
+        "版本内容",
+        "角色/IP"
+      ]
+    },
+    {
+      "account_name": "王者荣耀",
+      "benchmark_name": "王者荣耀",
+      "sample_count": 10,
+      "main_content_pillars": [
+        "角色/IP",
+        "社区UGC",
+        "官宣/品牌节点"
+      ]
+    },
+    {
+      "account_name": "红警OL手游",
+      "benchmark_name": "红警OL",
+      "sample_count": 10,
+      "main_content_pillars": [
+        "社区UGC",
+        "实机/玩法展示",
+        "官宣/品牌节点"
+      ]
+    },
+    {
+      "account_name": "诡秘之主游戏",
+      "benchmark_name": "诡秘之主",
+      "sample_count": 10,
+      "main_content_pillars": [
+        "剧情/世界观",
+        "活动/福利",
+        "其他"
+      ]
+    },
+    {
+      "account_name": "三国志王道天下",
+      "benchmark_name": "三国志：王道天下",
+      "sample_count": 4,
+      "main_content_pillars": [
+        "活动/福利",
+        "社区UGC",
+        "官宣/品牌节点"
+      ]
+    }
+  ],
+  "series_count": 6,
+  "series_takeaway": "视频号整体“栏目化”弱于公众号。",
+  "series": [
+    {
+      "series_name": "红警AI创作投稿",
+      "account_name": "红警OL手游",
+      "benchmark_name": "红警OL",
+      "evidence_count": 2,
+      "purpose": "UGC征集包装",
+      "confidence": "LOW"
+    },
+    {
+      "series_name": "三角洲实机技巧/整活",
+      "account_name": "三角洲行动",
+      "benchmark_name": "三角洲行动",
+      "evidence_count": 5,
+      "purpose": "军事题材娱乐化/技巧",
+      "confidence": "HIGH"
+    },
+    {
+      "series_name": "洛克IP识别短片",
+      "account_name": "洛克王国世界",
+      "benchmark_name": "洛克王国：世界",
+      "evidence_count": 10,
+      "purpose": "老IP识别进入短视频",
+      "confidence": "LOW"
+    },
+    {
+      "series_name": "永劫新英雄/实机",
+      "account_name": "永劫无间手游",
+      "benchmark_name": "永劫无间手游",
+      "evidence_count": 5,
+      "purpose": "新品内容解释",
+      "confidence": "HIGH"
+    },
+    {
+      "series_name": "DNF起源玩法前瞻",
+      "account_name": "地下城与勇士手游",
+      "benchmark_name": "地下城与勇士：起源",
+      "evidence_count": 10,
+      "purpose": "端游IP手游化解释",
+      "confidence": "HIGH"
+    },
+    {
+      "series_name": "诡秘原著向表达",
+      "account_name": "诡秘之主游戏",
+      "benchmark_name": "诡秘之主",
+      "evidence_count": 4,
+      "purpose": "强IP语境内容",
+      "confidence": "HIGH"
+    }
+  ],
+  "visual_cases_n": 16,
+  "visual_with_url": 3,
+  "delta_card": {
+    "title": "三角洲为什么值得视频号参考？",
+    "points": [
+      "整活口语（新年快乐梗）与人设寻宝把军事题材娱乐化",
+      "活动宣发仍存在（幸运鸟窝），但常嵌在角色话术里",
+      "桌面sph预览需扫码，但URL可验证；互动数据样本侧已有like/comment/forward",
+      "官方通过人设/整活降低硬广感，可作红警‘少念卖点、多给情境’参照"
+    ],
+    "takeaway": "不是简单学军事视觉，而是学：让游戏体验本身成为内容。",
+    "type_counts": {
+      "实机/玩法展示": 1,
+      "版本内容": 2,
+      "攻略技巧": 1,
+      "活动/福利": 1,
+      "搞笑整活": 3,
+      "其他": 2
+    }
+  },
+  "performance_by_type": [
+    {
+      "content_type": "其他",
+      "n": 23,
+      "median_like": 495.0,
+      "median_comment": 100.0,
+      "median_forward": 539.0,
+      "median_view": null,
+      "note": "中位数；view_count全样本为null则保持null；不推断内容质量优劣"
+    },
+    {
+      "content_type": "版本内容",
+      "n": 15,
+      "median_like": 2082.0,
+      "median_comment": 260.0,
+      "median_forward": 4596.0,
+      "median_view": null,
+      "note": "中位数；view_count全样本为null则保持null；不推断内容质量优劣"
+    },
+    {
+      "content_type": "社区UGC",
+      "n": 14,
+      "median_like": 47.5,
+      "median_comment": 39.0,
+      "median_forward": 72.5,
+      "median_view": null,
+      "note": "中位数；view_count全样本为null则保持null；不推断内容质量优劣"
+    },
+    {
+      "content_type": "官宣/品牌节点",
+      "n": 14,
+      "median_like": 111.5,
+      "median_comment": 121.5,
+      "median_forward": 932.0,
+      "median_view": null,
+      "note": "中位数；view_count全样本为null则保持null；不推断内容质量优劣"
+    },
+    {
+      "content_type": "活动/福利",
+      "n": 13,
+      "median_like": 4435.0,
+      "median_comment": 312.0,
+      "median_forward": 5634.0,
+      "median_view": null,
+      "note": "中位数；view_count全样本为null则保持null；不推断内容质量优劣"
+    },
+    {
+      "content_type": "角色/IP",
+      "n": 8,
+      "median_like": 15202.0,
+      "median_comment": 883.5,
+      "median_forward": 9531.5,
+      "median_view": null,
+      "note": "中位数；view_count全样本为null则保持null；不推断内容质量优劣"
+    },
+    {
+      "content_type": "实机/玩法展示",
+      "n": 7,
+      "median_like": 18.0,
+      "median_comment": 24.0,
+      "median_forward": 133.0,
+      "median_view": null,
+      "note": "中位数；view_count全样本为null则保持null；不推断内容质量优劣"
+    },
+    {
+      "content_type": "攻略技巧",
+      "n": 6,
+      "median_like": 24.5,
+      "median_comment": 14.0,
+      "median_forward": 1221.0,
+      "median_view": null,
+      "note": "中位数；view_count全样本为null则保持null；不推断内容质量优劣"
+    },
+    {
+      "content_type": "剧情/世界观",
+      "n": 5,
+      "median_like": 202.0,
+      "median_comment": 63.0,
+      "median_forward": 163.0,
+      "median_view": null,
+      "note": "中位数；view_count全样本为null则保持null；不推断内容质量优劣"
+    },
+    {
+      "content_type": "搞笑整活",
+      "n": 4,
+      "median_like": 18202.0,
+      "median_comment": 1548.0,
+      "median_forward": 10175.0,
+      "median_view": null,
+      "note": "中位数；view_count全样本为null则保持null；不推断内容质量优劣"
+    },
+    {
+      "content_type": "开发者内容",
+      "n": 4,
+      "median_like": 12.5,
+      "median_comment": 44.0,
+      "median_forward": 130.0,
+      "median_view": null,
+      "note": "中位数；view_count全样本为null则保持null；不推断内容质量优劣"
+    },
+    {
+      "content_type": "短知识/机制解释",
+      "n": 1,
+      "median_like": 12602.0,
+      "median_comment": 2287.0,
+      "median_forward": 17116.0,
+      "median_view": null,
+      "note": "中位数；view_count全样本为null则保持null；不推断内容质量优劣"
+    }
+  ]
+}

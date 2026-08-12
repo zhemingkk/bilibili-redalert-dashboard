@@ -1,0 +1,214 @@
+{
+  "generated_at": "2026-08-12T13:22:41.822998+08:00",
+  "overall": {
+    "works": 80,
+    "avg_likes": 40887.3,
+    "median_likes": 5563.0,
+    "avg_comments": 2097.6,
+    "median_comments": 178.0
+  },
+  "redalert_bucket": [
+    {
+      "bucket": "TOP",
+      "works": 22
+    },
+    {
+      "bucket": "RECENT",
+      "works": 20
+    },
+    {
+      "bucket": "MID",
+      "works": 20
+    },
+    {
+      "bucket": "NEW",
+      "works": 18
+    }
+  ],
+  "by_research_tags": [
+    {
+      "tag": "战役/剧情",
+      "works": 2,
+      "median_likes": 33491.0,
+      "avg_likes": 33491.0,
+      "median_comments": 1440.0,
+      "avg_comments": 1440.0
+    },
+    {
+      "tag": "军事",
+      "works": 7,
+      "median_likes": 24179.0,
+      "avg_likes": 138913.1,
+      "median_comments": 3865.0,
+      "avg_comments": 14858.1
+    },
+    {
+      "tag": "单位/IP符号",
+      "works": 39,
+      "median_likes": 14484.0,
+      "avg_likes": 70261.4,
+      "median_comments": 551.0,
+      "avg_comments": 3642.3
+    },
+    {
+      "tag": "经典还原",
+      "works": 7,
+      "median_likes": 14484.0,
+      "avg_likes": 16899.7,
+      "median_comments": 92.0,
+      "avg_comments": 676.7
+    },
+    {
+      "tag": "角色",
+      "works": 28,
+      "median_likes": 14039.5,
+      "avg_likes": 55675.8,
+      "median_comments": 147.5,
+      "avg_comments": 848.0
+    },
+    {
+      "tag": "AICG",
+      "works": 26,
+      "median_likes": 8170.5,
+      "avg_likes": 59211.2,
+      "median_comments": 254.0,
+      "avg_comments": 2513.7
+    },
+    {
+      "tag": "RTS",
+      "works": 15,
+      "median_likes": 4805.0,
+      "avg_likes": 5175.8,
+      "median_comments": 182.0,
+      "avg_comments": 226.7
+    },
+    {
+      "tag": "搞笑整活",
+      "works": 7,
+      "median_likes": 3521.0,
+      "avg_likes": 20300.4,
+      "median_comments": 42.0,
+      "avg_comments": 843.1
+    },
+    {
+      "tag": "新号起量",
+      "works": 6,
+      "median_likes": 3277.0,
+      "avg_likes": 4187.0,
+      "median_comments": 418.5,
+      "avg_comments": 456.7
+    },
+    {
+      "tag": "怀旧",
+      "works": 6,
+      "median_likes": 1655.5,
+      "avg_likes": 14847.3,
+      "median_comments": 147.0,
+      "avg_comments": 1058.5
+    },
+    {
+      "tag": "手游期待",
+      "works": 10,
+      "median_likes": 1.5,
+      "avg_likes": 349.0,
+      "median_comments": 0.5,
+      "avg_comments": 33.3
+    }
+  ],
+  "by_aigc_verification_status": [
+    {
+      "key": "unknown",
+      "works": 54,
+      "avg_likes": 32064.7,
+      "median_likes": 5563.0,
+      "avg_comments": 1897.3,
+      "median_comments": 168.5,
+      "top_content_ids": [
+        "7668272546781401306",
+        "7480891140724559139",
+        "7657764156065549622"
+      ]
+    },
+    {
+      "key": "confirmed",
+      "works": 17,
+      "avg_likes": 36346.9,
+      "median_likes": 20835.0,
+      "avg_comments": 1881.9,
+      "median_comments": 265.0,
+      "top_content_ids": [
+        "7667756767618649385",
+        "7580654567814073643",
+        "7622969581644107042"
+      ]
+    },
+    {
+      "key": "likely",
+      "works": 9,
+      "avg_likes": 102399.2,
+      "median_likes": 1086.0,
+      "avg_comments": 3706.9,
+      "median_comments": 117.0,
+      "top_content_ids": [
+        "7502598465856343346",
+        "6805490407133154575",
+        "7648227894728084745"
+      ]
+    }
+  ],
+  "by_selection_bucket": [
+    {
+      "key": "TOP",
+      "works": 22,
+      "avg_likes": 99595.4,
+      "median_likes": 11215.5,
+      "avg_comments": 5210.9,
+      "median_comments": 824.0,
+      "top_content_ids": [
+        "7502598465856343346",
+        "7668272546781401306",
+        "7480891140724559139"
+      ]
+    },
+    {
+      "key": "MID",
+      "works": 20,
+      "avg_likes": 19281.1,
+      "median_likes": 14039.5,
+      "avg_comments": 775.4,
+      "median_comments": 183.5,
+      "top_content_ids": [
+        "7667756767618649385",
+        "7633390027677994292",
+        "7642198824097762623"
+      ]
+    },
+    {
+      "key": "RECENT",
+      "works": 20,
+      "avg_likes": 14400.5,
+      "median_likes": 1483.0,
+      "avg_comments": 878.2,
+      "median_comments": 29.0,
+      "top_content_ids": [
+        "6805490407133154575",
+        "7660409279635148066",
+        "7648227894728084745"
+      ]
+    },
+    {
+      "key": "NEW",
+      "works": 18,
+      "avg_likes": 22569.4,
+      "median_likes": 5796.0,
+      "avg_comments": 1116.7,
+      "median_comments": 275.5,
+      "top_content_ids": [
+        "7664542028593163769",
+        "7580654567814073643",
+        "7621019776734874915"
+      ]
+    }
+  ],
+  "note": "优先阅读中位数；高互动不等于内容质量高。"
+}

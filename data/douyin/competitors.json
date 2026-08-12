@@ -1,0 +1,27 @@
+{
+  "generated_at": "2026-08-12T13:22:41.826131+08:00",
+  "status": "sample_ready_analysis_pending",
+  "note": "正式样本已建立，深度对标分析待下一阶段。",
+  "games": [
+    {
+      "topic": "对标_三角洲行动",
+      "label": "三角洲行动",
+      "works": 30
+    },
+    {
+      "topic": "对标_洛克王国世界",
+      "label": "洛克王国：世界",
+      "works": 30
+    },
+    {
+      "topic": "对标_对峙交锋时刻",
+      "label": "对峙交锋时刻",
+      "works": 30
+    },
+    {
+      "topic": "对标_三国志王道天下",
+      "label": "三国志：王道天下",
+      "works": 30
+    }
+  ]
+}

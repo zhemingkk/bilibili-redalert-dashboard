@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>微信生态｜《红警：荣耀》内容生态研究</title>
+  <link rel="stylesheet" href="../assets/css/main.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <nav class="topnav" id="topnav"></nav>
+  <main class="wrap">
+    <header class="page-hero">
+      <h1>微信生态</h1>
+      <p class="sub">公众号 × 视频号｜已完成研究接入</p>
+      <p class="prop">先看阶段性发现，再看证据、案例与方法。本页不产出最终《红警：荣耀》策略。</p>
+    </header>
+
+    <!-- 01 -->
+    <section>
+      <div class="section-head">
+        <h2>01 核心发现</h2>
+        <div class="desc">阶段性 · 已冻结结论</div>
+      </div>
+      <div class="findings" id="coreFindings"></div>
+      <div class="coverage" id="coverageStrip" style="margin-top:14px;"></div>
+    </section>
+
+    <!-- 02 -->
+    <section class="module" id="mpSection">
+      <h3>02 公众号生态</h3>
+      <p class="lead">基于 165 篇正式样本重标定的内容类型分布。</p>
+      <div class="grid-2">
+        <div class="chart-box"><canvas id="chartMpTypes"></canvas></div>
+        <div>
+          <div class="table-wrap" style="max-height:280px;">
+            <table>
+              <thead><tr><th>内容类型</th><th>数量</th><th>占比</th></tr></thead>
+              <tbody id="mpTypeTable"></tbody>
+            </table>
+          </div>
+          <div class="takeaway" id="mpTakeaway"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 -->
+    <section class="module" id="chSection">
+      <h3>03 视频号生态</h3>
+      <p class="lead">基于 114 条正式样本。重点：栏目化整体弱于公众号。</p>
+      <div class="grid-2">
+        <div class="chart-box"><canvas id="chartChTypes"></canvas></div>
+        <div>
+          <div class="takeaway" id="chSeriesTakeaway"></div>
+          <div class="lang-list" id="chSeriesChips" style="margin-top:12px;"></div>
+          <p class="muted" style="margin-top:12px;font-size:13px;" id="chVisualNote"></p>
+        </div>
+      </div>
+      <div class="special-card" id="deltaCard" style="margin-top:16px;"></div>
+    </section>
+
+    <!-- 04 -->
+    <section class="module" id="ipSection">
+      <h3>04 老IP→新品</h3>
+      <p class="lead" id="ipLead"></p>
+      <div class="flow-strip" id="ipFlow"></div>
+      <div class="path-grid" id="ipPaths"></div>
+      <div class="takeaway">不做账号排名；只展示不同账号解释“变化”的真实路径。</div>
+    </section>
+
+    <!-- 05 -->
+    <section class="module" id="colSection">
+      <h3>05 栏目与系列</h3>
+      <p class="lead">公众号栏目（代表）与视频号系列对照。</p>
+      <div class="case-grid" id="featuredCols"></div>
+      <details class="fold">
+        <summary id="colFoldSummary">展开完整栏目表</summary>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>栏目</th><th>账号</th><th>目的</th><th>证据</th><th>节奏</th><th>置信</th></tr></thead>
+            <tbody id="allColsTable"></tbody>
+          </table>
+        </div>
+      </details>
+    </section>
+
+    <!-- 06 -->
+    <section class="module" id="roleSection">
+      <h3>06 公众号 × 视频号分工</h3>
+      <p class="lead">同一主题两端怎么分工——以冻结矩阵为准，不扩写新策略。</p>
+      <div class="role-matrix" id="roleMatrix"></div>
+    </section>
+
+    <!-- 07 -->
+    <section class="module" id="methodSection">
+      <h3>07 可吸收方法</h3>
+      <p class="lead">合并公众号 + 视频号；主页面仅展示 HIGH 优先级。</p>
+      <div class="method-list" id="highMethods"></div>
+      <details class="fold">
+        <summary>展开全部方法（含内部编号）</summary>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>ID</th><th>平台</th><th>方法</th><th>适用</th><th>来源账号</th></tr></thead>
+            <tbody id="allMethodsTable"></tbody>
+          </table>
+        </div>
+      </details>
+    </section>
+
+    <!-- 08 -->
+    <section class="module" id="oppSection">
+      <h3>08 差异化机会</h3>
+      <p class="lead">阶段性机会 · 不是“红警必须这样做”。</p>
+      <div class="opp-list" id="opps"></div>
+    </section>
+
+    <!-- 09 -->
+    <section class="module" id="raSection">
+      <h3>09 红警OL观察</h3>
+      <p class="lead" id="raDisclaimer"></p>
+      <div class="tri-col" id="raTri"></div>
+      <div class="grid-2" style="margin-top:14px;">
+        <div>
+          <h4 style="margin:0 0 8px;font-size:14px;color:var(--muted);">公众号信号</h4>
+          <div id="raMpNotes" class="muted" style="font-size:13px;line-height:1.6;"></div>
+        </div>
+        <div>
+          <h4 style="margin:0 0 8px;font-size:14px;color:var(--muted);">视频号信号</h4>
+          <div id="raChNotes" class="muted" style="font-size:13px;line-height:1.6;"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- premium methods light -->
+    <section class="module">
+      <h3>精品公众号方法（组织层）</h3>
+      <p class="lead">原神 / 王者 / 崩铁 —— 只看内容组织方法，不做“谁最好”排名。</p>
+      <div class="lang-list" id="premiumChips"></div>
+      <div class="guard" id="premiumNote" style="margin-top:12px;"></div>
+    </section>
+
+    <!-- 10 -->
+    <section class="method-box" id="methodBox">
+      <h2>10 研究口径</h2>
+      <div id="methodText"></div>
+    </section>
+  </main>
+
+  <script src="../assets/js/app.js"></script>
+  <script src="../assets/js/charts.js"></script>
+  <script>
+    RADash.renderNav("wechat");
+    RADash.chartDefaults();
+
+    function pct(x) {
+      if (x == null) return "—";
+      return (Number(x) * 100).toFixed(1) + "%";
+    }
+
+    (async () => {
+      try {
+        const [
+          overview, mpContent, mpColumns, ipTrans,
+          chContent, roles, methods, opps, ra
+        ] = await Promise.all([
+          RADash.loadJSON("data/wechat/overview.json"),
+          RADash.loadJSON("data/wechat/mp_content.json"),
+          RADash.loadJSON("data/wechat/mp_columns.json"),
+          RADash.loadJSON("data/wechat/ip_transition.json"),
+          RADash.loadJSON("data/wechat/channels_content.json"),
+          RADash.loadJSON("data/wechat/platform_roles.json"),
+          RADash.loadJSON("data/wechat/methods.json"),
+          RADash.loadJSON("data/wechat/opportunities.json"),
+          RADash.loadJSON("data/wechat/redalert_special.json"),
+        ]);
+
+        // 01 findings
+        document.getElementById("coreFindings").innerHTML = (overview.core_findings || []).map((f) => `
+          <article class="finding">
+            <div class="idx">${f.idx}</div>
+            <h3>${f.title}</h3>
+            <p>${f.text}</p>
+            <div class="meta">
+              <span class="tag stage">${f.tag || "阶段性"}</span>
+              <span class="tag evidence">证据 · ${f.evidence || ""}</span>
+            </div>
+          </article>`).join("");
+
+        const cov = overview.coverage || {};
+        document.getElementById("coverageStrip").innerHTML = `
+          <div class="label-soft">研究覆盖（降低视觉等级 · 非 KPI）</div>
+          <div><strong>${RADash.fmt(cov.mp_verified_accounts)}</strong>公众号账号</div>
+          <div><strong>${RADash.fmt(cov.mp_candidate_articles)}</strong>候选文章</div>
+          <div><strong>${RADash.fmt(cov.mp_formal_sample)}</strong>正式样本</div>
+          <div><strong>${RADash.fmt(cov.mp_fulltext_ok)}</strong>正文成功</div>
+          <div><strong>${RADash.fmt(cov.channels_verified_accounts)}</strong>视频号账号</div>
+          <div><strong>${RADash.fmt(cov.channels_candidate_works)}</strong>候选作品</div>
+          <div><strong>${RADash.fmt(cov.channels_formal_sample)}</strong>正式样本</div>
+          <div><strong>${RADash.fmt(cov.channels_visual_cases)}</strong>视觉案例</div>
+          <div><strong>${RADash.fmt(cov.channels_visual_with_url)}/${RADash.fmt(cov.channels_visual_cases)}</strong>canonical URL</div>
+          <div class="label-soft" style="margin-top:6px;">${cov.link_note || ""}</div>`;
+
+        // 02 mp types
+        const mpTypes = mpContent.type_distribution || [];
+        document.getElementById("mpTypeTable").innerHTML = mpTypes.map((r) => `
+          <tr><td>${r.type}</td><td>${r.count}</td><td>${pct(r.share)}</td></tr>`).join("");
+        document.getElementById("mpTakeaway").innerHTML = `<strong>Takeaway：</strong>${mpContent.takeaway || ""}`;
+        new Chart(document.getElementById("chartMpTypes"), {
+          type: "bar",
+          data: {
+            labels: mpTypes.map((x) => x.type),
+            datasets: [{
+              label: "作品数",
+              data: mpTypes.map((x) => x.count),
+              backgroundColor: "#c45c26aa",
+              borderColor: "#c45c26",
+              borderWidth: 1,
+            }],
+          },
+          options: {
+            indexAxis: "y",
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: { x: { ticks: { precision: 0 } } },
+          },
+        });
+
+        // premium
+        document.getElementById("premiumChips").innerHTML = (mpContent.premium_methods || []).map((o) =>
+          `<span>${o.theme || ""} · 可迁移 ${o.transferable || ""}${o.capacity_dependent ? " · 产能依赖" : ""}</span>`
+        ).join("");
+        document.getElementById("premiumNote").textContent = mpContent.premium_note || "";
+
+        // 03 channels
+        const chTypes = chContent.type_distribution || [];
+        new Chart(document.getElementById("chartChTypes"), {
+          type: "bar",
+          data: {
+            labels: chTypes.map((x) => x.type),
+            datasets: [{
+              label: "作品数",
+              data: chTypes.map((x) => x.count),
+              backgroundColor: "#4f8cff99",
+              borderColor: "#4f8cff",
+              borderWidth: 1,
+            }],
+          },
+          options: {
+            indexAxis: "y",
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: { x: { ticks: { precision: 0 } } },
+          },
+        });
+        document.getElementById("chSeriesTakeaway").innerHTML =
+          `<strong>已验证：</strong>${chContent.series_takeaway || ""}（可识别系列 ${RADash.fmt(chContent.series_count)}；公众号栏目 ${RADash.fmt(mpColumns.n_columns)}）`;
+        document.getElementById("chSeriesChips").innerHTML = (chContent.series || []).map((s) =>
+          `<span>${s.series_name} · ${s.confidence}</span>`
+        ).join("") || "<span>无明显具名系列</span>";
+        document.getElementById("chVisualNote").textContent =
+          `视觉案例 ${chContent.visual_cases_n}；其中 URL ${chContent.visual_with_url}。`;
+
+        const delta = chContent.delta_card || {};
+        document.getElementById("deltaCard").innerHTML = `
+          <h4>${delta.title || "三角洲专项"}</h4>
+          <ul>${(delta.points || []).map((p) => `<li>${p}</li>`).join("")}</ul>
+          <div class="takeaway" style="margin-top:10px;"><strong>重点：</strong>${delta.takeaway || ""}</div>`;
+
+        // 04 IP
+        document.getElementById("ipLead").textContent =
+          `${ipTrans.title || ""} · 研究样本 ${RADash.fmt(ipTrans.case_count)}`;
+        document.getElementById("ipFlow").innerHTML = (ipTrans.flow || []).map((step, i) =>
+          `<div class="flow-step"><span class="n">0${i + 1}</span>${step}</div>${i < (ipTrans.flow.length - 1) ? '<div class="flow-arrow">→</div>' : ""}`
+        ).join("");
+        document.getElementById("ipPaths").innerHTML = (ipTrans.account_paths || []).map((p) => `
+          <article class="path-card">
+            <h4>${p.benchmark_name} <em>n=${p.case_count}</em></h4>
+            <div class="line"><span>IP入口</span>${(p.ip_entry_top || []).join(" / ") || "—"}</div>
+            <div class="line"><span>新产品</span>${(p.new_product_top || []).join(" / ") || "—"}</div>
+            <div class="line"><span>差异解释</span>${(p.difference_top || []).join(" / ") || "—"}</div>
+          </article>`).join("");
+
+        // 05 columns
+        document.getElementById("featuredCols").innerHTML = (mpColumns.featured || []).map((c) => `
+          <article class="case-card">
+            <h4>${c.column_name}</h4>
+            <div class="line">${c.account_name}</div>
+            <div class="line">${c.column_purpose || ""}</div>
+            <div class="line">证据 ${c.evidence_count} · ${c.cadence_signal || ""} · <strong>${c.confidence}</strong></div>
+          </article>`).join("");
+        document.getElementById("colFoldSummary").textContent =
+          `展开完整栏目表（${mpColumns.n_columns}）`;
+        document.getElementById("allColsTable").innerHTML = (mpColumns.all_columns || []).map((c) => `
+          <tr>
+            <td>${c.column_name}</td>
+            <td>${c.account_name}</td>
+            <td>${c.column_purpose || ""}</td>
+            <td>${c.evidence_count}</td>
+            <td>${c.cadence_signal || ""}</td>
+            <td>${c.confidence}</td>
+          </tr>`).join("");
+
+        // 06 roles
+        document.getElementById("roleMatrix").innerHTML = `
+          <div class="role-head">
+            <div>主题</div><div>公众号</div><div>视频号</div><div>联动</div>
+          </div>
+          ${(roles.rows || []).map((r) => `
+            <div class="role-row">
+              <div class="theme">${r.theme}</div>
+              <div>${r.mp_role}</div>
+              <div>${r.channels_role}</div>
+              <div class="combo">${r.combo}</div>
+            </div>`).join("")}`;
+
+        // 07 methods
+        document.getElementById("highMethods").innerHTML = (methods.high_priority || []).map((m) => `
+          <article class="method-card">
+            <div class="src">${m.source_platform} · ${m.source_account || ""}</div>
+            <h4>${m.method}</h4>
+            <div class="line"><span>解决</span>${m.solves_what_problem || ""}</div>
+            <div class="line"><span>为何有用</span>${m.why_useful || ""}</div>
+            <div class="line"><span>适配改写</span>${m.adaptation_needed || ""}</div>
+            <div class="line risk"><span>风险</span>${m.risk || ""}</div>
+          </article>`).join("");
+        document.getElementById("allMethodsTable").innerHTML = (methods.all_methods || []).map((m) => `
+          <tr>
+            <td>${m.method_id || ""}</td>
+            <td>${m.source_platform}</td>
+            <td>${m.method}</td>
+            <td>${m.applicable_to_redalert_glory}</td>
+            <td>${m.source_account || ""}</td>
+          </tr>`).join("");
+
+        // 08 opps
+        document.getElementById("opps").innerHTML = (opps.featured || []).map((o) => `
+          <article class="opp-card">
+            <div class="src">${o.source_platform} · ${o.confidence || ""}</div>
+            <h4>${o.opportunity}</h4>
+            <div class="flow">
+              <div><span>市场当前</span>${o.current_market_pattern || ""}</div>
+              <div class="arrow">↓</div>
+              <div><span>缺口</span>${o.gap || ""}</div>
+              <div class="arrow">↓</div>
+              <div><span>红警可能机会</span>${o.why_redalert_can_own_it || ""}</div>
+            </div>
+          </article>`).join("");
+
+        // 09 redalert
+        document.getElementById("raDisclaimer").textContent = ra.disclaimer || "";
+        document.getElementById("raTri").innerHTML = `
+          <div class="tri keep"><h4>可保留</h4><ul>${(ra.keep || []).map((x) => `<li>${x}</li>`).join("")}</ul></div>
+          <div class="tri caution"><h4>谨慎继承</h4><ul>${(ra.caution || []).map((x) => `<li>${x}</li>`).join("")}</ul></div>
+          <div class="tri avoid"><h4>不建议作为主场</h4><ul>${(ra.avoid_as_main || []).map((x) => `<li>${x}</li>`).join("")}</ul></div>`;
+        document.getElementById("raMpNotes").innerHTML =
+          (ra.mp?.observations || []).map((x) => `<div>· ${x}</div>`).join("") || "—";
+        document.getElementById("raChNotes").innerHTML =
+          (ra.channels?.findings || []).map((x) => `<div>· ${x}</div>`).join("") || "—";
+
+        // 10 method
+        document.getElementById("methodText").innerHTML = `
+          <p>数据源：已冻结的微信公众号 / 视频号研究成果。本页只做可视化接入，不产生新研究结论。</p>
+          <p>公众号：正式样本 ${RADash.fmt(cov.mp_formal_sample)}，正文成功 ${RADash.fmt(cov.mp_fulltext_ok)}；视频号：正式样本 ${RADash.fmt(cov.channels_formal_sample)}，视觉案例 ${RADash.fmt(cov.channels_visual_cases)}。</p>
+          <p>视频号 LINK：${RADash.fmt(cov.channels_visual_with_url)}/${RADash.fmt(cov.channels_visual_cases)}；13 个 pending_link 保留为研究限制，不再处理。</p>
+          <p>无公众号阅读量 / 视频号完播数据时，不做点击率因果推断。不把视频号等同抖音。</p>`;
+      } catch (e) {
+        RADash.showError(e);
+      }
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,369 @@
+{
+  "generated_at": "2026-08-12T13:22:41.869370+08:00",
+  "n_columns": 28,
+  "featured": [
+    {
+      "column_name": "洛个明白",
+      "account_name": "洛克王国世界",
+      "benchmark_name": "洛克王国：世界",
+      "column_purpose": "玩法/赛季机制解读",
+      "evidence_count": 1,
+      "cadence_signal": "赛季节点伴随出现",
+      "confidence": "HIGH",
+      "content_pattern": "栏目名前缀 + 机制拆解 + 玩家称呼"
+    },
+    {
+      "column_name": "新料速D",
+      "account_name": "地下城与勇士手游",
+      "benchmark_name": "地下城与勇士：起源",
+      "column_purpose": "版本爆料/玩法前瞻",
+      "evidence_count": 3,
+      "cadence_signal": "版本前高频",
+      "confidence": "HIGH",
+      "content_pattern": "人设口吻(小老D) + 前瞻长文"
+    },
+    {
+      "column_name": "更新电台",
+      "account_name": "崩坏星穹铁道",
+      "benchmark_name": "崩坏：星穹铁道",
+      "column_purpose": "版本更新语音/图文说明",
+      "evidence_count": 1,
+      "cadence_signal": "版本周期",
+      "confidence": "HIGH",
+      "content_pattern": "固定栏目名 + 版本号"
+    },
+    {
+      "column_name": "角色技能演示",
+      "account_name": "原神",
+      "benchmark_name": "原神",
+      "column_purpose": "角色卖点标准化表达",
+      "evidence_count": 1,
+      "cadence_signal": "角色上线周期",
+      "confidence": "HIGH",
+      "content_pattern": "固定句式长系列"
+    },
+    {
+      "column_name": "茉莉小报",
+      "account_name": "无尽冬日",
+      "benchmark_name": "无尽冬日",
+      "column_purpose": "日历/资讯编辑部内容",
+      "evidence_count": 1,
+      "cadence_signal": "月刊/周期性",
+      "confidence": "HIGH",
+      "content_pattern": "小报栏目 + 信息合集"
+    },
+    {
+      "column_name": "枫小喵速递",
+      "account_name": "冒险岛枫之传说官方",
+      "benchmark_name": "冒险岛：枫之传说",
+      "column_purpose": "版本/活动信息速递",
+      "evidence_count": 1,
+      "cadence_signal": "版本节点",
+      "confidence": "HIGH",
+      "content_pattern": "人设栏目 + 预告合集"
+    },
+    {
+      "column_name": "策划面对面",
+      "account_name": "无尽冬日",
+      "benchmark_name": "无尽冬日",
+      "column_purpose": "开发者沟通",
+      "evidence_count": 1,
+      "cadence_signal": "专项节点",
+      "confidence": "HIGH",
+      "content_pattern": "提问征集/答疑"
+    },
+    {
+      "column_name": "衣橱新声",
+      "account_name": "冒险岛枫之传说官方",
+      "benchmark_name": "冒险岛：枫之传说",
+      "column_purpose": "外观/时装上新",
+      "evidence_count": 1,
+      "cadence_signal": "周期性上新",
+      "confidence": "HIGH",
+      "content_pattern": "固定栏目 + 期数"
+    }
+  ],
+  "all_columns": [
+    {
+      "column_name": "洛个明白",
+      "account_name": "洛克王国世界",
+      "benchmark_name": "洛克王国：世界",
+      "column_purpose": "玩法/赛季机制解读",
+      "evidence_count": 1,
+      "cadence_signal": "赛季节点伴随出现",
+      "confidence": "HIGH",
+      "content_pattern": "栏目名前缀 + 机制拆解 + 玩家称呼"
+    },
+    {
+      "column_name": "冷知识",
+      "account_name": "洛克王国世界",
+      "benchmark_name": "洛克王国：世界",
+      "column_purpose": "轻量IP/设定趣味补充",
+      "evidence_count": 1,
+      "cadence_signal": "偶发系列",
+      "confidence": "MEDIUM",
+      "content_pattern": "知识短篇 + 精灵设定"
+    },
+    {
+      "column_name": "我心动洛",
+      "account_name": "洛克王国世界",
+      "benchmark_name": "洛克王国：世界",
+      "column_purpose": "赛事/活动情绪包装",
+      "evidence_count": 1,
+      "cadence_signal": "赛事节点",
+      "confidence": "MEDIUM",
+      "content_pattern": "栏目名 + 情绪号召"
+    },
+    {
+      "column_name": "新料速D",
+      "account_name": "地下城与勇士手游",
+      "benchmark_name": "地下城与勇士：起源",
+      "column_purpose": "版本爆料/玩法前瞻",
+      "evidence_count": 3,
+      "cadence_signal": "版本前高频",
+      "confidence": "HIGH",
+      "content_pattern": "人设口吻(小老D) + 前瞻长文"
+    },
+    {
+      "column_name": "更新公告（龙之谷世界）",
+      "account_name": "龙之谷世界",
+      "benchmark_name": "龙之谷世界",
+      "column_purpose": "版本与活动信息发布",
+      "evidence_count": 10,
+      "cadence_signal": "高周期固定前缀",
+      "confidence": "HIGH",
+      "content_pattern": "方括号栏目 + 公告体"
+    },
+    {
+      "column_name": "枫小喵速递",
+      "account_name": "冒险岛枫之传说官方",
+      "benchmark_name": "冒险岛：枫之传说",
+      "column_purpose": "版本/活动信息速递",
+      "evidence_count": 1,
+      "cadence_signal": "版本节点",
+      "confidence": "HIGH",
+      "content_pattern": "人设栏目 + 预告合集"
+    },
+    {
+      "column_name": "岛上来信",
+      "account_name": "冒险岛枫之传说官方",
+      "benchmark_name": "冒险岛：枫之传说",
+      "column_purpose": "内容上新/剧情感告知",
+      "evidence_count": 1,
+      "cadence_signal": "内容节点",
+      "confidence": "MEDIUM",
+      "content_pattern": "信件体栏目前缀"
+    },
+    {
+      "column_name": "岛上有你",
+      "account_name": "冒险岛枫之传说官方",
+      "benchmark_name": "冒险岛：枫之传说",
+      "column_purpose": "社区/萌新挑战",
+      "evidence_count": 1,
+      "cadence_signal": "活动伴随",
+      "confidence": "MEDIUM",
+      "content_pattern": "玩家向栏目"
+    },
+    {
+      "column_name": "衣橱新声",
+      "account_name": "冒险岛枫之传说官方",
+      "benchmark_name": "冒险岛：枫之传说",
+      "column_purpose": "外观/时装上新",
+      "evidence_count": 1,
+      "cadence_signal": "周期性上新",
+      "confidence": "HIGH",
+      "content_pattern": "固定栏目 + 期数"
+    },
+    {
+      "column_name": "上新预告",
+      "account_name": "冒险岛枫之传说官方",
+      "benchmark_name": "冒险岛：枫之传说",
+      "column_purpose": "商城/礼包预告",
+      "evidence_count": 1,
+      "cadence_signal": "商城节奏",
+      "confidence": "LOW",
+      "content_pattern": "预告型栏目"
+    },
+    {
+      "column_name": "茉莉小报",
+      "account_name": "无尽冬日",
+      "benchmark_name": "无尽冬日",
+      "column_purpose": "日历/资讯编辑部内容",
+      "evidence_count": 1,
+      "cadence_signal": "月刊/周期性",
+      "confidence": "HIGH",
+      "content_pattern": "小报栏目 + 信息合集"
+    },
+    {
+      "column_name": "策划面对面",
+      "account_name": "无尽冬日",
+      "benchmark_name": "无尽冬日",
+      "column_purpose": "开发者沟通",
+      "evidence_count": 1,
+      "cadence_signal": "专项节点",
+      "confidence": "HIGH",
+      "content_pattern": "提问征集/答疑"
+    },
+    {
+      "column_name": "玩家攻略",
+      "account_name": "无尽冬日",
+      "benchmark_name": "无尽冬日",
+      "column_purpose": "攻略分发",
+      "evidence_count": 1,
+      "cadence_signal": "赛事/版本伴随",
+      "confidence": "HIGH",
+      "content_pattern": "攻略栏目前缀"
+    },
+    {
+      "column_name": "更新公告",
+      "account_name": "无尽冬日",
+      "benchmark_name": "无尽冬日",
+      "column_purpose": "版本更新",
+      "evidence_count": 1,
+      "cadence_signal": "版本日",
+      "confidence": "LOW",
+      "content_pattern": "固定前缀公告"
+    },
+    {
+      "column_name": "创作激励",
+      "account_name": "无尽冬日",
+      "benchmark_name": "无尽冬日",
+      "column_purpose": "UGC激励",
+      "evidence_count": 1,
+      "cadence_signal": "多期连续",
+      "confidence": "HIGH",
+      "content_pattern": "计划期数栏目"
+    },
+    {
+      "column_name": "发帖活动",
+      "account_name": "无尽冬日",
+      "benchmark_name": "无尽冬日",
+      "column_purpose": "社区打卡/征集",
+      "evidence_count": 1,
+      "cadence_signal": "月度活动",
+      "confidence": "LOW",
+      "content_pattern": "活动栏目"
+    },
+    {
+      "column_name": "策划Q&A",
+      "account_name": "向僵尸开炮",
+      "benchmark_name": "向僵尸开炮",
+      "column_purpose": "FAQ/版本解释",
+      "evidence_count": 1,
+      "cadence_signal": "多期连续",
+      "confidence": "HIGH",
+      "content_pattern": "期数制问答"
+    },
+    {
+      "column_name": "联动返场",
+      "account_name": "向僵尸开炮",
+      "benchmark_name": "向僵尸开炮",
+      "column_purpose": "联动复用运营",
+      "evidence_count": 1,
+      "cadence_signal": "联动节点",
+      "confidence": "LOW",
+      "content_pattern": "返场栏目"
+    },
+    {
+      "column_name": "非凡答疑",
+      "account_name": "诡秘之主游戏",
+      "benchmark_name": "诡秘之主",
+      "column_purpose": "开发组互动答疑",
+      "evidence_count": 1,
+      "cadence_signal": "连续系列开端",
+      "confidence": "HIGH",
+      "content_pattern": "期数制问答"
+    },
+    {
+      "column_name": "王道烽火录",
+      "account_name": "三国志王道天下",
+      "benchmark_name": "三国志：王道天下",
+      "column_purpose": "同盟/社区征集纪念",
+      "evidence_count": 1,
+      "cadence_signal": "活动节点",
+      "confidence": "MEDIUM",
+      "content_pattern": "栏目化社区内容"
+    },
+    {
+      "column_name": "更新电台",
+      "account_name": "崩坏星穹铁道",
+      "benchmark_name": "崩坏：星穹铁道",
+      "column_purpose": "版本更新语音/图文说明",
+      "evidence_count": 1,
+      "cadence_signal": "版本周期",
+      "confidence": "HIGH",
+      "content_pattern": "固定栏目名 + 版本号"
+    },
+    {
+      "column_name": "新品预告",
+      "account_name": "崩坏星穹铁道",
+      "benchmark_name": "崩坏：星穹铁道",
+      "column_purpose": "周边上新",
+      "evidence_count": 1,
+      "cadence_signal": "商品节奏",
+      "confidence": "LOW",
+      "content_pattern": "周边栏目"
+    },
+    {
+      "column_name": "角色技能演示",
+      "account_name": "原神",
+      "benchmark_name": "原神",
+      "column_purpose": "角色卖点标准化表达",
+      "evidence_count": 1,
+      "cadence_signal": "角色上线周期",
+      "confidence": "HIGH",
+      "content_pattern": "固定句式长系列"
+    },
+    {
+      "column_name": "生日祝福",
+      "account_name": "原神",
+      "benchmark_name": "原神",
+      "column_purpose": "角色生日内容资产",
+      "evidence_count": 1,
+      "cadence_signal": "角色日历",
+      "confidence": "LOW",
+      "content_pattern": "固定模板系列"
+    },
+    {
+      "column_name": "主播巅峰赛",
+      "account_name": "三角洲行动",
+      "benchmark_name": "三角洲行动",
+      "column_purpose": "电竞赛事运营",
+      "evidence_count": 2,
+      "cadence_signal": "赛季赛事",
+      "confidence": "HIGH",
+      "content_pattern": "赛事栏目连续更新"
+    },
+    {
+      "column_name": "更新公告（三角洲）",
+      "account_name": "三角洲行动",
+      "benchmark_name": "三角洲行动",
+      "column_purpose": "版本/平衡更新",
+      "evidence_count": 2,
+      "cadence_signal": "版本日",
+      "confidence": "MEDIUM",
+      "content_pattern": "日期+公告体"
+    },
+    {
+      "column_name": "红警回忆征集",
+      "account_name": "红警OL手游",
+      "benchmark_name": "红警OL",
+      "column_purpose": "情怀征集/策划沟通",
+      "evidence_count": 2,
+      "cadence_signal": "节日/专项",
+      "confidence": "MEDIUM",
+      "content_pattern": "征集型互动栏目"
+    },
+    {
+      "column_name": "战地创作者投稿",
+      "account_name": "红警OL手游",
+      "benchmark_name": "红警OL",
+      "column_purpose": "UGC分发",
+      "evidence_count": 1,
+      "cadence_signal": "偶发",
+      "confidence": "LOW",
+      "content_pattern": "投稿栏目"
+    }
+  ],
+  "note": "主页面展示代表栏目；完整列表折叠展开。"
+}

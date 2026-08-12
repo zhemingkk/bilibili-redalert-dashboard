@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>核心玩家信号｜《红警：荣耀》研究</title>
+  <link rel="stylesheet" href="../assets/css/main.css" />
+</head>
+<body>
+  <nav class="topnav" id="topnav"></nav>
+  <main class="wrap">
+    <header class="page-hero">
+      <h1>核心玩家信号</h1>
+      <p class="sub">阶段性用户洞察 · 发现 / 证据 / 边界 / 证据强度</p>
+      <p class="prop">不是最终用户画像，也不是跨平台终局结论。</p>
+    </header>
+
+    <div class="insight-grid" id="insights"></div>
+
+    <section class="module" style="margin-top:8px;">
+      <h3>RTS 关键证据数字</h3>
+      <p class="lead">用于支撑上方洞察卡，不可换算成“全体玩家 RTS 需求占比”。</p>
+      <div class="rts-metrics" id="rts"></div>
+      <div class="guard" id="guard" style="margin-top:12px;"></div>
+    </section>
+
+    <section class="method-box">
+      <h2>研究限制</h2>
+      <p id="limits"></p>
+    </section>
+  </main>
+  <script src="../assets/js/app.js"></script>
+  <script>
+    RADash.renderNav("users");
+    (async () => {
+      try {
+        const comments = await RADash.loadJSON("data/douyin/comments.json");
+        const rts = comments.rts || {};
+        const cards = [
+          {
+            title: "RTS诉求真实存在",
+            find: "在高价值红警内容评论中，可识别出明确需求与偏好表达；但玩家不总写“RTS”。",
+            evidence: `约 ${rts.rts_related_comments ?? "—"} 条相关表达；explicit_need ${rts.explicit_need ?? "—"}；preference ${rts.preference ?? "—"}。`,
+            bound: "高价值定向样本，不代表总体比例。",
+            strength: "中",
+          },
+          {
+            title: "经典还原是复合概念",
+            find: "“还原”常指向单位识别、情绪记忆与经典元素，而不只是玩法说明书。",
+            evidence: comments.classic?.finding || "评论侧面标注显示单位/情绪记忆更常见。",
+            bound: "侧面命中来自规则标注，召回有限。",
+            strength: "中",
+          },
+          {
+            title: "IP单位是高频记忆入口",
+            find: "尤里 / 谭雅 / 基洛夫等点名活跃；讨论混杂梗、强度与视觉，不全是情怀。",
+            evidence: "红警评论中的 IP 提及统计与内容标签“单位/IP符号”高覆盖。",
+            bound: "点名频率 ≠ 产品转化意愿。",
+            strength: "中",
+          },
+          {
+            title: "AIGC正向偏视觉冲击与游戏化想象",
+            find: "帅 / 电影感与“做成游戏”想象更突出；显式 AI 味负向很少。",
+            evidence: comments.aigc_comment_summary?.finding || "AIGC相关评论主题与 facet 命中。",
+            bound: "视觉质量 / AI痕迹 / 同质化仍待专项审阅。",
+            strength: "中",
+          },
+          {
+            title: "老IP新品需要解释变化",
+            find: "微信生态研究验证：老IP做新品时，玩家需要看到“旧认知 → 新变化 → 为什么这样做”，不能只提供识别物或情怀。",
+            evidence: "微信老IP→新品研究样本 69 条；平台分工矩阵中的预期管理主题。",
+            bound: "这是内容沟通信号，不是用户画像终局结论。",
+            strength: "中",
+          },
+        ];
+        document.getElementById("insights").innerHTML = cards.map((c) => `
+          <article class="insight-card">
+            <h3>${c.title}</h3>
+            <div class="layer"><div class="lab">发现</div><div class="val">${c.find}</div></div>
+            <div class="layer"><div class="lab">证据</div><div class="val">${c.evidence}</div></div>
+            <div class="layer"><div class="lab">结论边界</div><div class="val">${c.bound}</div></div>
+            <div class="layer"><div class="lab">证据强度</div><div class="val"><span class="tag stage">${c.strength}</span></div></div>
+          </article>`).join("");
+
+        document.getElementById("rts").innerHTML = [
+          ["红警评论", comments.n_redalert_comments],
+          ["RTS相关", rts.rts_related_comments],
+          ["明确需求", rts.explicit_need],
+          ["偏好表达", rts.preference],
+        ].map(([k, v]) => `<div class="rts-metric"><div class="k">${k}</div><div class="v">${RADash.fmt(v)}</div></div>`).join("");
+        document.getElementById("guard").textContent = rts.interpretation_guard || "";
+
+        const mobile = comments.mobile_expectation || {};
+        document.getElementById("limits").innerHTML = `
+          手游期待评论样本不足（约 ${mobile.n_comments ?? "—"} 条），当前只可做 exploratory observation，
+          不与 RTS / 经典还原 / IP符号同级展示，也不做百分比外推。
+          ${mobile.warning || ""}`;
+      } catch (e) {
+        RADash.showError(e);
+      }
+    })();
+  </script>
+</body>
+</html>

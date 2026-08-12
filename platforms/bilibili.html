@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>B站研究｜《红警：荣耀》内容生态研究</title>
+  <link rel="stylesheet" href="../assets/css/main.css" />
+</head>
+<body>
+  <nav class="topnav" id="topnav"></nav>
+  <main class="wrap">
+    <header class="page-hero">
+      <h1>B站内容生态研究</h1>
+      <p class="sub">已完成独立研究 · 完整图表保留在同站 /bilibili/ 子目录</p>
+      <p class="prop">本页提供入口与覆盖摘要；完整图表、短视频池与双号选题日历见完整 B站看板。</p>
+    </header>
+
+    <section class="grid-2">
+      <div class="module">
+        <h3>研究状态</h3>
+        <p class="lead">B站专项已完成。总看板不重复开发已有图表，完整研究页保留在本仓库子目录。</p>
+        <div class="btn-row" style="display:flex;gap:10px;flex-wrap:wrap;">
+          <a class="btn" href="../bilibili/" target="_blank" rel="noopener">打开完整 B站研究看板</a>
+          <button class="btn ghost" id="toggleEmbed" type="button">尝试嵌入预览</button>
+        </div>
+        <p class="faint" id="embedNote" style="margin-top:10px;">嵌入为增强项；若被拦截，请使用上方链接。</p>
+      </div>
+      <div class="module">
+        <h3>覆盖摘要</h3>
+        <div id="kpis" class="muted">加载中…</div>
+      </div>
+    </section>
+
+    <section class="module" id="embedSection" style="display:none;">
+      <h3>嵌入预览</h3>
+      <div style="margin-top:10px;border:1px solid var(--line-soft);border-radius:10px;overflow:hidden;min-height:520px;background:#0a0e13;">
+        <iframe id="biliFrame" title="Bilibili dashboard embed" style="width:100%;height:640px;border:0;" loading="lazy" referrerpolicy="no-referrer"></iframe>
+      </div>
+    </section>
+
+    <section class="method-box">
+      <h2>说明</h2>
+      <p>完整 B站看板地址：同站相对路径 <code>../bilibili/</code>（线上为 /bilibili-redalert-dashboard/bilibili/）。</p>
+    </section>
+  </main>
+  <script src="../assets/js/app.js"></script>
+  <script>
+    RADash.renderNav("bilibili");
+    (async () => {
+      try {
+        const data = await RADash.loadJSON("data/bilibili/overview.json");
+        const el = document.getElementById("kpis");
+        if (data.kpis) {
+          const k = data.kpis;
+          el.innerHTML = `
+            <div class="coverage" style="border:0;padding:0;background:transparent;">
+              <div><strong>${RADash.fmt(k.n_videos)}</strong>视频</div>
+              <div><strong>${RADash.fmt(k.n_comments)}</strong>评论</div>
+              <div><strong>${RADash.fmt(k.n_ups)}</strong>UP</div>
+              <div><strong>${RADash.fmt(k.recent_n)}</strong>近180天</div>
+            </div>`;
+        } else {
+          el.innerHTML = "<p><strong>B站：已完成独立研究</strong></p><p class=\"muted\">请通过完整看板查看。</p>";
+        }
+      } catch (e) {
+        document.getElementById("kpis").innerHTML = "<p><strong>B站：已完成独立研究</strong></p>";
+      }
+    })();
+    document.getElementById("toggleEmbed").onclick = () => {
+      const box = document.getElementById("embedSection");
+      const frame = document.getElementById("biliFrame");
+      if (box.style.display === "none") {
+        box.style.display = "block";
+        frame.src = "../bilibili/";
+      } else {
+        box.style.display = "none";
+        frame.removeAttribute("src");
+      }
+    };
+  </script>
+</body>
+</html>

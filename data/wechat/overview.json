@@ -1,0 +1,63 @@
+{
+  "generated_at": "2026-08-12T13:22:41.867369+08:00",
+  "status": "research_complete",
+  "sources": {
+    "wp06c1": "docs/WP06C1_WECHAT_MP_FINDINGS.md",
+    "wp06c2": "docs/WP06C2_WECHAT_CHANNELS_FINDINGS.md",
+    "mp_analysis": "data/research/analysis/wechat_mp_content_analysis_v1.json",
+    "channels_analysis": "data/research/analysis/wechat_channels_content_analysis_v1.json"
+  },
+  "coverage": {
+    "mp_verified_accounts": 15,
+    "mp_candidate_articles": 900,
+    "mp_formal_sample": 165,
+    "mp_fulltext_ok": 161,
+    "channels_verified_accounts": 12,
+    "channels_candidate_works": 664,
+    "channels_formal_sample": 114,
+    "channels_visual_cases": 16,
+    "channels_visual_with_url": 3,
+    "pending_link": 13,
+    "link_note": "LINK完整度不影响当前内容结构研究，但限制深度动态视觉判断。13 个 pending_link 保留为研究限制。"
+  },
+  "core_findings": [
+    {
+      "idx": "01",
+      "title": "公众号真正有价值的是“可预期栏目”，不是零散信息发布",
+      "text": "已识别栏目样本显示：无尽冬日、冒险岛、洛克「洛个明白」、原神角色演示、崩铁更新电台、DNF新料速D等形成可预期结构。",
+      "tag": "阶段性",
+      "evidence": "28 个可识别栏目样本"
+    },
+    {
+      "idx": "02",
+      "title": "老IP新品需要持续解释：旧认知 → 新变化 → 为什么这样做",
+      "text": "老IP→新品研究显示：识别入口、新产品展示与差异解释需要同链路出现，不能只喊情怀。",
+      "tag": "阶段性",
+      "evidence": "69 条老IP→新品研究样本"
+    },
+    {
+      "idx": "03",
+      "title": "视频号更适合提供“可感证据”，公众号更适合解释与沉淀",
+      "text": "视频号侧重实机、战场结果、角色/单位识别、轻知识与情绪入口；公众号侧重解释、FAQ、开发者、机制精讲与长期栏目。",
+      "tag": "阶段性",
+      "evidence": "平台分工矩阵（公众号 × 视频号）"
+    },
+    {
+      "idx": "04",
+      "title": "红警现有微信表达仍有明显空位",
+      "text": "指挥官语境仍有效；但公众号兑换码/福利模板占位明显、经典单位/阵营使用弱。视频号有情怀/角色/投稿，战场结果型内容不足。",
+      "tag": "阶段性",
+      "evidence": "红警OL 公众号 + 视频号专项样本"
+    }
+  ],
+  "counts": {
+    "mp_columns": 28,
+    "mp_content_types": 16,
+    "channels_content_types": 12,
+    "channels_series": 6,
+    "platform_roles": 7,
+    "methods_total": 20,
+    "opportunities_total": 11,
+    "ip_transition_cases": 69
+  }
+}

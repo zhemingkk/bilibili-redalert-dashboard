@@ -1,0 +1,184 @@
+{
+  "generated_at": "2026-08-12T13:22:41.826131+08:00",
+  "n_sample": 15,
+  "n_accounts": 9,
+  "stratum_counts": [
+    {
+      "stratum": "TOP",
+      "count": 5
+    },
+    {
+      "stratum": "NEW",
+      "count": 4
+    },
+    {
+      "stratum": "MID",
+      "count": 3
+    },
+    {
+      "stratum": "OTHER",
+      "count": 3
+    }
+  ],
+  "overview_image": "assets/media/AIGC_VISUAL_OVERVIEW.jpg",
+  "items": [
+    {
+      "content_id": "7502598465856343346",
+      "account_name": "遐想放映厅",
+      "like_count": 739637,
+      "comment_count": 25574,
+      "stratum": "TOP",
+      "selection_bucket": "TOP",
+      "selection_reason": "TOP高互动军事/战争大片向AIGC（陆地航母·无人机蜂群），电影感方向代表",
+      "coverage_hint": "电影感/战争大片;战争场景重构"
+    },
+    {
+      "content_id": "7622969581644107042",
+      "account_name": "遐想放映厅",
+      "like_count": 79308,
+      "comment_count": 4781,
+      "stratum": "TOP",
+      "selection_bucket": "TOP",
+      "selection_reason": "TOP高互动空中航母/蜂群，同账号第二向战争规模作品，便于对照风格",
+      "coverage_hint": "电影感/战争大片;战争场景重构"
+    },
+    {
+      "content_id": "7657401810910596371",
+      "account_name": "黑山老妖",
+      "like_count": 61001,
+      "comment_count": 2149,
+      "stratum": "TOP",
+      "selection_bucket": "TOP",
+      "selection_reason": "尤里登场压迫感系列，角色真人化+红警世界现实化代表",
+      "coverage_hint": "角色真人化;红警世界现实化"
+    },
+    {
+      "content_id": "6896036212679658752",
+      "account_name": "数字特效飞飞",
+      "like_count": 12892,
+      "comment_count": 980,
+      "stratum": "TOP",
+      "selection_bucket": "TOP",
+      "selection_reason": "经典单位制作花絮向，单位现实化制作过程代表",
+      "coverage_hint": "经典单位现实化"
+    },
+    {
+      "content_id": "7520940740566895929",
+      "account_name": "谭雅",
+      "like_count": 1086,
+      "comment_count": 927,
+      "stratum": "TOP",
+      "selection_bucket": "TOP",
+      "selection_reason": "账号「谭雅」AI人物向，角色真人化另一形态；同桶较低互动对照",
+      "coverage_hint": "角色真人化"
+    },
+    {
+      "content_id": "7667756767618649385",
+      "account_name": "AIGC孙晨熙",
+      "like_count": 110302,
+      "comment_count": 3157,
+      "stratum": "MID",
+      "selection_bucket": "MID",
+      "selection_reason": "中等表现硬核科幻电影感AIGC（元启录/4K模型文案）",
+      "coverage_hint": "电影感/战争大片"
+    },
+    {
+      "content_id": "7633390027677994292",
+      "account_name": "AIGC孙晨熙",
+      "like_count": 70944,
+      "comment_count": 2052,
+      "stratum": "MID",
+      "selection_bucket": "MID",
+      "selection_reason": "中等表现硬核科幻「月陨」，与爆款战争片形成互动差异对照",
+      "coverage_hint": "电影感/战争大片;评论反馈可能不同"
+    },
+    {
+      "content_id": "7664673934322748698",
+      "account_name": "Catum",
+      "like_count": 881,
+      "comment_count": 60,
+      "stratum": "MID",
+      "selection_bucket": "MID",
+      "selection_reason": "苏军攻入德州脑洞向，搞笑/脑洞AIGC代表",
+      "coverage_hint": "搞笑/脑洞型AIGC;战争场景重构"
+    },
+    {
+      "content_id": "7621019776734874915",
+      "account_name": "杀手塔利",
+      "like_count": 66961,
+      "comment_count": 2876,
+      "stratum": "NEW",
+      "selection_bucket": "NEW",
+      "selection_reason": "低粉高互动红警微电影，新号起量+怀旧世界现实化",
+      "coverage_hint": "新号明显起量;红警世界现实化;电影感/战争大片"
+    },
+    {
+      "content_id": "7657592861721906470",
+      "account_name": "Catum",
+      "like_count": 3449,
+      "comment_count": 243,
+      "stratum": "NEW",
+      "selection_bucket": "RECENT",
+      "selection_reason": "新号Catum谭雅登场AI短片，角色真人化+新号起量",
+      "coverage_hint": "新号明显起量;角色真人化"
+    },
+    {
+      "content_id": "7670492554357517678",
+      "account_name": "数字特效飞飞",
+      "like_count": 1242,
+      "comment_count": 54,
+      "stratum": "NEW",
+      "selection_bucket": "NEW",
+      "selection_reason": "磁暴单位重制向，经典单位现实化+新近作品",
+      "coverage_hint": "经典单位现实化"
+    },
+    {
+      "content_id": "7580654567814073643",
+      "account_name": "未来派",
+      "like_count": 82470,
+      "comment_count": 7819,
+      "stratum": "NEW",
+      "selection_bucket": "NEW",
+      "selection_reason": "样本池内NEW高互动AIGC（科幻毒液向）；覆盖新号起量，红警主题弱于其他条",
+      "coverage_hint": "新号明显起量"
+    },
+    {
+      "content_id": "7660409279635148066",
+      "account_name": "黑山老妖",
+      "like_count": 74897,
+      "comment_count": 7375,
+      "stratum": "OTHER",
+      "selection_bucket": "RECENT",
+      "selection_reason": "RECENT桶红警天团F4，角色群像/IP符号现实化代表（非纯TOP桶配额）",
+      "coverage_hint": "角色真人化;红警世界现实化"
+    },
+    {
+      "content_id": "6805490407133154575",
+      "account_name": "数字特效飞飞",
+      "like_count": 119462,
+      "comment_count": 5739,
+      "stratum": "OTHER",
+      "selection_bucket": "RECENT",
+      "selection_reason": "基洛夫实机向高互动老片，经典单位现实化对照",
+      "coverage_hint": "经典单位现实化"
+    },
+    {
+      "content_id": "7647111490323785125",
+      "account_name": "红警假牙西",
+      "like_count": 315,
+      "comment_count": 92,
+      "stratum": "OTHER",
+      "selection_bucket": "NEW",
+      "selection_reason": "低表现新号AI写真/港风向，作为低互动AIGC对照（可能为图文）",
+      "coverage_hint": "搞笑/脑洞型AIGC;低表现对照"
+    }
+  ],
+  "stage_coverage_hints": [
+    "战争大片",
+    "角色真人化",
+    "单位现实化",
+    "新号起量"
+  ],
+  "status": "visual_special_incomplete",
+  "note": "视觉专项结论尚未完成。本页不做画质/AI味/镜头质量/同质化自动判断。"
+}

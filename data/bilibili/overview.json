@@ -1,0 +1,19 @@
+{
+  "generated_at": "2026-08-12T13:22:41.780636+08:00",
+  "source": "bilibili/data/summary.json",
+  "status": "research_complete",
+  "external_url": "../bilibili/",
+  "kpis": {
+    "n_videos": 1200,
+    "n_comments": 1847,
+    "n_ups": 200,
+    "recent_n": 490,
+    "generated_at": "2026-08-11T03:23:15.801844+00:00"
+  },
+  "note": "B站完整图表保留在同仓库 /bilibili/ 子站；本页仅同步只读 KPI。",
+  "short_kpis": {
+    "n_short_pool": 408,
+    "n_le20s": 17,
+    "n_1to3min": 141
+  }
+}
