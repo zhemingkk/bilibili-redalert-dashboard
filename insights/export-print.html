@@ -21,31 +21,31 @@
   <style>
     :root, [data-theme="light"] {
       color-scheme: light;
-      --bg: #faf9f5;
-      --ink: #141413;
-      --ink-soft: #3d3d3a;
-      --muted: #5e5d59;
-      --faint: #87867f;
-      --accent: #d97757;
-      --accent-soft: #c6613f;
-      --accent-dim: rgba(217, 119, 87, 0.14);
+      --bg: #faf2e7;
+      --ink: #1a1814;
+      --ink-soft: #3d3a34;
+      --muted: #6b6560;
+      --faint: #9a938a;
+      --accent: #e07848;
+      --accent-soft: #c45a32;
+      --accent-dim: rgba(224, 120, 72, 0.14);
       --line: rgba(20, 20, 19, 0.12);
-      --surface: #ffffff;
-      --surface-2: #f0eee6;
-      --panel: #ffffff;
+      --surface: #fffbf5;
+      --surface-2: #f0e8dd;
+      --panel: #fffbf5;
       --font: "DM Sans", "PingFang SC", "Microsoft YaHei UI", sans-serif;
       --display: "Cormorant Garamond", "Noto Serif SC", Georgia, serif;
     }
     [data-theme="dark"] {
       color-scheme: dark;
-      --bg: #141413;
-      --ink: #faf9f5;
-      --ink-soft: #f0eee6;
-      --muted: #b0aea5;
-      --faint: #87867f;
-      --accent: #d97757;
-      --accent-soft: #d97757;
-      --accent-dim: rgba(217, 119, 87, 0.2);
+      --bg: #1a1814;
+      --ink: #faf2e7;
+      --ink-soft: #f0e8dd;
+      --muted: #a89f93;
+      --faint: #9a938a;
+      --accent: #e07848;
+      --accent-soft: #e07848;
+      --accent-dim: rgba(224, 120, 72, 0.2);
       --line: rgba(250, 249, 245, 0.14);
       --surface: #1c1b19;
       --surface-2: #262522;
@@ -86,7 +86,7 @@
       font-family: var(--font);
       font-size: 12px;
     }
-    .primary { background: var(--accent); color: #faf9f5; }
+    .primary { background: var(--accent); color: #faf2e7; }
     .ghost {
       background: transparent;
       color: var(--ink);
@@ -281,28 +281,28 @@
     @media print {
       .toolbar { display: none !important; }
       :root, html, body, [data-theme="dark"], [data-theme="light"] {
-        --bg: #faf9f5 !important;
-        --ink: #141413 !important;
-        --ink-soft: #3d3d3a !important;
-        --muted: #5e5d59 !important;
-        --faint: #87867f !important;
-        --accent: #d97757 !important;
-        --accent-dim: rgba(217, 119, 87, 0.14) !important;
+        --bg: #faf2e7 !important;
+        --ink: #1a1814 !important;
+        --ink-soft: #3d3a34 !important;
+        --muted: #6b6560 !important;
+        --faint: #9a938a !important;
+        --accent: #e07848 !important;
+        --accent-dim: rgba(224, 120, 72, 0.14) !important;
         --line: rgba(20, 20, 19, 0.12) !important;
-        --surface: #ffffff !important;
-        --panel: #ffffff !important;
+        --surface: #fffbf5 !important;
+        --panel: #fffbf5 !important;
         color-scheme: light !important;
       }
       html, body {
-        background: #faf9f5 !important;
-        color: #3d3d3a !important;
+        background: #faf2e7 !important;
+        color: #3d3a34 !important;
         print-color-adjust: exact !important;
         -webkit-print-color-adjust: exact !important;
       }
       .cover h1, h2, .sum-item h3, .section-head h3, .point h4, .sig h4, .meta-strip .v {
-        color: #141413 !important;
+        color: #1a1814 !important;
       }
-      .guard { color: #141413 !important; background: rgba(217, 119, 87, 0.14) !important; }
+      .guard { color: #1a1814 !important; background: rgba(224, 120, 72, 0.14) !important; }
       .doc { max-width: none; padding: 10mm 12mm; }
       .points { grid-template-columns: 1fr 1fr; }
     }

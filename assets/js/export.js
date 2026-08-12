@@ -1,13 +1,13 @@
 ﻿window.RAExport = (function () {
-  const ACCENT = "FFD97757";
-  const INK_DARK = "FF141413";
-  const INK_LIGHT = "FFFAF9F5";
-  const MUTED_LIGHT = "FF5E5D59";
-  const MUTED_DARK = "FFB0AEA5";
-  const SURFACE_LIGHT = "FFFFFFFF";
-  const SURFACE_DARK = "FF262522";
-  const HEADER_LIGHT = "FFF0EEE6";
-  const HEADER_DARK = "FF30302E";
+  const ACCENT = "FFE07848";
+  const INK_DARK = "FF1A1814";
+  const INK_LIGHT = "FFFAF2E7";
+  const MUTED_LIGHT = "FF6B6560";
+  const MUTED_DARK = "FFA89F93";
+  const SURFACE_LIGHT = "FFFFFBF5";
+  const SURFACE_DARK = "FF2E2A24";
+  const HEADER_LIGHT = "FFF0E8DD";
+  const HEADER_DARK = "FF3F3A33";
 
   function excelTheme() {
     const light = !(window.RADash && RADash.getTheme && RADash.getTheme() === "dark");

@@ -76,7 +76,7 @@
 
   function showError(err) {
     const pre = document.createElement("pre");
-    pre.style.cssText = "padding:16px;color:#d97757;white-space:pre-wrap;";
+    pre.style.cssText = "padding:16px;color:#e07848;white-space:pre-wrap;";
     pre.textContent = "数据加载失败：\n" + err;
     document.body.appendChild(pre);
   }

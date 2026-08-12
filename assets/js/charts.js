@@ -1,6 +1,6 @@
 ﻿window.RACharts = (function () {
-  const CORAL = "#d97757";
-  const PALETTE = ["#d97757", "#d4a574", "#5db8a6", "#6a9bcc", "#c47a8a", "#b0aea5", "#d4a27f"];
+  const CORAL = "#e07848";
+  const PALETTE = ["#e07848", "#d4a574", "#5db8a6", "#6a9bcc", "#c47a8a", "#a89f93", "#d4a27f"];
   const FONT = '"DM Sans","PingFang SC",sans-serif';
   const DISPLAY = '"Cormorant Garamond","Noto Serif SC",serif';
 
@@ -8,7 +8,7 @@
     const light = document.documentElement.getAttribute("data-theme") === "light";
     if (light) {
       return {
-        ink: "#141413",
+        ink: "#1a1814",
         muted: "#5e5d59",
         grid: "rgba(20,20,19,0.08)",
         panel: "#ffffff",
@@ -16,7 +16,7 @@
       };
     }
     return {
-      ink: "#faf9f5",
+      ink: "#faf2e7",
       muted: "#b0aea5",
       grid: "rgba(250,249,245,0.10)",
       panel: "#1c1b19",
