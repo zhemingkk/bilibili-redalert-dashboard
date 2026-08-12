@@ -2,11 +2,15 @@
   const THEME_KEY = "ra-theme";
   const NUM_FONT_KEY = "ra-num-font";
   const NUM_FONTS = [
+    { id: "instrument", label: "Instrument" },
+    { id: "playfair", label: "Playfair" },
+    { id: "literata", label: "Literata" },
     { id: "fraunces", label: "Fraunces" },
     { id: "serif", label: "DM Serif" },
     { id: "mono", label: "JetBrains" },
     { id: "sans", label: "DM Sans" },
   ];
+  const NUM_FONT_DEFAULT = "instrument";
 
   function bootTheme() {
     let theme = "light";
@@ -19,16 +23,16 @@
   }
 
   function getNumFont() {
-    let id = "fraunces";
+    let id = NUM_FONT_DEFAULT;
     try {
-      id = localStorage.getItem(NUM_FONT_KEY) || "fraunces";
+      id = localStorage.getItem(NUM_FONT_KEY) || NUM_FONT_DEFAULT;
     } catch (e) {}
-    if (!NUM_FONTS.some((f) => f.id === id)) id = "fraunces";
+    if (!NUM_FONTS.some((f) => f.id === id)) id = NUM_FONT_DEFAULT;
     return id;
   }
 
   function setNumFont(id) {
-    if (!NUM_FONTS.some((f) => f.id === id)) id = "fraunces";
+    if (!NUM_FONTS.some((f) => f.id === id)) id = NUM_FONT_DEFAULT;
     document.documentElement.setAttribute("data-num-font", id);
     try {
       localStorage.setItem(NUM_FONT_KEY, id);
@@ -196,7 +200,7 @@
       </div>`;
     const inner = host.querySelector(".topnav-inner");
     mountThemeToggle(inner);
-    if (chrome === "detail") mountNumFontPick(inner);
+    mountNumFontPick(inner);
     ensureExportScript(() => {
       if (window.RAExport && typeof RAExport.mountNavExport === "function") {
         RAExport.mountNavExport();
