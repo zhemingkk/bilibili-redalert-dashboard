@@ -1,5 +1,12 @@
 ﻿window.RADash = (function () {
   const THEME_KEY = "ra-theme";
+  const NUM_FONT_KEY = "ra-num-font";
+  const NUM_FONTS = [
+    { id: "fraunces", label: "Fraunces" },
+    { id: "serif", label: "DM Serif" },
+    { id: "mono", label: "JetBrains" },
+    { id: "sans", label: "DM Sans" },
+  ];
 
   function bootTheme() {
     let theme = "light";
@@ -10,7 +17,34 @@
     document.documentElement.setAttribute("data-theme", theme);
     return theme;
   }
+
+  function getNumFont() {
+    let id = "fraunces";
+    try {
+      id = localStorage.getItem(NUM_FONT_KEY) || "fraunces";
+    } catch (e) {}
+    if (!NUM_FONTS.some((f) => f.id === id)) id = "fraunces";
+    return id;
+  }
+
+  function setNumFont(id) {
+    if (!NUM_FONTS.some((f) => f.id === id)) id = "fraunces";
+    document.documentElement.setAttribute("data-num-font", id);
+    try {
+      localStorage.setItem(NUM_FONT_KEY, id);
+    } catch (e) {}
+    document.querySelectorAll(".num-font-pick select").forEach((sel) => {
+      sel.value = id;
+    });
+    window.dispatchEvent(new CustomEvent("ra-num-font", { detail: { id } }));
+  }
+
+  function bootNumFont() {
+    setNumFont(getNumFont());
+  }
+
   bootTheme();
+  bootNumFont();
 
   const NAV = [
     { id: "overview", label: "总览", href: "index.html", state: "已完成" },
@@ -97,6 +131,18 @@
     document.head.appendChild(s);
   }
 
+  function ensureNavExportWrap(inner) {
+    return (
+      inner.querySelector(".nav-export") ||
+      (() => {
+        const w = document.createElement("div");
+        w.className = "nav-export";
+        inner.appendChild(w);
+        return w;
+      })()
+    );
+  }
+
   function mountThemeToggle(inner) {
     if (!inner || inner.querySelector(".theme-toggle")) return;
     const btn = document.createElement("button");
@@ -106,19 +152,37 @@
     btn.textContent = theme === "light" ? "深色" : "浅色";
     btn.setAttribute("aria-label", theme === "light" ? "切换到深色" : "切换到浅色");
     btn.addEventListener("click", toggleTheme);
-    const wrap = inner.querySelector(".nav-export") || (() => {
-      const w = document.createElement("div");
-      w.className = "nav-export";
-      inner.appendChild(w);
-      return w;
-    })();
+    const wrap = ensureNavExportWrap(inner);
     wrap.insertBefore(btn, wrap.firstChild);
+  }
+
+  function mountNumFontPick(inner) {
+    if (!inner || inner.querySelector(".num-font-pick")) return;
+    const cur = getNumFont();
+    const label = document.createElement("label");
+    label.className = "num-font-pick";
+    label.title = "数字字体";
+    label.innerHTML =
+      `<span>数字</span><select aria-label="选择数字字体">` +
+      NUM_FONTS.map(
+        (f) => `<option value="${f.id}"${f.id === cur ? " selected" : ""}>${f.label}</option>`
+      ).join("") +
+      `</select>`;
+    label.querySelector("select").addEventListener("change", (e) => {
+      setNumFont(e.target.value);
+    });
+    const wrap = ensureNavExportWrap(inner);
+    const themeBtn = wrap.querySelector(".theme-toggle");
+    if (themeBtn) wrap.insertBefore(label, themeBtn.nextSibling);
+    else wrap.insertBefore(label, wrap.firstChild);
   }
 
   function renderNav(activeId) {
     const host = document.getElementById("topnav");
     if (!host) return;
     const prefix = depthPrefix();
+    const chrome = activeId === "overview" ? "overview" : "detail";
+    document.documentElement.setAttribute("data-chrome", chrome);
     const links = NAV.map((item) => {
       const href = prefix + item.href;
       const active = item.id === activeId ? " active" : "";
@@ -132,6 +196,7 @@
       </div>`;
     const inner = host.querySelector(".topnav-inner");
     mountThemeToggle(inner);
+    if (chrome === "detail") mountNumFontPick(inner);
     ensureExportScript(() => {
       if (window.RAExport && typeof RAExport.mountNavExport === "function") {
         RAExport.mountNavExport();
@@ -152,6 +217,10 @@
     setTheme,
     toggleTheme,
     bootTheme,
+    getNumFont,
+    setNumFont,
+    NUM_FONTS,
     THEME_KEY,
+    NUM_FONT_KEY,
   };
 })();

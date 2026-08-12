@@ -2,7 +2,7 @@
    Light: Paper Ivory #FAF2E7 · Clay #E07848
    Dark:  Warm espresso #2E2822 / panel #37312B · Bright Clay #F07040 */
 
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=IBM+Plex+Mono:wght@400;500&family=Noto+Serif+SC:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display:ital@0;1&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500&family=JetBrains+Mono:wght@500;600&family=Noto+Serif+SC:wght@400;500;600;700&display=swap");
 
 :root,
 [data-theme="dark"] {
@@ -39,12 +39,15 @@
   --chart-grid: rgba(243, 235, 224, 0.1);
   --chart-panel: #37312b;
   --scrollbar-thumb: rgba(243, 235, 224, 0.18);
+  --shadow-solo: 0 14px 36px rgba(0, 0, 0, 0.38), 0 3px 10px rgba(0, 0, 0, 0.22);
+  --shadow-group: 0 6px 18px rgba(0, 0, 0, 0.26), 0 1px 4px rgba(0, 0, 0, 0.16);
   --radius: 6px;
   --radius-sm: 4px;
   --radius-lg: 10px;
   --font: "DM Sans", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", sans-serif;
   --font-display: "Cormorant Garamond", "Noto Serif SC", "Songti SC", Georgia, serif;
   --font-mono: "IBM Plex Mono", "Cascadia Mono", Consolas, monospace;
+  --font-num: "Fraunces", "Cormorant Garamond", "Noto Serif SC", Georgia, serif;
   --shadow-panel: none;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --grid-size: 56px;
@@ -84,6 +87,8 @@
   --chart-grid: rgba(26, 24, 20, 0.08);
   --chart-panel: #fffbf5;
   --scrollbar-thumb: rgba(26, 24, 20, 0.14);
+  --shadow-solo: 0 14px 34px rgba(26, 24, 20, 0.11), 0 3px 10px rgba(26, 24, 20, 0.05);
+  --shadow-group: 0 5px 16px rgba(26, 24, 20, 0.07), 0 1px 4px rgba(26, 24, 20, 0.035);
 }
 
 * { box-sizing: border-box; }
@@ -1281,6 +1286,92 @@ details.fold[open] summary { margin-bottom: 10px; color: var(--ink-soft); }
   text-transform: uppercase;
   min-width: 52px;
 }
+.num-font-pick {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--faint);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.num-font-pick select {
+  appearance: none;
+  -webkit-appearance: none;
+  background: var(--surface);
+  color: var(--ink-soft);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 5px 28px 5px 10px;
+  font-family: var(--font);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  cursor: pointer;
+  background-image: linear-gradient(45deg, transparent 50%, var(--faint) 50%),
+    linear-gradient(135deg, var(--faint) 50%, transparent 50%);
+  background-position: calc(100% - 14px) 55%, calc(100% - 10px) 55%;
+  background-size: 4px 4px, 4px 4px;
+  background-repeat: no-repeat;
+  max-width: 128px;
+}
+.num-font-pick select:focus {
+  outline: none;
+  border-color: rgba(224, 120, 72, 0.55);
+}
+
+/* Number font presets (localStorage ra-num-font) */
+html[data-num-font="fraunces"] {
+  --font-num: "Fraunces", "Cormorant Garamond", "Noto Serif SC", Georgia, serif;
+}
+html[data-num-font="serif"] {
+  --font-num: "DM Serif Display", "Cormorant Garamond", "Noto Serif SC", Georgia, serif;
+}
+html[data-num-font="mono"] {
+  --font-num: "JetBrains Mono", "IBM Plex Mono", Consolas, monospace;
+}
+html[data-num-font="sans"] {
+  --font-num: "DM Sans", "PingFang SC", "Microsoft YaHei UI", sans-serif;
+}
+.num,
+.giant,
+.coverage strong,
+.finding .idx,
+.finding-viz .finding-viz-metric,
+.rts-metric .v,
+.card .v,
+.strategy-idx {
+  font-family: var(--font-num);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}
+
+/* Detail pages only: card elevation (exclude overview)
+   solo = standalone section cards; group = items in a set/grid */
+html[data-chrome="detail"] .module:not(.soft),
+html[data-chrome="detail"] .rts-block,
+html[data-chrome="detail"] .special-card,
+html[data-chrome="detail"] .media-frame {
+  box-shadow: var(--shadow-solo);
+}
+html[data-chrome="detail"] .grid-2 > .module:not(.soft),
+html[data-chrome="detail"] .grid-3 > .module:not(.soft),
+html[data-chrome="detail"] .insight-card,
+html[data-chrome="detail"] .path-card,
+html[data-chrome="detail"] .case-card,
+html[data-chrome="detail"] .method-card,
+html[data-chrome="detail"] .opp-card,
+html[data-chrome="detail"] .strategy-point,
+html[data-chrome="detail"] .rts-metric,
+html[data-chrome="detail"] .role-row,
+html[data-chrome="detail"] .flow-step {
+  box-shadow: var(--shadow-group);
+}
+html[data-chrome="detail"] .module.soft {
+  box-shadow: none;
+}
+
 .nav-export-btn {
   padding: 6px 12px !important;
   font-size: 11px !important;
