@@ -1,6 +1,5 @@
-/* Claude Design — dual theme (dark product + light cream canvas)
-   Dark: warm near-black #141413 + coral #cc785c
-   Light: ivory #faf9f5 + ink #141413 + same coral family */
+﻿/* Anthropic / Claude official tokens (brand-atoms + anthropic.com)
+   Clay #D97757 · Ivory #FAF9F5 / #F0EEE6 · Slate #141413 · Cloud #B0AEA5 */
 
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=IBM+Plex+Mono:wght@400;500&family=Noto+Serif+SC:wght@400;500;600;700&display=swap");
 
@@ -8,36 +7,36 @@
 [data-theme="dark"] {
   color-scheme: dark;
   --bg: #141413;
-  --surface: #1c1b19;
-  --surface-2: #262522;
-  --surface-3: #30302e;
+  --surface: #1f1e1c;
+  --surface-2: #2a2926;
+  --surface-3: #3d3d3a;
   --ink: #faf9f5;
   --ink-soft: #f0eee6;
   --muted: #b0aea5;
   --faint: #87867f;
-  --line: rgba(250, 249, 245, 0.14);
-  --line-soft: rgba(250, 249, 245, 0.08);
-  --accent: #cc785c;
-  --accent-soft: #d97757;
-  --accent-dim: rgba(204, 120, 92, 0.18);
-  --accent-active: #a9583e;
+  --line: rgba(250, 249, 245, 0.12);
+  --line-soft: rgba(250, 249, 245, 0.07);
+  --accent: #d97757;
+  --accent-soft: #e08a6c;
+  --accent-dim: rgba(217, 119, 87, 0.18);
+  --accent-active: #c6613f;
   --blue: #6a9bcc;
-  --teal: #5db8a6;
-  --violet: #9a8fb8;
+  --teal: #bcd1ca;
+  --violet: #cbcadb;
   --amber: #d4a27f;
   --ok: #788c5d;
   --ok-dim: rgba(120, 140, 93, 0.16);
-  --warn-dim: rgba(212, 162, 127, 0.16);
-  --panel: rgba(38, 37, 34, 0.78);
-  --panel-solid: #262522;
-  --nav-bg: rgba(20, 20, 19, 0.88);
-  --grid-line: rgba(250, 249, 245, 0.055);
-  --glow: rgba(204, 120, 92, 0.08);
-  --overlay: rgba(10, 9, 8, 0.58);
+  --warn-dim: rgba(212, 162, 127, 0.18);
+  --panel: rgba(42, 41, 38, 0.88);
+  --panel-solid: #2a2926;
+  --nav-bg: rgba(20, 20, 19, 0.92);
+  --grid-line: rgba(250, 249, 245, 0.05);
+  --glow: rgba(217, 119, 87, 0.09);
+  --overlay: rgba(20, 20, 19, 0.55);
   --btn-ink: #faf9f5;
   --btn-on-soft: #141413;
   --chart-grid: rgba(250, 249, 245, 0.10);
-  --chart-panel: #1c1b19;
+  --chart-panel: #1f1e1c;
   --scrollbar-thumb: rgba(250, 249, 245, 0.18);
   --radius: 8px;
   --radius-sm: 6px;
@@ -60,30 +59,30 @@
   --ink-soft: #3d3d3a;
   --muted: #5e5d59;
   --faint: #87867f;
-  --line: rgba(20, 20, 19, 0.12);
-  --line-soft: rgba(20, 20, 19, 0.07);
-  --accent: #cc785c;
+  --line: #e8e6dc;
+  --line-soft: rgba(20, 20, 19, 0.06);
+  --accent: #d97757;
   --accent-soft: #c6613f;
-  --accent-dim: rgba(204, 120, 92, 0.14);
-  --accent-active: #a9583e;
+  --accent-dim: rgba(217, 119, 87, 0.14);
+  --accent-active: #c6613f;
   --blue: #6a9bcc;
-  --teal: #5a9e90;
+  --teal: #5f8f84;
   --violet: #8b7fa8;
-  --amber: #c4894a;
-  --ok: #5f7349;
+  --amber: #d4a27f;
+  --ok: #788c5d;
   --ok-dim: rgba(120, 140, 93, 0.14);
   --warn-dim: rgba(212, 162, 127, 0.18);
-  --panel: rgba(255, 255, 255, 0.92);
+  --panel: rgba(255, 255, 255, 0.94);
   --panel-solid: #ffffff;
-  --nav-bg: rgba(250, 249, 245, 0.92);
-  --grid-line: rgba(20, 20, 19, 0.055);
-  --glow: rgba(204, 120, 92, 0.07);
-  --overlay: rgba(20, 20, 19, 0.32);
+  --nav-bg: rgba(250, 249, 245, 0.94);
+  --grid-line: rgba(20, 20, 19, 0.05);
+  --glow: rgba(217, 119, 87, 0.08);
+  --overlay: rgba(20, 20, 19, 0.28);
   --btn-ink: #faf9f5;
   --btn-on-soft: #141413;
   --chart-grid: rgba(20, 20, 19, 0.08);
   --chart-panel: #ffffff;
-  --scrollbar-thumb: rgba(20, 20, 19, 0.16);
+  --scrollbar-thumb: rgba(20, 20, 19, 0.15);
 }
 
 * { box-sizing: border-box; }
@@ -91,11 +90,11 @@
 /* Claude Design scrollbars */
 html {
   scrollbar-width: thin;
-  scrollbar-color: rgba(204, 120, 92, 0.4) transparent;
+  scrollbar-color: rgba(217, 119, 87, 0.4) transparent;
 }
 * {
   scrollbar-width: thin;
-  scrollbar-color: rgba(204, 120, 92, 0.4) transparent;
+  scrollbar-color: rgba(217, 119, 87, 0.4) transparent;
 }
 *::-webkit-scrollbar { width: 8px; height: 8px; }
 *::-webkit-scrollbar-track { background: transparent; }
@@ -106,7 +105,7 @@ html {
   background-clip: padding-box;
 }
 *::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(204, 120, 92, 0.5);
+  background-color: rgba(217, 119, 87, 0.5);
   border: 2px solid transparent;
   background-clip: padding-box;
 }
@@ -200,7 +199,7 @@ a:hover { color: var(--ink); }
 .nav-link:hover { color: var(--ink-soft); text-decoration: none; }
 .nav-link.active {
   color: var(--accent);
-  border-color: rgba(204, 120, 92, 0.5);
+  border-color: rgba(217, 119, 87, 0.5);
   background: transparent;
   box-shadow: none;
 }
@@ -595,7 +594,7 @@ a:hover { color: var(--ink); }
   background: transparent;
 }
 .tag.verified { color: #9fd4b8; border-color: rgba(93, 184, 114, 0.35); }
-.tag.stage { color: var(--accent-soft); border-color: rgba(204, 120, 92, 0.45); }
+.tag.stage { color: var(--accent-soft); border-color: rgba(217, 119, 87, 0.45); }
 .tag.pending { color: #e8c89a; border-color: rgba(232, 165, 90, 0.35); }
 .tag.evidence { color: var(--faint); font-weight: 500; }
 
@@ -687,7 +686,7 @@ a:hover { color: var(--ink); }
   box-shadow: none;
 }
 .platform-card .btn:hover {
-  border-color: rgba(204, 120, 92, 0.55);
+  border-color: rgba(217, 119, 87, 0.55);
   color: var(--accent);
   filter: none;
   background: var(--accent-dim);
@@ -751,7 +750,7 @@ a:hover { color: var(--ink); }
   transform: translateY(-1px);
   box-shadow:
     0 1px 0 rgba(250, 249, 245, 0.22) inset,
-    0 8px 22px rgba(204, 120, 92, 0.28);
+    0 8px 22px rgba(217, 119, 87, 0.28);
 }
 .btn:hover::after {
   opacity: 1;
@@ -763,15 +762,15 @@ a:hover { color: var(--ink); }
   color: var(--btn-ink);
   box-shadow:
     0 1px 0 rgba(0, 0, 0, 0.2) inset,
-    0 2px 6px rgba(204, 120, 92, 0.18);
+    0 2px 6px rgba(217, 119, 87, 0.18);
 }
 .btn:active::after { opacity: 0; }
 .btn:focus-visible {
   outline: none;
   box-shadow:
     0 0 0 2px var(--bg),
-    0 0 0 4px rgba(204, 120, 92, 0.55),
-    0 8px 22px rgba(204, 120, 92, 0.22);
+    0 0 0 4px rgba(217, 119, 87, 0.55),
+    0 8px 22px rgba(217, 119, 87, 0.22);
 }
 .btn.ghost {
   background: transparent;
@@ -782,7 +781,7 @@ a:hover { color: var(--ink); }
 }
 .btn.ghost::after { display: none; }
 .btn.ghost:hover {
-  border-color: rgba(204, 120, 92, 0.55);
+  border-color: rgba(217, 119, 87, 0.55);
   color: var(--accent);
   background: var(--accent-dim);
   transform: translateY(-1px);
@@ -792,14 +791,14 @@ a:hover { color: var(--ink); }
 }
 .btn.ghost:active {
   transform: translateY(1px) scale(0.98);
-  background: rgba(204, 120, 92, 0.22);
+  background: rgba(217, 119, 87, 0.22);
   color: var(--accent-soft);
   box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.15);
 }
 .btn.ghost:focus-visible {
   box-shadow:
     0 0 0 2px var(--bg),
-    0 0 0 4px rgba(204, 120, 92, 0.45);
+    0 0 0 4px rgba(217, 119, 87, 0.45);
 }
 
 .module {
@@ -1322,7 +1321,7 @@ details.fold[open] summary { margin-bottom: 10px; color: var(--ink-soft); }
   font-size: 18px;
   line-height: 1;
 }
-.export-close:hover { color: var(--ink); border-color: rgba(204, 120, 92, 0.5); }
+.export-close:hover { color: var(--ink); border-color: rgba(217, 119, 87, 0.5); }
 .export-hint {
   margin: 0 0 14px;
   color: var(--muted);

@@ -10,7 +10,7 @@
     "recent_n": 490,
     "generated_at": "2026-08-11T03:23:15.801844+00:00"
   },
-  "note": "B站完整图表保留在同仓库 /bilibili/ 子站；本页仅同步只读 KPI。",
+  "note": "B站完整图表见专项研究报告；本页仅同步覆盖摘要。"
   "short_kpis": {
     "n_short_pool": 408,
     "n_le20s": 17,

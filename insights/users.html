@@ -1,13 +1,13 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
   <script>
     try {
-      var t = localStorage.getItem("ra-theme") || "dark";
-      document.documentElement.setAttribute("data-theme", t === "light" ? "light" : "dark");
+      var t = localStorage.getItem("ra-theme") || "light";
+      document.documentElement.setAttribute("data-theme", t === "dark" ? "dark" : "light");
     } catch (e) {
-      document.documentElement.setAttribute("data-theme", "dark");
+      document.documentElement.setAttribute("data-theme", "light");
     }
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -18,9 +18,9 @@
   <nav class="topnav" id="topnav"></nav>
   <main class="wrap">
     <header class="page-hero">
-      <p class="eyebrow">Users</p>
+      <p class="eyebrow">玩家洞察</p>
       <h1>核心玩家信号</h1>
-      <p class="sub">阶段性用户洞察 · 发现 / 证据 / 边界 / 证据强度</p>
+      <p class="sub">阶段性洞察 · 发现 / 证据 / 边界 / 证据强度</p>
       <p class="prop">不是最终用户画像，也不是跨平台终局结论。</p>
     </header>
 

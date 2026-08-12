@@ -1,13 +1,13 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
   <script>
     try {
-      var t = localStorage.getItem("ra-theme") || "dark";
-      document.documentElement.setAttribute("data-theme", t === "light" ? "light" : "dark");
+      var t = localStorage.getItem("ra-theme") || "light";
+      document.documentElement.setAttribute("data-theme", t === "dark" ? "dark" : "light");
     } catch (e) {
-      document.documentElement.setAttribute("data-theme", "dark");
+      document.documentElement.setAttribute("data-theme", "light");
     }
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -19,7 +19,7 @@
   <nav class="topnav" id="topnav"></nav>
   <main class="wrap">
     <header class="page-hero">
-      <p class="eyebrow">Douyin</p>
+      <p class="eyebrow">抖音</p>
       <h1>抖音红警内容生态</h1>
       <p class="sub">内容供给 / 玩家诉求 / 创作者生态 / AIGC</p>
       <p class="prop">先看发现了什么，再看证据与样本构成。</p>
@@ -264,7 +264,7 @@
           "中位点赞"
         );
         document.getElementById("perfTakeaway").innerHTML =
-          "<strong>Takeaway：</strong>高覆盖并不等于最高互动；后续需将覆盖面与互动表现交叉判断。优先看中位数。";
+          "<strong>要点：</strong>高覆盖并不等于最高互动；后续需将覆盖面与互动表现交叉判断。优先看中位数。";
         document.getElementById("tagTable").innerHTML = tags.map(t => `
           <tr>
             <td>${t.tag}</td><td>${t.works}</td>
@@ -288,7 +288,7 @@
           [{
             label: "评论数",
             data: [rts.explicit_need, rts.preference, rts.mention_only, rts.rejection, rts.unrelated].map(x => x || 0),
-            backgroundColor: ["#cc785c", "#d4a574", "#7aa2c4", "#c47a8a", "#6f6c66"],
+            backgroundColor: ["#d97757", "#d4a574", "#7aa2c4", "#c47a8a", "#6f6c66"],
           }],
           { plugins: { legend: { display: false } } }
         );
@@ -296,7 +296,7 @@
           `<div style="margin-bottom:10px;"><span class="tag stage">${e.rts_expectation}</span> ${e.excerpt || ""}</div>`
         ).join("") || "暂无摘录";
         document.getElementById("rtsTakeaway").innerHTML =
-          "<strong>Takeaway：</strong>" + (rts.finding || "RTS相关诉求存在，但不宜用简单占比外推全体玩家。");
+          "<strong>要点：</strong>" + (rts.finding || "RTS相关诉求存在，但不宜用简单占比外推全体玩家。");
 
         const classic = comments.classic || {};
         document.getElementById("classicLead").textContent = classic.finding ||
@@ -316,7 +316,7 @@
           );
         }
         document.getElementById("classicTakeaway").innerHTML =
-          "<strong>Takeaway：</strong>单位/IP识别与情绪记忆更常见；玩法还原存在但不是唯一含义。";
+          "<strong>要点：</strong>单位/IP识别与情绪记忆更常见；玩法还原存在但不是唯一含义。";
 
         const tdist = (comments.topic_distribution || []).slice(0, 8);
         RACharts.hbar(

@@ -1,5 +1,5 @@
-window.RAExport = (function () {
-  const ACCENT = "FFCC785C";
+﻿window.RAExport = (function () {
+  const ACCENT = "FFD97757";
   const INK_DARK = "FF141413";
   const INK_LIGHT = "FFFAF9F5";
   const MUTED_LIGHT = "FF5E5D59";
@@ -153,7 +153,7 @@ window.RAExport = (function () {
     (s.sources || []).forEach((x) => lines.push(`- ${x}`));
     lines.push("");
     lines.push("---");
-    lines.push("*本文件由研究看板导出，阶段性综合，非甲方最终定稿。*");
+    lines.push("*本文件由研究报告导出，阶段性综合，供评审讨论，非最终定稿。*");
     lines.push("");
     return lines.join("\n");
   }
@@ -195,7 +195,7 @@ window.RAExport = (function () {
       throw new Error("ExcelJS 未加载");
     }
     const wb = new ExcelJS.Workbook();
-    wb.creator = "红警荣耀研究看板";
+    wb.creator = "红警荣耀内容研究";
     wb.created = new Date();
 
     const s = pack.strategy || {};
@@ -367,7 +367,7 @@ window.RAExport = (function () {
           <strong>导出结论</strong>
           <button type="button" class="export-close" aria-label="关闭">×</button>
         </div>
-        <p class="export-hint">包含策略综合 synthesis_v1、总览信号、微信核心发现、抖音阶段信号。</p>
+        <p class="export-hint">包含内容策略综合、总览信号、微信核心发现与抖音阶段信号。</p>
         <div class="export-actions">
           <button type="button" class="btn" data-fmt="pdf">导出 PDF</button>
           <button type="button" class="btn" data-fmt="xlsx">导出 Excel</button>

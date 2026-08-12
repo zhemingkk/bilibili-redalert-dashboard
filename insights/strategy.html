@@ -1,13 +1,13 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
   <script>
     try {
-      var t = localStorage.getItem("ra-theme") || "dark";
-      document.documentElement.setAttribute("data-theme", t === "light" ? "light" : "dark");
+      var t = localStorage.getItem("ra-theme") || "light";
+      document.documentElement.setAttribute("data-theme", t === "dark" ? "dark" : "light");
     } catch (e) {
-      document.documentElement.setAttribute("data-theme", "dark");
+      document.documentElement.setAttribute("data-theme", "light");
     }
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -18,7 +18,7 @@
   <nav class="topnav" id="topnav"></nav>
   <main class="wrap">
     <header class="page-hero">
-      <p class="eyebrow">Strategy</p>
+      <p class="eyebrow">内容策略</p>
       <h1 id="pageTitle">红警荣耀策略</h1>
       <p class="sub" id="pageSub">加载中…</p>
       <p class="prop" id="pageProp"></p>

@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <script>
     try {
-      var t = localStorage.getItem("ra-theme") || "dark";
-      document.documentElement.setAttribute("data-theme", t === "light" ? "light" : "dark");
+      var t = localStorage.getItem("ra-theme") || "light";
+      document.documentElement.setAttribute("data-theme", t === "dark" ? "dark" : "light");
     } catch (e) {
-      document.documentElement.setAttribute("data-theme", "dark");
+      document.documentElement.setAttribute("data-theme", "light");
     }
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -20,27 +20,27 @@
     <section class="split-hero">
       <div class="split-left">
         <div class="giant" id="giantLeft">—</div>
-        <p class="eyebrow">Research</p>
-        <h1>内容生态与<br/>用户洞察研究</h1>
-        <p class="prop">研究红警IP内容生态、玩家真实诉求与新品发行内容机会。</p>
+        <p class="eyebrow">研究报告</p>
+        <h1>内容生态与<br/>玩家洞察</h1>
+        <p class="prop">红警 IP 内容生态、玩家真实诉求与新品发行内容机会。</p>
         <div class="progress-line"><span id="heroBar" style="width:42%"></span></div>
         <div class="pill-row">
-          <span class="pill">Bilibili</span>
-          <span class="pill">Douyin</span>
-          <span class="pill">WeChat</span>
+          <span class="pill">B站</span>
+          <span class="pill">抖音</span>
+          <span class="pill">微信</span>
         </div>
         <div class="updated" id="updated">研究更新时间加载中…</div>
       </div>
       <div class="split-plus" aria-hidden="true">+</div>
       <div class="split-right" id="coverageHero">
         <div class="giant coral" id="giantRight">—</div>
-        <p class="eyebrow">Coverage</p>
-        <h1>样本覆盖</h1>
-        <p class="prop">研究规模，不是业务成绩。</p>
+        <p class="eyebrow">样本规模</p>
+        <h1>研究覆盖</h1>
+        <p class="prop">描述研究规模，不是业务 KPI。</p>
         <div class="glass-panel" id="glassPanel">
           <div class="glass-head">
             <span class="glass-dots" aria-hidden="true"><i></i><i></i><i></i></span>
-            research.coverage.md
+            样本覆盖摘要
           </div>
           <pre id="glassBody">加载中…</pre>
         </div>
@@ -91,14 +91,14 @@
         document.getElementById("heroBar").style.width = "50%";
 
         const lines = [
-          ["01", `<span class="kw">platforms</span>: B站 / 抖音 / 微信公众号 / 视频号`],
-          ["02", `<span class="kw">douyin_formal</span>: ${RADash.fmt(formal)}`],
-          ["03", `<span class="kw">douyin_comments</span>: ${RADash.fmt(comments)}`],
-          ["04", `<span class="kw">mp_formal</span>: ${RADash.fmt(mp)}`],
-          ["05", `<span class="kw">channels_formal</span>: ${RADash.fmt(ch)}`],
-          ["06", `<span class="kw">bilibili_videos</span>: ${RADash.fmt(bili)}`],
-          ["07", `<span class="kw">note</span>: research scale, not KPI`],
-          ["08", `<span class="kw">status</span>: wechat integrated`],
+          ["01", `<span class="kw">平台</span>：B站 / 抖音 / 微信公众号 / 视频号`],
+          ["02", `<span class="kw">抖音正式样本</span>：${RADash.fmt(formal)}`],
+          ["03", `<span class="kw">抖音评论</span>：${RADash.fmt(comments)}`],
+          ["04", `<span class="kw">公众号正式样本</span>：${RADash.fmt(mp)}`],
+          ["05", `<span class="kw">视频号正式样本</span>：${RADash.fmt(ch)}`],
+          ["06", `<span class="kw">B站视频</span>：${RADash.fmt(bili)}`],
+          ["07", `<span class="kw">说明</span>：以上为研究规模，非业务成绩`],
+          ["08", `<span class="kw">状态</span>：微信研究已纳入`],
         ];
         document.getElementById("glassBody").innerHTML = lines.map(([n, t]) =>
           `<span class="ln">${n}</span>${t}`
@@ -157,43 +157,43 @@
           </article>`).join("") + `
           <div class="coverage">
             <div class="label-soft">平台进展</div>
-            <div><strong>微信研究已完成</strong> · 公众号与视频号成果已接入。阶段性跨平台综合见策略页。</div>
+            <div><strong>微信研究已完成</strong> · 公众号与视频号结论已纳入。跨平台综合见「内容策略」。</div>
           </div>`;
 
         const platforms = [
           {
             name: "B站",
-            status: "Done",
+            status: "已完成",
             wait: false,
             stats: bk
               ? `${RADash.fmt(bk.n_videos)} 视频 / ${RADash.fmt(bk.n_comments)} 评论 / ${RADash.fmt(bk.n_ups)} UP`
-              : "已完成独立研究（详见完整看板）",
+              : "已完成独立研究（见完整报告）",
             href: "platforms/bilibili.html",
-            cta: "Open",
+            cta: "查看",
           },
           {
             name: "抖音",
-            status: "Done",
+            status: "已完成",
             wait: false,
             stats: `${RADash.fmt(dk.formal_sample_works)} 正式样本 / ${RADash.fmt(dk.comment_corpus)} 评论`,
             href: "platforms/douyin.html",
-            cta: "Open",
+            cta: "查看",
           },
           {
             name: "微信公众号",
-            status: "Done",
+            status: "已完成",
             wait: false,
             stats: `${RADash.fmt(wk.mp_formal_sample)} 正式样本 / ${RADash.fmt(wk.mp_fulltext_ok)} 正文成功`,
             href: "platforms/wechat.html",
-            cta: "Open",
+            cta: "查看",
           },
           {
             name: "视频号",
-            status: "Done",
+            status: "已完成",
             wait: false,
             stats: `${RADash.fmt(wk.channels_formal_sample)} 正式样本 / ${RADash.fmt(wk.channels_visual_cases)} 视觉案例`,
             href: "platforms/wechat.html",
-            cta: "Open",
+            cta: "查看",
           },
         ];
         document.getElementById("platforms").innerHTML = platforms.map((p) => `
@@ -204,12 +204,10 @@
             <a class="btn ghost" href="${p.href}">${p.cta}</a>
           </div>`).join("");
 
-        const dv = meta.data_version || {};
         document.getElementById("method").innerHTML = `
           <p>${(meta.scope || []).join(" ")}</p>
-          <p>微信研究已完成。本页不生成新的跨平台综合结论。</p>
-          <p>内部数据版本（供追溯）：抖音样本 ${dv.douyin_sample || "—"}；微信公众号 ${dv.wechat_mp || "—"}；视频号 ${dv.wechat_channels || "—"}；B站 ${dv.bilibili || "—"}。</p>
-          <p>更新看板数据：在本地工程运行数据构建脚本后刷新本站。</p>`;
+          <p>本页只呈现已确认结论；跨平台策略建议请见「内容策略」页。</p>
+          <p>说明：样本规模用于界定研究边界，不作为投放或转化 KPI。</p>`;
       } catch (e) {
         RADash.showError(e);
       }

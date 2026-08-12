@@ -1,143 +1,143 @@
-{
-  "generated_at": "2026-08-12T13:22:41.876368+08:00",
-  "title": "《红警：荣耀》内容生态与用户洞察研究",
-  "subtitle": "B站 × 抖音 × 微信生态｜内容趋势 / 玩家诉求 / IP机会 / 发行内容策略",
-  "data_version": {
-    "douyin_sample": "research_sample_200_v2",
-    "douyin_comments": "comment_corpus_v1",
-    "douyin_analysis": "douyin_core_v1",
-    "bilibili": "site-public bilibili snapshot",
-    "aigc_visual": "aigc_visual_sample_pack",
-    "wechat_mp": "wechat_mp_v1",
-    "wechat_channels": "wechat_channels_v1"
-  },
-  "scope": [
-    "本看板为研究情报中心，展示已完成研究成果。",
-    "不代表全网普查；抖音评论为高价值定向样本。",
-    "微信公众号 / 视频号研究已完成并接入。",
-    "AIGC 视觉专项结论尚未完成。",
-    "阶段性跨平台综合已写入策略页（synthesis_v1）；甲方最终定稿方案仍待业务确认。"
-  ],
-  "platform_status": [
-    {
-      "id": "bilibili",
-      "name": "B站",
-      "status": "已完成",
-      "detail": "独立看板已发布，可外链深潜。"
-    },
-    {
-      "id": "douyin",
-      "name": "抖音",
-      "status": "已完成核心研究",
-      "detail": "样本/评论/内容与评论分析已冻结；视觉专项暂停。"
-    },
-    {
-      "id": "wechat_mp",
-      "name": "微信公众号",
-      "status": "已完成",
-      "detail": "正式样本 165 · 正文成功 161 · 栏目 28"
-    },
-    {
-      "id": "channels",
-      "name": "视频号",
-      "status": "已完成",
-      "detail": "正式样本 114 · 视觉案例 16 · URL 3/16"
-    }
-  ],
-  "douyin_kpis": {
-    "candidate_accounts": 113,
-    "candidate_works": 620,
-    "formal_sample_works": 200,
-    "redalert_works": 80,
-    "competitor_works": 120,
-    "comment_sample_works": 39,
-    "comment_corpus": 1930,
-    "redalert_comments": 1280,
-    "aigc_visual_sample": 15
-  },
-  "bilibili_kpis": {
-    "n_videos": 1200,
-    "n_comments": 1847,
-    "n_ups": 200,
-    "recent_n": 490,
-    "generated_at": "2026-08-11T03:23:15.801844+00:00"
-  },
-  "wechat_kpis": {
-    "mp_verified_accounts": 15,
-    "mp_candidate_articles": 900,
-    "mp_formal_sample": 165,
-    "mp_fulltext_ok": 161,
-    "channels_verified_accounts": 12,
-    "channels_candidate_works": 664,
-    "channels_formal_sample": 114,
-    "channels_visual_cases": 16,
-    "channels_visual_with_url": 3,
-    "pending_link": 13,
-    "link_note": "LINK完整度不影响当前内容结构研究，但限制深度动态视觉判断。13 个 pending_link 保留为研究限制。"
-  },
-  "wechat_status_note": "微信研究已完成",
-  "stage_signals": [
-    {
-      "id": "aigc_supply",
-      "title": "AIGC / IP 符号内容供给活跃",
-      "text": "红警正式样本中 AICG 标签与单位/IP 符号标签覆盖面较高，是当前抖音侧可见的强供给方向。",
-      "kind": "阶段性研究信号"
-    },
-    {
-      "id": "rts_form",
-      "title": "RTS 存在明确诉求，但不总是“RTS”字样",
-      "text": "可识别诉求更多通过 3D/对战/重制/经典玩法等表达；字面 RTS 极少。",
-      "kind": "阶段性研究信号"
-    },
-    {
-      "id": "classic_restore",
-      "title": "经典还原是复合概念",
-      "text": "当前样本中更常表现为单位识别、情绪记忆与产品期待，而非单一玩法说明书。",
-      "kind": "阶段性研究信号"
-    },
-    {
-      "id": "aigc_feedback",
-      "title": "AIGC 正向偏视觉冲击与游戏化想象",
-      "text": "评论正向更集中在帅/电影感，以及“做成游戏会好玩”一类想象；视觉专项结论尚未完成。",
-      "kind": "阶段性研究信号"
-    }
-  ],
-  "nav": [
-    {
-      "id": "overview",
-      "label": "01 总览",
-      "href": "index.html",
-      "state": "ACTIVE"
-    },
-    {
-      "id": "bilibili",
-      "label": "02 B站",
-      "href": "platforms/bilibili.html",
-      "state": "ACTIVE"
-    },
-    {
-      "id": "douyin",
-      "label": "03 抖音",
-      "href": "platforms/douyin.html",
-      "state": "ACTIVE"
-    },
-    {
-      "id": "wechat",
-      "label": "04 微信生态",
-      "href": "platforms/wechat.html",
-      "state": "ACTIVE"
-    },
-    {
-      "id": "users",
-      "label": "05 用户洞察",
-      "href": "insights/users.html",
-      "state": "PARTIAL"
-    },
-    {
-      "id": "strategy",
-      "label": "06 红警荣耀策略",
-      "href": "insights/strategy.html",
-      "state": "PARTIAL"
-    }
-  ]
-}
+{
+  "generated_at": "2026-08-12T13:22:41.876368+08:00",
+  "title": "《红警：荣耀》内容生态与用户洞察研究",
+  "subtitle": "B站 × 抖音 × 微信生态｜内容趋势 / 玩家诉求 / IP机会 / 发行内容策略",
+  "data_version": {
+    "douyin_sample": "抖音正式样本",
+    "douyin_comments": "抖音评论语料",
+    "douyin_analysis": "抖音核心分析",
+    "bilibili": "B站专项快照",
+    "aigc_visual": "AIGC 视觉小样",
+    "wechat_mp": "微信公众号正式样本",
+    "wechat_channels": "视频号正式样本"
+  },
+  "scope": [
+    "本站汇总已完成的跨平台内容生态与玩家洞察研究，供评审与讨论。",
+    "不代表全网普查；抖音评论为高价值定向样本。",
+    "微信公众号 / 视频号研究已完成并纳入本站。",
+    "AIGC 视觉专项结论尚未完成。",
+    "阶段性跨平台综合见「内容策略」页；最终栏目命名与发行排期需业务侧确认。"
+  ],
+  "platform_status": [
+    {
+      "id": "bilibili",
+      "name": "B站",
+      "status": "已完成",
+      "detail": "完整专项报告已发布，可进入深读。"
+    },
+    {
+      "id": "douyin",
+      "name": "抖音",
+      "status": "已完成核心研究",
+      "detail": "样本、评论与内容分析已确认；视觉专项暂缓。"
+    },
+    {
+      "id": "wechat_mp",
+      "name": "微信公众号",
+      "status": "已完成",
+      "detail": "正式样本 165 · 正文成功 161 · 栏目 28"
+    },
+    {
+      "id": "channels",
+      "name": "视频号",
+      "status": "已完成",
+      "detail": "正式样本 114 · 视觉案例 16 · 可核验链接 3/16"
+    }
+  ],
+  "douyin_kpis": {
+    "candidate_accounts": 113,
+    "candidate_works": 620,
+    "formal_sample_works": 200,
+    "redalert_works": 80,
+    "competitor_works": 120,
+    "comment_sample_works": 39,
+    "comment_corpus": 1930,
+    "redalert_comments": 1280,
+    "aigc_visual_sample": 15
+  },
+  "bilibili_kpis": {
+    "n_videos": 1200,
+    "n_comments": 1847,
+    "n_ups": 200,
+    "recent_n": 490,
+    "generated_at": "2026-08-11T03:23:15.801844+00:00"
+  },
+  "wechat_kpis": {
+    "mp_verified_accounts": 15,
+    "mp_candidate_articles": 900,
+    "mp_formal_sample": 165,
+    "mp_fulltext_ok": 161,
+    "channels_verified_accounts": 12,
+    "channels_candidate_works": 664,
+    "channels_formal_sample": 114,
+    "channels_visual_cases": 16,
+    "channels_visual_with_url": 3,
+    "pending_link": 13,
+    "link_note": "部分视觉案例暂未补齐可核验链接，不影响当前内容结构判断，但限制深度动态视觉复核。"
+  },
+  "wechat_status_note": "微信研究已完成",
+  "stage_signals": [
+    {
+      "id": "aigc_supply",
+      "title": "AIGC / IP 符号内容供给活跃",
+      "text": "红警正式样本中 AICG 标签与单位/IP 符号标签覆盖面较高，是当前抖音侧可见的强供给方向。",
+      "kind": "阶段性研究信号"
+    },
+    {
+      "id": "rts_form",
+      "title": "RTS 存在明确诉求，但不总是“RTS”字样",
+      "text": "可识别诉求更多通过 3D/对战/重制/经典玩法等表达；字面 RTS 极少。",
+      "kind": "阶段性研究信号"
+    },
+    {
+      "id": "classic_restore",
+      "title": "经典还原是复合概念",
+      "text": "当前样本中更常表现为单位识别、情绪记忆与产品期待，而非单一玩法说明书。",
+      "kind": "阶段性研究信号"
+    },
+    {
+      "id": "aigc_feedback",
+      "title": "AIGC 正向偏视觉冲击与游戏化想象",
+      "text": "评论正向更集中在帅/电影感，以及“做成游戏会好玩”一类想象；视觉专项结论尚未完成。",
+      "kind": "阶段性研究信号"
+    }
+  ],
+  "nav": [
+    {
+      "id": "overview",
+      "label": "01 总览",
+      "href": "index.html",
+      "state": "ACTIVE"
+    },
+    {
+      "id": "bilibili",
+      "label": "02 B站",
+      "href": "platforms/bilibili.html",
+      "state": "ACTIVE"
+    },
+    {
+      "id": "douyin",
+      "label": "03 抖音",
+      "href": "platforms/douyin.html",
+      "state": "ACTIVE"
+    },
+    {
+      "id": "wechat",
+      "label": "04 微信生态",
+      "href": "platforms/wechat.html",
+      "state": "ACTIVE"
+    },
+    {
+      "id": "users",
+      "label": "05 玩家洞察",
+      "href": "insights/users.html",
+      "state": "PARTIAL"
+    },
+    {
+      "id": "strategy",
+      "label": "06 内容策略",
+      "href": "insights/strategy.html",
+      "state": "PARTIAL"
+    }
+  ]
+}

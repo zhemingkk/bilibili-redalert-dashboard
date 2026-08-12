@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
@@ -19,17 +19,17 @@
   <nav class="topnav" id="topnav"></nav>
   <main class="wrap">
     <header class="page-hero">
-      <p class="eyebrow">WeChat</p>
+      <p class="eyebrow">微信</p>
       <h1>微信生态</h1>
-      <p class="sub">公众号 · 视频号｜已完成研究接入</p>
-      <p class="prop">先看阶段性发现，再看证据、案例与方法。本页不产出最终《红警：荣耀》策略。</p>
+      <p class="sub">公众号 · 视频号｜研究已完成</p>
+      <p class="prop">先看阶段性发现，再看证据、案例与方法。本页不产出最终发行定稿。</p>
     </header>
 
     <!-- 01 -->
     <section>
       <div class="section-head">
         <h2>01 核心发现</h2>
-        <div class="desc">阶段性 · 已冻结结论</div>
+        <div class="desc">阶段性 · 已确认结论</div>
       </div>
       <div class="findings" id="coreFindings"></div>
       <div class="coverage" id="coverageStrip" style="margin-top:14px;"></div>
@@ -96,7 +96,7 @@
     <!-- 06 -->
     <section class="module" id="roleSection">
       <h3>06 公众号 × 视频号分工</h3>
-      <p class="lead">同一主题两端怎么分工——以冻结矩阵为准，不扩写新策略。</p>
+      <p class="lead">同一主题两端怎么分工——以下表为准，本页不扩写新策略。</p>
       <div class="role-matrix" id="roleMatrix"></div>
     </section>
 
@@ -106,10 +106,10 @@
       <p class="lead">合并公众号 + 视频号；主页面仅展示 HIGH 优先级。</p>
       <div class="method-list" id="highMethods"></div>
       <details class="fold">
-        <summary>展开全部方法（含内部编号）</summary>
+        <summary>展开全部方法</summary>
         <div class="table-wrap">
           <table>
-            <thead><tr><th>ID</th><th>平台</th><th>方法</th><th>适用</th><th>来源账号</th></tr></thead>
+            <thead><tr><th>平台</th><th>方法</th><th>适用</th><th>来源账号</th></tr></thead>
             <tbody id="allMethodsTable"></tbody>
           </table>
         </div>
@@ -208,14 +208,14 @@
           <div><strong>${RADash.fmt(cov.channels_candidate_works)}</strong>候选作品</div>
           <div><strong>${RADash.fmt(cov.channels_formal_sample)}</strong>正式样本</div>
           <div><strong>${RADash.fmt(cov.channels_visual_cases)}</strong>视觉案例</div>
-          <div><strong>${RADash.fmt(cov.channels_visual_with_url)}/${RADash.fmt(cov.channels_visual_cases)}</strong>canonical URL</div>
+          <div><strong>${RADash.fmt(cov.channels_visual_with_url)}/${RADash.fmt(cov.channels_visual_cases)}</strong>可核验链接</div>
           <div class="label-soft" style="margin-top:6px;">${cov.link_note || ""}</div>`;
 
         // 02 mp types
         const mpTypes = mpContent.type_distribution || [];
         document.getElementById("mpTypeTable").innerHTML = mpTypes.map((r) => `
           <tr><td>${r.type}</td><td>${r.count}</td><td>${pct(r.share)}</td></tr>`).join("");
-        document.getElementById("mpTakeaway").innerHTML = `<strong>Takeaway：</strong>${mpContent.takeaway || ""}`;
+        document.getElementById("mpTakeaway").innerHTML = `<strong>要点：</strong>${mpContent.takeaway || ""}`;
         RACharts.hbar(
           document.getElementById("chartMpTypes"),
           mpTypes.map((x) => x.type),
@@ -312,7 +312,6 @@
           </article>`).join("");
         document.getElementById("allMethodsTable").innerHTML = (methods.all_methods || []).map((m) => `
           <tr>
-            <td>${m.method_id || ""}</td>
             <td>${m.source_platform}</td>
             <td>${m.method}</td>
             <td>${m.applicable_to_redalert_glory}</td>
@@ -346,9 +345,9 @@
 
         // 10 method
         document.getElementById("methodText").innerHTML = `
-          <p>数据源：已冻结的微信公众号 / 视频号研究成果。本页只做可视化接入，不产生新研究结论。</p>
+          <p>数据来自已确认的微信公众号 / 视频号研究成果。本页只做可视化呈现，不产生新结论。</p>
           <p>公众号：正式样本 ${RADash.fmt(cov.mp_formal_sample)}，正文成功 ${RADash.fmt(cov.mp_fulltext_ok)}；视频号：正式样本 ${RADash.fmt(cov.channels_formal_sample)}，视觉案例 ${RADash.fmt(cov.channels_visual_cases)}。</p>
-          <p>视频号 LINK：${RADash.fmt(cov.channels_visual_with_url)}/${RADash.fmt(cov.channels_visual_cases)}；13 个 pending_link 保留为研究限制，不再处理。</p>
+          <p>视觉案例可核验链接：${RADash.fmt(cov.channels_visual_with_url)}/${RADash.fmt(cov.channels_visual_cases)}；另有部分案例暂未补齐链接，不影响内容结构判断，但限制深度动态视觉复核。</p>
           <p>无公众号阅读量 / 视频号完播数据时，不做点击率因果推断。不把视频号等同抖音。</p>`;
       } catch (e) {
         RADash.showError(e);

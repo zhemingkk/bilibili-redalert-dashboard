@@ -18,7 +18,7 @@
     "channels_visual_cases": 16,
     "channels_visual_with_url": 3,
     "pending_link": 13,
-    "link_note": "LINK完整度不影响当前内容结构研究，但限制深度动态视觉判断。13 个 pending_link 保留为研究限制。"
+    "link_note": "部分视觉案例暂未补齐可核验链接，不影响当前内容结构判断，但限制深度动态视觉复核。"
   },
   "core_findings": [
     {

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN" data-theme="light">
 <head>
   <meta charset="UTF-8" />
@@ -26,9 +26,9 @@
       --ink-soft: #3d3d3a;
       --muted: #5e5d59;
       --faint: #87867f;
-      --accent: #cc785c;
+      --accent: #d97757;
       --accent-soft: #c6613f;
-      --accent-dim: rgba(204, 120, 92, 0.14);
+      --accent-dim: rgba(217, 119, 87, 0.14);
       --line: rgba(20, 20, 19, 0.12);
       --surface: #ffffff;
       --surface-2: #f0eee6;
@@ -43,9 +43,9 @@
       --ink-soft: #f0eee6;
       --muted: #b0aea5;
       --faint: #87867f;
-      --accent: #cc785c;
+      --accent: #d97757;
       --accent-soft: #d97757;
-      --accent-dim: rgba(204, 120, 92, 0.2);
+      --accent-dim: rgba(217, 119, 87, 0.2);
       --line: rgba(250, 249, 245, 0.14);
       --surface: #1c1b19;
       --surface-2: #262522;
@@ -286,8 +286,8 @@
         --ink-soft: #3d3d3a !important;
         --muted: #5e5d59 !important;
         --faint: #87867f !important;
-        --accent: #cc785c !important;
-        --accent-dim: rgba(204, 120, 92, 0.14) !important;
+        --accent: #d97757 !important;
+        --accent-dim: rgba(217, 119, 87, 0.14) !important;
         --line: rgba(20, 20, 19, 0.12) !important;
         --surface: #ffffff !important;
         --panel: #ffffff !important;
@@ -302,7 +302,7 @@
       .cover h1, h2, .sum-item h3, .section-head h3, .point h4, .sig h4, .meta-strip .v {
         color: #141413 !important;
       }
-      .guard { color: #141413 !important; background: rgba(204, 120, 92, 0.14) !important; }
+      .guard { color: #141413 !important; background: rgba(217, 119, 87, 0.14) !important; }
       .doc { max-width: none; padding: 10mm 12mm; }
       .points { grid-template-columns: 1fr 1fr; }
     }
@@ -354,7 +354,7 @@
         const meta = pack.meta || {};
         document.getElementById("doc").innerHTML = `
           <header class="cover">
-            <p class="eyebrow">Research Export</p>
+            <p class="eyebrow">研究结论导出</p>
             <h1>${esc(s.title)}</h1>
             <p class="sub">${esc(s.subtitle)}</p>
             <p class="prop">${esc(s.prop)}</p>

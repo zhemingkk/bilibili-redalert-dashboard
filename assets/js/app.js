@@ -1,12 +1,12 @@
-window.RADash = (function () {
+﻿window.RADash = (function () {
   const THEME_KEY = "ra-theme";
 
   function bootTheme() {
-    let theme = "dark";
+    let theme = "light";
     try {
-      theme = localStorage.getItem(THEME_KEY) || "dark";
+      theme = localStorage.getItem(THEME_KEY) || "light";
     } catch (e) {}
-    if (theme !== "light" && theme !== "dark") theme = "dark";
+    if (theme !== "light" && theme !== "dark") theme = "light";
     document.documentElement.setAttribute("data-theme", theme);
     return theme;
   }
@@ -17,8 +17,8 @@ window.RADash = (function () {
     { id: "bilibili", label: "B站", href: "platforms/bilibili.html", state: "已完成" },
     { id: "douyin", label: "抖音", href: "platforms/douyin.html", state: "已完成" },
     { id: "wechat", label: "微信生态", href: "platforms/wechat.html", state: "已完成" },
-    { id: "users", label: "用户洞察", href: "insights/users.html", state: "阶段性" },
-    { id: "strategy", label: "策略", href: "insights/strategy.html", state: "综合v1" },
+    { id: "users", label: "玩家洞察", href: "insights/users.html", state: "阶段性" },
+    { id: "strategy", label: "内容策略", href: "insights/strategy.html", state: "阶段性" },
   ];
 
   function depthPrefix() {
@@ -76,7 +76,7 @@ window.RADash = (function () {
 
   function showError(err) {
     const pre = document.createElement("pre");
-    pre.style.cssText = "padding:16px;color:#cc785c;white-space:pre-wrap;";
+    pre.style.cssText = "padding:16px;color:#d97757;white-space:pre-wrap;";
     pre.textContent = "数据加载失败：\n" + err;
     document.body.appendChild(pre);
   }

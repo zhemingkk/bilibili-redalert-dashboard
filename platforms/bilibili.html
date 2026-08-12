@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
@@ -18,18 +18,18 @@
   <nav class="topnav" id="topnav"></nav>
   <main class="wrap">
     <header class="page-hero">
-      <p class="eyebrow">Bilibili</p>
+      <p class="eyebrow">B站</p>
       <h1>B站内容生态研究</h1>
-      <p class="sub">已完成独立研究 · 完整图表保留在同站 /bilibili/ 子目录</p>
-      <p class="prop">本页提供入口与覆盖摘要；完整图表、短视频池与双号选题日历见完整 B站看板。</p>
+      <p class="sub">已完成独立研究 · 完整图表见专项报告</p>
+      <p class="prop">本页提供入口与覆盖摘要；图表、短视频池与双号选题日历见完整专项报告。</p>
     </header>
 
     <section class="grid-2">
       <div class="module">
         <h3>研究状态</h3>
-        <p class="lead">B站专项已完成。总看板不重复开发已有图表，完整研究页保留在本仓库子目录。</p>
+        <p class="lead">B站专项已完成。完整图表与选题工具保留在专项报告中，本页不做重复展开。</p>
         <div class="btn-row" style="display:flex;gap:10px;flex-wrap:wrap;">
-          <a class="btn" href="../bilibili/" target="_blank" rel="noopener">打开完整 B站研究看板</a>
+          <a class="btn" href="../bilibili/" target="_blank" rel="noopener">打开完整 B站研究报告</a>
           <button class="btn ghost" id="toggleEmbed" type="button">尝试嵌入预览</button>
         </div>
         <p class="faint" id="embedNote" style="margin-top:10px;">嵌入为增强项；若被拦截，请使用上方链接。</p>
@@ -49,7 +49,7 @@
 
     <section class="method-box">
       <h2>说明</h2>
-      <p>完整 B站看板地址：同站相对路径 <code>../bilibili/</code>（线上为 /bilibili-redalert-dashboard/bilibili/）。</p>
+      <p>完整 B站研究报告可通过上方按钮打开；本页只保留覆盖摘要与入口。</p>
     </section>
   </main>
   <script src="../assets/js/app.js"></script>
@@ -69,7 +69,7 @@
               <div><strong>${RADash.fmt(k.recent_n)}</strong>近180天</div>
             </div>`;
         } else {
-          el.innerHTML = "<p><strong>B站：已完成独立研究</strong></p><p class=\"muted\">请通过完整看板查看。</p>";
+          el.innerHTML = "<p><strong>B站：已完成独立研究</strong></p><p class=\"muted\">请通过完整报告查看。</p>";
         }
       } catch (e) {
         document.getElementById("kpis").innerHTML = "<p><strong>B站：已完成独立研究</strong></p>";

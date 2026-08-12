@@ -1,6 +1,6 @@
-window.RACharts = (function () {
-  const CORAL = "#cc785c";
-  const PALETTE = ["#cc785c", "#d4a574", "#5db8a6", "#6a9bcc", "#c47a8a", "#b0aea5", "#d4a27f"];
+﻿window.RACharts = (function () {
+  const CORAL = "#d97757";
+  const PALETTE = ["#d97757", "#d4a574", "#5db8a6", "#6a9bcc", "#c47a8a", "#b0aea5", "#d4a27f"];
   const FONT = '"DM Sans","PingFang SC",sans-serif';
   const DISPLAY = '"Cormorant Garamond","Noto Serif SC",serif';
 
