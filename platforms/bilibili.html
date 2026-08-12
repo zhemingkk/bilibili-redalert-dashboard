@@ -1,91 +1,95 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8" />
-  <script>
-    try {
-      var t = localStorage.getItem("ra-theme") || "dark";
-      document.documentElement.setAttribute("data-theme", t === "light" ? "light" : "dark");
-    } catch (e) {
-      document.documentElement.setAttribute("data-theme", "dark");
-    }
-  </script>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>B站研究｜《红警：荣耀》内容生态研究</title>
-  <link rel="stylesheet" href="../assets/css/main.css" />
-</head>
-<body>
-  <nav class="topnav" id="topnav"></nav>
-  <main class="wrap">
-    <header class="page-hero">
-      <p class="eyebrow">B站</p>
-      <h1>B站内容生态研究</h1>
-      <p class="sub">已完成独立研究 · 完整图表见专项报告</p>
-      <p class="prop">本页提供入口与覆盖摘要；图表、短视频池与双号选题日历见完整专项报告。</p>
-    </header>
-
-    <section class="grid-2">
-      <div class="module">
-        <h3>研究状态</h3>
-        <p class="lead">B站专项已完成。完整图表与选题工具保留在专项报告中，本页不做重复展开。</p>
-        <div class="btn-row" style="display:flex;gap:10px;flex-wrap:wrap;">
-          <a class="btn" href="../bilibili/" target="_blank" rel="noopener">打开完整 B站研究报告</a>
-          <button class="btn ghost" id="toggleEmbed" type="button">尝试嵌入预览</button>
-        </div>
-        <p class="faint" id="embedNote" style="margin-top:10px;">嵌入为增强项；若被拦截，请使用上方链接。</p>
-      </div>
-      <div class="module">
-        <h3>覆盖摘要</h3>
-        <div id="kpis" class="muted">加载中…</div>
-      </div>
-    </section>
-
-    <section class="module" id="embedSection" style="display:none;">
-      <h3>嵌入预览</h3>
-      <div style="margin-top:10px;border:1px solid var(--line-soft);border-radius:10px;overflow:hidden;min-height:520px;background:var(--surface);">
-        <iframe id="biliFrame" title="Bilibili dashboard embed" style="width:100%;height:640px;border:0;" loading="lazy" referrerpolicy="no-referrer"></iframe>
-      </div>
-    </section>
-
-    <section class="method-box">
-      <h2>说明</h2>
-      <p>完整 B站研究报告可通过上方按钮打开；本页只保留覆盖摘要与入口。</p>
-    </section>
-  </main>
-  <script src="../assets/js/app.js"></script>
-  <script>
-    RADash.renderNav("bilibili");
-    (async () => {
-      try {
-        const data = await RADash.loadJSON("data/bilibili/overview.json");
-        const el = document.getElementById("kpis");
-        if (data.kpis) {
-          const k = data.kpis;
-          el.innerHTML = `
-            <div class="coverage" style="border:0;padding:0;background:transparent;">
-              <div><strong>${RADash.fmt(k.n_videos)}</strong>视频</div>
-              <div><strong>${RADash.fmt(k.n_comments)}</strong>评论</div>
-              <div><strong>${RADash.fmt(k.n_ups)}</strong>UP</div>
-              <div><strong>${RADash.fmt(k.recent_n)}</strong>近180天</div>
-            </div>`;
-        } else {
-          el.innerHTML = "<p><strong>B站：已完成独立研究</strong></p><p class=\"muted\">请通过完整报告查看。</p>";
-        }
-      } catch (e) {
-        document.getElementById("kpis").innerHTML = "<p><strong>B站：已完成独立研究</strong></p>";
-      }
-    })();
-    document.getElementById("toggleEmbed").onclick = () => {
-      const box = document.getElementById("embedSection");
-      const frame = document.getElementById("biliFrame");
-      if (box.style.display === "none") {
-        box.style.display = "block";
-        frame.src = "../bilibili/";
-      } else {
-        box.style.display = "none";
-        frame.removeAttribute("src");
-      }
-    };
-  </script>
-</body>
-</html>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <script>
+    try {
+      var t = localStorage.getItem("ra-theme") || "light";
+      document.documentElement.setAttribute("data-theme", t === "dark" ? "dark" : "light");
+    } catch (e) {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>B站研究｜《红警：荣耀》内容生态研究</title>
+  <link rel="stylesheet" href="../assets/css/main.css" />
+</head>
+<body>
+  <nav class="topnav" id="topnav"></nav>
+  <main class="wrap">
+    <header class="page-hero">
+      <p class="eyebrow">B站</p>
+      <h1>B站内容生态研究</h1>
+      <p class="sub">已完成独立研究 · 完整图表见专项报告</p>
+      <p class="prop">本页提供入口与覆盖摘要；图表、短视频池与双号选题日历见完整专项报告。</p>
+    </header>
+
+    <section class="grid-2">
+      <div class="module">
+        <h3>研究状态</h3>
+        <p class="lead">B站专项已完成。完整图表与选题工具保留在专项报告中，本页不做重复展开。</p>
+        <div class="btn-row" style="display:flex;gap:10px;flex-wrap:wrap;">
+          <a class="btn" href="../bilibili/" target="_blank" rel="noopener">打开完整 B站研究报告</a>
+          <button class="btn ghost" id="toggleEmbed" type="button">尝试嵌入预览</button>
+        </div>
+        <p class="faint" id="embedNote" style="margin-top:10px;">嵌入为增强项；若被拦截，请使用上方链接。</p>
+      </div>
+      <div class="module">
+        <h3>覆盖摘要</h3>
+        <div id="kpis" class="muted">加载中…</div>
+      </div>
+    </section>
+
+    <section class="module" id="embedSection" style="display:none;">
+      <h3>嵌入预览</h3>
+      <div style="margin-top:10px;border:1px solid var(--line-soft);border-radius:10px;overflow:hidden;min-height:520px;background:var(--surface);">
+        <iframe id="biliFrame" title="B站专项报告预览" style="width:100%;height:640px;border:0;" loading="lazy" referrerpolicy="no-referrer"></iframe>
+      </div>
+    </section>
+
+    <section class="method-box">
+      <h2>说明</h2>
+      <p>完整 B站研究报告可通过上方按钮打开；本页只保留覆盖摘要与入口。主题由总览页切换，本页不单独设置。</p>
+    </section>
+  </main>
+  <script src="../assets/js/app.js"></script>
+  <script>
+    RADash.renderNav("bilibili");
+    (async () => {
+      const el = document.getElementById("kpis");
+      try {
+        const data = await RADash.loadJSON("data/bilibili/overview.json");
+        if (data && data.kpis) {
+          const k = data.kpis;
+          el.innerHTML = `
+            <div class="coverage" style="border:0;padding:0;background:transparent;">
+              <div><strong>${RADash.fmt(k.n_videos)}</strong>视频</div>
+              <div><strong>${RADash.fmt(k.n_comments)}</strong>评论</div>
+              <div><strong>${RADash.fmt(k.n_ups)}</strong>UP</div>
+              <div><strong>${RADash.fmt(k.recent_n)}</strong>近180天</div>
+            </div>`;
+          if (data.note) {
+            el.insertAdjacentHTML("beforeend", `<p class="faint" style="margin-top:10px;">${data.note}</p>`);
+          }
+        } else {
+          el.innerHTML = "<p class=\"muted\">覆盖摘要暂无数值字段，请打开完整专项报告查看。</p>";
+        }
+      } catch (e) {
+        el.innerHTML = "<p class=\"guard\">覆盖摘要加载失败。请刷新，或直接打开完整专项报告。</p>";
+        console.error(e);
+      }
+    })();
+    document.getElementById("toggleEmbed").onclick = () => {
+      const box = document.getElementById("embedSection");
+      const frame = document.getElementById("biliFrame");
+      if (box.style.display === "none") {
+        box.style.display = "block";
+        frame.src = "../bilibili/";
+      } else {
+        box.style.display = "none";
+        frame.removeAttribute("src");
+      }
+    };
+  </script>
+</body>
+</html>

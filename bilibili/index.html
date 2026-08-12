@@ -11,7 +11,7 @@
     }
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>《红警：荣耀》内容生态与双号策划看板</title>
+  <title>《红警：荣耀》内容生态与双号策划研究</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=IBM+Plex+Mono:wght@400;500&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -383,7 +383,7 @@
   </div>
   <header>
     <p class="eyebrow">B站专项</p>
-    <h1>《红警：荣耀》内容生态与双号策划看板</h1>
+    <h1>《红警：荣耀》内容生态与双号策划研究</h1>
     <p>生态抽样 + 产品适配：长视频 1–3 分钟 / 竖屏短视频 ≤20 秒；官方号与精品三方号双版本选题。</p>
   </header>
   <div class="wrap">
@@ -756,7 +756,7 @@
 
     function renderVideos() {
       const rows = filteredVideos().slice(0, 300);
-      document.getElementById('count').textContent = `显示 ${rows.length} / 筛选后全量见控制台逻辑（表内最多 300）`;
+      document.getElementById('count').textContent = `显示 ${rows.length} 条（表内最多 300）`;
       document.getElementById('tbody').innerHTML = rows.map(v => `
         <tr>
           <td><a href="${v.url}" target="_blank" rel="noopener">${v.title||v.bvid}</a></td>
@@ -783,7 +783,7 @@
       const themes = state.summary.comment_themes || state.themes || [];
       document.getElementById('themes').innerHTML = themes.length
         ? themes.map(t => `<div style="margin-bottom:8px;"><span class="pill">${t.theme}</span> ${t.count}　<span class="muted">${(t.examples||[]).join(' / ')}</span></div>`).join('')
-        : '<span class="muted">评论尚在 enrichment 中或暂无命中主题</span>';
+        : '<span class="muted">评论主题暂无命中，或仍在整理中</span>';
     }
 
     function renderColumns() {
