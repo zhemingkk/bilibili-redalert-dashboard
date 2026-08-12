@@ -1,7 +1,15 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
+  <script>
+    try {
+      var t = localStorage.getItem("ra-theme") || "dark";
+      document.documentElement.setAttribute("data-theme", t === "light" ? "light" : "dark");
+    } catch (e) {
+      document.documentElement.setAttribute("data-theme", "dark");
+    }
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>红警荣耀策略｜《红警：荣耀》内容生态研究</title>
   <link rel="stylesheet" href="../assets/css/main.css" />

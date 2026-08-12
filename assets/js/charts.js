@@ -1,45 +1,63 @@
 window.RACharts = (function () {
   const CORAL = "#cc785c";
-  const INK = "#faf9f5";
-  const MUTED = "#a09d96";
-  const GRID = "rgba(250,249,245,0.10)";
-  const PANEL = "#161412";
-  const PALETTE = ["#cc785c", "#d4a574", "#5db8a6", "#7aa2c4", "#c47a8a", "#a09d96", "#e8a55a"];
+  const PALETTE = ["#cc785c", "#d4a574", "#5db8a6", "#6a9bcc", "#c47a8a", "#b0aea5", "#d4a27f"];
   const FONT = '"DM Sans","PingFang SC",sans-serif';
   const DISPLAY = '"Cormorant Garamond","Noto Serif SC",serif';
 
+  function themeTokens() {
+    const light = document.documentElement.getAttribute("data-theme") === "light";
+    if (light) {
+      return {
+        ink: "#141413",
+        muted: "#5e5d59",
+        grid: "rgba(20,20,19,0.08)",
+        panel: "#ffffff",
+        tooltipBg: "rgba(255,255,255,0.96)",
+      };
+    }
+    return {
+      ink: "#faf9f5",
+      muted: "#b0aea5",
+      grid: "rgba(250,249,245,0.10)",
+      panel: "#1c1b19",
+      tooltipBg: "rgba(38,37,34,0.96)",
+    };
+  }
+
   function applyDefaults() {
     if (typeof Chart === "undefined") return;
-    Chart.defaults.color = MUTED;
-    Chart.defaults.borderColor = GRID;
+    const t = themeTokens();
+    Chart.defaults.color = t.muted;
+    Chart.defaults.borderColor = t.grid;
     Chart.defaults.font.family = FONT;
     Chart.defaults.font.size = 12;
     Chart.defaults.plugins.legend.labels = {
-      color: MUTED,
+      color: t.muted,
       boxWidth: 10,
       boxHeight: 10,
       padding: 16,
       font: { size: 12, family: FONT },
     };
-    Chart.defaults.plugins.tooltip.backgroundColor = "rgba(28,26,23,0.94)";
-    Chart.defaults.plugins.tooltip.titleColor = INK;
-    Chart.defaults.plugins.tooltip.bodyColor = MUTED;
-    Chart.defaults.plugins.tooltip.borderColor = GRID;
+    Chart.defaults.plugins.tooltip.backgroundColor = t.tooltipBg;
+    Chart.defaults.plugins.tooltip.titleColor = t.ink;
+    Chart.defaults.plugins.tooltip.bodyColor = t.muted;
+    Chart.defaults.plugins.tooltip.borderColor = t.grid;
     Chart.defaults.plugins.tooltip.borderWidth = 1;
     Chart.defaults.plugins.tooltip.padding = 10;
   }
   applyDefaults();
 
   function baseOpts(extra) {
+    const t = themeTokens();
     return Object.assign({
       responsive: true,
       maintainAspectRatio: false,
-      color: MUTED,
+      color: t.muted,
       plugins: {
         legend: {
           position: "bottom",
           labels: {
-            color: MUTED,
+            color: t.muted,
             boxWidth: 10,
             boxHeight: 10,
             padding: 16,
@@ -47,10 +65,10 @@ window.RACharts = (function () {
           },
         },
         tooltip: {
-          backgroundColor: "rgba(28,26,23,0.94)",
-          titleColor: INK,
-          bodyColor: MUTED,
-          borderColor: GRID,
+          backgroundColor: t.tooltipBg,
+          titleColor: t.ink,
+          bodyColor: t.muted,
+          borderColor: t.grid,
           borderWidth: 1,
           padding: 10,
           titleFont: { size: 13, family: FONT },
@@ -60,27 +78,28 @@ window.RACharts = (function () {
       scales: {
         x: {
           ticks: {
-            color: MUTED,
+            color: t.muted,
             font: { size: 12, family: FONT },
             maxRotation: 0,
           },
-          grid: { color: GRID, drawBorder: false },
-          border: { color: GRID },
+          grid: { color: t.grid, drawBorder: false },
+          border: { color: t.grid },
         },
         y: {
           beginAtZero: true,
           ticks: {
-            color: MUTED,
+            color: t.muted,
             font: { size: 12, family: FONT },
           },
-          grid: { color: GRID, drawBorder: false },
-          border: { color: GRID },
+          grid: { color: t.grid, drawBorder: false },
+          border: { color: t.grid },
         },
       },
     }, extra || {});
   }
 
   function bar(ctx, labels, datasets, opts) {
+    applyDefaults();
     const ds = (datasets || []).map((d, i) => Object.assign({
       borderRadius: 2,
       borderSkipped: false,
@@ -97,6 +116,8 @@ window.RACharts = (function () {
   }
 
   function doughnut(ctx, labels, data, colors) {
+    applyDefaults();
+    const t = themeTokens();
     return new Chart(ctx, {
       type: "doughnut",
       data: {
@@ -104,7 +125,7 @@ window.RACharts = (function () {
         datasets: [{
           data,
           backgroundColor: colors || PALETTE,
-          borderColor: PANEL,
+          borderColor: t.panel,
           borderWidth: 2,
           hoverOffset: 4,
         }],
@@ -117,7 +138,7 @@ window.RACharts = (function () {
           legend: {
             position: "right",
             labels: {
-              color: MUTED,
+              color: t.muted,
               boxWidth: 12,
               boxHeight: 12,
               padding: 14,
@@ -125,10 +146,10 @@ window.RACharts = (function () {
             },
           },
           tooltip: {
-            backgroundColor: "rgba(28,26,23,0.94)",
-            titleColor: INK,
-            bodyColor: MUTED,
-            borderColor: GRID,
+            backgroundColor: t.tooltipBg,
+            titleColor: t.ink,
+            bodyColor: t.muted,
+            borderColor: t.grid,
             borderWidth: 1,
             padding: 10,
           },
@@ -138,6 +159,8 @@ window.RACharts = (function () {
   }
 
   function hbar(ctx, labels, data, color, label) {
+    applyDefaults();
+    const t = themeTokens();
     return new Chart(ctx, {
       type: "bar",
       data: {
@@ -156,10 +179,10 @@ window.RACharts = (function () {
         plugins: {
           legend: { display: false },
           tooltip: {
-            backgroundColor: "rgba(28,26,23,0.94)",
-            titleColor: INK,
-            bodyColor: MUTED,
-            borderColor: GRID,
+            backgroundColor: t.tooltipBg,
+            titleColor: t.ink,
+            bodyColor: t.muted,
+            borderColor: t.grid,
             borderWidth: 1,
             padding: 10,
           },
@@ -168,25 +191,27 @@ window.RACharts = (function () {
           x: {
             beginAtZero: true,
             ticks: {
-              color: MUTED,
+              color: t.muted,
               precision: 0,
               font: { size: 12, family: DISPLAY },
             },
-            grid: { color: GRID, drawBorder: false },
-            border: { color: GRID },
+            grid: { color: t.grid, drawBorder: false },
+            border: { color: t.grid },
           },
           y: {
             ticks: {
-              color: INK,
+              color: t.ink,
               font: { size: 13, family: FONT },
             },
             grid: { display: false, drawBorder: false },
-            border: { color: GRID },
+            border: { color: t.grid },
           },
         },
       }),
     });
   }
 
-  return { bar, doughnut, hbar, applyDefaults, CORAL, PALETTE };
+  window.addEventListener("ra-theme", () => applyDefaults());
+
+  return { bar, doughnut, hbar, applyDefaults, themeTokens, CORAL, PALETTE };
 })();

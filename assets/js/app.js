@@ -1,4 +1,17 @@
 window.RADash = (function () {
+  const THEME_KEY = "ra-theme";
+
+  function bootTheme() {
+    let theme = "dark";
+    try {
+      theme = localStorage.getItem(THEME_KEY) || "dark";
+    } catch (e) {}
+    if (theme !== "light" && theme !== "dark") theme = "dark";
+    document.documentElement.setAttribute("data-theme", theme);
+    return theme;
+  }
+  bootTheme();
+
   const NAV = [
     { id: "overview", label: "总览", href: "index.html", state: "已完成" },
     { id: "bilibili", label: "B站", href: "platforms/bilibili.html", state: "已完成" },
@@ -31,17 +44,39 @@ window.RADash = (function () {
     return res.json();
   }
 
+  function getTheme() {
+    return document.documentElement.getAttribute("data-theme") === "light" ? "light" : "dark";
+  }
+
+  function setTheme(theme) {
+    theme = theme === "light" ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", theme);
+    try {
+      localStorage.setItem(THEME_KEY, theme);
+    } catch (e) {}
+    document.querySelectorAll(".theme-toggle").forEach((btn) => {
+      btn.textContent = theme === "light" ? "深色" : "浅色";
+      btn.setAttribute("aria-label", theme === "light" ? "切换到深色" : "切换到浅色");
+    });
+    window.dispatchEvent(new CustomEvent("ra-theme", { detail: { theme } }));
+  }
+
+  function toggleTheme() {
+    setTheme(getTheme() === "light" ? "dark" : "light");
+  }
+
   function chartDefaults() {
     if (typeof Chart === "undefined") return;
-    Chart.defaults.color = "#a09d96";
-    Chart.defaults.borderColor = "rgba(250,249,245,0.10)";
+    Chart.defaults.color = getTheme() === "light" ? "#5e5d59" : "#b0aea5";
+    Chart.defaults.borderColor =
+      getTheme() === "light" ? "rgba(20,20,19,0.08)" : "rgba(250,249,245,0.10)";
     Chart.defaults.font.family = '"DM Sans","PingFang SC","Microsoft YaHei UI",sans-serif';
     Chart.defaults.font.size = 12;
   }
 
   function showError(err) {
     const pre = document.createElement("pre");
-    pre.style.cssText = "padding:16px;color:#ff8f8f;white-space:pre-wrap;";
+    pre.style.cssText = "padding:16px;color:#cc785c;white-space:pre-wrap;";
     pre.textContent = "数据加载失败：\n" + err;
     document.body.appendChild(pre);
   }
@@ -62,6 +97,24 @@ window.RADash = (function () {
     document.head.appendChild(s);
   }
 
+  function mountThemeToggle(inner) {
+    if (!inner || inner.querySelector(".theme-toggle")) return;
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "btn ghost theme-toggle";
+    const theme = getTheme();
+    btn.textContent = theme === "light" ? "深色" : "浅色";
+    btn.setAttribute("aria-label", theme === "light" ? "切换到深色" : "切换到浅色");
+    btn.addEventListener("click", toggleTheme);
+    const wrap = inner.querySelector(".nav-export") || (() => {
+      const w = document.createElement("div");
+      w.className = "nav-export";
+      inner.appendChild(w);
+      return w;
+    })();
+    wrap.insertBefore(btn, wrap.firstChild);
+  }
+
   function renderNav(activeId) {
     const host = document.getElementById("topnav");
     if (!host) return;
@@ -75,7 +128,10 @@ window.RADash = (function () {
       <div class="topnav-inner">
         <div class="brand">《红警：荣耀》<em>内容生态研究</em></div>
         ${links}
+        <div class="nav-export"></div>
       </div>`;
+    const inner = host.querySelector(".topnav-inner");
+    mountThemeToggle(inner);
     ensureExportScript(() => {
       if (window.RAExport && typeof RAExport.mountNavExport === "function") {
         RAExport.mountNavExport();
@@ -83,5 +139,19 @@ window.RADash = (function () {
     });
   }
 
-  return { NAV, depthPrefix, fmt, loadJSON, renderNav, chartDefaults, showError, ensureExportScript };
+  return {
+    NAV,
+    depthPrefix,
+    fmt,
+    loadJSON,
+    renderNav,
+    chartDefaults,
+    showError,
+    ensureExportScript,
+    getTheme,
+    setTheme,
+    toggleTheme,
+    bootTheme,
+    THEME_KEY,
+  };
 })();

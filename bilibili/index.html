@@ -2,6 +2,14 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
+  <script>
+    try {
+      var t = localStorage.getItem("ra-theme") || "dark";
+      document.documentElement.setAttribute("data-theme", t === "light" ? "light" : "dark");
+    } catch (e) {
+      document.documentElement.setAttribute("data-theme", "dark");
+    }
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>《红警：荣耀》内容生态与双号策划看板</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -9,28 +17,57 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=IBM+Plex+Mono:wght@400;500&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
   <style>
-    :root {
-      --bg: #121110;
-      --surface: #161412;
-      --panel: rgba(28, 26, 23, 0.72);
+    :root, [data-theme="dark"] {
+      color-scheme: dark;
+      --bg: #141413;
+      --surface: #1c1b19;
+      --panel: rgba(38, 37, 34, 0.78);
       --ink: #faf9f5;
-      --ink-soft: #efeae3;
-      --muted: #a09d96;
-      --faint: #6f6c66;
+      --ink-soft: #f0eee6;
+      --muted: #b0aea5;
+      --faint: #87867f;
       --accent: #cc785c;
-      --accent-soft: #d4927a;
-      --accent-dim: rgba(204, 120, 92, 0.16);
+      --accent-soft: #d97757;
+      --accent-dim: rgba(204, 120, 92, 0.18);
       --line: rgba(250, 249, 245, 0.14);
       --line-soft: rgba(250, 249, 245, 0.08);
-      --blue: #7aa2c4;
+      --blue: #6a9bcc;
       --teal: #5db8a6;
-      --amber: #d4a574;
+      --amber: #d4a27f;
+      --grid-line: rgba(250, 249, 245, 0.055);
+      --glow: rgba(204, 120, 92, 0.08);
+      --nav-bg: rgba(20, 20, 19, 0.88);
+      --btn-ink: #faf9f5;
+      --btn-on-soft: #141413;
       --grid-size: 56px;
       --font: "DM Sans", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", sans-serif;
       --font-display: "Cormorant Garamond", "Noto Serif SC", "Songti SC", Georgia, serif;
       --font-mono: "IBM Plex Mono", Consolas, monospace;
       --ease: cubic-bezier(0.22, 1, 0.36, 1);
       --radius: 8px;
+    }
+    [data-theme="light"] {
+      color-scheme: light;
+      --bg: #faf9f5;
+      --surface: #ffffff;
+      --panel: rgba(255, 255, 255, 0.92);
+      --ink: #141413;
+      --ink-soft: #3d3d3a;
+      --muted: #5e5d59;
+      --faint: #87867f;
+      --accent: #cc785c;
+      --accent-soft: #c6613f;
+      --accent-dim: rgba(204, 120, 92, 0.14);
+      --line: rgba(20, 20, 19, 0.12);
+      --line-soft: rgba(20, 20, 19, 0.07);
+      --blue: #6a9bcc;
+      --teal: #5a9e90;
+      --amber: #c4894a;
+      --grid-line: rgba(20, 20, 19, 0.055);
+      --glow: rgba(204, 120, 92, 0.07);
+      --nav-bg: rgba(250, 249, 245, 0.92);
+      --btn-ink: #faf9f5;
+      --btn-on-soft: #141413;
     }
     * { box-sizing: border-box; }
     /* Claude Design scrollbars */
@@ -58,9 +95,9 @@
       color: var(--ink-soft);
       background-color: var(--bg);
       background-image:
-        radial-gradient(900px 420px at 50% -10%, rgba(204, 120, 92, 0.07), transparent 55%),
-        linear-gradient(rgba(250, 249, 245, 0.045) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(250, 249, 245, 0.045) 1px, transparent 1px);
+        radial-gradient(900px 420px at 50% -10%, var(--glow), transparent 55%),
+        linear-gradient(var(--grid-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
       background-size: auto, var(--grid-size) var(--grid-size), var(--grid-size) var(--grid-size);
       background-attachment: fixed;
       min-height: 100dvh;
@@ -77,7 +114,7 @@
       gap: 16px;
       padding: 0 32px;
       height: 52px;
-      background: rgba(18, 17, 16, 0.78);
+      background: var(--nav-bg);
       backdrop-filter: blur(18px) saturate(1.05);
       -webkit-backdrop-filter: blur(18px) saturate(1.05);
       border-bottom: 1px solid var(--line-soft);
@@ -94,6 +131,29 @@
       color: var(--ink);
       font-size: 16px;
       letter-spacing: -0.02em;
+      margin-right: auto;
+    }
+    .topbar .theme-btn {
+      margin: 0;
+      width: auto;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: transparent;
+      border: 1px solid var(--line);
+      color: var(--ink-soft);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      box-shadow: none;
+      overflow: visible;
+    }
+    .topbar .theme-btn::after { display: none; }
+    .topbar .theme-btn:hover {
+      color: var(--accent);
+      border-color: rgba(204, 120, 92, 0.55);
+      background: var(--accent-dim);
+      transform: none;
+      box-shadow: none;
     }
     header {
       padding: 48px 32px 28px;
@@ -230,7 +290,7 @@
       margin-top: 14px;
       width: 100%;
       background: var(--accent);
-      color: #fff;
+      color: var(--btn-ink);
       border: 0;
       border-radius: 6px;
       padding: 11px;
@@ -263,7 +323,7 @@
     }
     button:hover {
       background: var(--accent-soft);
-      color: #1a1210;
+      color: var(--btn-on-soft);
       transform: translateY(-1px);
       box-shadow:
         0 1px 0 rgba(250, 249, 245, 0.22) inset,
@@ -273,7 +333,7 @@
     button:active {
       transform: translateY(1px) scale(0.98);
       background: #a9583e;
-      color: #fff;
+      color: var(--btn-ink);
       box-shadow: 0 1px 0 rgba(0,0,0,0.2) inset, 0 2px 6px rgba(204,120,92,0.18);
     }
     button:focus-visible {
@@ -332,6 +392,7 @@
   <div class="topbar">
     <a href="../">← 总览</a>
     <span class="brand">Bilibili · Full Board</span>
+    <button type="button" class="theme-btn" id="themeBtn">浅色</button>
   </div>
   <header>
     <p class="eyebrow">Bilibili Research</p>
@@ -479,17 +540,33 @@
 
     const CHART = {
       coral: '#cc785c',
-      amber: '#d4a574',
+      amber: '#d4a27f',
       teal: '#5db8a6',
-      blue: '#7aa2c4',
+      blue: '#6a9bcc',
       rose: '#c47a8a',
-      ink: '#faf9f5',
-      muted: '#a09d96',
-      grid: 'rgba(250,249,245,0.10)',
-      panel: '#161412',
+      get ink() { return document.documentElement.getAttribute('data-theme') === 'light' ? '#141413' : '#faf9f5'; },
+      get muted() { return document.documentElement.getAttribute('data-theme') === 'light' ? '#5e5d59' : '#b0aea5'; },
+      get grid() { return document.documentElement.getAttribute('data-theme') === 'light' ? 'rgba(20,20,19,0.08)' : 'rgba(250,249,245,0.10)'; },
+      get panel() { return document.documentElement.getAttribute('data-theme') === 'light' ? '#ffffff' : '#1c1b19'; },
       font: '"DM Sans","PingFang SC",sans-serif',
       display: '"Cormorant Garamond","Noto Serif SC",serif',
     };
+
+    (function themeToggle() {
+      const btn = document.getElementById('themeBtn');
+      function sync() {
+        const light = document.documentElement.getAttribute('data-theme') === 'light';
+        btn.textContent = light ? '深色' : '浅色';
+      }
+      sync();
+      btn.onclick = () => {
+        const next = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', next);
+        try { localStorage.setItem('ra-theme', next); } catch (e) {}
+        sync();
+        location.reload();
+      };
+    })();
 
     function chartDefaults() {
       if (typeof Chart === 'undefined') return;

@@ -1,9 +1,33 @@
 window.RAExport = (function () {
   const ACCENT = "FFCC785C";
-  const INK = "FFFAF9F5";
-  const MUTED = "FFA09D96";
-  const SURFACE = "FF1C1A17";
-  const HEADER_BG = "FF252320";
+  const INK_DARK = "FF141413";
+  const INK_LIGHT = "FFFAF9F5";
+  const MUTED_LIGHT = "FF5E5D59";
+  const MUTED_DARK = "FFB0AEA5";
+  const SURFACE_LIGHT = "FFFFFFFF";
+  const SURFACE_DARK = "FF262522";
+  const HEADER_LIGHT = "FFF0EEE6";
+  const HEADER_DARK = "FF30302E";
+
+  function excelTheme() {
+    const light = !(window.RADash && RADash.getTheme && RADash.getTheme() === "dark");
+    if (light) {
+      return {
+        ink: INK_DARK,
+        muted: MUTED_LIGHT,
+        surface: SURFACE_LIGHT,
+        header: HEADER_LIGHT,
+        accent: ACCENT,
+      };
+    }
+    return {
+      ink: INK_LIGHT,
+      muted: MUTED_DARK,
+      surface: SURFACE_DARK,
+      header: HEADER_DARK,
+      accent: ACCENT,
+    };
+  }
 
   function stamp() {
     const d = new Date();
@@ -143,24 +167,26 @@ window.RAExport = (function () {
   }
 
   function styleHeader(row, count) {
+    const th = excelTheme();
     for (let c = 1; c <= count; c++) {
       const cell = row.getCell(c);
-      cell.fill = { type: "pattern", pattern: "solid", fgColor: { argb: HEADER_BG } };
-      cell.font = { bold: true, color: { argb: INK }, name: "Microsoft YaHei", size: 11 };
+      cell.fill = { type: "pattern", pattern: "solid", fgColor: { argb: th.header } };
+      cell.font = { bold: true, color: { argb: th.ink }, name: "Microsoft YaHei", size: 11 };
       cell.alignment = { vertical: "middle", wrapText: true };
       cell.border = {
-        bottom: { style: "thin", color: { argb: ACCENT } },
+        bottom: { style: "thin", color: { argb: th.accent } },
       };
     }
     row.height = 22;
   }
 
   function styleBody(row, count) {
+    const th = excelTheme();
     for (let c = 1; c <= count; c++) {
       const cell = row.getCell(c);
-      cell.font = { color: { argb: "FFEFEAE3" }, name: "Microsoft YaHei", size: 10 };
+      cell.font = { color: { argb: th.ink }, name: "Microsoft YaHei", size: 10 };
       cell.alignment = { vertical: "top", wrapText: true };
-      cell.fill = { type: "pattern", pattern: "solid", fgColor: { argb: SURFACE } };
+      cell.fill = { type: "pattern", pattern: "solid", fgColor: { argb: th.surface } };
     }
   }
 
@@ -186,17 +212,19 @@ window.RAExport = (function () {
         ["状态", s.status || ""],
         ["版本", s.version || ""],
         ["导出时间", pack.exported_at],
+        ["主题", (window.RADash && RADash.getTheme && RADash.getTheme()) || "light"],
         ["说明", s.prop || ""],
         ["研究边界", s.guard || ""],
       ];
+      const th = excelTheme();
       rows.forEach((r, i) => {
         const row = ws.addRow(r);
-        row.getCell(1).font = { bold: true, color: { argb: ACCENT }, name: "Microsoft YaHei", size: 11 };
-        row.getCell(1).fill = { type: "pattern", pattern: "solid", fgColor: { argb: HEADER_BG } };
-        row.getCell(2).font = { color: { argb: INK }, name: "Microsoft YaHei", size: 11 };
-        row.getCell(2).fill = { type: "pattern", pattern: "solid", fgColor: { argb: SURFACE } };
+        row.getCell(1).font = { bold: true, color: { argb: th.accent }, name: "Microsoft YaHei", size: 11 };
+        row.getCell(1).fill = { type: "pattern", pattern: "solid", fgColor: { argb: th.header } };
+        row.getCell(2).font = { color: { argb: th.ink }, name: "Microsoft YaHei", size: 11 };
+        row.getCell(2).fill = { type: "pattern", pattern: "solid", fgColor: { argb: th.surface } };
         row.getCell(2).alignment = { wrapText: true, vertical: "top" };
-        if (i >= 5) row.height = 64;
+        if (i >= 6) row.height = 64;
       });
     }
 
@@ -237,7 +265,7 @@ window.RAExport = (function () {
         action: sec.boundary || "",
       });
       styleBody(lead, 5);
-      lead.font = { italic: true, color: { argb: MUTED }, name: "Microsoft YaHei", size: 10 };
+      lead.font = { italic: true, color: { argb: excelTheme().muted }, name: "Microsoft YaHei", size: 10 };
       lead.height = 40;
       (sec.points || []).forEach((p) => {
         const row = ws.addRow({
@@ -321,7 +349,8 @@ window.RAExport = (function () {
 
   function openPdfPrint() {
     const prefix = RADash.depthPrefix();
-    const url = prefix + "insights/export-print.html?auto=1";
+    // PDF print forces light for readability; pass current theme for screen preview only
+    const url = prefix + "insights/export-print.html?auto=1&theme=light";
     window.open(url, "_blank", "noopener");
   }
 
@@ -415,16 +444,17 @@ window.RAExport = (function () {
   }
 
   function mountNavExport() {
-    const inner = document.querySelector(".topnav-inner");
-    if (!inner || inner.querySelector(".nav-export")) return;
-    const wrap = document.createElement("div");
-    wrap.className = "nav-export";
-    wrap.innerHTML = `<button type="button" class="btn ghost nav-export-btn">导出</button>`;
-    wrap.querySelector("button").addEventListener("click", () => {
+    const wrap = document.querySelector(".nav-export");
+    if (!wrap || wrap.querySelector(".nav-export-btn")) return;
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "btn ghost nav-export-btn";
+    btn.textContent = "导出";
+    btn.addEventListener("click", () => {
       const panel = ensurePanel();
       panel.hidden = false;
     });
-    inner.appendChild(wrap);
+    wrap.appendChild(btn);
   }
 
   return {

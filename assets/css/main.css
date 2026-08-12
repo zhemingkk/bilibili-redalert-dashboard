@@ -1,30 +1,44 @@
-/* Claude Design 1:1 poster surface — v0.1
-   Match reference: giant serif %, split+, coral bar, glass file panel, warm grid */
+/* Claude Design — dual theme (dark product + light cream canvas)
+   Dark: warm near-black #141413 + coral #cc785c
+   Light: ivory #faf9f5 + ink #141413 + same coral family */
 
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=IBM+Plex+Mono:wght@400;500&family=Noto+Serif+SC:wght@400;500;600;700&display=swap");
 
-:root {
-  --bg: #121110;
-  --surface: #161412;
-  --surface-2: #1c1a17;
-  --surface-3: #252320;
+:root,
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #141413;
+  --surface: #1c1b19;
+  --surface-2: #262522;
+  --surface-3: #30302e;
   --ink: #faf9f5;
-  --ink-soft: #efeae3;
-  --muted: #a09d96;
-  --faint: #6f6c66;
+  --ink-soft: #f0eee6;
+  --muted: #b0aea5;
+  --faint: #87867f;
   --line: rgba(250, 249, 245, 0.14);
   --line-soft: rgba(250, 249, 245, 0.08);
   --accent: #cc785c;
-  --accent-soft: #d4927a;
-  --accent-dim: rgba(204, 120, 92, 0.16);
+  --accent-soft: #d97757;
+  --accent-dim: rgba(204, 120, 92, 0.18);
   --accent-active: #a9583e;
-  --blue: #7aa2c4;
+  --blue: #6a9bcc;
   --teal: #5db8a6;
   --violet: #9a8fb8;
-  --amber: #e8a55a;
-  --ok: #5db872;
-  --ok-dim: rgba(93, 184, 114, 0.14);
-  --warn-dim: rgba(232, 165, 90, 0.14);
+  --amber: #d4a27f;
+  --ok: #788c5d;
+  --ok-dim: rgba(120, 140, 93, 0.16);
+  --warn-dim: rgba(212, 162, 127, 0.16);
+  --panel: rgba(38, 37, 34, 0.78);
+  --panel-solid: #262522;
+  --nav-bg: rgba(20, 20, 19, 0.88);
+  --grid-line: rgba(250, 249, 245, 0.055);
+  --glow: rgba(204, 120, 92, 0.08);
+  --overlay: rgba(10, 9, 8, 0.58);
+  --btn-ink: #faf9f5;
+  --btn-on-soft: #141413;
+  --chart-grid: rgba(250, 249, 245, 0.10);
+  --chart-panel: #1c1b19;
+  --scrollbar-thumb: rgba(250, 249, 245, 0.18);
   --radius: 8px;
   --radius-sm: 6px;
   --radius-lg: 12px;
@@ -36,26 +50,57 @@
   --grid-size: 56px;
 }
 
+[data-theme="light"] {
+  color-scheme: light;
+  --bg: #faf9f5;
+  --surface: #ffffff;
+  --surface-2: #f0eee6;
+  --surface-3: #e8e6dc;
+  --ink: #141413;
+  --ink-soft: #3d3d3a;
+  --muted: #5e5d59;
+  --faint: #87867f;
+  --line: rgba(20, 20, 19, 0.12);
+  --line-soft: rgba(20, 20, 19, 0.07);
+  --accent: #cc785c;
+  --accent-soft: #c6613f;
+  --accent-dim: rgba(204, 120, 92, 0.14);
+  --accent-active: #a9583e;
+  --blue: #6a9bcc;
+  --teal: #5a9e90;
+  --violet: #8b7fa8;
+  --amber: #c4894a;
+  --ok: #5f7349;
+  --ok-dim: rgba(120, 140, 93, 0.14);
+  --warn-dim: rgba(212, 162, 127, 0.18);
+  --panel: rgba(255, 255, 255, 0.92);
+  --panel-solid: #ffffff;
+  --nav-bg: rgba(250, 249, 245, 0.92);
+  --grid-line: rgba(20, 20, 19, 0.055);
+  --glow: rgba(204, 120, 92, 0.07);
+  --overlay: rgba(20, 20, 19, 0.32);
+  --btn-ink: #faf9f5;
+  --btn-on-soft: #141413;
+  --chart-grid: rgba(20, 20, 19, 0.08);
+  --chart-panel: #ffffff;
+  --scrollbar-thumb: rgba(20, 20, 19, 0.16);
+}
+
 * { box-sizing: border-box; }
 
-/* Claude Design scrollbars — thin, warm, auto-blend */
+/* Claude Design scrollbars */
 html {
   scrollbar-width: thin;
-  scrollbar-color: rgba(204, 120, 92, 0.38) transparent;
+  scrollbar-color: rgba(204, 120, 92, 0.4) transparent;
 }
 * {
   scrollbar-width: thin;
-  scrollbar-color: rgba(204, 120, 92, 0.38) transparent;
+  scrollbar-color: rgba(204, 120, 92, 0.4) transparent;
 }
-*::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-*::-webkit-scrollbar-track {
-  background: transparent;
-}
+*::-webkit-scrollbar { width: 8px; height: 8px; }
+*::-webkit-scrollbar-track { background: transparent; }
 *::-webkit-scrollbar-thumb {
-  background-color: rgba(250, 249, 245, 0.16);
+  background-color: var(--scrollbar-thumb);
   border-radius: 999px;
   border: 2px solid transparent;
   background-clip: padding-box;
@@ -75,9 +120,9 @@ body {
   color: var(--ink-soft);
   background-color: var(--bg);
   background-image:
-    radial-gradient(900px 420px at 50% -10%, rgba(204, 120, 92, 0.07), transparent 55%),
-    linear-gradient(rgba(250, 249, 245, 0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(250, 249, 245, 0.045) 1px, transparent 1px);
+    radial-gradient(900px 420px at 50% -10%, var(--glow), transparent 55%),
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
   background-size: auto, var(--grid-size) var(--grid-size), var(--grid-size) var(--grid-size);
   background-attachment: fixed;
   min-height: 100dvh;
@@ -85,6 +130,7 @@ body {
   font-size: 15px;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  transition: background-color 0.25s var(--ease), color 0.25s var(--ease);
 }
 
 a { color: var(--accent-soft); text-decoration: none; transition: color 0.2s var(--ease); }
@@ -97,7 +143,7 @@ a:hover { color: var(--ink); }
   position: sticky;
   top: 0;
   z-index: 40;
-  background: rgba(18, 17, 16, 0.78);
+  background: var(--nav-bg);
   backdrop-filter: blur(18px) saturate(1.05);
   -webkit-backdrop-filter: blur(18px) saturate(1.05);
   border-bottom: 1px solid var(--line-soft);
@@ -294,7 +340,7 @@ a:hover { color: var(--ink); }
 /* Floating glass file panel */
 .glass-panel {
   margin-top: 28px;
-  background: rgba(28, 26, 23, 0.72);
+  background: var(--panel);
   backdrop-filter: blur(18px) saturate(1.1);
   -webkit-backdrop-filter: blur(18px) saturate(1.1);
   border: 1px solid rgba(250, 249, 245, 0.14);
@@ -502,7 +548,7 @@ a:hover { color: var(--ink); }
   min-height: 120px;
   border: 1px solid var(--line);
   border-radius: 10px;
-  background: rgba(28, 26, 23, 0.55);
+  background: var(--panel);
   backdrop-filter: blur(12px);
   display: flex;
   flex-direction: column;
@@ -660,7 +706,7 @@ a:hover { color: var(--ink); }
   padding: 8px 14px;
   border-radius: 999px;
   background: var(--accent);
-  color: #fff;
+  color: var(--btn-ink);
   font-weight: 600;
   font-size: 12.5px;
   letter-spacing: 0.04em;
@@ -699,7 +745,7 @@ a:hover { color: var(--ink); }
 }
 .btn:hover {
   background: var(--accent-soft);
-  color: #1a1210;
+  color: var(--btn-on-soft);
   text-decoration: none;
   filter: none;
   transform: translateY(-1px);
@@ -714,7 +760,7 @@ a:hover { color: var(--ink); }
 .btn:active {
   transform: translateY(1px) scale(0.98);
   background: var(--accent-active);
-  color: #fff;
+  color: var(--btn-ink);
   box-shadow:
     0 1px 0 rgba(0, 0, 0, 0.2) inset,
     0 2px 6px rgba(204, 120, 92, 0.18);
@@ -757,7 +803,7 @@ a:hover { color: var(--ink); }
 }
 
 .module {
-  background: rgba(28, 26, 23, 0.55);
+  background: var(--panel);
   border: 1px solid var(--line-soft);
   border-radius: var(--radius);
   padding: 22px 20px;
@@ -808,7 +854,7 @@ a:hover { color: var(--ink); }
   position: relative;
   height: 320px;
   padding: 8px 4px 4px;
-  background: rgba(22, 20, 18, 0.55);
+  background: var(--surface);
   border: 1px solid var(--line-soft);
   border-radius: var(--radius);
 }
@@ -845,7 +891,7 @@ details.fold {
   border: 1px solid var(--line-soft);
   border-radius: var(--radius-sm);
   padding: 10px 14px;
-  background: rgba(28, 26, 23, 0.55);
+  background: var(--panel);
 }
 details.fold summary {
   cursor: pointer;
@@ -859,7 +905,7 @@ details.fold[open] summary { margin-bottom: 10px; color: var(--ink-soft); }
 
 .rts-block {
   border: 1px solid var(--line);
-  background: rgba(28, 26, 23, 0.55);
+  background: var(--panel);
   border-radius: var(--radius);
   padding: 24px 22px;
   margin: 0 clamp(28px, 4vw, 56px) 20px;
@@ -878,7 +924,7 @@ details.fold[open] summary { margin-bottom: 10px; color: var(--ink-soft); }
   margin: 18px 0;
 }
 .rts-metric {
-  background: rgba(18, 17, 16, 0.6);
+  background: var(--surface-2);
   border: 1px solid var(--line-soft);
   border-radius: var(--radius-sm);
   padding: 14px 12px;
@@ -913,7 +959,7 @@ details.fold[open] summary { margin-bottom: 10px; color: var(--ink-soft); }
 
 .case-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
 .case-card {
-  background: rgba(28, 26, 23, 0.55);
+  background: var(--panel);
   border: 1px solid var(--line-soft);
   border-radius: var(--radius);
   padding: 16px;
@@ -928,7 +974,7 @@ details.fold[open] summary { margin-bottom: 10px; color: var(--ink-soft); }
 
 .insight-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
 .insight-card {
-  background: rgba(28, 26, 23, 0.55);
+  background: var(--panel);
   border: 1px solid var(--line-soft);
   border-radius: var(--radius);
   padding: 20px;
@@ -998,7 +1044,7 @@ details.fold[open] summary { margin-bottom: 10px; color: var(--ink-soft); }
   margin-bottom: 14px;
 }
 .strategy-point {
-  background: rgba(28, 26, 23, 0.55);
+  background: var(--panel);
   border: 1px solid var(--line-soft);
   border-radius: var(--radius);
   padding: 16px 16px 14px;
@@ -1081,7 +1127,7 @@ details.fold[open] summary { margin-bottom: 10px; color: var(--ink-soft); }
 .media-frame img { display: block; width: 100%; height: auto; }
 
 .special-card {
-  background: rgba(28, 26, 23, 0.55);
+  background: var(--panel);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 18px;
@@ -1101,7 +1147,7 @@ details.fold[open] summary { margin-bottom: 10px; color: var(--ink-soft); }
 }
 .flow-strip { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 12px 0 16px; }
 .flow-step {
-  background: rgba(18, 17, 16, 0.6);
+  background: var(--surface-2);
   border: 1px solid var(--line);
   border-radius: var(--radius-sm);
   padding: 10px 14px;
@@ -1112,7 +1158,7 @@ details.fold[open] summary { margin-bottom: 10px; color: var(--ink-soft); }
 .flow-arrow { color: var(--faint); font-size: 16px; }
 .path-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
 .path-card {
-  background: rgba(28, 26, 23, 0.55);
+  background: var(--panel);
   border: 1px solid var(--line-soft);
   border-radius: var(--radius);
   padding: 16px;
@@ -1149,7 +1195,7 @@ details.fold[open] summary { margin-bottom: 10px; color: var(--ink-soft); }
   letter-spacing: 0.06em;
 }
 .role-row {
-  background: rgba(28, 26, 23, 0.55);
+  background: var(--panel);
   border: 1px solid var(--line-soft);
   font-size: 13px;
   color: var(--ink-soft);
@@ -1158,7 +1204,7 @@ details.fold[open] summary { margin-bottom: 10px; color: var(--ink-soft); }
 .role-row .combo { color: var(--muted); }
 .method-list, .opp-list { display: grid; gap: 12px; }
 .method-card, .opp-card {
-  background: rgba(28, 26, 23, 0.55);
+  background: var(--panel);
   border: 1px solid var(--line-soft);
   border-radius: var(--radius);
   padding: 16px 18px;
@@ -1193,7 +1239,7 @@ details.fold[open] summary { margin-bottom: 10px; color: var(--ink-soft); }
   border-radius: var(--radius);
   padding: 16px;
   border: 1px solid var(--line-soft);
-  background: rgba(28, 26, 23, 0.55);
+  background: var(--panel);
 }
 .tri h4 { margin: 0 0 8px; font-size: 13.5px; font-weight: 650; }
 .tri ul {
@@ -1214,6 +1260,16 @@ details.fold[open] summary { margin-bottom: 10px; color: var(--ink-soft); }
   margin-left: auto;
   flex-shrink: 0;
   padding-left: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.theme-toggle {
+  padding: 6px 12px !important;
+  font-size: 11px !important;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  min-width: 52px;
 }
 .nav-export-btn {
   padding: 6px 12px !important;
@@ -1225,7 +1281,7 @@ details.fold[open] summary { margin-bottom: 10px; color: var(--ink-soft); }
   position: fixed;
   inset: 0;
   z-index: 80;
-  background: rgba(10, 9, 8, 0.62);
+  background: var(--overlay);
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
@@ -1235,7 +1291,7 @@ details.fold[open] summary { margin-bottom: 10px; color: var(--ink-soft); }
 .export-panel[hidden] { display: none !important; }
 .export-panel-card {
   width: min(380px, 100%);
-  background: rgba(28, 26, 23, 0.94);
+  background: var(--panel-solid);
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
   padding: 18px 18px 16px;
