@@ -37,6 +37,36 @@
 }
 
 * { box-sizing: border-box; }
+
+/* Claude Design scrollbars — thin, warm, auto-blend */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(204, 120, 92, 0.38) transparent;
+}
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(204, 120, 92, 0.38) transparent;
+}
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(250, 249, 245, 0.16);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(204, 120, 92, 0.5);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+*::-webkit-scrollbar-corner { background: transparent; }
+
 html { scroll-behavior: smooth; }
 
 body {
