@@ -5,7 +5,7 @@ window.RADash = (function () {
     { id: "douyin", label: "抖音", href: "platforms/douyin.html", state: "已完成" },
     { id: "wechat", label: "微信生态", href: "platforms/wechat.html", state: "已完成" },
     { id: "users", label: "用户洞察", href: "insights/users.html", state: "阶段性" },
-    { id: "strategy", label: "策略", href: "insights/strategy.html", state: "阶段性" },
+    { id: "strategy", label: "策略", href: "insights/strategy.html", state: "综合v1" },
   ];
 
   function depthPrefix() {

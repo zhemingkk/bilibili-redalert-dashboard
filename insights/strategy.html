@@ -11,26 +11,98 @@
   <main class="wrap">
     <header class="page-hero">
       <p class="eyebrow">Strategy</p>
-      <h1>红警荣耀策略</h1>
-      <p class="sub">阶段性状态 · 尚未生成最终策略</p>
-      <p class="prop">B站 / 抖音 / 微信研究已完成，正在进行跨平台综合。本页不写入最终策略正文。</p>
+      <h1 id="pageTitle">红警荣耀策略</h1>
+      <p class="sub" id="pageSub">加载中…</p>
+      <p class="prop" id="pageProp"></p>
     </header>
-    <div class="guard" style="margin: 20px clamp(28px, 4vw, 56px);">
-      当前状态：B站 / 抖音 / 微信研究已完成，正在进行跨平台综合。<br/>
-      最终栏目体系、选题库、发行策略与甲方定稿方案尚未生成。
-    </div>
-    <section class="platform-grid" style="margin-top:8px;" id="slots"></section>
+
+    <div class="guard" id="guard" style="margin: 20px clamp(28px, 4vw, 56px);"></div>
+
+    <section class="section-pad" style="padding-top: 8px; padding-bottom: 0;">
+      <div class="section-head">
+        <h2>综合摘要</h2>
+        <div class="desc">四条跨平台主线</div>
+      </div>
+      <div class="findings" id="summary"></div>
+    </section>
+
+    <section class="section-pad" style="padding-top: 12px;" id="sectionsHost"></section>
+
+    <section class="method-box">
+      <h2>下一步</h2>
+      <div id="nextSteps"></div>
+      <p id="sources" style="margin-top:16px;"></p>
+    </section>
   </main>
   <script src="../assets/js/app.js"></script>
   <script>
     RADash.renderNav("strategy");
-    const slots = ["内容机会","风险管理","IP使用","新品发行","栏目体系","选题库","AIGC策略","预期管理"];
-    document.getElementById("slots").innerHTML = slots.map(s => `
-      <div class="platform-card">
-        <h3>${s}</h3>
-        <div class="status wait">待跨平台综合</div>
-        <div class="stats">单平台研究已完成；交叉结论待下一阶段写入</div>
-      </div>`).join("");
+
+    function confClass(c) {
+      const s = String(c || "");
+      if (s.includes("限制") || s.includes("中（")) return "pending";
+      if (s.includes("高")) return "verified";
+      return "stage";
+    }
+
+    (async () => {
+      try {
+        const data = await RADash.loadJSON("data/strategy/synthesis.json");
+        document.getElementById("pageTitle").textContent = data.title || "红警荣耀策略";
+        document.getElementById("pageSub").textContent =
+          (data.status || "阶段性") + " · " + (data.subtitle || "");
+        document.getElementById("pageProp").textContent = data.prop || "";
+        document.getElementById("guard").textContent = data.guard || "";
+
+        document.getElementById("summary").innerHTML = (data.summary || []).map((f) => `
+          <article class="finding">
+            <div class="idx">${f.idx}</div>
+            <div class="finding-body">
+              <h3>${f.title}</h3>
+              <p>${f.text}</p>
+              <div class="meta">
+                <span class="tag stage">阶段性</span>
+                <span class="tag evidence">跨平台综合</span>
+              </div>
+            </div>
+          </article>`).join("");
+
+        document.getElementById("sectionsHost").innerHTML = (data.sections || []).map((sec) => `
+          <article class="strategy-block" id="${sec.id}">
+            <div class="strategy-head">
+              <div class="strategy-idx">${sec.idx}</div>
+              <div class="strategy-head-body">
+                <h2>${sec.title}</h2>
+                <p class="lead">${sec.lead || ""}</p>
+                <div class="meta">
+                  <span class="tag stage">${sec.status || "阶段性"}</span>
+                  <span class="tag ${confClass(sec.confidence)}">置信 · ${sec.confidence || "—"}</span>
+                </div>
+              </div>
+            </div>
+            <div class="strategy-points">
+              ${(sec.points || []).map((p) => `
+                <div class="strategy-point">
+                  <h3>${p.title}</h3>
+                  <p>${p.text}</p>
+                  <div class="strategy-meta">
+                    <span>${(p.platforms || []).join(" / ") || "—"}</span>
+                  </div>
+                  <div class="layer"><div class="lab">证据</div><div class="val">${p.evidence || "—"}</div></div>
+                  <div class="layer"><div class="lab">可执行</div><div class="val">${p.action || "—"}</div></div>
+                </div>`).join("")}
+            </div>
+            <div class="takeaway"><strong>边界：</strong>${sec.boundary || "—"}</div>
+          </article>`).join("");
+
+        document.getElementById("nextSteps").innerHTML =
+          "<ul>" + (data.next_steps || []).map((x) => `<li>${x}</li>`).join("") + "</ul>";
+        document.getElementById("sources").innerHTML =
+          "<strong>来源：</strong>" + (data.sources || []).join(" · ");
+      } catch (e) {
+        RADash.showError(e);
+      }
+    })();
   </script>
 </body>
 </html>
