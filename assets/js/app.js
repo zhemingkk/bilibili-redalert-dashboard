@@ -50,9 +50,9 @@ window.RADash = (function () {
   function chartDefaults() {
     if (typeof Chart === "undefined") return;
     Chart.defaults.color = "#a09d96";
-    Chart.defaults.borderColor = "rgba(250,249,245,0.12)";
-    Chart.defaults.font.family =
-      '"DM Sans","PingFang SC","Microsoft YaHei UI",sans-serif';
+    Chart.defaults.borderColor = "rgba(250,249,245,0.10)";
+    Chart.defaults.font.family = '"DM Sans","PingFang SC","Microsoft YaHei UI",sans-serif';
+    Chart.defaults.font.size = 12;
   }
 
   function showError(err) {

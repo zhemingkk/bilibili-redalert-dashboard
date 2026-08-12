@@ -18,7 +18,7 @@
     </header>
 
     <!-- 01 Core findings -->
-    <section>
+    <section class="section-pad">
       <div class="section-head">
         <h2>01 核心发现</h2>
         <div class="desc">基于正式红警样本与评论分析</div>
@@ -31,7 +31,7 @@
     <section class="module" id="perfSection">
       <h3>02 什么内容表现突出</h3>
       <p class="lead" id="perfLead">IP符号是当前红警内容最广泛的识别入口；互动表现需结合作品数 n 一起阅读。</p>
-      <div class="chart-box" style="height:320px;"><canvas id="chartTagMedian"></canvas></div>
+      <div class="chart-box" style="height:360px;"><canvas id="chartTagMedian"></canvas></div>
       <div class="takeaway" id="perfTakeaway"></div>
       <details class="fold">
         <summary>查看完整主题表现表（含中位/平均点赞与评论）</summary>
@@ -190,33 +190,47 @@
             text: `红警正式样本中，IP符号相关标签覆盖约 ${byName["IP符号"] ?? "—"} 条作品，是最广泛的识别入口之一。`,
             tag: "阶段性", cls: "stage",
             evidence: `红警 ${topics.n_redalert_works} 作品`,
+            metric: byName["IP符号"] ?? topics.n_redalert_works,
+            metricLabel: "IP符号相关作品",
           },
           {
             title: "AIGC成为显著内容供给方向",
             text: `AIGC 相关标签覆盖约 ${byName["AIGC"] ?? "—"} 条作品；评论侧正向更偏视觉冲击与“做成游戏”想象。`,
             tag: "阶段性", cls: "stage",
             evidence: `标签统计 · AIGC视觉样本 ${k.aigc_visual_sample}`,
+            metric: byName["AIGC"] ?? k.aigc_visual_sample,
+            metricLabel: "AIGC相关作品",
           },
           {
             title: "RTS诉求存在但表达隐性",
             text: "相关讨论多以 3D/对战/重制/经典玩法出现，很少直接写“RTS”。",
             tag: "阶段性", cls: "stage",
             evidence: `评论 ${comments.n_redalert_comments} · RTS相关 ${comments.rts?.rts_related_comments}`,
+            metric: comments.rts?.rts_related_comments,
+            metricLabel: "RTS相关评论",
           },
           {
             title: "新号中出现低粉高互动案例",
             text: "短名单中可见低粉体量下跑出高互动作品的现象；无粉丝历史曲线，不写涨粉速度。",
             tag: "阶段性", cls: "stage",
             evidence: `新号观察 ${ (accounts.new_account_shortlist||[]).length } 条`,
+            metric: (accounts.new_account_shortlist||[]).length,
+            metricLabel: "新号观察案例",
           },
         ].map((f, i) => `
-          <article class="finding">
+          <article class="finding finding-row">
             <div class="idx">0${i + 1}</div>
-            <h3>${f.title}</h3>
-            <p>${f.text}</p>
-            <div class="meta">
-              <span class="tag ${f.cls}">${f.tag}</span>
-              <span class="tag evidence">证据 · ${f.evidence}</span>
+            <div class="finding-body">
+              <h3>${f.title}</h3>
+              <p>${f.text}</p>
+              <div class="meta">
+                <span class="tag ${f.cls}">${f.tag}</span>
+                <span class="tag evidence">证据 · ${f.evidence}</span>
+              </div>
+            </div>
+            <div class="finding-viz">
+              <div class="finding-viz-metric">${RADash.fmt(f.metric)}</div>
+              <div class="finding-viz-label">${f.metricLabel}</div>
             </div>
           </article>`).join("");
 
@@ -238,7 +252,7 @@
           document.getElementById("chartTagMedian"),
           show.map(t => `${t.tag} (n=${t.works})`),
           show.map(t => t.median_likes || 0),
-          "#c45c26",
+          RACharts.CORAL,
           "中位点赞"
         );
         document.getElementById("perfTakeaway").innerHTML =
@@ -266,7 +280,7 @@
           [{
             label: "评论数",
             data: [rts.explicit_need, rts.preference, rts.mention_only, rts.rejection, rts.unrelated].map(x => x || 0),
-            backgroundColor: ["#c45c26", "#d88957", "#4f8cff", "#c44c4c", "#6d7b8a"],
+            backgroundColor: ["#cc785c", "#d4a574", "#7aa2c4", "#c47a8a", "#6f6c66"],
           }],
           { plugins: { legend: { display: false } } }
         );
@@ -289,7 +303,7 @@
           RACharts.bar(
             document.getElementById("chartClassic"),
             facetEntries.map(f => f.label),
-            [{ label: "命中数", data: facetEntries.map(f => f.n), backgroundColor: "#8b5cf6" }],
+            [{ label: "命中数", data: facetEntries.map(f => f.n), backgroundColor: "#d4a574" }],
             { plugins: { legend: { display: false } } }
           );
         }
@@ -301,7 +315,7 @@
           document.getElementById("chartCommentTopics"),
           tdist.map(t => t.topic),
           tdist.map(t => t.count),
-          "#2bbbad",
+          "#5db8a6",
           "评论数"
         );
 
@@ -360,7 +374,7 @@
           document.getElementById("chartBucket"),
           buckets.map(b => b.bucket),
           buckets.map(b => b.works),
-          ["#c45c26", "#4f8cff", "#2bbbad", "#8b5cf6"]
+          RACharts.PALETTE
         );
       } catch (e) {
         RADash.showError(e);

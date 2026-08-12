@@ -1,14 +1,73 @@
 window.RACharts = (function () {
+  const CORAL = "#cc785c";
+  const INK = "#faf9f5";
+  const MUTED = "#a09d96";
+  const GRID = "rgba(250,249,245,0.10)";
+  const PALETTE = ["#cc785c", "#d4a574", "#5db8a6", "#7aa2c4", "#c47a8a", "#a09d96", "#e8a55a"];
+
+  function baseOpts(extra) {
+    return Object.assign({
+      responsive: true,
+      maintainAspectRatio: false,
+      color: MUTED,
+      plugins: {
+        legend: {
+          position: "bottom",
+          labels: {
+            color: MUTED,
+            boxWidth: 10,
+            boxHeight: 10,
+            padding: 16,
+            font: { size: 12, family: '"DM Sans","PingFang SC",sans-serif' },
+          },
+        },
+        tooltip: {
+          backgroundColor: "rgba(28,26,23,0.94)",
+          titleColor: INK,
+          bodyColor: MUTED,
+          borderColor: GRID,
+          borderWidth: 1,
+          padding: 10,
+          titleFont: { size: 13, family: '"DM Sans","PingFang SC",sans-serif' },
+          bodyFont: { size: 12, family: '"DM Sans","PingFang SC",sans-serif' },
+        },
+      },
+      scales: {
+        x: {
+          ticks: {
+            color: MUTED,
+            font: { size: 12, family: '"DM Sans","PingFang SC",sans-serif' },
+            maxRotation: 0,
+          },
+          grid: { color: GRID, drawBorder: false },
+          border: { color: GRID },
+        },
+        y: {
+          beginAtZero: true,
+          ticks: {
+            color: MUTED,
+            font: { size: 12, family: '"DM Sans","PingFang SC",sans-serif' },
+          },
+          grid: { color: GRID, drawBorder: false },
+          border: { color: GRID },
+        },
+      },
+    }, extra || {});
+  }
+
   function bar(ctx, labels, datasets, opts) {
+    const ds = (datasets || []).map((d, i) => Object.assign({
+      borderRadius: 2,
+      borderSkipped: false,
+      maxBarThickness: 36,
+      backgroundColor: d.backgroundColor || PALETTE[i % PALETTE.length],
+    }, d));
     return new Chart(ctx, {
       type: "bar",
-      data: { labels, datasets },
-      options: Object.assign({
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: { legend: { position: "bottom" } },
-        scales: { y: { beginAtZero: true } },
-      }, opts || {}),
+      data: { labels, datasets: ds },
+      options: baseOpts(Object.assign({
+        plugins: Object.assign({}, baseOpts().plugins, (opts && opts.plugins) || {}),
+      }, opts || {})),
     });
   }
 
@@ -17,12 +76,38 @@ window.RACharts = (function () {
       type: "doughnut",
       data: {
         labels,
-        datasets: [{ data, backgroundColor: colors || ["#c45c26", "#4f8cff", "#2bbbad", "#8b5cf6", "#c9a227", "#6b7a8a"] }],
+        datasets: [{
+          data,
+          backgroundColor: colors || PALETTE,
+          borderColor: "#161412",
+          borderWidth: 2,
+          hoverOffset: 4,
+        }],
       },
       options: {
         responsive: true,
         maintainAspectRatio: false,
-        plugins: { legend: { position: "bottom" } },
+        cutout: "62%",
+        plugins: {
+          legend: {
+            position: "right",
+            labels: {
+              color: MUTED,
+              boxWidth: 12,
+              boxHeight: 12,
+              padding: 14,
+              font: { size: 13, family: '"DM Sans","PingFang SC",sans-serif' },
+            },
+          },
+          tooltip: {
+            backgroundColor: "rgba(28,26,23,0.94)",
+            titleColor: INK,
+            bodyColor: MUTED,
+            borderColor: GRID,
+            borderWidth: 1,
+            padding: 10,
+          },
+        },
       },
     });
   }
@@ -32,17 +117,50 @@ window.RACharts = (function () {
       type: "bar",
       data: {
         labels,
-        datasets: [{ label: label || "数值", data, backgroundColor: color || "#c45c26" }],
+        datasets: [{
+          label: label || "数值",
+          data,
+          backgroundColor: color || CORAL,
+          borderRadius: 2,
+          borderSkipped: false,
+          maxBarThickness: 22,
+        }],
       },
-      options: {
+      options: baseOpts({
         indexAxis: "y",
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: { legend: { display: false } },
-        scales: { x: { beginAtZero: true } },
-      },
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            backgroundColor: "rgba(28,26,23,0.94)",
+            titleColor: INK,
+            bodyColor: MUTED,
+            borderColor: GRID,
+            borderWidth: 1,
+            padding: 10,
+          },
+        },
+        scales: {
+          x: {
+            beginAtZero: true,
+            ticks: {
+              color: MUTED,
+              font: { size: 12, family: '"Cormorant Garamond","Noto Serif SC",serif' },
+            },
+            grid: { color: GRID, drawBorder: false },
+            border: { color: GRID },
+          },
+          y: {
+            ticks: {
+              color: INK,
+              font: { size: 13, family: '"DM Sans","PingFang SC",sans-serif' },
+            },
+            grid: { display: false, drawBorder: false },
+            border: { color: GRID },
+          },
+        },
+      }),
     });
   }
 
-  return { bar, doughnut, hbar };
+  return { bar, doughnut, hbar, CORAL, PALETTE };
 })();

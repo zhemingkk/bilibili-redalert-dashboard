@@ -179,11 +179,13 @@
         document.getElementById("coreFindings").innerHTML = (overview.core_findings || []).map((f) => `
           <article class="finding">
             <div class="idx">${f.idx}</div>
-            <h3>${f.title}</h3>
-            <p>${f.text}</p>
-            <div class="meta">
-              <span class="tag stage">${f.tag || "阶段性"}</span>
-              <span class="tag evidence">证据 · ${f.evidence || ""}</span>
+            <div class="finding-body">
+              <h3>${f.title}</h3>
+              <p>${f.text}</p>
+              <div class="meta">
+                <span class="tag stage">${f.tag || "阶段性"}</span>
+                <span class="tag evidence">证据 · ${f.evidence || ""}</span>
+              </div>
             </div>
           </article>`).join("");
 
