@@ -1,26 +1,26 @@
-﻿/* Claude Design reference slides (sampled from user refs — warmer than Anthropic marketing tokens)
-   Paper Ivory #FAF2E7 / #F0E8DD · Clay #E07848 · Clay Deep #C45A32 · Warm Slate #1A1814
-   Note: official Anthropic Clay #D97757 / Ivory #FAF9F5 reads cooler/grayer than these slides. */
+﻿/* Claude Design refs (sampled) — warmer than Anthropic marketing tokens
+   Light: Paper Ivory #FAF2E7 · Clay #E07848
+   Dark:  Warm espresso #2E2822 / panel #37312B · Bright Clay #F07040 */
 
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=IBM+Plex+Mono:wght@400;500&family=Noto+Serif+SC:wght@400;500;600;700&display=swap");
 
 :root,
 [data-theme="dark"] {
   color-scheme: dark;
-  --bg: #1a1814;
-  --surface: #24211c;
-  --surface-2: #2e2a24;
-  --surface-3: #3f3a33;
-  --ink: #faf2e7;
-  --ink-soft: #f0e8dd;
-  --muted: #a89f93;
-  --faint: #877e72;
-  --line: rgba(250, 242, 231, 0.12);
-  --line-soft: rgba(250, 242, 231, 0.07);
-  --accent: #e07848;
-  --accent-soft: #e8926a;
-  --accent-dim: rgba(224, 120, 72, 0.2);
-  --accent-active: #c45a32;
+  --bg: #2e2822;
+  --surface: #37312b;
+  --surface-2: #413a33;
+  --surface-3: #4e463d;
+  --ink: #f3ebe0;
+  --ink-soft: #e4d9cb;
+  --muted: #a89888;
+  --faint: #877868;
+  --line: rgba(243, 235, 224, 0.12);
+  --line-soft: rgba(243, 235, 224, 0.07);
+  --accent: #f07040;
+  --accent-soft: #f08a5c;
+  --accent-dim: rgba(240, 112, 64, 0.22);
+  --accent-active: #d45a2e;
   --blue: #6a9bcc;
   --teal: #bcd1ca;
   --violet: #cbcadb;
@@ -28,17 +28,17 @@
   --ok: #788c5d;
   --ok-dim: rgba(120, 140, 93, 0.16);
   --warn-dim: rgba(212, 162, 127, 0.18);
-  --panel: rgba(46, 42, 36, 0.9);
-  --panel-solid: #2e2a24;
-  --nav-bg: rgba(26, 24, 20, 0.92);
-  --grid-line: rgba(250, 242, 231, 0.045);
-  --glow: rgba(224, 120, 72, 0.1);
-  --overlay: rgba(26, 24, 20, 0.55);
-  --btn-ink: #faf2e7;
-  --btn-on-soft: #1a1814;
-  --chart-grid: rgba(250, 242, 231, 0.1);
-  --chart-panel: #24211c;
-  --scrollbar-thumb: rgba(250, 242, 231, 0.18);
+  --panel: rgba(55, 49, 43, 0.92);
+  --panel-solid: #37312b;
+  --nav-bg: rgba(46, 40, 34, 0.94);
+  --grid-line: rgba(243, 235, 224, 0.04);
+  --glow: rgba(240, 112, 64, 0.16);
+  --overlay: rgba(30, 26, 22, 0.55);
+  --btn-ink: #f3ebe0;
+  --btn-on-soft: #2e2822;
+  --chart-grid: rgba(243, 235, 224, 0.1);
+  --chart-panel: #37312b;
+  --scrollbar-thumb: rgba(243, 235, 224, 0.18);
   --radius: 6px;
   --radius-sm: 4px;
   --radius-lg: 10px;
@@ -64,7 +64,7 @@
   --line-soft: rgba(26, 24, 20, 0.06);
   --accent: #e07848;
   --accent-soft: #c45a32;
-  --accent-dim: rgba(224, 120, 72, 0.14);
+  --accent-dim: rgba(240, 112, 64, 0.14);
   --accent-active: #c45a32;
   --blue: #6a9bcc;
   --teal: #5f8f84;
@@ -77,7 +77,7 @@
   --panel-solid: #fffbf5;
   --nav-bg: rgba(250, 242, 231, 0.94);
   --grid-line: rgba(26, 24, 20, 0.045);
-  --glow: rgba(224, 120, 72, 0.09);
+  --glow: rgba(240, 112, 64, 0.09);
   --overlay: rgba(26, 24, 20, 0.28);
   --btn-ink: #faf2e7;
   --btn-on-soft: #1a1814;
@@ -91,11 +91,11 @@
 /* Claude Design scrollbars */
 html {
   scrollbar-width: thin;
-  scrollbar-color: rgba(224, 120, 72, 0.4) transparent;
+  scrollbar-color: rgba(240, 112, 64, 0.4) transparent;
 }
 * {
   scrollbar-width: thin;
-  scrollbar-color: rgba(224, 120, 72, 0.4) transparent;
+  scrollbar-color: rgba(240, 112, 64, 0.4) transparent;
 }
 *::-webkit-scrollbar { width: 8px; height: 8px; }
 *::-webkit-scrollbar-track { background: transparent; }
@@ -106,7 +106,7 @@ html {
   background-clip: padding-box;
 }
 *::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(224, 120, 72, 0.5);
+  background-color: rgba(240, 112, 64, 0.5);
   border: 2px solid transparent;
   background-clip: padding-box;
 }
@@ -200,7 +200,7 @@ a:hover { color: var(--ink); }
 .nav-link:hover { color: var(--ink-soft); text-decoration: none; }
 .nav-link.active {
   color: var(--accent);
-  border-color: rgba(224, 120, 72, 0.5);
+  border-color: rgba(240, 112, 64, 0.5);
   background: transparent;
   box-shadow: none;
 }
@@ -595,7 +595,7 @@ a:hover { color: var(--ink); }
   background: transparent;
 }
 .tag.verified { color: #9fd4b8; border-color: rgba(93, 184, 114, 0.35); }
-.tag.stage { color: var(--accent-soft); border-color: rgba(224, 120, 72, 0.45); }
+.tag.stage { color: var(--accent-soft); border-color: rgba(240, 112, 64, 0.45); }
 .tag.pending { color: #e8c89a; border-color: rgba(232, 165, 90, 0.35); }
 .tag.evidence { color: var(--faint); font-weight: 500; }
 
@@ -687,7 +687,7 @@ a:hover { color: var(--ink); }
   box-shadow: none;
 }
 .platform-card .btn:hover {
-  border-color: rgba(224, 120, 72, 0.55);
+  border-color: rgba(240, 112, 64, 0.55);
   color: var(--accent);
   filter: none;
   background: var(--accent-dim);
@@ -751,7 +751,7 @@ a:hover { color: var(--ink); }
   transform: translateY(-1px);
   box-shadow:
     0 1px 0 rgba(250, 249, 245, 0.22) inset,
-    0 8px 22px rgba(224, 120, 72, 0.28);
+    0 8px 22px rgba(240, 112, 64, 0.28);
 }
 .btn:hover::after {
   opacity: 1;
@@ -763,15 +763,15 @@ a:hover { color: var(--ink); }
   color: var(--btn-ink);
   box-shadow:
     0 1px 0 rgba(0, 0, 0, 0.2) inset,
-    0 2px 6px rgba(224, 120, 72, 0.18);
+    0 2px 6px rgba(240, 112, 64, 0.18);
 }
 .btn:active::after { opacity: 0; }
 .btn:focus-visible {
   outline: none;
   box-shadow:
     0 0 0 2px var(--bg),
-    0 0 0 4px rgba(224, 120, 72, 0.55),
-    0 8px 22px rgba(224, 120, 72, 0.22);
+    0 0 0 4px rgba(240, 112, 64, 0.55),
+    0 8px 22px rgba(240, 112, 64, 0.22);
 }
 .btn.ghost {
   background: transparent;
@@ -782,7 +782,7 @@ a:hover { color: var(--ink); }
 }
 .btn.ghost::after { display: none; }
 .btn.ghost:hover {
-  border-color: rgba(224, 120, 72, 0.55);
+  border-color: rgba(240, 112, 64, 0.55);
   color: var(--accent);
   background: var(--accent-dim);
   transform: translateY(-1px);
@@ -792,14 +792,14 @@ a:hover { color: var(--ink); }
 }
 .btn.ghost:active {
   transform: translateY(1px) scale(0.98);
-  background: rgba(224, 120, 72, 0.22);
+  background: rgba(240, 112, 64, 0.22);
   color: var(--accent-soft);
   box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.15);
 }
 .btn.ghost:focus-visible {
   box-shadow:
     0 0 0 2px var(--bg),
-    0 0 0 4px rgba(224, 120, 72, 0.45);
+    0 0 0 4px rgba(240, 112, 64, 0.45);
 }
 
 .module {
@@ -1322,7 +1322,7 @@ details.fold[open] summary { margin-bottom: 10px; color: var(--ink-soft); }
   font-size: 18px;
   line-height: 1;
 }
-.export-close:hover { color: var(--ink); border-color: rgba(224, 120, 72, 0.5); }
+.export-close:hover { color: var(--ink); border-color: rgba(240, 112, 64, 0.5); }
 .export-hint {
   margin: 0 0 14px;
   color: var(--muted);

@@ -1,26 +1,33 @@
 ﻿window.RACharts = (function () {
-  const CORAL = "#e07848";
-  const PALETTE = ["#e07848", "#d4a574", "#5db8a6", "#6a9bcc", "#c47a8a", "#a89f93", "#d4a27f"];
+  const PALETTE_LIGHT = ["#e07848", "#d4a574", "#5db8a6", "#6a9bcc", "#c47a8a", "#a89f93", "#d4a27f"];
+  const PALETTE_DARK = ["#f07040", "#d4a574", "#5db8a6", "#6a9bcc", "#c47a8a", "#a89888", "#d4a27f"];
   const FONT = '"DM Sans","PingFang SC",sans-serif';
   const DISPLAY = '"Cormorant Garamond","Noto Serif SC",serif';
 
+  function isLight() {
+    return document.documentElement.getAttribute("data-theme") === "light";
+  }
+
+  function accent() {
+    return isLight() ? "#e07848" : "#f07040";
+  }
+
   function themeTokens() {
-    const light = document.documentElement.getAttribute("data-theme") === "light";
-    if (light) {
+    if (isLight()) {
       return {
         ink: "#1a1814",
-        muted: "#5e5d59",
-        grid: "rgba(20,20,19,0.08)",
-        panel: "#ffffff",
-        tooltipBg: "rgba(255,255,255,0.96)",
+        muted: "#6b6560",
+        grid: "rgba(26,24,20,0.08)",
+        panel: "#fffbf5",
+        tooltipBg: "rgba(255,251,245,0.96)",
       };
     }
     return {
-      ink: "#faf2e7",
-      muted: "#b0aea5",
-      grid: "rgba(250,249,245,0.10)",
-      panel: "#1c1b19",
-      tooltipBg: "rgba(38,37,34,0.96)",
+      ink: "#f3ebe0",
+      muted: "#a89888",
+      grid: "rgba(243,235,224,0.10)",
+      panel: "#37312b",
+      tooltipBg: "rgba(55,49,43,0.96)",
     };
   }
 
@@ -168,7 +175,7 @@
         datasets: [{
           label: label || "数值",
           data,
-          backgroundColor: color || CORAL,
+          backgroundColor: color || accent(),
           borderRadius: 2,
           borderSkipped: false,
           maxBarThickness: 22,
@@ -213,5 +220,9 @@
 
   window.addEventListener("ra-theme", () => applyDefaults());
 
-  return { bar, doughnut, hbar, applyDefaults, themeTokens, CORAL, PALETTE };
+  return {
+    bar, doughnut, hbar, applyDefaults, themeTokens, accent,
+    get CORAL() { return accent(); },
+    get PALETTE() { return isLight() ? PALETTE_LIGHT : PALETTE_DARK; },
+  };
 })();
