@@ -9,15 +9,37 @@
 <body>
   <nav class="topnav" id="topnav"></nav>
   <main class="wrap">
-    <header class="page-hero">
-      <h1>《红警：荣耀》<br/>内容生态与用户洞察研究</h1>
-      <p class="sub">B站 · 抖音 · 微信生态</p>
-      <p class="prop">研究红警IP内容生态、玩家真实诉求与新品发行内容机会</p>
-      <div class="updated" id="updated">研究更新时间加载中…</div>
-    </header>
+    <section class="split-hero">
+      <div class="split-left">
+        <div class="giant" id="giantLeft">—</div>
+        <p class="eyebrow">Research</p>
+        <h1>内容生态与<br/>用户洞察研究</h1>
+        <p class="prop">研究红警IP内容生态、玩家真实诉求与新品发行内容机会。</p>
+        <div class="progress-line"><span id="heroBar" style="width:42%"></span></div>
+        <div class="pill-row">
+          <span class="pill">Bilibili</span>
+          <span class="pill">Douyin</span>
+          <span class="pill">WeChat</span>
+        </div>
+        <div class="updated" id="updated">研究更新时间加载中…</div>
+      </div>
+      <div class="split-plus" aria-hidden="true">+</div>
+      <div class="split-right" id="coverageHero">
+        <div class="giant coral" id="giantRight">—</div>
+        <p class="eyebrow">Coverage</p>
+        <h1>样本覆盖</h1>
+        <p class="prop">研究规模，不是业务成绩。</p>
+        <div class="glass-panel" id="glassPanel">
+          <div class="glass-head">
+            <span class="glass-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+            research.coverage.md
+          </div>
+          <pre id="glassBody">加载中…</pre>
+        </div>
+      </div>
+    </section>
 
-    <!-- 1. Core findings first -->
-    <section>
+    <section class="section-pad">
       <div class="section-head">
         <h2>阶段性核心发现</h2>
         <div class="desc">结论优先 · 数据作证据 · 非最终策略</div>
@@ -25,24 +47,14 @@
       <div class="findings" id="findings"></div>
     </section>
 
-    <!-- 2. Coverage strip -->
-    <section>
-      <div class="section-head">
-        <h2>研究覆盖</h2>
-        <div class="desc">这是研究规模，不是业务成绩</div>
-      </div>
-      <div class="coverage" id="coverage"></div>
-    </section>
-
-    <!-- 3. Platform matrix -->
-    <section>
+    <section class="section-pad" style="padding-top:0;">
       <div class="section-head">
         <h2>平台研究进展</h2>
+        <div class="desc">进入各平台完整研究页</div>
       </div>
       <div class="platform-grid" id="platforms"></div>
     </section>
 
-    <!-- 4. Method at bottom -->
     <section class="method-box">
       <h2>研究说明与口径</h2>
       <div id="method"></div>
@@ -59,7 +71,31 @@
         const wk = meta.wechat_kpis || {};
         document.getElementById("updated").textContent = "更新时间：" + (meta.generated_at || "—");
 
-        // Findings from verified WP-05A1 / sample facts only — no new cross-platform synthesis
+        const formal = Number(dk.formal_sample_works) || 0;
+        const mp = Number(wk.mp_formal_sample) || 0;
+        const ch = Number(wk.channels_formal_sample) || 0;
+        const bili = Number(bk?.n_videos) || 0;
+        const comments = Number(dk.comment_corpus) || 0;
+
+        // Left: completed platform count as poster weight; Right: primary coral sample
+        document.getElementById("giantLeft").textContent = "4";
+        document.getElementById("giantRight").textContent = RADash.fmt(formal);
+        document.getElementById("heroBar").style.width = "50%";
+
+        const lines = [
+          ["01", `<span class="kw">platforms</span>: B站 / 抖音 / 微信公众号 / 视频号`],
+          ["02", `<span class="kw">douyin_formal</span>: ${RADash.fmt(formal)}`],
+          ["03", `<span class="kw">douyin_comments</span>: ${RADash.fmt(comments)}`],
+          ["04", `<span class="kw">mp_formal</span>: ${RADash.fmt(mp)}`],
+          ["05", `<span class="kw">channels_formal</span>: ${RADash.fmt(ch)}`],
+          ["06", `<span class="kw">bilibili_videos</span>: ${RADash.fmt(bili)}`],
+          ["07", `<span class="kw">note</span>: research scale, not KPI`],
+          ["08", `<span class="kw">status</span>: wechat integrated`],
+        ];
+        document.getElementById("glassBody").innerHTML = lines.map(([n, t]) =>
+          `<span class="ln">${n}</span>${t}`
+        ).join("\n");
+
         const findings = [
           {
             idx: "01",
@@ -68,6 +104,7 @@
             tag: "阶段性",
             tagClass: "stage",
             evidence: "红警 80 作品 · 内容标签统计",
+            compact: false,
           },
           {
             idx: "02",
@@ -76,6 +113,7 @@
             tag: "阶段性",
             tagClass: "stage",
             evidence: "红警评论 1280 · RTS相关约 60",
+            compact: false,
           },
           {
             idx: "03",
@@ -84,6 +122,7 @@
             tag: "阶段性",
             tagClass: "stage",
             evidence: "评论主题标注 · 经典还原侧面",
+            compact: true,
           },
           {
             idx: "04",
@@ -93,66 +132,60 @@
             tagClass: "pending",
             evidence: "AIGC相关评论反馈 · 视觉样本 15",
             limit: true,
+            compact: true,
           },
         ];
         document.getElementById("findings").innerHTML = findings.map((f) => `
-          <article class="finding ${f.limit ? "limit" : ""}">
+          <article class="finding ${f.limit ? "limit" : ""} ${f.compact ? "compact" : ""}">
             <div class="idx">${f.idx}</div>
-            <h3>${f.title}</h3>
-            <p>${f.text}</p>
-            <div class="meta">
-              <span class="tag ${f.tagClass}">${f.tag}</span>
-              <span class="tag evidence">证据 · ${f.evidence}</span>
+            <div>
+              <h3>${f.title}</h3>
+              <p>${f.text}</p>
+              <div class="meta">
+                <span class="tag ${f.tagClass}">${f.tag}</span>
+                <span class="tag evidence">证据 · ${f.evidence}</span>
+              </div>
             </div>
           </article>`).join("") + `
-          <div class="coverage" style="grid-column:1/-1;margin-top:2px;">
+          <div class="coverage">
             <div class="label-soft">平台进展</div>
             <div><strong>微信研究已完成</strong> · 公众号与视频号成果已接入。跨平台综合结论待下一阶段。</div>
           </div>`;
 
-        document.getElementById("coverage").innerHTML = `
-          <div class="label-soft">研究覆盖（正式样本口径 · 非业务 KPI）</div>
-          <div><strong>${RADash.fmt(dk.candidate_accounts)}</strong>抖音账号</div>
-          <div><strong>${RADash.fmt(dk.formal_sample_works)}</strong>抖音正式样本</div>
-          <div><strong>${RADash.fmt(dk.comment_corpus)}</strong>抖音评论</div>
-          <div><strong>${RADash.fmt(wk.mp_formal_sample)}</strong>公众号正式样本</div>
-          <div><strong>${RADash.fmt(wk.channels_formal_sample)}</strong>视频号正式样本</div>
-          <div><strong>${RADash.fmt(bk?.n_videos)}</strong>B站视频快照</div>`;
-
         const platforms = [
           {
             name: "B站",
-            status: "已完成",
+            status: "Done",
             wait: false,
             stats: bk
               ? `${RADash.fmt(bk.n_videos)} 视频 / ${RADash.fmt(bk.n_comments)} 评论 / ${RADash.fmt(bk.n_ups)} UP`
               : "已完成独立研究（详见完整看板）",
             href: "platforms/bilibili.html",
-            cta: "查看研究",
+            cta: "Open",
           },
           {
             name: "抖音",
-            status: "已完成核心研究",
+            status: "Done",
             wait: false,
             stats: `${RADash.fmt(dk.formal_sample_works)} 正式样本 / ${RADash.fmt(dk.comment_corpus)} 评论`,
             href: "platforms/douyin.html",
-            cta: "查看研究",
+            cta: "Open",
           },
           {
             name: "微信公众号",
-            status: "已完成",
+            status: "Done",
             wait: false,
             stats: `${RADash.fmt(wk.mp_formal_sample)} 正式样本 / ${RADash.fmt(wk.mp_fulltext_ok)} 正文成功`,
             href: "platforms/wechat.html",
-            cta: "查看研究",
+            cta: "Open",
           },
           {
             name: "视频号",
-            status: "已完成",
+            status: "Done",
             wait: false,
             stats: `${RADash.fmt(wk.channels_formal_sample)} 正式样本 / ${RADash.fmt(wk.channels_visual_cases)} 视觉案例`,
             href: "platforms/wechat.html",
-            cta: "查看研究",
+            cta: "Open",
           },
         ];
         document.getElementById("platforms").innerHTML = platforms.map((p) => `
@@ -160,7 +193,7 @@
             <h3>${p.name}</h3>
             <div class="status ${p.wait ? "wait" : ""}">${p.status}</div>
             <div class="stats">${p.stats}</div>
-            <a class="btn ${p.wait ? "ghost" : ""}" href="${p.href}">${p.cta}</a>
+            <a class="btn ghost" href="${p.href}">${p.cta}</a>
           </div>`).join("");
 
         const dv = meta.data_version || {};

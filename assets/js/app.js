@@ -49,10 +49,10 @@ window.RADash = (function () {
 
   function chartDefaults() {
     if (typeof Chart === "undefined") return;
-    Chart.defaults.color = "#8a97a6";
-    Chart.defaults.borderColor = "#1c2632";
+    Chart.defaults.color = "#a09d96";
+    Chart.defaults.borderColor = "rgba(250,249,245,0.12)";
     Chart.defaults.font.family =
-      '"Segoe UI Variable Text","Segoe UI","PingFang SC","Microsoft YaHei UI",sans-serif';
+      '"DM Sans","PingFang SC","Microsoft YaHei UI",sans-serif';
   }
 
   function showError(err) {
